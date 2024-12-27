@@ -522,10 +522,6 @@ peru_bolivia_events.4 = {
 		}
 		hidden_effect = {
 			c:BOL ?= {
-				set_mutual_secret_goal = {
-					country = root
-					secret_goal = antagonize
-				}
 			    every_subject_or_below = { # Wants to assist the subjects in attaining independence
 			        set_mutual_secret_goal = {
 			        	country = root
