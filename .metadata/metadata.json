@@ -1,0 +1,12 @@
+{
+  "name" : "1.8.6 Balance Mod",
+  "id" : "",
+  "version" : "",
+  "supported_game_version" : "",
+  "short_description" : "",
+  "tags" : ["Fixes"],
+  "relationships" : [],
+  "game_custom_data" : {
+    "multiplayer_synchronized" : true
+  }
+}
