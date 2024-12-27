@@ -37,7 +37,7 @@
 	DECLARE_BANKRUPTCY_MIN_DAYS_IN_DEFAULT = 30 # After this many days in default, the AI will declare bankruptcy
 	DECLARE_BANKRUPTCY_COOLDOWN_DAYS = 365 # If AI declares bankruptcy, don't do it again for this many days as chain bankruptcies will radicalize everyone 
 
-	BASE_AGGRESSION = 0.25 # Base chance that AI will consider starting a diplo play each time the goal is checked (1 = 1%)
+	BASE_AGGRESSION = 1 # Base chance that AI will consider starting a diplo play each time the goal is checked (1 = 1%)
 	UNIFICATION_AGGRESSION_MULT_HIGHER_TIER = 20 # AI aggression is multiplied by this for calculating whether they should try to start a unification/leadership play, if the country would end up forming a nation of a higher tier
 	UNIFICATION_AGGRESSION_MULT_SAME_TIER = 0.1 # AI aggression is multiplied by this for calculating whether they should try to start a unification/leadership play, if the country would end up forming a nation of the same tier
 
