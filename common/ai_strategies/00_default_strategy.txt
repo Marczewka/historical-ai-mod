@@ -2473,6 +2473,17 @@ ai_strategy_default = {
             }
             add = 2
         }	
+
+		# Extra recklessness if you have the War of the Confederation JE
+		if = {
+			limit = {
+				has_journal_entry = je_war_of_the_confederation
+				scope:target_country = {
+					has_journal_entry = je_peru_bolivia
+				}
+			}
+			add = 2
+		}
 	}
 	
 	# How likely is the AI to start a diplomatic play against another country if their attitude allows for it
