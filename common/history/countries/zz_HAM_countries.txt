@@ -1,0 +1,16 @@
+﻿COUNTRIES = {
+    c:TUR ?= {
+        activate_law = law_type:law_tenant_farmers
+        activate_law = law_type:law_freedom_of_conscience
+        activate_law = law_type:law_racial_segregation
+    }
+    c:MEX ?= {
+        set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 2
+		}
+    }
+    c:CHL ?= {
+		activate_law = law_type:law_no_colonial_affairs
+    }
+}

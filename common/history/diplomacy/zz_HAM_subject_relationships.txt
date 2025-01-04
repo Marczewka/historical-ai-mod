@@ -1,0 +1,9 @@
+﻿DIPLOMACY = {
+	c:NPU = {
+		add_liberty_desire = 20
+	}
+
+	c:HOL = {
+		add_liberty_desire = 20
+	}
+}

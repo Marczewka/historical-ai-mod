@@ -2,3 +2,84 @@
 	BATTLE_RAW_MANPOWER_INFLICTED_CASUALTY_RATIO = 0.3 #was 0.5		# applied to the number of casualties caused by raw number of troops, ie without considering Offense/Defense - increasing this makes CE less important and battles more lethal
 	BATTLE_COMBAT_EFFICIENCY_INFLICTED_CASUALTY_RATIO = 1 #was 1.5	# applied to the number of casualties caused by troops with Offense/Defense also factored in - increasing this makes CE more important and battles more lethal
 }
+
+NDiplomacy = {
+	SWAY_OFFER_TIMEOUT_DAYS = 14
+	SWAY_OFFER_REJECTED_COOLDOWN_DAYS = 7 # Must wait this many days before trying to sway a country that rejected your previous sway
+	SWAY_OFFER_CALL_IN_OBLIGATION_MANEUVERS_COST = 10
+	SWAY_OFFER_OWE_OBLIGATION_MANEUVERS_COST = 10
+	SWAY_OFFER_CALL_ALLY_MANEUVERS_COST = 20
+	SWAY_OFFER_TRANSFER_STATE_MANEUVERS_COST = 10
+	SWAY_OFFER_TRANSFER_SUBJECT_MANEUVERS_COST = 10
+	SWAY_OFFER_BECOME_SUBJECT_MANEUVERS_COST = 5
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_WAR_REPARATIONS = 10
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_JOIN_POWER_BLOC = 10
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_LEAVE_POWER_BLOC = 10
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_COLONIZATION_RIGHTS = 10
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_FORCE_NATIONALIZATION = 10
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_FOREIGN_INVESTMENT_RIGHTS = 10
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_HUMILIATION = 20
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_UNIFICATION_LEADERSHIP = 30
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_OPEN_MARKET = 20
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_REGIME_CHANGE = 8
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_BAN_SLAVERY = 20
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_ANNEX_COUNTRY = 10
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_LIBERATE_COUNTRY = 30
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_MAKE_PROTECTORATE = 8
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_REDUCE_AUTONOMY = 5
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_INCREASE_AUTONOMY = 10
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_MAKE_TRIBUTARY = 8
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_MAKE_DOMINION = 8
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_CONQUER_STATE = 15 #10
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_RETURN_STATE = 8 #10
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_TAKE_TREATY_PORT = 10
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_REVOKE_CLAIM = 4 #5
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_REVOKE_ALL_CLAIMS = 0 # Can't be added, only for special plays
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_CONTAIN_THREAT = 1000
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_TRANSFER_SUBJECT = 8
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_LIBERATE_SUBJECT = 20
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_UNIFICATION = 100
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_INDEPENDENCE = 20
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_SECESSION = 100
+    SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_FACTOR = 10000 # The amount of population by which the factor below is multiplied
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_MULTIPLIER = 0.03 # For each SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_FACTOR population in a country/state, multiply maneuvers cost by this
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_MULTIPLIER_MAX_PER_STATE = 2.5 # Maneuvers population multiplier can't be higher than this for each state affected
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_MULTIPLIER_MAX_TOTAL = 5 # Maneuvers population multiplier can't be higher than this, regardless of number of states affected
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_HOMELAND_FACTOR = -0.25 # Maneuvers cost is adjusted by this if the states taken/puppeted etc are Homelands of the aggressor
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_UNINCORPORATED_FACTOR = -0.5 # Maneuvers cost is adjusted by this if the states taken/puppeted etc are unincorporated
+
+	MAKE_WARGOAL_PRIMARY_DEMAND_MANEUVERS_COST = 0.25 #0.5 	# Fraction of the wargoal's base maneuver cost that it costs to turn it into a primary demand
+	MAKE_WARGOAL_PRIMARY_DEMAND_INFAMY_AMOUNT = 0.25 #0.5 	# Fraction of the wargoal's base infamy that is accured when you turn it into a primary demand
+
+	ALLY_WARGOAL_MAX_MANEUVERS_COST = 30 #25				# When an ally adds a 'free' wargoal in a play, it cannot have a maneuvers cost higher than this
+
+	WAR_GOAL_INFAMY_POPULATION_SCALING_FACTOR = 10000 # The amount of population by which the factor below is multiplied
+	WAR_GOAL_INFAMY_POPULATION_SCALING_MULTIPLIER = 0.03 # For each WAR_GOAL_INFAMY_POPULATION_SCALING_FACTOR population in a country/state, multiply infamy by this
+	WAR_GOAL_INFAMY_POPULATION_SCALING_MULTIPLIER_MAX_PER_STATE = 35 #5 # Infamy population multiplier can't be higher than this for each state affected
+	WAR_GOAL_INFAMY_POPULATION_SCALING_MULTIPLIER_MAX_TOTAL = 250 #50 # Infamy population multiplier can't be higher than this, regardless of number of states affected
+	WAR_GOAL_INFAMY_HOMELAND_FACTOR = -0.5 #-0.25 # Infamy is adjusted by this if the states taken/puppeted etc are Homelands of the aggressor
+	WAR_GOAL_INFAMY_UNINCORPORATED_FACTOR = -0.5 # Infamy is adjusted by this if the states taken/puppeted etc are unincorporated
+	WAR_GOAL_INFAMY_REBELLING_SUBJECT_MULT = 0.25 # Infamy is multiplied by this for wargoals targeting a rebellious subject
+	WAR_GOAL_INFAMY_LOW_LIBERTY_DESIRE_SUBJECT_MULT = 0.25 # Infamy is multiplied by this for wargoals targeting a subject whose LD is below WAR_GOAL_INFAMY_LOW_LIBERTY_DESIRE_THRESHOLD
+	WAR_GOAL_INFAMY_LOW_LIBERTY_DESIRE_THRESHOLD = 25 # Threshold for WAR_GOAL_INFAMY_LOW_LIBERTY_DESIRE_SUBJECT_MULT
+	WAR_GOAL_INFAMY_RELATIONS_TARGET_IMPACT = -1 # Each point of infamy generated by an incident also has this impact on relations with the target
+	WAR_GOAL_INFAMY_RELATIONS_INTEREST_IMPACT = -0.5 # Each point of infamy generated by an incident also has this impact on relations with countries that have an interest in the target
+
+	WAR_GOAL_INFAMY_CONQUER_STATE = 3.0 #5.0
+	WAR_GOAL_INFAMY_RETURN_STATE = 1.2 #2.0
+	WAR_GOAL_INFAMY_TAKE_TREATY_PORT = 1.2 #2.0
+	WAR_GOAL_INFAMY_MAKE_PROTECTORATE = 1.2 #2.0
+	WAR_GOAL_INFAMY_MAKE_TRIBUTARY = 1.2 #2.0
+	WAR_GOAL_INFAMY_MAKE_DOMINION = 1.2 #2.0
+	WAR_GOAL_INFAMY_REDUCE_AUTONOMY = 1.2 #2.0
+	WAR_GOAL_INFAMY_TRANSFER_SUBJECT = 1.2 #2.0
+	WAR_GOAL_INFAMY_ANNEX_COUNTRY = 3.0 #5.0
+	WAR_GOAL_INFAMY_REGIME_CHANGE = 0.3 #0.5
+	WAR_GOAL_INFAMY_FORCE_NATIONALIZATION = 5.0
+	WAR_GOAL_INFAMY_FOREIGN_INVESTMENT_RIGHTS = 0.15 #0.25
+
+	WAR_GOAL_INFAMY_DIPLO_PLAY_BACK_DOWN_REFUND = -0.75 # Refund of infamy for war goals that are dropped due to one side backing down in a diplo play (applied to initiator/target)
+	WAR_GOAL_INFAMY_DIPLO_PLAY_BACKER_REFUND = -1.00 	# Refund of infamy for war goals that are dropped for backers in a diplo play (due to play not escalating to war or backer switching sides)
+	WAR_GOAL_INFAMY_PEACE_REFUND = -0.5 				# Refund of infamy for war goals that are dropped due to a country capitulating or negotating peace without enforcing their wargoal
+	WAR_GOAL_INFAMY_REDUCTION_FOR_TARGET = -0.5 		# This much of a war goal's infamy value is removed from the target when target has it enforced on them
+}
