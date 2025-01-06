@@ -6,4 +6,11 @@
 	c:HOL = {
 		add_liberty_desire = 20
 	}
+
+	c:PRU ?= {
+		create_diplomatic_pact = {
+			country = c:LUB
+			type = protectorate
+		}
+	}	
 }

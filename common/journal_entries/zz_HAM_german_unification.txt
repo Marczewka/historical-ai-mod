@@ -1,0 +1,90 @@
+﻿je_schleswig_holstein_question = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	
+	group = je_group_historical_content
+
+	is_shown_when_inactive = {
+		hidden_trigger = { NOT = { has_global_variable = schleswig_holstein_question_solved } }		
+		OR = {
+			country_has_primary_culture = cu:north_german
+			country_has_primary_culture = cu:south_german
+		}
+	}
+
+	possible = {
+		hidden_trigger = { NOT = { has_global_variable = schleswig_holstein_question_solved } }			
+		OR = {
+			country_has_primary_culture = cu:north_german
+			country_has_primary_culture = cu:south_german
+		}			
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_schleswig_holstein_question_state_ownership_desc
+			s:STATE_SCHLESWIG_HOLSTEIN = {
+				any_scope_state = {
+					OR = {
+						owner = root
+						owner = { is_subject_of = root }
+					}
+				}
+			}
+			s:STATE_SCHLESWIG_HOLSTEIN = {
+				any_scope_state = {
+					count = all
+					owner = {
+						OR = {
+							AND = {
+								is_subject = no
+								OR = {
+									country_has_primary_culture = cu:north_german
+									country_has_primary_culture = cu:south_german
+								}
+							}
+							top_overlord = {
+								OR = {
+									country_has_primary_culture = cu:north_german
+									country_has_primary_culture = cu:south_german
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	fail = {
+		custom_tooltip = {
+			has_global_variable = schleswig_holstein_question_solved
+			text = je_schleswig_holstein_question_solved_fail_trigger_desc
+		}
+		NOT = { has_modifier = schleswig_holstein_question_solver }
+	}	
+
+	on_complete = {
+		add_modifier = {
+			name = schleswig_holstein_question_solver
+			months = long_modifier_time
+		}	
+		hidden_effect = { set_global_variable = schleswig_holstein_question_solved }	
+		c:AUS ?= {
+			create_diplomatic_catalyst = {  
+				type = catalyst_event_negative
+				target = root
+			}
+		}	
+	}
+	
+	status_desc = {
+		first_valid = {
+			triggered_desc = { 
+				desc = je_schleswig_holstein_question_status
+			}
+		}
+	}
+
+	weight = 1000
+	should_be_pinned_by_default = yes
+}

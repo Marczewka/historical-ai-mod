@@ -90,7 +90,8 @@ ai_strategy_default = {
 				NOR = {
 					country_has_primary_culture = cu:north_german
 					country_has_primary_culture = cu:south_german
-				}				
+					country_has_primary_culture = cu:north_italian
+				}	
 			}
 			
 			if = {
@@ -1261,16 +1262,6 @@ ai_strategy_default = {
 
 			if = {
 				limit = {
-					has_journal_entry = je_alaska
-					scope:target_state = {
-						state_region = s:STATE_ALASKA
-					}
-				}
-				add = 50
-			}
-
-			if = {
-				limit = {
 					has_journal_entry = je_the_eastern_border
 					scope:target_state = {
 						OR = {
@@ -1366,26 +1357,31 @@ ai_strategy_default = {
 				add = 25
 			}
 			
+			# Schleswig-Holstein question
 			if = {
 				limit = { 
 					wants_to_solve_schleswig_holstein = yes
-					scope:target_state = { state_region = s:STATE_SCHLESWIG_HOLSTEIN }
-				}
-				add = 100
-			}	
-
-			if = {
-				limit = {
-					is_oppressor_of_schleswig_holstein = yes
-					exists = c:SCH
-					scope:target_state = {
-						owner = { this = c:SCH }
+					scope:target_country = {
+						OR = {
+							is_oppressor_of_schleswig_holstein = yes
+							overlord = {
+								is_oppressor_of_schleswig_holstein = yes
+							}
+						}
 					}
 				}
-				add = 100
-			}
+				
+				if = {
+					limit = {
+						scope:target_state = { state_region = s:STATE_SCHLESWIG_HOLSTEIN }				
+					}				
+					add = 50
+				}
+				else = {
+					multiply = 0.0
+				}
+			}	
 		
-	
 			if = {
 				limit = {
 					has_journal_entry = je_the_krakow_uprising
@@ -2584,19 +2580,8 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 100
+			add = 200
 		}		
-
-		if = {
-			limit = {
-				is_oppressor_of_schleswig_holstein = yes
-				exists = c:SCH
-				scope:target_state = {
-					owner = { this = c:SCH }
-				}
-			}
-			add = 100
-		}
 
 		if = { #Carving up China
 			limit = {
@@ -5261,17 +5246,7 @@ ai_strategy_default = {
 			if = {
 				limit = { has_je_conquest_reason = { TARGET = scope:target_country } }
 				add = 10000
-			}
-			
-			if = {
-				limit = {
-					scope:target_country = {
-						has_journal_entry = je_peru_bolivia
-					}
-					has_variable = war_of_the_confederation_attacker			
-				}
-				add = 100
-			}			
+			}		
 
 			if = {
 				limit = {
@@ -6043,7 +6018,7 @@ ai_strategy_default = {
 						}
 					}
 				}
-				add = 100
+				add = 300
 			}			
 
 			min = 0
@@ -6611,7 +6586,7 @@ ai_strategy_default = {
 						owner = { this = c:SCH }
 					}
 				}
-				add = 100
+				add = 200
 			}
 
 			min = 0
@@ -6719,7 +6694,7 @@ ai_strategy_default = {
 						}
 					}
 				}
-				add = 100
+				add = 300
 			}				
 
 			min = 0

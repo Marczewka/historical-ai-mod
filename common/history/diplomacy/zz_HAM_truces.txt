@@ -1,0 +1,8 @@
+﻿DIPLOMACY = {
+	c:EGY= {
+		create_bidirectional_truce = {
+			country = c:TUR
+			months = 36
+		}
+	}	
+}

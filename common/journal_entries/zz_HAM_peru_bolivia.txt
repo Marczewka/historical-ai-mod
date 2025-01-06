@@ -21,7 +21,6 @@
 				limit = {
 					c:BOL ?= this
 					government_legitimacy >= 50
-					is_at_war = no
 				}
 				change_global_variable = {
 					name = peru_bolivia_var

@@ -51,8 +51,13 @@
 		OR = {
 			AND = {
 				has_interest_marker_in_region = region_pacific_coast
-				owns_entire_state_region = STATE_MONTANA
-				owns_entire_state_region = STATE_WYOMING
+				OR = {
+					owns_entire_state_region = STATE_MONTANA
+					owns_entire_state_region = STATE_WYOMING
+					owns_entire_state_region = STATE_CALIFORNIA
+					owns_entire_state_region = STATE_NEVADA
+					owns_entire_state_region = STATE_UTAH
+				}
 				c:GBR = {
 					relations:ROOT >= relations_threshold:neutral
 				}
@@ -134,6 +139,9 @@
 	}
 
 	weight = 100
+
+	transferable = no
+	should_be_pinned_by_default = yes
 }
 
 je_conquer_oregon = {
@@ -152,4 +160,5 @@ je_conquer_oregon = {
 	weight = 100
 
 	transferable = no
+	should_be_pinned_by_default = yes
 }

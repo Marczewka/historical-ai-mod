@@ -79,6 +79,7 @@ je_all_for_one = {
 
     complete = {
         scope:journal_entry = { is_goal_complete = yes }
+        is_at_war = no
     }
 
     immediate = {

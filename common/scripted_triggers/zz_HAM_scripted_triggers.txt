@@ -1,5 +1,5 @@
 wants_to_solve_schleswig_holstein = {
-	has_journal_entry = je_schleswig_holstein_question 
 	NOT = { has_journal_entry = je_german_unification_idea }
+	has_journal_entry = je_schleswig_holstein_question 
 	country_rank >= rank_value:great_power
 }
