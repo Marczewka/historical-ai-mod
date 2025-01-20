@@ -961,13 +961,13 @@ ai_strategy_default = {
 					add = {
 						value = scope:target_state.state_population
 						divide = 100000
-						max = 20						
+						max = 10						
 					}
 					
 					add = {
 						value = scope:target_state.gdp
 						divide = 100000
-						max = 20
+						max = 10
 					}						
 				}	
 
@@ -983,11 +983,11 @@ ai_strategy_default = {
 				}		
 				
 				if = { # Very reluctant to cede incorporate states
-					limit = { scope:target_state = { is_incorporated = yes } }
+					limit = { scope:target_state = { is_homeland_of_country_cultures = root } }
 					
 					if = {
 						limit = {
-							scope:target_state = { is_homeland_of_country_cultures = root }
+							scope:target_state = { is_incorporated = yes }
 						}
 						multiply = 8.0
 					}
@@ -995,17 +995,17 @@ ai_strategy_default = {
 						multiply = 6.0 
 					}	
 				}
-				else_if = { # Reluctant to cede states adjacent or sea adjacent to incorporate states
+				else_if = { # Reluctant to cede states adjacent or sea adjacent to homeland states
 					limit = { 
 						scope:target_state = { 
 							OR = {
 								any_neighbouring_state = { 
 									owner = root 
-									is_incorporated = yes 
+									is_homeland_of_country_cultures = root
 								} 							
 								any_sea_node_adjacent_state = { 
 									owner = root 
-									is_incorporated = yes 
+									is_homeland_of_country_cultures = root
 								}
 							}
 						} 
@@ -1013,23 +1013,23 @@ ai_strategy_default = {
 					
 					if = {
 						limit = {
-							scope:target_state = { is_homeland_of_country_cultures = root }
+							scope:target_state = { is_incorporated = yes }
 						}
-						multiply = 6.0
+						multiply = 4.0
 					}
 					else = {
-						multiply = 4.0 
+						multiply = 2.0
 					}	
 				}				
 				else = { # Value owned states higher than foreign states by default
 					if = {
 						limit = {
-							scope:target_state = { is_homeland_of_country_cultures = root }
+							scope:target_state = { is_incorporated = yes }
 						}
 						multiply = 3.0
 					}
 					else = {
-						multiply = 2.0 
+						multiply = 1.5 
 					}							
 				}
 		
@@ -1065,13 +1065,11 @@ ai_strategy_default = {
 									}
 								}
 							}
-							scope:target_state = { 
-								has_claim_by = root 
-								is_treaty_port = no
+							scope:target_state = { has_claim_by = root } 
 							} 
 						}					
-					}
-					multiply = 3.0
+					add = 50
+					multiply = 2
 				}
 
 				if = {
@@ -1130,63 +1128,9 @@ ai_strategy_default = {
 				add = 50
 			}
 
-			# East India Company vs its neighbors
 			if = {
 				limit = {
 					has_journal_entry = je_consolidate_colonial_rule
-					scope:target_country = {
-						is_country_type = unrecognized
-						target_is_our_or_fellow_subject = no
-						any_scope_state = {
-							OR = {
-								region = sr:region_madras
-								region = sr:region_bombay
-								region = sr:region_bengal
-								region = sr:region_central_india
-								region = sr:region_punjab
-								state_region = s:STATE_KASHMIR
-								state_region = s:STATE_MANDALAY
-								AND = {
-									state_region = s:STATE_PASHTUNISTAN
-									
-								}
-								state_region = s:STATE_QUETTA
-							}
-						}
-					}
-				}
-				add = 50
-			}
-
-			if = {
-				limit = {
-					has_journal_entry = je_consolidate_colonial_rule
-					scope:target_country = {
-						is_country_type = unrecognized
-						target_is_our_or_fellow_subject = no
-						any_scope_state = {
-							OR = {
-								state_region = s:STATE_EASTERN_HIMALAYAS
-								state_region = s:STATE_HIMALAYAS
-								state_region = s:STATE_MANDALAY
-								state_region = s:STATE_KACHIN
-								state_region = s:STATE_SHAN_STATES
-								state_region = s:STATE_PEGU
-								state_region = s:STATE_MALAYA
-								state_region = s:STATE_NORTH_BORNEO
-							}
-						}
-					}
-				}
-				add = 15
-			}
-
-			# Britain consolidating South Asia
-			if = {
-				limit = {
-					c:GBR ?= this
-					has_variable = british_raj_var
-					exists = c:BIC
 					scope:target_country = {
 						is_country_type = unrecognized
 						target_is_our_or_fellow_subject = no
@@ -1197,9 +1141,6 @@ ai_strategy_default = {
 							region = sr:region_bombay
 							region = sr:region_bengal
 							region = sr:region_central_india
-							region = sr:region_punjab
-							state_region = s:STATE_EASTERN_HIMALAYAS
-							state_region = s:STATE_HIMALAYAS
 							state_region = s:STATE_KASHMIR
 							state_region = s:STATE_MANDALAY
 							state_region = s:STATE_KACHIN
@@ -1207,12 +1148,10 @@ ai_strategy_default = {
 							state_region = s:STATE_PEGU
 							state_region = s:STATE_PASHTUNISTAN
 							state_region = s:STATE_QUETTA
-							state_region = s:STATE_MALAYA
-							state_region = s:STATE_NORTH_BORNEO
 						}
 					}
 				}
-				add = 50
+				add = 15
 			}
 
 			if = {
@@ -1250,21 +1189,6 @@ ai_strategy_default = {
 					}
 				}
 				add = 50
-			}
-			
-			if = {
-				limit = {
-					has_journal_entry = je_unify_afghanistan
-					scope:target_state = {
-						OR = {
-							state_region = s:STATE_KABUL
-							state_region = s:STATE_HERAT
-							state_region = s:STATE_KANDAHAR
-							state_region = s:STATE_CENTRAL_HIGHLANDS
-						}
-					}
-				}
-				add = 1000
 			}
 
 			if = {
@@ -1322,6 +1246,16 @@ ai_strategy_default = {
 							state_region = s:STATE_IDAHO
 							state_region = s:STATE_OREGON
 						}
+					}
+				}
+				add = 50
+			}
+
+			if = {
+				limit = {
+					has_journal_entry = je_alaska
+					scope:target_state = {
+						state_region = s:STATE_ALASKA
 					}
 				}
 				add = 50
@@ -1531,7 +1465,7 @@ ai_strategy_default = {
 						}
 					}
 				}
-				multiply = 0
+				multiply = 0.1
 			}
 			
 			if = { #Do Not Take Chinese States In Full, unless another power has already done so
@@ -1913,7 +1847,7 @@ ai_strategy_default = {
 					exists = c:EGY
 					scope:target_country = c:EGY
 				}
-				add = 300
+				add = 100
 			}			
 
 			# Russian expansion into Central Asia
@@ -2387,7 +2321,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 1
+			add = 1.0
 		}		
 		
 		# Schleswig-Holstein question
@@ -2436,27 +2370,6 @@ ai_strategy_default = {
 			}
 			add = 0.5
 		}	
-
-		# Afghanistan
-		if = {
-			limit = {
-				has_journal_entry = je_unify_afghanistan
-				scope:target_country = {
-					OR = {
-						has_journal_entry = je_unify_afghanistan
-						any_scope_state = {
-							OR = {
-								state_region = s:STATE_KABUL
-								state_region = s:STATE_HERAT
-								state_region = s:STATE_KANDAHAR
-								state_region = s:STATE_CENTRAL_HIGHLANDS
-							}
-						}
-					}
-				}
-			}
-			add = 1
-		}
 		
 		# Persia
 		if = {
@@ -2561,7 +2474,7 @@ ai_strategy_default = {
 					has_journal_entry = je_peru_bolivia
 				}
 			}
-			add = 0.25
+			add = 0.2
 		}
 	}
 	
@@ -2664,7 +2577,7 @@ ai_strategy_default = {
 					}					
 				}
 			}
-			add = 100
+			add = 5
 		}
 
 		# Ottomans should be very aggressive against owners of Syria and Egypt when they have the relevant JE's
@@ -2680,7 +2593,7 @@ ai_strategy_default = {
 					THIS = c:EGY
 				}
 			}
-			add = 300
+			add = 100
 		}
 
 		# USA should be extremely aggressive against owners of their Manifest Destiny states
@@ -2704,7 +2617,7 @@ ai_strategy_default = {
 					NOT = { has_journal_entry = je_texas_tex }	
 				}
 			}
-			add = 200
+			add = 100
 		}
 
 		# Extra french aggression for Haiti renouncing debt payments
@@ -2718,7 +2631,7 @@ ai_strategy_default = {
 					}
 				}				
 			}
-			add = 200
+			add = 100
 		}
 
 		# Even more aggression if you have the War of the Confederation JE
@@ -2748,39 +2661,16 @@ ai_strategy_default = {
 							region = sr:region_punjab
 							state_region = s:STATE_KASHMIR
 							state_region = s:STATE_MANDALAY
-							AND = {
-								state_region = s:STATE_PASHTUNISTAN
-								is_treaty_port = no
-							}
+							state_region = s:STATE_KACHIN
+							state_region = s:STATE_SHAN_STATES
+							state_region = s:STATE_PEGU
+							state_region = s:STATE_PASHTUNISTAN
 							state_region = s:STATE_QUETTA
 						}
 					}
 				}
 			}
-			add = 50
-		}
-
-		if = {
-			limit = {
-				has_journal_entry = je_consolidate_colonial_rule
-				scope:target_country = {
-					is_country_type = unrecognized
-					target_is_our_or_fellow_subject = no
-					any_scope_state = {
-						OR = {
-							state_region = s:STATE_EASTERN_HIMALAYAS
-							state_region = s:STATE_HIMALAYAS
-							state_region = s:STATE_MANDALAY
-							state_region = s:STATE_KACHIN
-							state_region = s:STATE_SHAN_STATES
-							state_region = s:STATE_PEGU
-							state_region = s:STATE_MALAYA
-							state_region = s:STATE_NORTH_BORNEO
-						}
-					}
-				}
-			}
-			add = 15
+			add = 100
 		}
 
 		# Britain consolidating South Asia
@@ -2798,8 +2688,6 @@ ai_strategy_default = {
 							region = sr:region_bengal
 							region = sr:region_central_india
 							region = sr:region_punjab
-							state_region = s:STATE_EASTERN_HIMALAYAS
-							state_region = s:STATE_HIMALAYAS
 							state_region = s:STATE_KASHMIR
 							state_region = s:STATE_MANDALAY
 							state_region = s:STATE_KACHIN
@@ -2813,8 +2701,9 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 50
+			add = 3
 		}
+
 
 		if = { #Russian Caucasus
 			limit = {
@@ -2914,7 +2803,7 @@ ai_strategy_default = {
 					country_has_primary_culture = cu:korean
 				}
 			}
-			add = 15
+			add = 5
 		}
 
 		if = { # Britain consolidating South Africa
@@ -2947,7 +2836,7 @@ ai_strategy_default = {
 					is_country_type = unrecognized
 				}
 			}
-			add = 15
+			add = 25
 		}
 		
 		if = { # Portugal wishes to eat Gaza
@@ -3283,25 +3172,6 @@ ai_strategy_default = {
 			add = 25
 		}
 
-		# Afghan Unification
-		if = {
-			limit = {
-				has_journal_entry = je_unify_afghanistan
-				scope:target_country = {
-					OR = {
-						has_journal_entry = je_unify_afghanistan
-						OR = {
-							has_state_in_state_region = STATE_KABUL
-							has_state_in_state_region = STATE_HERAT
-							has_state_in_state_region = STATE_KANDAHAR
-							has_state_in_state_region = STATE_CENTRAL_HIGHLANDS
-						}
-					}
-				}
-			}
-			add = 100
-		}
-
         # Neutral Switzerland
         if = {
             limit = {
@@ -3523,6 +3393,7 @@ ai_strategy_default = {
 					has_strategy = ai_strategy_territorial_expansion 
 					has_strategy = ai_strategy_unify_italy
 					has_strategy = ai_strategy_unify_ethiopia
+					has_strategy = ai_strategy_unify_afghanistan
 					has_strategy = ai_strategy_unify_china
 				}
 			}
@@ -4336,8 +4207,22 @@ ai_strategy_default = {
 				}
 				add = 500
 			}
+			if = {
+				limit = {
+					has_journal_entry = je_consolidate_colonial_rule
+				}
+				add = 500
+			}
 			else = {
 				add = -25
+			}
+		}	
+		region_himalayas = {
+			if = {
+				limit = {
+					has_journal_entry = je_consolidate_colonial_rule
+				}
+				add = 500
 			}
 		}	
 		region_north_china = {
@@ -5447,7 +5332,7 @@ ai_strategy_default = {
 							is_country_type = unrecognized
 						}						
 					}
-					add = 500
+					add = 1000
 				}
 
 				if = {
@@ -5654,105 +5539,7 @@ ai_strategy_default = {
 				}
 				multiply = 0
 			}		
-
-			# East India Company vs its neighbors
-			if = {
-				limit = {
-					has_journal_entry = je_consolidate_colonial_rule
-					scope:target_country = {
-						is_country_type = unrecognized
-						target_is_our_or_fellow_subject = no
-						any_scope_state = {
-							OR = {
-								region = sr:region_madras
-								region = sr:region_bombay
-								region = sr:region_bengal
-								region = sr:region_central_india
-								region = sr:region_punjab
-								state_region = s:STATE_KASHMIR
-								state_region = s:STATE_MANDALAY
-								state_region = s:STATE_PASHTUNISTAN
-								state_region = s:STATE_QUETTA
-							}
-						}
-					}
-				}
-				add = 10000
-			}																	
-
-			if = {
-				limit = {
-					has_journal_entry = je_consolidate_colonial_rule
-					scope:target_country = {
-						is_country_type = unrecognized
-						target_is_our_or_fellow_subject = no
-						any_scope_state = {
-							OR = {
-								state_region = s:STATE_EASTERN_HIMALAYAS
-								state_region = s:STATE_HIMALAYAS
-								state_region = s:STATE_MANDALAY
-								state_region = s:STATE_KACHIN
-								state_region = s:STATE_SHAN_STATES
-								state_region = s:STATE_PEGU
-								state_region = s:STATE_MALAYA
-								state_region = s:STATE_NORTH_BORNEO
-							}
-						}
-					}
-				}
-				add = 10000
-			}
-
-			# Britain consolidating South Asia
-			if = {
-				limit = {
-					c:GBR ?= this
-					has_variable = british_raj_var
-					exists = c:BIC
-					scope:target_country = {
-						NOT = { is_subject_of = ROOT }
-						any_scope_state = {
-							OR = {
-								region = sr:region_madras
-								region = sr:region_bombay
-								region = sr:region_bengal
-								region = sr:region_central_india
-								region = sr:region_punjab
-								state_region = s:STATE_EASTERN_HIMALAYAS
-								state_region = s:STATE_HIMALAYAS
-								state_region = s:STATE_KASHMIR
-								state_region = s:STATE_MANDALAY
-								state_region = s:STATE_KACHIN
-								state_region = s:STATE_SHAN_STATES
-								state_region = s:STATE_PEGU
-								state_region = s:STATE_PASHTUNISTAN
-								state_region = s:STATE_QUETTA
-								state_region = s:STATE_MALAYA
-								state_region = s:STATE_NORTH_BORNEO
-							}
-						}
-					}
-				}
-				add = 10000
-			}
-
-			# Schleswig-Holstein question
-			if = {
-				limit = { 
-					wants_to_solve_schleswig_holstein = yes	
-					scope:target_country = {
-						OR = {
-							is_oppressor_of_schleswig_holstein = yes
-							overlord = {
-								is_oppressor_of_schleswig_holstein = yes
-							}
-						}
-					}
-				}
-				add = 10000
-			}	
 		}		
-
 		dominate = {
 			value = 0
 			
@@ -5842,7 +5629,7 @@ ai_strategy_default = {
 							is_country_type = unrecognized
 						}						
 					}
-					add = 10000
+					add = 500
 				}				
 
 				if = {
@@ -5869,7 +5656,7 @@ ai_strategy_default = {
 						capital.region = sr:region_southern_africa
 					}
 				}
-				add = 10000
+				add = 250
 			}		
 			
 			if = {
@@ -6235,7 +6022,6 @@ ai_strategy_default = {
 				add = 50
 			}
 			
-			# East India Company vs its neighbors
 			if = {
 				limit = {
 					has_journal_entry = je_consolidate_colonial_rule
@@ -6244,17 +6030,23 @@ ai_strategy_default = {
 						target_is_our_or_fellow_subject = no
 						any_scope_state = {
 							OR = {
-								state_region = s:STATE_EASTERN_HIMALAYAS
-								state_region = s:STATE_HIMALAYAS
+								region = sr:region_madras
+								region = sr:region_bombay
+								region = sr:region_bengal
+								region = sr:region_central_india
+								region = sr:region_punjab
+								state_region = s:STATE_KASHMIR
 								state_region = s:STATE_MANDALAY
 								state_region = s:STATE_KACHIN
 								state_region = s:STATE_SHAN_STATES
 								state_region = s:STATE_PEGU
+								state_region = s:STATE_PASHTUNISTAN
+								state_region = s:STATE_QUETTA	
 							}
 						}
 					}
 				}
-				add = 15
+				add = 25
 			}
 			
 			if = {
@@ -6765,17 +6557,6 @@ ai_strategy_default = {
 				multiply = 0.0
 			}
 
-			if = {
-				limit = {
-					is_oppressor_of_schleswig_holstein = yes
-					exists = c:SCH
-					scope:target_state = {
-						owner = { this = c:SCH }
-					}
-				}
-				add = 200
-			}
-
 			min = 0
 			max = 200			
 		}			
@@ -6846,7 +6627,7 @@ ai_strategy_default = {
 					}
 					has_variable = war_of_the_confederation_attacker						
 				}
-				add = 300
+				add = 100
 			}
 
 			# Relations with subject
@@ -6881,7 +6662,7 @@ ai_strategy_default = {
 						}
 					}
 				}
-				add = 300
+				add = 100
 			}				
 
 			min = 0

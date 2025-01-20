@@ -1,4 +1,33 @@
-﻿dp_unify_germany = {
+﻿dp_open_market = {
+	war_goal = open_market
+	
+	texture = "gfx/interface/icons/war_goals/open_market.dds"
+	
+	# selectable_in_lens = {
+	# 	# Replaced by foreign investment rights
+	# 	NOT = { has_dlc_feature = foreign_investment }
+	# }
+
+	possible = {
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		NOT = { is_subject_of = scope:target_country }		
+		scope:target_country = {
+			NOT = { is_country_type = decentralized }
+			NOT = { is_subject_of = root }
+		}
+	}
+
+	ai_acceptance_max = 100
+	
+	on_weekly_pulse = {}
+
+	on_war_begins = {}
+
+	on_war_end = {}
+}
+
+dp_unify_germany = {
 	war_goal = unification
 	
 	requires_interest_marker = no
@@ -23,6 +52,40 @@
 			text = no_confederation_of_the_rhine_tt
 			NOT = {
 				exists = c:RHN
+			}
+		}
+	}
+	
+	on_weekly_pulse = {}
+	
+	on_war_begins = {}
+
+	on_war_end = {}
+}
+
+dp_unify_afghanistan = {
+	war_goal = annex_country
+	
+	texture = "gfx/interface/icons/war_goals/annex_country.dds"
+	
+	selectable_in_lens = {
+		can_form_nation = AFG
+	}
+	
+	possible = {
+		NOT = { exists = c:AFG }
+		NOT = { is_country_type = decentralized }
+		is_subject = no
+		custom_tooltip = {
+			text = AFG_tt
+			can_form_nation = AFG
+		}
+		scope:target_country = {
+			NOT = { is_country_type = decentralized }
+			aggressive_diplomatic_plays_permitted = yes
+			custom_tooltip = {
+				text = AFG_tt
+				can_form_nation = AFG
 			}
 		}
 	}

@@ -1,0 +1,7 @@
+﻿l_english:
+  je_risorgimento_italian_unification_button: "Unite with another Italian state"
+  je_risorgimento_italian_unification_button_desc: "Through diplomacy and mutual aims, we are finally able to unify with another Italian state."
+  ai_strategy_unify_afghanistan:0 "Unify Afghanistan"
+  ai_strategy_unify_afghanistan_desc:0 "[COUNTRY.GetName] wants to unite the Afghan principalities under their banner."
+  AFG_tt:0 "[SCOPE.sCountry('target_country').GetName] can form Afghanistan"
+  has_formed_ethiopia_tt: "Has formed the nation of #v $ETH$#!"

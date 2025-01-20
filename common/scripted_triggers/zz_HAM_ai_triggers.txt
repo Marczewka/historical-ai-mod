@@ -1,9 +1,6 @@
 ﻿ai_strongly_desires_target_state = {
 	OR = {
-		has_secret_goal = { # AI wants to conquer the state owner
-			who = scope:target_state.owner
-			secret_goal = conquer
-		}	
+		scope:target_state = { is_homeland_of_country_cultures = root } # AI is interested in homelands	
 		scope:target_state = { has_claim_by = root } # AI always wants claims	
 	}			
 }
@@ -11,7 +8,10 @@
 ai_desires_target_state = {
 	OR = {
 		ai_strongly_desires_target_state = yes
-		scope:target_state = { is_homeland_of_country_cultures = root } # AI is interested in homelands
+		has_secret_goal = { # AI wants to conquer the state owner
+			who = scope:target_state.owner
+			secret_goal = conquer
+		}
 		AND = { # AI wants to unify split states
 			scope:target_state = { 
 				is_split_state = yes 
@@ -105,8 +105,11 @@ has_je_conquest_reason = {
 						region = sr:region_punjab
 						state_region = s:STATE_KASHMIR
 						state_region = s:STATE_MANDALAY
+						state_region = s:STATE_KACHIN
+						state_region = s:STATE_SHAN_STATES
+						state_region = s:STATE_PEGU
 						state_region = s:STATE_PASHTUNISTAN
-						state_region = s:STATE_QUETTA				
+						state_region = s:STATE_QUETTA			
 					}
 				}
 			}
@@ -188,7 +191,12 @@ has_je_conquest_reason = {
 		AND = {
 			wants_to_solve_schleswig_holstein = yes
 			$TARGET$ = {
-				is_oppressor_of_schleswig_holstein = yes
+				OR = {
+					is_oppressor_of_schleswig_holstein = yes
+					overlord = {
+						is_oppressor_of_schleswig_holstein = yes
+					}
+				}
 			}
 		}
 
