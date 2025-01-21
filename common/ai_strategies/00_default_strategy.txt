@@ -52,7 +52,7 @@ ai_strategy_default = {
 			add = 100
 		}
 
-		# Revolution aversion for July Monarchy
+		# Revolution aversion for Slavery Debate
 		if = {
 			limit = { has_journal_entry = je_acw_countdown }
 			add = 100
@@ -2608,7 +2608,7 @@ ai_strategy_default = {
 					THIS = c:EGY
 				}
 			}
-			add = 300
+			add = 100
 		}
 
 		# USA should be extremely aggressive against owners of their Manifest Destiny states
@@ -2632,7 +2632,7 @@ ai_strategy_default = {
 					NOT = { has_journal_entry = je_texas_tex }	
 				}
 			}
-			add = 300
+			add = 100
 		}
 
 		# Extra french aggression for Haiti renouncing debt payments
@@ -2657,7 +2657,7 @@ ai_strategy_default = {
 					has_journal_entry = je_peru_bolivia
 				}
 			}
-			add = 300
+			add = 100
 		}
 
 		# East India Company vs its neighbors
@@ -3255,14 +3255,6 @@ ai_strategy_default = {
 			divide = 2000000 # 1 construction output per this much population
 			max = 100
 		}
-		
-		# Kickstart private investors If above this population value
-		if = {
-			limit = {
-				total_population >= 2000000
-			}
-			add = 10
-		}		
 		
 		# Add a baseline for high rank
 		if = {
@@ -5385,7 +5377,7 @@ ai_strategy_default = {
 						}
 					}
 				}
-				add = 200
+				add = 500
 			}
 			
 			if = {

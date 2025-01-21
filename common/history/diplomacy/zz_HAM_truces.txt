@@ -1,8 +1,9 @@
 ﻿DIPLOMACY = {
 	c:EGY= {
+		end_truce = c:TUR
 		create_bidirectional_truce = {
 			country = c:TUR
-			months = 36
+			months = 24
 		}
 	}	
 }
