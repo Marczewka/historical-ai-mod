@@ -20,4 +20,43 @@
 			type = colony
 		}
 	}
+
+	c:BIC ?= {
+		remove_diplomatic_pact = {
+			country = c:MNP
+			type = exempt_from_service
+		}
+		remove_diplomatic_pact = {
+			country = c:PTA
+			type = exempt_from_service
+		}
+		remove_diplomatic_pact = {
+			country = c:GAR
+			type = exempt_from_service
+		}
+		remove_diplomatic_pact = {
+			country = c:AWA
+			type = exempt_from_service
+		}
+		remove_diplomatic_pact = {
+			country = c:JAS
+			type = exempt_from_service
+		}
+		remove_diplomatic_pact = {
+			country = c:JOD
+			type = exempt_from_service
+		}
+		remove_diplomatic_pact = {
+			country = c:PLP
+			type = exempt_from_service
+		}
+		remove_diplomatic_pact = {
+			country = c:KUT
+			type = exempt_from_service
+		}
+		remove_diplomatic_pact = {
+			country = c:BHW
+			type = exempt_from_service
+		}
+	}
 }

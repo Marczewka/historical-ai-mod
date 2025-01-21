@@ -118,7 +118,7 @@
 						has_je_protect_reason = { TARGET = scope:target_country }
 					}
 				}
-				add = 200
+				add = 100
 			}
 			
 			add = {
