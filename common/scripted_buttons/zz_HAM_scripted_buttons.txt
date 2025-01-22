@@ -116,27 +116,21 @@ je_buy_alaska_button = {
 			NOT = { has_variable = alaska_sale_cooldown }
 		}
 		is_subject = no
-		s:STATE_ALASKA = {
-			any_scope_state = {
-				owner = {
-					NOT = {
-						root = this
-						is_country_type = decentralized
-					}
-					relations:root >= relations_threshold:neutral
-					OR = {
-						custom_tooltip = {
-							text = unfriendly_nation_with_interest_in_alaska_tt
-							any_country = {
-								country_rank >= prev.country_rank
-								NOT = { this = prev }
-								has_interest_marker_in_region = sr:region_pacific_coast
-								relations:prev < relations_threshold:cordial
-							}
-						}
-						scaled_debt > 0
+		scope:alaska_overlord = {
+			relations:root >= relations_threshold:neutral
+		}
+		scope:alaska_overlord = {
+			OR = {
+				custom_tooltip = {
+					text = buyers_unfriendly_nation_with_interest_in_alaska_tt
+					any_country = {
+						country_rank >= prev.country_rank
+						NOT = { this = prev }
+						has_interest_marker_in_region = sr:region_pacific_coast
+						relations:prev < relations_threshold:cordial
 					}
 				}
+				scaled_debt > 0
 			}
 		}
 	}

@@ -9,8 +9,8 @@
 
 	c:PRU ?= {
 		create_diplomatic_pact = {
-			country = c:LUB
-			type = protectorate
+			country = c:MEC
+			type = puppet
 		}
 	}
 

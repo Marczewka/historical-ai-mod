@@ -38,7 +38,7 @@
 			any_country = {
 				country_rank >= root.country_rank
 				has_interest_marker_in_region = sr:region_pacific_coast
-				relations:root <= relations_threshold:cold
+				relations:root <= relations_threshold:poor
 			}
 		}
 		custom_tooltip = {
@@ -144,12 +144,23 @@ je_alaska = {
 			limit = {
 				state_region = s:STATE_ALASKA
 				owner = {
-					NOT = {
-						is_country_type = decentralized
-					}
+					NOT = { is_country_type = decentralized }
 				}
 			}
 			save_scope_as = alaska_state
+			owner = {
+				if = {
+					limit = { 
+						is_subject = no 
+					}
+					save_scope_as = alaska_overlord
+				}
+				else = {
+					overlord = { 
+						save_scope_as = alaska_overlord 
+					}
+				}
+			}
 		}
 	}
 
@@ -158,32 +169,11 @@ je_alaska = {
 			any_scope_state = {
 				owner = root
 			}
-			any_scope_state = {
-				OR = {
-					owner = root
-					owner = {
-						is_country_type = decentralized
-					}
-				}
-				count = all
-			}
 		}
 	}
 
 	fail = {
-		NOT = {
-			s:STATE_ALASKA = {
-				any_scope_state = {
-					owner = {
-						NOT = {
-							root = this
-							is_country_type = decentralized
-						}
-						relations:root >= relations_threshold:poor
-					}
-				}
-			}
-		}
+
 	}
 
 	on_complete = {

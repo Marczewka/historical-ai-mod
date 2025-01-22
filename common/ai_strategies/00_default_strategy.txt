@@ -2489,7 +2489,7 @@ ai_strategy_default = {
 					has_journal_entry = je_peru_bolivia
 				}
 			}
-			add = 0.2
+			add = 0.25
 		}
 	}
 	
