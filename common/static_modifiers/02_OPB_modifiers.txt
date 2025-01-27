@@ -1,0 +1,54 @@
+﻿###
+
+warlord_dominance = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	country_minting_add = 30000
+}
+
+###
+
+sgf_test_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 50
+}
+
+aus_unified_sgf = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_mult = 0.1
+}
+
+communist_pressure_modifier = { #URGENT
+icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+interest_group_ig_trade_unions_pol_str_mult = 0.8 #0.5
+}
+
+###
+
+vtm_denmark_humiliated = {
+icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+country_prestige_mult = -0.2
+}
+
+vtm_denmark_great_success = {
+icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+country_prestige_add = 50
+}
+
+vtm_denmark_schleswig_opportunities = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_diplomatic_play_maneuvers_add = 50
+}
+
+vtm_denmark_accepted_agitation = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	interest_group_approval_add = 4
+	interest_group_pol_str_mult = 0.20
+}
+
+vtm_denmark_rejected_agitation = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	interest_group_approval_add = -4
+	interest_group_pol_str_mult = -0.20
+}
+	
+

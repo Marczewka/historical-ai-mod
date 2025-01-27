@@ -1,0 +1,5 @@
+﻿l_english:
+ VTM_OCCUPATION_COST_FROM_PROVINCES_LOST_MODIFIER:0 "From $unit_provinces_lost_mult$ Modifier"
+ VTM_BATTLE_VICTORY_PROVINCES_CAPTURED_MULT:0 "From $unit_provinces_captured_mult$ Modifier"
+ VTM_BATTLE_VICTORY_MIN_VALUE_REACHED:0 "From Minimum Victory Score ([SCOPE.ScriptValue('vtm_min_victory_score')|0v]) reached"
+ VTM_COMBAT_WIDTH_MODIFIER:0 "From $battle_combat_width_mult$ Modifier"

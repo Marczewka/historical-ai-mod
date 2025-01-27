@@ -1,0 +1,109 @@
+﻿l_english:
+ # Names
+ VTM_CSP:0 "Carlist Spain"
+ VTM_CSP_ADJ:0 "Carlist"
+ FORMATION_CARLIST_ARMY_OF_THE_NORTH:0 "Ejército del Norte"
+ FORMATION_CARLIST_ARMY_OF_MAESTRAZGO:0 "Ejército del Maestrazgo"
+ FORMATION_CARLIST_ARMY_OF_CATALONIA:0 "Ejército de Cataluña"
+
+ Maria_Cristina:0 "Maria Cristina"
+ Vicente_Gonzalez:0 "Vicente González"
+ Carlos_Luis:0 "Carlos Luis"
+ Vicente_Genaro:0 "Vicente Genaro"
+
+ de_Quesada:0 "de Quesada"
+ de_Urbiztondo:0 "de Urbiztondo"
+
+ # Journal Entries
+ je_group_vtm_spain_content:0 "Spanish Content"
+ vtm_je_first_carlist_war:0 "The Carlist War"
+ vtm_je_first_carlist_war_reason:0 "@information! Both sides can receive a modifier to counteract the effects of the #b $entrenched_war_in_spain$#! modifier the strength of which depends on the number of successful pacifications and incursions respectively. This will be applied once all provinces have been pacified or the Carlists have begun their #b Royal Expedition#!.\n$TOOLTIP_DELIMITER$\nThe death of #b King Ferdinand VII. in 1833#! has left Spain embroiled in a succession crisis. #b The Pragmatic Sanction of 1830#! paved the way to the throne for his daughter #b Isabella#! in the Spanish Kingdom in which succession had traditionally been handled through Salic law.\nThis act angered conservative elements of the Aristocracy who held up the Kings brother #b Carlos#! as the rightful heir instead.\nQuickly this materialized into several disparate rebellions under the label of #b Carlismo#!, with its predominant powerbase in the north of the country and particularly amongst the #b Basque Estates#! in #b the Kingdom of Navarra#! that had been fighting against further centralization of the state and the subsumption of their customs for decades."
+ vtm_je_first_carlist_war_status:0 "@pacify_icon! #b Provinces Pacified:#! #variable [GetGlobalVariable('spa_carlist_score').GetValue]#! / #variable [GetGlobalVariable('spa_carlist_score_max').GetValue]#! \n@incursion_icon! #b Succesful Incursions:#! #variable [GetGlobalVariable('csp_carlist_score').GetValue]#!"
+ VICTORY_IN_CARLIST_WAR:0 "Victorious in the Carlist War"
+ vtm_je_radicalism_spain:0 "The Two Spains"
+ vtm_je_radicalism_spain_reason:0 "#TODO TODO#!"
+
+ # Events
+ vtm_spain.1.t:0 "The Royal Expedition"
+ vtm_spain.1.d:0 "[SCOPE.sCharacter('csp_carlos').GetFullName] has amassed his forces and is calling for one strong, concentrated push towards the capital, with the Isabellinos expecting his assault. The future of Spain will be decided here at the gates of [SCOPE.sState('capital_scope').GetStateRegion.GetCityHubName]."
+ vtm_spain.1.f:0 "Many Spanish patriots have bleed and died on these hills, with victory in sight their sacrifices will surely not have been for naught. The final days are ahead, to arms brothers!"
+ vtm_spain.1.a:0 "For Crown and Country!"
+ vtm_spain.1.a.csp:0 "Dios, Patria, Rey!"
+
+ vtm_spain.2.t:0 "Victory at Last"
+ vtm_spain.2.d:0 "With our troops parading through the streets of [SCOPE.sState('capital_scope').GetStateRegion.GetCityHubName] and [SCOPE.sCharacter('country_ruler').GetFullName] sitting securely on the throne calm has finally been restored in Spain.\nYet our mission begins only now as the nation has been left in a dilapidated state of affairs after the Revolutionary Wars and the subsequent loss of Spanish America, there is much to do to reclaim the former glory of the Spanish Empire."
+ vtm_spain.2.f:0 "\"The matter of Spanish succession has been resolved at last and it will never come up again!\" - #italic;bold anonymous pundit#!"
+ vtm_spain.2.a:0 "Plus Ultra"
+
+ vtm_spain.3.t:0 "The Muñoz Affair"
+ vtm_spain.3.d:0 "The Queen-Regent [SCOPE.sCharacter('maria_cristina_scope').GetFirstName]s marriage to a member of the Royal Guard - Agustín Fernando Muñoz - is an open secret to members of the court but if this were to become public it would surely entail the end to her Regency. \nRumors tend to spread quickly in the cafés of this world.."
+ vtm_spain.3.f:0 "\"Freshly printed! Get your copy here!\"\n\"Allegedly her majesty escapes in a golden carriage whenever she is to see her lover in private! \n"The revelations on the back page will shock you!\""
+ vtm_spain.3.a:0 "The Ministers will take over"
+ vtm_spain.3.b:0 "#italic Enter: #! General [SCOPE.sCharacter('espartero_scope').GetLastName]"
+ vtm_spain.3.c:0 "Make this disappear"
+ vtm_spain.3.cb:0 "Unlocked via [SCOPE.sLaw('outlawed_dissent_scope').GetName] or [SCOPE.sLaw('secret_police_scope').GetName]"
+
+ vtm_spain.4.t:0 "The Ascension of Queen Isabella II."
+ vtm_spain.4.d:0 "The regency council has convened today and with Isabellas birthday approaching quickly agreed that it was time to formally dissolve itself"
+ vtm_spain.4.f:0 "With this here decree, we declare the regency period of her majesty to be over. She may now rule in her own right, with the support of her utmost loyal ministers."
+ vtm_spain.4.a:0 "What will her reign look like?"
+
+ maria_cristina_deposed_tt:0 "[SCOPE.sCharacter('maria_cristina_scope').GetFirstName] will forfeit her Regency"
+ esparteros_is_this_tt:0 "Has character #v Baldomero Espartero#!"
+
+ # Ideologies
+ vtm_ideology_carlist:0 "Carlist"
+ vtm_ideology_carlist_desc:0 "This character is a supporter of Don Carlos and his descendents as rightful rulers of Spain as laid out by tradition and advocates to the return of the law of the land and values of old."
+ vtm_ideology_borbon:0 "Borbón Loyalist"
+ vtm_ideology_borbon_desc:0 "This character supports a moderate and centralized Borbón monarchy through the descendents of Ferdinand VII. and his daughter and rightful heir Isabella II."
+
+ # Modifiers
+ entrenched_war_in_spain:0 "Entrenched Succession War"
+ looted_royal_arsenals:0 "Looted Royal Arsenals"
+ ad_hoc_manufacturing:0 "Ad hoc Manufacturing"
+ liberal_alliance:0 "Alliance with Liberals"
+ looted_supplies:0 "Raid Loot"
+ spa_reward:0 "The Nation Secured"
+ csp_reward:0 "Traditions Restored"
+ the_last_stand:0 "The Last Stand"
+ galvanized_forces:0 "Galvanized Forces"
+ young_reign:0 "Young Reign"
+
+ # Traits
+ regent:0 "Regent"
+ regent_desc:0 "This character wields power on behalf of the crown."
+
+ # Buttons 
+ vtm_je_first_carlist_war_secure_countryside:0 "@pacify_icon! Secure the Countryside"
+ vtm_je_first_carlist_war_secure_countryside_desc:0 "Many would be warlords, bandit kings and Carlist loyalists have been spreading terror with frequent raids deep in the countryside of Old Castille. Flushing these rats out will alleviate the burden on our troops and allow us to take the fight to the pretender!\n$TOOLTIP_DELIMITER$\n@vtm_toggle_icon! This action can be toggled and will automatically repeat as long as its conditions are met and its #I (Selected)#!."
+ vtm_je_first_carlist_war_royal_expedition:0 "Begin Royal Expedition"
+ vtm_je_first_carlist_war_royal_expedition_desc:0 "The situation of our disassembled forces simply isnt tenable as with every passing day the Isabellinos grow stronger. The King must rally his forces and choose wisely when to strike the enemy and reclaim the capital.\n#b But he must strike.#!"
+ vtm_je_first_carlist_war_organize_incursion:0 "@incursion_icon! Organize Incursion"
+ vtm_je_first_carlist_war_organize_incursion_desc:0 "The uniquely decentralized nature of the Carlist forces comes with some advantages too, individual detachments can be ordered to wreak havoc in enemy territory and secure supplies on their way home.\n$TOOLTIP_DELIMITER$\n@vtm_toggle_icon! This action can be toggled and will automatically repeat as long as its conditions are met and its #I (Selected)#!."
+
+ # Notifications
+ carlist_war_group:0 "$vtm_rule$ Carlist War"
+ notification_csp_incursion_message_name:0 "Incursion in [SCOPE.sState('incursion_state').GetName]"
+ notification_csp_incursion_message_desc:0 "Our raiding parties and their local allies have conducted a succesful incursion into loyalist territory!\n$STATE_EFFECT_INCURSION_DESC$"
+ notification_csp_incursion_message_tooltip:0 "#header Our raiding parties and their local allies have conducted a succesful incursion into loyalist territory!#!\n$STATE_EFFECT_INCURSION_DESC$"
+ notification_spa_incursion_message_name:0 "$notification_csp_incursion_message_name$"
+ notification_spa_incursion_message_desc:0 "The rebel scum and their bandit allies have executed a succesful incursion into our territory!\n$STATE_EFFECT_INCURSION_DESC$"
+ notification_spa_incursion_message_tooltip:0 "#header The rebel scum and their bandit allies have executed a succesful incursion into our territory!#!$STATE_EFFECT_INCURSION_DESC$"
+ notification_spa_pacification_message_name:0 "[SCOPE.sState('pacification_state').GetName] Pacificed"
+ notification_spa_pacification_message_desc:0 "The milicia nacional has succesfully put down any rebel cells and restored peace in [SCOPE.sState('pacification_state').GetName].\n$STATE_EFFECT_PACIFICATION_DESC$"
+ notification_spa_pacification_message_tooltip:0 "#header The milicia nacional has succesfully put down any rebel cells and restored peace in [SCOPE.sState('pacification_state').GetName].#!\n$STATE_EFFECT_PACIFICATION_DESC$"
+ notification_csp_pacification_message_name:0 "$notification_spa_pacification_message_name$"
+ notification_csp_pacification_message_desc:0 "The milicia nacional has brutally crushed our rebellion in [SCOPE.sState('pacification_state').GetName].\n$STATE_EFFECT_PACIFICATION_DESC$"
+ notification_csp_pacification_message_tooltip:0 "#header The milicia nacional has brutally crushed our rebellion in [SCOPE.sState('pacification_state').GetName].#!\n$STATE_EFFECT_PACIFICATION_DESC$"
+
+ STATE_EFFECT_IMMUNE_TO_INCURSIONS:0 "[SCOPE.sState('pacification_state').GetName] will be #positive_value immune#! to further incursions"
+ STATE_EFFECT_INCURSION_DESC:0 "#indent_newline:3 @green_checkmark_box! #S has happened:#!\n $EFFECT_LIST_BULLET$[SCOPE.sState('incursion_state').GetStateRegion.GetName] gets #negative_value 2.5%#! [concept_devastation]\n $EFFECT_LIST_BULLET$#negative_value 2.5%#! of $ALL_POPS$ in [SCOPE.sState('incursion_state').GetName] become more [concept_radical]#!"
+ STATE_EFFECT_PACIFICATION_DESC:0 "#indent_newline:3 @green_checkmark_box! #S has happened:#!\n $EFFECT_LIST_BULLET$#positive_value 5%#! of $ALL_POPS$ in [SCOPE.sState('pacification_state').GetName] become more [concept_loyalist]\n $EFFECT_LIST_BULLET$$STATE_EFFECT_IMMUNE_TO_INCURSIONS$#!"
+ STATE_EFFECT_INCURSION_DESC_GENERIC:0 "The affected state will receive #negative_value 2.5%#! [concept_devastation] and its $ALL_POPS$ will become #negative_value 2.5%#! more [concept_radical]"
+ STATE_EFFECT_INCURSION_DESC_GENERIC_TWO:0 "One of our barracks will receive a beneficial $Raid Loot$ modifier"
+ STATE_EFFECT_PACIFICATION_DESC_GENERIC:0 "The affected state will be #positive_value immune#! to further incursions and its $ALL_POPS$ will become #positive_value 5%#! more [concept_loyalist]"
+ STATE_EFFECT_AUTHORITY_BONUS_DESC:0 "The rate at which Incursions and Pacifications are applied is increased by excess [concept_authority] (@aut! #v [GetPlayer.MakeScope.ScriptValue('spain_state_effect_authority_bonus')|+%]#!)"
+
+ # Misc
+ vasconic:0 "Vasconic"
+

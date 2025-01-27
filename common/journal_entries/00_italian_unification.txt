@@ -17,6 +17,7 @@
 	scripted_button = je_risorgimento_austrian_radicals_button
 	scripted_button = je_risorgimento_italian_radicals_button
 	scripted_button = je_risorgimento_italian_unification_button
+	scripted_button = vtm_je_italian_unification_button
 
 	immediate = {
 		set_variable = { name = italian_states_radicals_total_bar value = 0 }

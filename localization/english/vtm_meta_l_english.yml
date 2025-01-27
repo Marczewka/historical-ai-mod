@@ -1,0 +1,24 @@
+﻿l_english:
+ dlc_vtm:0 "VTM"
+ dlc_vtm_desc:0 "Thank you for using the Victoria Tweaks Mod!"
+ EVENT_VTM_TOOLTIP:0 "This Event is part of #v VTM#!"
+
+ vtm_rule:0 "@vtm_icon! #blue #b VTM#!#!"
+
+ rule_ngf_unification:0 "$vtm_rule$ AI NGF Formation"
+ setting_disallow_ngf_unification:0 "Disallowed (Default)"
+ setting_disallow_ngf_unification_desc:0 "There will be no special decision for Prussia to form the NGF."
+ setting_allow_ngf_unification:0 "Allowed"
+ setting_allow_ngf_unification_desc:0 "The Prussian AI will be able to unify North Germany through a decision should it lose the Leadership War against Austria - only willing German minors will join the NGF this way."
+ 
+ rule_france_birth_rate:0 "$vtm_rule$ France Birth Rate"
+ setting_leave_france_alone:0 "None (Default)"
+ setting_leave_france_alone_desc:0 "The French birth rate is unaltered."
+ setting_dunk_on_france:0 "Decreased Birth Rate"
+ setting_dunk_on_france_desc:0 "France's accepted pops will suffer from a 20% birth rate decrease."
+
+ rule_colonial_admin:0 "$vtm_rule$ Colonial Administrations"
+ setting_colonial_admin_player_only:0 "Player Only (Default)"
+ setting_colonial_admin_player_only_desc:0 "Colonial Administrations may only be set up by players."
+ setting_colonial_admin_all:0 "All"
+ setting_colonial_admin_all_desc:0 "Both Players and AI will be allowed to set up Colonial Administrations."

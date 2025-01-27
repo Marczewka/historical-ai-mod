@@ -1,0 +1,110 @@
+﻿je_schleswig_holstein_question_denmark = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	
+	group = je_group_historical_content
+
+	is_shown_when_inactive = { #should really only be relevant content for Denmark
+		hidden_trigger = { NOT = { has_global_variable = schleswig_holstein_question_solved } }		
+		c:DEN ?= THIS	
+	}
+
+	possible = { #tie it to a rise in Danish nationalism
+		has_technology_researched = nationalism	
+	}
+
+	immediate = {
+		trigger_event = { id = vtm_denmark.1 }
+		if = {
+			limit = {
+				is_ai = yes
+			}
+			set_secret_goal = {
+				country = c:SCH
+				secret_goal = dominate 
+			}
+		}
+	}
+
+	complete = { #complete if Schleswig is controlled directly by Denmark
+		custom_tooltip = {
+			text = vtm_denmark_completion_tt
+			AND = {
+				any_scope_state = {
+					state_region = s:STATE_SCHLESWIG_HOLSTEIN
+				}
+				NOT = {
+					exists = c:SCH
+				}
+			}
+		}
+	}
+	
+	on_complete = { #reward Denmark with prestige, make pan-scandi easier
+		trigger_event = { id = vtm_denmark.3 }		
+		hidden_effect = {
+			c:PRU = {
+				set_secret_goal = {
+					country = c:DEN
+					secret_goal = conquer 
+				}
+			}
+		}
+	}
+
+	on_monthly_pulse = {
+		random_events = {
+			100 = 0
+			5 = vtm_denmark.4 # Agitator causes Diplomatic Kerfuffle
+			5 = vtm_denmark.5 # Danes in Schleswig stir agitation / DENMARK TO THE EIDER!
+			5 = vtm_denmark.6 # Plans to fully integrate Schleswig are being prepped (puppet Schleswig) opinions
+			#5 = vtm_denmark.7 # German Confederation Appeal (counter event vtm_denmark.10)
+			#5 = vtm_denmark.8 # Germans in Schleswig-Holstein protest (always)
+		}
+	}
+	
+	status_desc = {
+		first_valid = {
+			triggered_desc = { 
+				desc = je_vtm_denmark_schleswig_holstein_question_status_personal_union
+				trigger = {
+					has_technology_researched = nationalism
+					has_diplomatic_pact = {
+						who = c:SCH
+						type = personal_union
+					}
+				}
+			}
+			triggered_desc = { 
+				desc = je_vtm_denmark_schleswig_holstein_question_status_puppet
+				trigger = {
+					has_technology_researched = nationalism
+					has_diplomatic_pact = {
+						who = c:SCH
+						type = puppet
+					}
+				}
+			}
+			triggered_desc = { 
+				desc = je_vtm_denmark_schleswig_holstein_question_status_not_initiated
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+	
+	fail = { #fail if somebody solves Schleswig-Holstein as that means Denmark fails in its ambitions
+		custom_tooltip = {
+			text = je_vtm_denmark_schleswig_holstein_question_solved_fail_trigger_desc
+			has_global_variable = schleswig_holstein_question_solved
+		}
+	}	
+
+	on_fail = { #pan-Scandinavianism becomes a lot harder
+		trigger_event = { id = vtm_denmark.2 }
+	}
+
+	weight = 1000
+
+	should_be_pinned_by_default = yes
+}
