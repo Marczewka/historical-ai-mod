@@ -1,0 +1,394 @@
+﻿namespace = vtm_spain
+
+# The Royal Expedition
+vtm_spain.1 = {
+    type = country_event
+    placement = ROOT
+    is_popup = yes
+
+    duration = 3
+
+	title = vtm_spain.1.t
+	desc = vtm_spain.1.d
+	flavor = vtm_spain.1.f
+
+    event_image = {
+		video = "europenorthamerica_before_the_battle"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	dlc = dlc_vtm
+
+    trigger = {
+		# triggered in JE
+	}
+
+    immediate = {
+		c:SPA.capital = {
+			save_scope_as = capital_scope
+		}
+		c:VTM_CSP.ruler = {
+			save_scope_as = csp_carlos
+		}
+		if = {
+			limit = {
+				c:VTM_CSP ?= this
+			}
+			add_modifier = {
+				name = the_last_stand
+				multiplier = {
+					value = global_var:csp_carlist_score
+					min = 1
+				}
+				years = 1
+				is_decaying = yes
+			}
+		}
+		if = {
+			limit = {
+				c:SPA ?= this
+			}
+			add_modifier = {
+				name = galvanized_forces
+				multiplier = {
+					value = global_var:spa_carlist_score
+					min = 1
+				}
+				years = 2
+				is_decaying = yes
+			}	
+		}				
+	}
+
+	option = {
+		name = {
+			trigger = { c:SPA ?= this }
+			text = vtm_spain.1.a
+		}
+		name = {
+			trigger = { c:VTM_CSP ?= this }
+			text = vtm_spain.1.a.csp
+		}
+        default_option = yes
+
+		show_as_tooltip = {
+			c:VTM_CSP ?= {
+				add_modifier = {
+					name = the_last_stand
+					multiplier = {
+						value = global_var:csp_carlist_score
+						min = 1
+					}
+					years = 1
+					is_decaying = yes
+				}
+			}
+			c:SPA ?= {
+				add_modifier = {
+					name = galvanized_forces
+					multiplier = {
+						value = global_var:spa_carlist_score
+						min = 1
+					}
+					years = 2
+					is_decaying = yes
+				}			
+			}
+		}
+	}
+}
+
+# Carlist War Victory
+vtm_spain.2 = {
+    type = country_event
+    placement = ROOT
+
+    duration = 3
+
+	title = vtm_spain.2.t
+	desc = vtm_spain.2.d
+	flavor = vtm_spain.2.f
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	dlc = dlc_vtm
+
+    trigger = {
+		# triggered in JE
+	}
+
+    immediate = {
+		ruler ?= {
+			save_scope_as = country_ruler
+		}
+		capital ?= {
+			save_scope_as = capital_scope
+		}
+	}
+
+	option = {
+		name = vtm_spain.2.a
+        default_option = yes
+		if = {
+			limit = {
+				has_variable = is_borbon_spain
+			}
+			show_as_tooltip = {
+				add_modifier = {
+					name = spa_reward
+					years = 20
+					is_decaying = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_variable = is_carlist_spain
+			}
+			show_as_tooltip = {
+				add_modifier = {
+					name = csp_reward
+					years = 20
+					is_decaying = yes
+				}
+			}
+		}
+	}	
+}
+
+# Maria Cristina Affair
+vtm_spain.3 = {
+    type = country_event
+    placement = ROOT
+
+    duration = 3
+
+	title = vtm_spain.3.t
+	desc = vtm_spain.3.d
+	flavor = vtm_spain.3.f
+
+	event_image = {
+		video = "europenorthamerica_art_gallery"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	dlc = dlc_vtm
+
+    trigger = {
+		NOT = { has_variable = maria_cristina_affair_resolved } # Safeguard
+		has_variable = is_borbon_spain
+		any_scope_character = {
+			has_template = vtm_maria_cristina_template
+			has_trait = regent
+		}
+		has_global_variable = carlist_war_ended
+	}
+
+    immediate = {
+		set_variable = maria_cristina_affair_resolved
+		random_scope_character = {
+			limit = {
+				has_template = vtm_maria_cristina_template
+			}
+			save_scope_as = maria_cristina_scope
+		}
+		if = {
+			limit = {
+				any_scope_character = {
+					has_template = baldomero_espartero_template
+				}
+			}
+			random_scope_character = {
+				limit = {
+					has_template = baldomero_espartero_template
+				}
+				save_scope_as = espartero_scope
+			}
+		}
+		random_law = {
+			limit = { type = law_type:law_outlawed_dissent }
+			save_scope_as = outlawed_dissent_scope
+		}
+		random_law = {
+			limit = { type = law_type:law_secret_police }
+			save_scope_as = secret_police_scope
+		}
+	}
+
+	# Regency Council
+	option = {
+		name = vtm_spain.3.a
+		default_option = yes
+		ai_chance = {
+			base = 10
+		}
+
+		custom_tooltip = {
+			text = maria_cristina_deposed_tt
+			hidden_effect = {
+				scope:maria_cristina_scope = {
+					kill_character = yes
+				}
+			}
+		}
+	}
+
+	# Espartero
+	option = {
+		name = vtm_spain.3.b
+		# If he is around always pick him
+		ai_chance = {
+			base = 1000
+		}
+		trigger = {
+			custom_tooltip = {
+				text = esparteros_is_this_tt
+				any_scope_character = {
+					has_template = baldomero_espartero_template
+				}
+			}
+		}
+		highlighted_option = yes
+
+		custom_tooltip = {
+			text = maria_cristina_deposed_tt
+			hidden_effect = {
+				scope:maria_cristina_scope = {
+					kill_character = yes
+				}
+			}
+		}
+		if = {
+			limit = { exists = scope:espartero_scope }
+			scope:espartero_scope = {
+				add_trait = regent
+			}
+		}
+	}
+
+	# Very expected Doodlez Secret Police option
+	option = {
+		name = {
+			text = vtm_spain.3.c
+			trigger = {
+				OR = {
+					has_law = law_type:law_outlawed_dissent
+					has_law = law_type:law_secret_police
+				}
+			}
+		}
+		name = { # Workaround for issue further below
+			text = vtm_spain.3.cb
+			trigger = {
+				NOR = {
+					has_law = law_type:law_outlawed_dissent
+					has_law = law_type:law_secret_police
+				}
+			}
+		}
+		ai_chance = {
+			base = 10
+		}
+		show_as_unavailable = { # There is a bug here in loc that im investigating
+			NOR = {
+				has_law = law_type:law_outlawed_dissent
+				has_law = law_type:law_secret_police				
+			}
+		}
+		trigger = {
+			OR = {
+				has_law = law_type:law_outlawed_dissent
+				has_law = law_type:law_secret_police
+			}
+		}
+		highlighted_option = yes
+
+		add_radicals = {
+			value = 0.05
+		}
+	}
+}
+
+# End of Isabellas Regency
+vtm_spain.4 = {
+    type = country_event
+    placement = ROOT
+
+	gui_window = event_window_1char_tabloid
+
+	left_icon = ruler
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	title = vtm_spain.4.t
+	desc = vtm_spain.4.d
+	flavor = vtm_spain.4.f
+
+	dlc = dlc_vtm
+
+    trigger = {
+		NOT = { has_variable = isabella_coronation }
+		has_variable = is_borbon_spain
+		ruler ?= {
+			has_template = spa_isabel_de_borbon_template
+			age >= 13 # Yep
+		}
+	}
+
+    immediate = {
+		set_variable = isabella_coronation
+		ruler = {
+			save_scope_as = queen_victoria
+		}
+		every_scope_character = {
+			limit = {
+				has_variable = vtm_memento_mori_immunity
+			}
+			remove_variable = vtm_memento_mori_immunity
+		}
+	}
+
+	# Coronation
+	option = {
+		name = vtm_spain.4.a
+		default_option = yes
+
+		if = {
+			limit = {
+				any_scope_character = {
+					has_trait = regent
+				}
+			}
+			random_scope_character = {
+				limit = {
+					has_trait = regent
+				}
+				remove_trait = regent
+			}
+		}
+		ruler ?= {
+			add_modifier = {
+				name = young_reign
+				years = 10
+				is_decaying = yes
+			}
+		}
+	}
+}

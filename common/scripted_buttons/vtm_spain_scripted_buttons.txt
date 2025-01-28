@@ -1,0 +1,230 @@
+﻿### VTM ###
+vtm_je_first_carlist_war_secure_countryside_button = {
+	name = "vtm_je_first_carlist_war_secure_countryside"
+	desc = "vtm_je_first_carlist_war_secure_countryside_desc"
+
+	visible = {
+		c:SPA ?= this
+	}
+
+	possible = {
+		this = c:SPA
+		hidden_trigger = {
+			NOT = { global_var:spa_carlist_score >= global_var:spa_carlist_score_max }
+			NOT = { has_global_variable = carlist_expedition }
+		}
+	}
+
+	selected = {
+		has_variable = pacification_button_toggle
+		NOT = { global_var:spa_carlist_score >= global_var:spa_carlist_score_max }
+	}
+
+	effect = {
+		if = {
+			limit = {
+				NOT = { has_variable = pacification_button_toggle }
+			}
+			set_variable = pacification_button_toggle
+		}
+		else = {
+			remove_variable = pacification_button_toggle
+		}
+
+		if = {
+			limit = {
+				has_variable = pacification_button_toggle
+				NOT = {
+					any_scope_state = {
+						has_variable = state_carlist_pacification_progress
+					}
+				}
+				any_scope_state = {
+					has_variable = state_carlist_war_mini_game
+					NOT = {
+						has_variable = state_carlist_pacification_complete
+					}
+				}
+			}
+			random_scope_state = {
+				limit = {
+					has_variable = state_carlist_war_mini_game
+					NOT = { has_variable = state_carlist_pacification_complete }
+				}
+				set_variable = {
+					name = state_carlist_pacification_progress
+					value = 0
+				}
+			}
+		}
+
+		custom_tooltip = "STATE_EFFECT_PACIFICATION_DESC_GENERIC"
+		custom_tooltip = "STATE_EFFECT_AUTHORITY_BONUS_DESC"
+	}
+
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = { 
+				NOT = { has_variable = pacification_button_toggle }		
+			}
+			add = 100
+		}
+	}
+}
+
+
+vtm_je_first_carlist_war_organize_incursion_button = {
+	name = "vtm_je_first_carlist_war_organize_incursion"
+	desc = "vtm_je_first_carlist_war_organize_incursion_desc"
+
+	visible = {
+		c:VTM_CSP ?= this
+	}
+
+	possible = {
+		this = c:VTM_CSP
+		hidden_trigger = {
+			NOT = { global_var:spa_carlist_score >= global_var:spa_carlist_score_max }
+			NOT = { has_global_variable = carlist_expedition }
+		}	
+	}
+
+	selected = {
+		has_variable = incursion_button_toggle
+		NOT = { global_var:spa_carlist_score >= global_var:spa_carlist_score_max }
+	}
+
+	effect = {
+		if = {
+			limit = {
+				NOT = { has_variable = incursion_button_toggle }
+			}
+			set_variable = incursion_button_toggle
+		}
+		else = {
+			remove_variable = incursion_button_toggle
+		}
+
+		if = {
+			limit = {
+				has_variable = incursion_button_toggle
+				c:SPA ?= {
+					NOT = {
+						any_scope_state = {
+							has_variable = state_carlist_incursion_progress
+						}
+					}
+					any_scope_state = {
+						has_variable = state_carlist_war_mini_game
+						NOR = {
+							has_variable = state_carlist_incursion_cooldown
+							has_variable = state_carlist_pacification_complete
+						}
+					}
+				}
+			}
+			c:SPA ?= {
+				random_scope_state = {
+					limit = {
+						has_variable = state_carlist_war_mini_game
+						NOR = {
+							has_variable = state_carlist_incursion_cooldown
+							has_variable = state_carlist_pacification_complete 
+						}
+					}
+					set_variable = {
+						name = state_carlist_incursion_progress
+						value = 0
+					}
+				}
+			}
+		}
+
+		custom_tooltip = "STATE_EFFECT_INCURSION_DESC_GENERIC"
+		custom_tooltip = "STATE_EFFECT_INCURSION_DESC_GENERIC_TWO"
+		custom_tooltip = "STATE_EFFECT_AUTHORITY_BONUS_DESC"
+	}
+
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = { 
+				NOT = { has_variable = incursion_button_toggle }		
+			}
+			add = 100
+		}
+	}
+}
+
+vtm_je_first_carlist_war_royal_expedition_button = {
+	name = "vtm_je_first_carlist_war_royal_expedition"
+	desc = "vtm_je_first_carlist_war_royal_expedition_desc"
+
+	visible = {
+		c:VTM_CSP ?= this
+	}
+
+	possible = {
+		this = c:VTM_CSP
+		hidden_trigger = {
+			NOT = { has_global_variable = carlist_expedition }
+		}
+	}
+
+	selected = {
+		has_global_variable = carlist_expedition
+	}
+
+	effect = {
+		set_global_variable = carlist_expedition
+		trigger_event = { id = vtm_spain.1 }
+		c:SPA ?= { trigger_event = { id = vtm_spain.1 } }
+
+		show_as_tooltip = {
+			add_modifier = {
+				name = the_last_stand
+				multiplier = {
+					value = global_var:csp_carlist_score
+					min = 1
+				}
+				years = 1
+				is_decaying = yes
+			}
+			c:SPA ?= {
+				add_modifier = {
+					name = galvanized_forces
+					multiplier = {
+						value = global_var:spa_carlist_score
+						min = 1
+					}
+					years = 2
+					is_decaying = yes
+				}			
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+
+		modifier = {
+			trigger = { global_var:csp_carlist_score >= 5 }
+			add = 5
+		}
+		modifier = {
+			trigger = { global_var:csp_carlist_score >= 7 }
+			add = 10
+		}
+		modifier = {
+			trigger = { global_var:csp_carlist_score >= 9 }
+			add = 15
+		}
+
+		modifier = {
+			trigger = { global_var:spa_carlist_score >= 5 }
+			add = 15
+		}
+	}
+}
+

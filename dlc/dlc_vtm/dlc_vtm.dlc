@@ -1,0 +1,8 @@
+name = "VTM"
+path = "dlc/dlc_vtm"
+steam_id = "529340"
+pops_id = ""
+mp_synced = yes
+affects_save_compatibility = yes
+localizable_name = "dlc_vtm"
+checksum = ""

@@ -1,0 +1,318 @@
+﻿vtm_je_first_carlist_war = {
+	icon = "gfx/interface/icons/event_icons/bicorne_hat.dds"
+	
+	group = je_group_vtm_spain_content
+
+	scripted_button = vtm_je_first_carlist_war_secure_countryside_button
+	scripted_button = vtm_je_first_carlist_war_organize_incursion_button
+	scripted_button = vtm_je_first_carlist_war_royal_expedition_button
+
+	immediate = {
+		if = {
+			limit = {
+				c:SPA ?= this
+			}
+			every_scope_state = {
+				limit = {
+					OR = {
+						state_region = s:STATE_ASTURIAS
+						state_region = s:STATE_CASTILE
+						state_region = s:STATE_VALENCIA
+						state_region = s:STATE_GRANADA
+						state_region = s:STATE_GALICIA
+						state_region = s:STATE_BADAJOZ
+						state_region = s:STATE_ANDALUSIA
+					}
+				}
+				set_variable = state_carlist_war_mini_game
+			}
+			set_global_variable = {
+				name = spa_carlist_score
+				value = 0
+			}
+			set_global_variable = {
+				name = spa_carlist_score_max
+				value = {
+					every_scope_state = {
+						limit = {
+							has_variable = state_carlist_war_mini_game
+						}
+						add = 1
+					}
+				}
+			}
+			set_global_variable = {
+				name = csp_carlist_score
+				value = 0
+			}
+		}
+	}
+
+	on_weekly_pulse = {
+		trigger = { c:SPA ?= this }
+		effect = {
+			every_scope_state = { # For the UI to not break, yes this is very hacky, no im not proud
+				limit = {
+					has_variable = state_carlist_war_mini_game
+					devastation < 0.01
+				}
+				state_region = { add_devastation = 1 }
+			}
+
+			if = {
+				limit = {
+					any_scope_state = {
+						has_variable = state_carlist_incursion_progress
+						var:state_carlist_incursion_progress < 1
+					}
+				}
+				random_scope_state = {
+					limit = {
+						has_variable = state_carlist_incursion_progress
+						var:state_carlist_incursion_progress < 1
+					}
+					change_variable = {
+						name = state_carlist_incursion_progress
+						add = {
+							value = {
+								fixed_range = {
+									min = 0.05
+									max = 0.15
+								}
+							}
+							multiply = {
+								value = c:VTM_CSP.authority
+								divide = 1000
+								add = 1
+								min = 1
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_scope_state = {
+						has_variable = state_carlist_incursion_progress
+						var:state_carlist_incursion_progress >= 1
+					}
+				}
+				random_scope_state = {
+					limit = {
+						has_variable = state_carlist_incursion_progress
+						var:state_carlist_incursion_progress >= 1
+					}
+					save_scope_as = incursion_state
+					remove_variable = state_carlist_incursion_progress
+					set_variable = {
+						name = state_carlist_incursion_cooldown
+						days = 7
+					}
+					change_global_variable = {
+						name = csp_carlist_score
+						add = 1
+					}
+					c:VTM_CSP = {
+						random_scope_barracks = {
+							add_modifier = {
+								name = looted_supplies
+								months = 3
+							}
+						}
+					}
+					state_region = { add_devastation = 2.5 }
+					add_radicals_in_state = {
+						value = 0.025
+					}
+					c:VTM_CSP ?= { post_notification = csp_incursion_message }
+					root = { post_notification = spa_incursion_message }
+				}
+			}
+			if = {
+				limit = {
+					c:VTM_CSP ?= { has_variable = incursion_button_toggle }
+					NOT = {
+						any_scope_state = { has_variable = state_carlist_incursion_progress }
+					}
+					any_scope_state = {
+						has_variable = state_carlist_war_mini_game
+						NOR = {
+							has_variable = state_carlist_incursion_cooldown
+							has_variable = state_carlist_pacification_complete
+						}
+					}
+				}
+				random_scope_state = {
+					limit = {
+						has_variable = state_carlist_war_mini_game
+						NOR = {
+							has_variable = state_carlist_incursion_cooldown
+							has_variable = state_carlist_pacification_complete
+						}
+					}
+					set_variable = {
+						name = state_carlist_incursion_progress
+						value = 0
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					any_scope_state = {
+						has_variable = state_carlist_pacification_progress
+						var:state_carlist_pacification_progress < 1
+					}
+				}
+				random_scope_state = {
+					limit = {
+						has_variable = state_carlist_pacification_progress
+						var:state_carlist_pacification_progress < 1
+					}
+					change_variable = {
+						name = state_carlist_pacification_progress
+						add = {
+							value = {
+								fixed_range = {
+									min = 0.05
+									max = 0.1
+								}
+							}
+							multiply = {
+								value = root.authority
+								divide = 1000
+								add = 1
+								min = 1
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_scope_state = {
+						has_variable = state_carlist_pacification_progress
+						var:state_carlist_pacification_progress >= 1
+					}
+				}
+				random_scope_state = {
+					limit = {
+						has_variable = state_carlist_pacification_progress
+						var:state_carlist_pacification_progress >= 1
+					}
+					save_scope_as = pacification_state
+					remove_variable = state_carlist_pacification_progress
+					set_variable = {
+						name = state_carlist_pacification_complete
+					}
+					change_global_variable = {
+						name = spa_carlist_score
+						add = 1
+					}
+					add_loyalists_in_state = {
+						value = 0.05
+					}
+					c:VTM_CSP ?= { post_notification = csp_pacification_message }
+					root = { post_notification = spa_pacification_message }
+				}
+			}
+			if = {
+				limit = {
+					has_variable = pacification_button_toggle
+					NOT = { global_var:spa_carlist_score >= global_var:spa_carlist_score_max }
+					NOT = {
+						any_scope_state = { has_variable = state_carlist_pacification_progress }
+					}
+					any_scope_state = {
+						has_variable = state_carlist_war_mini_game
+						NOT = { has_variable = state_carlist_pacification_complete }
+					}
+				}
+				random_scope_state = {
+					limit = {
+						has_variable = state_carlist_war_mini_game
+						NOT = { has_variable = state_carlist_pacification_complete }
+					}
+					set_variable = {
+						name = state_carlist_pacification_progress
+						value = 0
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					global_var:spa_carlist_score >= global_var:spa_carlist_score_max
+					NOT = { has_global_variable = carlist_expedition }
+				}
+				set_global_variable = carlist_expedition
+				trigger_event = { id = vtm_spain.1 }
+				c:VTM_CSP ?= { trigger_event = { id = vtm_spain.1 } }
+			}
+		}
+	}
+
+
+	complete = {
+		custom_tooltip = {
+			text = "VICTORY_IN_CARLIST_WAR"
+			trigger_if = {
+				limit = {
+					c:SPA ?= this
+					NOT = { exists = c:VTM_CSP }
+				}
+			}
+			trigger_else = {
+				c:VTM_CSP ?= this
+				NOT = { exists = c:SPA }
+			}
+		}
+	}
+
+	modifiers_while_active = {
+		entrenched_war_in_spain
+	}
+
+	on_complete = {
+		set_global_variable = carlist_war_ended
+
+		if = {
+			limit = {
+				c:SPA ?= this
+			}
+			trigger_event = { id = vtm_spain.2 }
+			remove_modifier = liberal_alliance
+			add_modifier = {
+				name = spa_reward
+				years = 20
+				is_decaying = yes
+			}
+		}
+		else = {
+			add_modifier = {
+				name = csp_reward
+				years = 20
+				is_decaying = yes
+			}
+			trigger_event = { id = vtm_spain.2 }
+			hidden_effect = {
+				set_capital = STATE_TOLEDO
+				every_scope_state = {
+					limit = {
+						state_region = {
+							is_homeland = cu:spanish
+						}
+					}
+					set_state_type = incorporated
+				}
+			}
+			change_tag = SPA
+		}
+		hidden_effect = {
+			carlist_war_clean_up = yes
+		}
+	}
+
+	should_be_pinned_by_default = yes
+	weight = 100000
+}

@@ -1,0 +1,48 @@
+# We are not actually editing this flag but unit uniforms derive their colours from the flag so we need to do some magic here
+# Thats why vanilla Spains units look like Ronald McDonald
+SPA_absolute_monarchy = {
+	#pattern = "pattern_solid.tga"
+	# We use this part solely for the uniforms
+	color1 = "blue" # Chest
+	color2 = "red" # Legs
+	color3 = "red" # Hat
+
+	# The actual flag is defined here
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = "white"
+	}
+
+	colored_emblem = {
+		texture = "ce_cross_burgundy.dds"
+		color1 = "red"
+	}
+}
+
+SPA = {
+	#pattern = "pattern_solid.tga"
+	color1 = "blue" # Chest
+	color2 = "red" # Legs
+	color3 = "black" # Hat
+
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = "yellow"
+	}
+
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = "red"
+		color2 = "red"
+		instance = { scale = { 1.0 0.25 } position = { 0.5 0.125 } }	
+		instance = { scale = { 1.0 0.25 } position = { 0.5 0.875 } }			
+	}
+	textured_emblem = {
+		texture = "te_crown.dds"
+		instance = { scale = { 0.35 0.35 } position = { 0.33 0.36 } }
+	}		
+    sub = {
+        parent = "sub_SPA_coa" 
+        instance = { scale = { 0.5 0.5 } offset = { 0.08 0.32 } }
+    }	
+}

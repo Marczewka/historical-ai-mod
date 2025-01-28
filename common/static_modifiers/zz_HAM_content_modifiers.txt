@@ -5,3 +5,8 @@
 	state_pop_support_movement_radical_mult = 0.5
 	state_pop_support_movement_cultural_minority_mult = 0.5
 }
+
+draft_exemption_tax = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_negative.dds
+	state_conscription_rate_mult = -0.4
+}

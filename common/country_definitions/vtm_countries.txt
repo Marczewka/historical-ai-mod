@@ -1,0 +1,9 @@
+﻿VTM_CSP = {
+	color = "orange"
+
+	country_type = recognized
+
+	tier = kingdom
+	cultures = { spanish }
+	capital = STATE_NAVARRA
+}

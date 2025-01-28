@@ -1,0 +1,110 @@
+﻿regent = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/regent.dds"
+
+	character_modifier = {
+		character_health_add = 0.25
+	}
+
+	country_modifier = {
+	}
+
+	command_modifier = {
+	}
+
+	agitator_modifier = {
+	}
+
+	interest_group_modifier = {
+		interest_group_pol_str_mult = 0.25
+	}
+
+	possible = {
+		always = no
+	}
+
+	weight = {
+		value = 1
+	}
+
+	replace = {
+	}
+
+	value = 3
+}
+
+# Easter egg traits for novelty characters
+naval_theory_enthusiast = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/erudite.dds"
+
+	character_modifier = {
+		character_health_add = -0.25
+	}
+
+	country_modifier = {
+		unit_convoy_raiding_mult = 0.1
+		building_military_shipyards_throughput_add = 0.1
+	}
+
+	command_modifier = {
+	}
+
+	agitator_modifier = {
+		building_military_shipyards_throughput_add = 0.01
+	}
+
+	interest_group_modifier = {
+	}
+
+	possible = {
+		always = no
+	}
+
+	weight = {
+		value = 1
+	}
+
+	replace = {
+	}
+
+	value = 3
+}
+
+fugitive_miner = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/bandit.dds"
+
+	character_modifier = {
+		character_popularity_add = 50
+		character_health_add = -0.5
+	}
+
+	command_modifier = {
+		unit_defense_elevated_mult = 0.10
+	}
+
+	country_modifier = {
+	}
+
+	agitator_modifier = {
+		political_movement_pop_attraction_mult = 0.05
+		building_group_bg_mining_throughput_add = -0.01
+	}
+
+	interest_group_modifier = {
+	}
+
+	possible = {
+		always = no
+	}
+
+	weight = {
+		value = 1
+	}
+
+	replace = {
+	}
+
+	value = 3
+}
