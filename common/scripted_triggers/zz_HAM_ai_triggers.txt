@@ -299,6 +299,18 @@ has_je_befriend_reason = {
 	
 	OR = {
 		AND = {
+			has_journal_entry = vtm_je_treaty_of_turin
+			$TARGET$ = { 
+				has_journal_entry = je_risorgimento
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_SAVOY
+					}
+				}
+			}
+		}
+
+		AND = {
 			has_journal_entry = je_texas_tex
 			$TARGET$ = { has_journal_entry = je_texas_usa }			
 		}

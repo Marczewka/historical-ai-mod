@@ -107,27 +107,28 @@ central_america.2 = {
 					set_variable = ca_secession_country
 				}
 			}
-		if = {
-			limit = {
-				exists = s:STATE_CHIAPAS.region_state:UCA
+			if = {
+				limit = {
+					exists = s:STATE_CHIAPAS.region_state:UCA
 				}
 				s:STATE_CHIAPAS.region_state:UCA = { set_state_owner = c:GUA }
-				c:MEX = {
-					if = {
-						limit = {
-							is_ai = yes
-						}
+				hidden_effect = {
+					c:MEX = {
+						change_relations = { country = c:GUA value = -30 }
 						set_secret_goal = {
 							country = c:GUA
-							secret_goal = conquer 
+							secret_goal = conquer
 						}
 					}
 				}
 			}
-			c:GUA = {
-				set_secret_goal = {
-					country = c:ALT
-					secret_goal = conquer
+			hidden_effect = {
+				c:GUA = {
+					change_relations = { country = c:ALT value = -30 }
+					set_secret_goal = {
+						country = c:ALT
+						secret_goal = conquer
+					}
 				}
 			}
 		}
@@ -436,21 +437,22 @@ central_america.3 = {
 				state = scope:secession_state
 			}
 			if = {
-				limit = { exists = s:STATE_CHIAPAS.region_state:UCA }
+				limit = { 
+					exists = s:STATE_CHIAPAS.region_state:UCA 
+				}
 				s:STATE_CHIAPAS.region_state:UCA = { set_state_owner = c:GUA }
-				c:MEX = {
-					if = {
-						limit = {
-							is_ai = yes
-						}
+				hidden_effect = {
+					c:MEX = {
+						change_relations = { country = c:GUA value = -30 }
 						set_secret_goal = {
 							country = c:GUA
-							secret_goal = conquer 
+							secret_goal = conquer
 						}
 					}
 				}
 			}
 			c:GUA = {
+				change_relations = { country = c:ALT value = -30 }
 				set_secret_goal = {
 					country = c:ALT
 					secret_goal = conquer

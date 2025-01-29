@@ -280,10 +280,7 @@ vtm_je_treaty_of_turin_france_button = {
 				is_split_state = no
 				is_capital = no
 			}
-			custom_tooltip = {
-				text = relations_amicable_nocontext_tt
-				relations:root >= relations_threshold:amicable
-			}
+			relations:root >= relations_threshold:amicable
 			is_revolutionary = no
 			OR = {
 				is_subject = no

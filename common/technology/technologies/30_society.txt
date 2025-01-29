@@ -714,6 +714,17 @@ nationalism = {
 			}
 			add = 2
 		}	
+
+		if = {
+			limit = { 
+				OR = {
+					country_has_primary_culture = cu:north_german
+					country_has_primary_culture = cu:south_german
+				}		
+				country_rank >= rank_value:great_power		
+			}
+			add = 3
+		}	
 		
 		if = {
 			limit = {
