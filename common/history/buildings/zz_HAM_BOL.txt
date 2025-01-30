@@ -1,0 +1,47 @@
+﻿BUILDINGS = {
+    s:STATE_SANTA_CRUZ={
+        region_state:BOL={
+            create_building={
+				building="building_barracks"
+				add_ownership={
+					country={
+						country="c:BOL"
+						levels=0
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+        }
+    }
+    s:STATE_LA_PAZ={
+        region_state:BOL={
+            create_building={
+				building="building_barracks"
+				add_ownership={
+					country={
+						country="c:BOL"
+						levels=0
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+        }
+    }
+    s:STATE_POTOSI={
+        region_state:BOL={
+            create_building={
+				building="building_barracks"
+				add_ownership={
+					country={
+						country="c:BOL"
+						levels=0
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+        }
+    }
+}
