@@ -324,5 +324,5 @@
 	transferable = no
 	can_revolution_inherit = no
 
-	timeout = 3650
+	timeout = 1825
 }
