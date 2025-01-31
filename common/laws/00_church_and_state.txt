@@ -276,6 +276,8 @@ law_state_atheism = {
 
 	disallowing_laws = {
 		law_theocracy
+		law_monarchy
+		law_religious_schools
 	}
 
 	can_enact = {
@@ -310,16 +312,25 @@ law_state_atheism = {
 		add_modifier = {
 			name = antireligious_policies
 			months = long_modifier_time
+			is_decaying = yes # VTM
 		}
 		custom_tooltip = {
 			text = state_atheism_conversion_tt
-			every_scope_state = {
+			if = {
 				limit = {
-					is_incorporated = yes
+					NOT = {
+						has_variable = did_state_atheism_already # no fun allowed
+					}				
 				}
-				convert_population = {
+				set_variable = did_state_atheism_already
+				every_scope_state = {
+					limit = {
+						is_incorporated = yes
+					}
+					convert_population = {
 					target = rel:atheist
-					value = 0.25
+						value = 0.10 # 0.25
+					}
 				}
 			}
 		}

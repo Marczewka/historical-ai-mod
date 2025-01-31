@@ -13,7 +13,7 @@
 ################
 
 great_power = {
-	rank_value = 8
+	rank_value = 7
 	icon_index = 4
 	
 	enforce_subject_rank_check = yes
@@ -78,8 +78,6 @@ minor_power = {
 	
 	enforce_subject_rank_check = yes
 
-	diplo_pact_cost = 1.25
-
 	prestige_average_threshold = 0.6
 	prestige_relative_threshold = 0.15
 	
@@ -123,36 +121,6 @@ insignificant_power = {
 ## UNRECOGNIZED ##
 ##################
 
-unrecognized_great_power = {
-	rank_value = 7
-	icon_index = 4
-	
-	enforce_subject_rank_check = yes
-	
-	diplo_pact_cost = 1.25
-	
-	prestige_average_threshold = 5.0
-	prestige_relative_threshold = 0.75
-	
-	infamy_aggressor_scaling = 0.50
-	infamy_target_scaling = -0.20
-
-	valid_country_types = {
-		unrecognized
-	}
-	
-	modifier = {
-		country_influence_add = 1000
-		country_diplomatic_play_maneuvers_add = 100
-		country_max_declared_interests_add = 4
-		country_tech_spread_mult = -0.10
-		country_loan_interest_rate_mult = 0.25
-		country_agitator_slots_add = 2
-		state_migration_pull_mult = 0.10
-		country_leverage_resistance_add = 1000
-	}
-}
-
 unrecognized_major_power = {
 	rank_value = 5
 	icon_index = 3
@@ -162,7 +130,7 @@ unrecognized_major_power = {
 	prestige_average_threshold = 2.5
 	prestige_relative_threshold = 0.5
 	
-	infamy_aggressor_scaling = 0.40
+	infamy_aggressor_scaling = 0.50
 	infamy_target_scaling = -0.30
 
 	valid_country_types = {
@@ -191,7 +159,7 @@ unrecognized_regional_power = {
 	prestige_average_threshold = 0.6
 	prestige_relative_threshold = 0.15
 	
-	infamy_aggressor_scaling = 0.30
+	infamy_aggressor_scaling = 0.40
 	infamy_target_scaling = -0.40
 
 	valid_country_types = {
@@ -217,7 +185,7 @@ unrecognized_power = {
 
 	diplo_pact_cost = 0.5
 	
-	infamy_aggressor_scaling = 0.20
+	infamy_aggressor_scaling = 0.30
 	infamy_target_scaling = -0.50
 
 	valid_country_types = {
