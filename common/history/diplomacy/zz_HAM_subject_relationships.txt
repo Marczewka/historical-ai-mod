@@ -7,17 +7,17 @@
 		add_liberty_desire = 20
 	}
 
-	c:PRU ?= {
-		create_diplomatic_pact = {
-			country = c:MEC
-			type = puppet
-		}
-	}
-
 	c:NET ?= {	
 		create_diplomatic_pact = {
 			country = c:DEI
 			type = colony
+		}
+	}
+
+	c:USA ?= {
+		remove_diplomatic_pact = {
+			country = c:LIB 
+			type = protectorate
 		}
 	}
 

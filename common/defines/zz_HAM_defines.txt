@@ -1,12 +1,12 @@
 ﻿NPolitics = {
-	MIN_IG_APPROVAL_FROM_LAWS = -10 #-5		# IG cannot have approval lower than this as a total from laws 'on the book'
-	MAX_IG_APPROVAL_FROM_LAWS = 10 #5		# IG cannot have approval higher than this as a total from laws 'on the book'
-	IG_APPROVAL_FROM_LOYALISTS = 5 #15		# If 100% of the political strength of the IG is loyalist, change approval by this amount
-	IG_APPROVAL_FROM_RADICALS = -5 #-15		# If 100% of the political strength of the IG is radical, change approval by this amount
-	IG_APPROVAL_FROM_LAW = 1 		# IG approval/disapproval for laws that are for/against their ideologies
-	IG_APPROVAL_FROM_LAW_STRONG_STANCE = 3 #2 		# IG approval/disapproval for laws that are strongly for/against their ideologies
-	IG_APPROVAL_FROM_RADICAL_LAW_CHANGE = 7 #10 		# IG approval/disapproval for changing to another law, if the change is a major one
-	IG_APPROVAL_FROM_EXTREME_LAW_CHANGE = 15 #20 		# IG approval/disapproval for changing to another law, if the change is extreme
+	MOVEMENT_IMMEDIATE_RADICALISM_FROM_ENACTMENT = 0.5 # This multiplier of target radicalism impact from law enactment is applied immediately on start of enactment
+	MOVEMENT_IMMEDIATE_RADICALISM_FROM_CANCELLATION = -0.5 # This multiplierof target radicalism impact from law enactment is applied immediately on cancellation of enactment
+	MOVEMENT_RADICALISM_FROM_ACTIVE_LAW_STANCE = -0.05 # Multiplied by a movement's stance on each active law (positive stance = negative radicalism)
+	MOVEMENT_RADICALISM_FROM_ENACTED_LAW_STANCE = -0.25 # Multiplied by a movement's comparative stance on currently or recently enacted law (positive stance = negative radicalism)
+	MOVEMENT_RADICALISM_FROM_RADICAL_SUPPORTERS = 2.0 # 1.0 # Scales against fraction of radicals among movement supporters
+	MOVEMENT_RADICALISM_FROM_LOYALIST_SUPPORTERS = -1.0 # -0.75 # Scales against fraction of loyalists among movement supporters
+	MOVEMENT_RADICALISM_FROM_SUPPRESSION = 0.1 # 0.0 # Suppressed movements become this much more radical 
+	MOVEMENT_RADICALISM_FROM_BOLSTERING = -0.1 # 0.0 # Bolstered movements become this much less radical 
 }
 
 NEconomy = {
@@ -310,4 +310,9 @@ NTravelNetwork = {
 	ARMY_DIRECT_CONNECTION_COST_MULT = 5 #10.0			# Travel cost multiplier for traveling in a direct line from/to a position on the map (without a travel node connection)
 	DIRECT_CONNECTION_NODE_SEARCH_DISTANCE = 2000 #1200	# Default distance allowed to pathfind in a direct line from a (start/target) map point to a travel node (if no valid are found, it is expanded)
 	DIRECT_CONNECTION_MAP_MAX_DISTANCE = 500 #200		# Maximum distance allowed to pathfind in a direct line between start and target map points directly
+}
+
+NGraphics = {
+	ROUTE_PAVED_ROAD_TECH = "paved_roads"
+	ROUTE_PAVED_ROAD_MIN_INFRASTRUCTURE = 70.0
 }

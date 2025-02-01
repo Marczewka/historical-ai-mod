@@ -2337,17 +2337,6 @@ ai_strategy_default = {
 				}
 			}
 			add = 1.0
-		}		
-		
-		# Schleswig-Holstein question
-		if = {
-			limit = { 
-				wants_to_solve_schleswig_holstein = yes
-				scope:target_country = { 
-					is_oppressor_of_schleswig_holstein = yes
-				}
-			}
-			add = 0.5
 		}				
 
 		#Italian Nightmare

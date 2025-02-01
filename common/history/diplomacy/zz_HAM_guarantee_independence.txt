@@ -1,0 +1,8 @@
+﻿DIPLOMACY = {
+	c:USA ?= {
+		remove_diplomatic_pact = {
+			country = c:LIB 
+			type = guarantee_independence
+		}
+	}	
+}
