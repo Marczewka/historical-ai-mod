@@ -26,6 +26,28 @@
         s:STATE_KHIVA = {
             save_scope_as = khiva_scope
         }
+        s:STATE_BALKH = {
+            save_scope_as = balkh_scope
+        }
+        s:STATE_CENTRAL_HIGHLANDS = {
+            save_scope_as = central_highlands_scope
+        }
+        s:STATE_KANDAHAR = {
+            save_scope_as = kandahar_scope
+        }
+        s:STATE_NORTHERN_BALUCHISTAN = {
+            save_scope_as = northern_baluchistan_scope
+        }
+        s:STATE_TURKMENIA = {
+            save_scope_as = turkmenia_state_scope
+        }
+        s:STATE_FERGANA = {
+            save_scope_as = fergana_scope
+        }
+        s:STATE_TAJIKISTAN = {
+            save_scope_as = tajikistan_scope
+        }
+        
         c:PER ?= {
             save_scope_as = persia_scope
         }
