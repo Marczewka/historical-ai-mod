@@ -5993,8 +5993,22 @@ ai_strategy_default = {
 						}
 					}
 				}
-				add = 300
-			}			
+				add = 100
+			}		
+			
+			# Ottomans should want Syria back
+			if = {
+				limit = {
+					has_journal_entry = je_sick_man_syria
+					scope:enemy_country = {
+						OR = {
+							owns_entire_state_region = STATE_HEDJAZ
+						}
+					}
+				}
+				add = 100
+			}
+
 
 			min = 0
 			max = 100			

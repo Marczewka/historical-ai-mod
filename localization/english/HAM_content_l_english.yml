@@ -5,6 +5,7 @@ je_risorgimento_italian_unification_button_desc: "Through diplomacy and mutual a
 buyers_unfriendly_nation_with_interest_in_alaska_tt: "A hostile [concept_country] toward our buyer with a [concept_rank] equal or higher than theirs has an [concept_interest] in the #bold Pacific Coast#! [concept_strategic_region]"
 italian_minor_dont_annex_tt: "Hasn't rejected to annex in the past #bold five years#!"
 has_formed_ethiopia_tt: "Has formed the nation of #v $ETH$#!"
+manifested_destiny_tt: "Has #bold manifested destiny#."
 
  ai_strategy_unify_afghanistan:0 "Unify Afghanistan"
  ai_strategy_unify_afghanistan_desc:0 "[COUNTRY.GetName] wants to unite the Afghan principalities under their banner."

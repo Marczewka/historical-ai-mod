@@ -9,7 +9,6 @@
 	possible = {
 		has_technology_researched = nationalism
 		has_interest_marker_in_region = region_pacific_coast
-		NOT = { has_journal_entry = je_texas_usa }
 	}
 
 	when_taken = {
@@ -241,6 +240,21 @@
 	}
 
 	ai_chance = {
-		base = 10
+		base = 1
+		modifier = {
+			trigger = { 
+				OR = {
+					ig:ig_landowners = {
+						is_powerful = yes
+						is_in_government = yes
+					}
+					ig:ig_rural_folk = {
+						is_powerful = yes
+						is_in_government = yes
+					}
+				}
+			}
+			add = 100
+		}
 	}
 }

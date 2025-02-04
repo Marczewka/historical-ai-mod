@@ -8,7 +8,10 @@
 		is_at_war = no
 		exists = c:USA
 		c:USA = {
-			has_technology_researched = nationalism
+			custom_tooltip = {
+				text = manifested_destiny_tt
+				has_variable = manifested_destiny
+			}
 			relations:root >= relations_threshold:cordial
 		}
 	}
@@ -34,7 +37,10 @@ je_texas_usa = {
 	group = je_group_historical_content
 
 	complete = {
-		has_technology_researched = nationalism
+		custom_tooltip = {
+			text = manifested_destiny_tt
+			has_variable = manifested_destiny
+		}
 		exists = c:TEX
 		c:TEX = {
 			relations:root >= relations_threshold:cordial
