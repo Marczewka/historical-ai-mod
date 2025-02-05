@@ -756,7 +756,7 @@ labor_movement = {
 	
 	modifier = {
 		state_expected_sol_from_literacy = 1
-		country_institution_workplace_safety_max_investment_add = 3
+		country_institution_workplace_safety_max_investment_add = 1
 		country_agitator_slots_add = 1
 	}
 	
@@ -822,10 +822,6 @@ human_rights = {
 	era = era_3
 	texture = "gfx/interface/icons/invention_icons/human_rights.dds"
 	category = society
-	
-	modifier = {
-		country_institution_social_security_max_investment_add = 1
-	}
 	
 	unlocking_technologies = {
 		egalitarianism
@@ -1022,7 +1018,8 @@ socialism = {
 	
 	modifier = {
 		state_expected_sol_from_literacy = 1
-		country_institution_workplace_safety_max_investment_add = 2
+		country_institution_workplace_safety_max_investment_add = 1
+		country_institution_social_security_max_investment_add = 1
 	}
 
 	on_researched = {
