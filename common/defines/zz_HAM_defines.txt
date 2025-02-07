@@ -7,6 +7,10 @@
 	MOVEMENT_RADICALISM_FROM_LOYALIST_SUPPORTERS = -1.0 # -0.75 # Scales against fraction of loyalists among movement supporters
 	MOVEMENT_RADICALISM_FROM_SUPPRESSION = 0.0 # Suppressed movements become this much more radical 
 	MOVEMENT_RADICALISM_FROM_BOLSTERING = 0.0 # Bolstered movements become this much less radical 
+
+	TURMOIL_STATE_EFFECTS_THRESHOLD = 0.15				# How much turmoil a state needs to have before it gets any state-wide effects
+	TURMOIL_STATE_HIGH_EFFECTS_THRESHOLD = 0.33			# Above this turmoil, add a harsher modifier
+	TURMOIL_STATE_EXTREME_EFFECTS_THRESHOLD = 0.66		# Above this turmoil, add the harshest modifier
 }
 
 NEconomy = {
@@ -182,48 +186,6 @@ NDiplomacy = {
 }
 
 NPops = {
-
-	##### MIGRATION #####
-
-	## General ##
-	MIGRATION_MIN_STATE_POPS = 20000											# A state with less population than this will not get emigration
-	MIGRATION_STATE_POPULATION_THRESHOLD = 100000								# States with less pops than this have reduced market emigration numbers to avoid total depopulation
-	MIGRATION_MAX_PER_STATE_BASE = 250 #500											# No more than this amount of people can move from or to a state in a single week (base)
-	MIGRATION_MAX_PER_STATE_INFRASTRUCTURE = 5									# No more than this amount of people can move from or to a state in a single week (scales with infrastructure)
-	MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION = 0.005						# Max emigration per week is clamped to this fraction of a state's population
-	MIGRATION_MAX_PER_STATE_UNEMPLOYMENT_ORIGIN_FRACTION = 0.05					# The amount of unemployed workers in a state * this value is added to how many people can move from it (after clamping from MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION)
-	MIGRATION_MAX_PER_STATE_UNEMPLOYMENT_TARGET_FRACTION = 0.05					# The amount of unemployed workers in a state * this value is removed from how many people can move to it (after clamping from MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION)
-
-	## Mass Migrations ##
-	# Mass Migration Setup #
-	MASS_MIGRATION_ORIGIN_MIN_TURMOIL = 0.20 #0.15								# Must have at least this much turmoil in cultural homelands to create a migration target
-	MASS_MIGRATION_ORIGIN_MIN_EMIGRANTS = 100000								# A country must have at least this many possible migrants to trigger a mass migration
-	MASS_MIGRATION_TARGET_MAX_TURMOIL = 0.30									# Must have this or less turmoil among the culture for a country to be picked as a mass migration target
-	MASS_MIGRATION_TARGET_MIN_ARABLE_LAND = 20									# A state must have at least this much arable land to be a mass migration target
-	MASS_MIGRATION_STATE_MIN_MARKET_ACCESS = 0.7								# A state must have at least this much market access to their market to be a mass migration target or origin state
-	MASS_MIGRATION_SPAWN_CHANCE = 2 											# Per week for each potential mass migration, scales with turmoil (1 = 1%)
-	MASS_MIGRATION_SPAWN_CHANCE_STRUGGLING_FACTOR = 0.2 						# Chance increases by this for each point of SoL below 10 for a culture in a country
-	MASS_MIGRATION_SPAWN_CHANCE_STARVING_FACTOR = 1 							# Chance increases by this for each point of SoL below 5 for a culture in a country (added on top of struggling factor)
-	MASS_MIGRATION_TARGET_COUNTRY_RANDOM_FACTOR = 0.5							# The higher this is, the more random the selection of mass migration country targets will be
-	MASS_MIGRATION_TARGET_STATE_RANDOM_FACTOR = 0.5								# The higher this is, the more random the selection of mass migration state targets in the target country will be
-	MASS_MIGRATION_DURATION_MONTHS = 12											# How long does a mass migration last in months
-	MASS_MIGRATION_COOLDOWN_MONTHS = 60 #48											# How many months before the same culture can mass migrate from a country again
-	MASS_MIGRATION_NUM_TARGET_STATES_FOR_NO_PENALTY = 4							# Countries with at least this number of possible target states do not receive any penalty to their mass migration target score
-	MASS_MIGRATION_FEW_TARGET_STATES_PENALTY = 0.2								# Mass migration target score is reduced by a fraction of itself equal to this times number of possible target states less than MASS_MIGRATION_NUM_TARGET_STATES_FOR_NO_PENALTY. Or Score = Score - Score * this * PossibleStatesDiff
-
-	# Mass Migration Processing #
-	MASS_MIGRATION_PER_WEEK_FACTOR = 10											#
-	MASS_MIGRATION_PER_WEEK_PER_TOTAL_POPULATION = 100000						#
-	MASS_MIGRATION_MIN_DIFFERENCE_IN_MIGRATION_ATTRACTION_TO_MOVE = 10			#
-	# The below factors are applied *after* migration pull threshold checks, so they only impact how large a share of migration a state gets
-	MIGRATION_PULL_MULT_FROM_MASS_MIGRATION_TARGET = 1.5						# Migration pull multiplied by this from target state being a mass migration target
-	MIGRATION_PULL_MULT_FROM_MASS_MIGRATION_TARGET_ADJACENCY = 1.1				# Migration pull multiplied by this from target state being next to a mass migration target
-	MIGRATION_MAX_PER_STATE_MASS_EMIGRATION_MULT = 3.0							# Weekly emigration caps are multiplied by this amount by this for mass migrations (after clamping from MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION)
-	MIGRATION_MAX_PER_STATE_MASS_IMMIGRATION_MULT = 5.0						# Weekly immigration caps are multiplied by this amount by this for mass migrations (after clamping from MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION)
-	MASS_MIGRATION_NEIGHBORING_TARGET_STATE_LIMIT_FRACTION = 0.5				# Fraction of the limit a neighboring state gets compared to the main target state in a mass migration 
-
-	##### End Migration #####
-
 	COLONIZATION_RIGHTS_GROWTH_MULTIPLIER = 2.0			# Colonial growth AND max colonial growth are multiplied by this if you have colonization rights
 	COLONIAL_GROWTH_BASE_FACTOR = 0.00001				# Colonial growth generated by a state is this amount per 1000 population, multiplied by the Colonial Growth modifier in the state
 	MIN_BASE_COLONIAL_GROWTH = 0.00001 #0.005					# Country base colonial growth from population cannot be lower than this
@@ -329,6 +291,15 @@ NWar = {
 	OCCUPATION_STATE_DEFENSIVE_BATTLE_VICTORY_SCORE = 50 # How many occupation "points" each country receives after winning a defensive battle
 	OCCUPATION_STATE_CLEAR_OCCUPATION_FRACTION = 0.5 # Fraction of occupation score dedicated to clear occupation from your own States (if any).
 	WAR_EXHAUSTION_TURMOIL_FACTOR = 0.5 #2.0 # At 100% turmoil
+
+	STATE_CONQUEST_HOMELAND_AND_CLAIM_RADICALIZATION = 0.01 # 0.1
+	STATE_CONQUEST_HOMELAND_AND_CLAIM_DEMILITARIZATION = 1 # 0.25
+	STATE_CONQUEST_HOMELAND_OR_CLAIM_RADICALIZATION = 0.05 # 0.3
+	STATE_CONQUEST_HOMELAND_OR_CLAIM_DEMILITARIZATION = 1 # 0.5
+	STATE_CONQUEST_DEFAULT_RADICALIZATION = 0.1 # 0.5
+	STATE_CONQUEST_DEFAULT_DEMILITARIZATION = 1 # 0.75
+	STATE_PEACEFUL_ANNEXATION_RADICALIZATION_FACTOR = 0.25	# If the state was annexed due to an accepted diplomatic demand by the overlord, multiply by this
+	STATE_CONQUEST_KEEP_ALL = 0.0
 }
 
 NTravelNetwork = {

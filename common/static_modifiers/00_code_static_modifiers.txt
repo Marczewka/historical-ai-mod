@@ -184,14 +184,14 @@ incorporated_state = {
 
 unincorporated_state = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
-	# state_infrastructure_mult = -0.25
+	state_infrastructure_mult = -0.25
 	state_conscription_rate_mult = -0.5
 	# state_expected_sol_mult = -0.33
 	state_pop_pol_str_mult = -0.50
-	# building_group_bg_manufacturing_throughput_add = -0.1
-	# building_group_bg_government_throughput_add = -0.1
-	# building_group_bg_military_throughput_add = -0.1		
-	# state_market_access_price_impact = -0.05 # -0.1
+	building_group_bg_manufacturing_throughput_add = -0.1
+	building_group_bg_government_throughput_add = -0.1
+	building_group_bg_military_throughput_add = -0.1		
+	state_market_access_price_impact = -0.05 # -0.1
 	building_subsistence_farms_throughput_add = 0.1
 	state_unincorporated_starting_wages_mult = -0.20
 	building_unincorporated_subsistence_output_mult = -0.20
@@ -646,25 +646,28 @@ insufficient_tax_capacity = {
 # Applied if state is above 'in turmoil' threshold
 state_turmoil = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
-	state_tax_waste_add = 0.25
+	state_tax_waste_add = 0.15
 	state_migration_pull_mult = -0.15
-	state_construction_mult = -0.33
+	state_construction_mult = -0.15
+	state_mortality_turmoil_mult = 0.005
 }
 
 # Applied if state is above 'high turmoil' threshold
 state_turmoil_high = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
-	state_tax_waste_add = 0.5
-	state_migration_pull_mult = -0.25
-	state_construction_mult = -0.5
+	state_tax_waste_add = 0.33
+	state_migration_pull_mult = -0.33
+	state_construction_mult = -0.33
+	state_mortality_turmoil_mult = 0.01
 }
 
 # Applied if state is above 'extreme turmoil' threshold
 state_turmoil_extreme = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
-	state_tax_waste_add = 0.75
-	state_migration_pull_mult = -0.5
-	state_construction_mult = -0.75
+	state_tax_waste_add = 0.66
+	state_migration_pull_mult = -0.66
+	state_construction_mult = -0.66
+	state_mortality_turmoil_mult = 0.02
 }
 
 # Scales by the amount of debt owed to government owned buildings (ie; government self owned debt)
