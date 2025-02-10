@@ -3139,7 +3139,7 @@ calculate_communism_progress = {
 		limit = {
 			has_law = law_type:law_no_police
 		}
-		change_variable = { name = temp_policing_var_contribution add = 0.3 }
+		change_variable = { name = temp_policing_var_contribution add = 0.0 }
 	}
 	else_if = {
 		limit = {
@@ -3151,13 +3151,13 @@ calculate_communism_progress = {
 		limit = {
 			has_law = law_type:law_dedicated_police
 		}
-		change_variable = { name = temp_policing_var_contribution multiply = -0.3 }
+		change_variable = { name = temp_policing_var_contribution multiply = -0.1 }
 	}
 	else_if = {
 		limit = {
 			has_law = law_type:law_militarized_police
 		}
-		change_variable = { name = temp_policing_var_contribution multiply = -0.5 }
+		change_variable = { name = temp_policing_var_contribution multiply = -0.1 }
 	}
 	
 	# Internal Affairs
@@ -3166,25 +3166,25 @@ calculate_communism_progress = {
 		limit = {
 			has_law = law_type:law_no_home_affairs
 		}
-		change_variable = { name = temp_ha_var_contribution add = 0.3 }
+		change_variable = { name = temp_ha_var_contribution add = 0.0 }
 	}
 	else_if = {
 		limit = {
 			has_law = law_type:law_guaranteed_liberties
 		}
-		change_variable = { name = temp_ha_var_contribution multiply = -0.1 }
+		change_variable = { name = temp_ha_var_contribution multiply = 0.0 }
 	}
 	else_if = {
 		limit = {
 			has_law = law_type:law_national_guard
 		}
-		change_variable = { name = temp_ha_var_contribution multiply = -0.3 }
+		change_variable = { name = temp_ha_var_contribution multiply = -0.1 }
 	}
 	else_if = {
 		limit = {
 			has_law = law_type:law_secret_police
 		}
-		change_variable = { name = temp_ha_var_contribution multiply = -0.5 }
+		change_variable = { name = temp_ha_var_contribution multiply = -0.1 }
 	}
 	if = {
 		limit = {

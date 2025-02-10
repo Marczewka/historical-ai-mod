@@ -74,8 +74,28 @@ italian_unification.2 = {
 
 	trigger = {
 		has_variable = risorgimento_unifying_stance
-		any_neighbouring_state = {
-			owner = {
+		any_country = {
+			NOT = { this = root }
+			OR = {
+				country_has_primary_culture = cu:north_italian
+				country_has_primary_culture = cu:south_italian
+			}
+			OR = {
+				is_subject = no
+				is_subject_of = ROOT
+			}
+			this.gdp < root.gdp
+			country_rank <= rank_value:minor_power
+			relations:root >= relations_threshold:amicable
+			NOT = { has_variable = italian_minor_dont_annex }
+			has_variable = risorgimento_unifying_stance
+		}
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				NOT = { this = root }
 				OR = {
 					country_has_primary_culture = cu:north_italian
 					country_has_primary_culture = cu:south_italian
@@ -84,44 +104,13 @@ italian_unification.2 = {
 					is_subject = no
 					is_subject_of = ROOT
 				}
-				OR = {
-					this.gdp < root.gdp
-					root = { is_player = yes }
-				}
+				this.gdp < root.gdp
 				country_rank <= rank_value:minor_power
 				relations:root >= relations_threshold:amicable
 				NOT = { has_variable = italian_minor_dont_annex }
 				has_variable = risorgimento_unifying_stance
 			}
-		}
-	}
-
-	immediate = {
-		random_neighbouring_state = {
-			limit = {
-				owner = {
-					OR = {
-						country_has_primary_culture = cu:north_italian
-						country_has_primary_culture = cu:south_italian
-					}
-					OR = {
-						is_subject = no
-						is_subject_of = ROOT
-					}
-					OR = {
-						this.gdp < root.gdp
-						root = { is_player = yes }
-					}
-					country_rank <= rank_value:minor_power
-					relations:root >= relations_threshold:amicable
-					is_player = no
-					NOT = { has_variable = italian_minor_dont_annex }
-					has_variable = risorgimento_unifying_stance
-				}
-			}
-			owner = {
-				save_scope_as = italian_annex_country
-			}
+			save_scope_as = italian_annex_country
 		}
 	}
 
@@ -213,7 +202,29 @@ italian_unification.4 = {
 	trigger = {
 		NOT = { has_variable = italian_unification_5_happened_here }
 		exists = var:italian_states_radicals_total_bar
-		var:italian_states_radicals_total_bar >= 25
+		OR = {
+			var:italian_states_radicals_total_bar >= 25
+			AND = {
+				any_political_movement = {
+					OR = {
+						is_political_movement_type = movement_radical
+						is_political_movement_type = movement_liberal
+					}
+					is_insurrectionary = yes
+				}
+				OR = {
+					any_civil_war = {
+						is_civil_war_type = revolution
+						civil_war_progress >= 0.75
+					}
+					AND = {
+						capital = {
+							turmoil >= 0.25
+						}
+					}
+				}
+			}
+		}
 		NOR = {
 			has_revolution = yes
 			is_revolutionary = yes

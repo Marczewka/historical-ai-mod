@@ -21,6 +21,16 @@
 		}
 		if = {
 			limit = {
+				any_country = {
+					country_has_primary_culture = culture
+				}
+			}
+			multiply = {
+				value = 2
+			}
+		}
+		if = {
+			limit = {
 				owner ?= {
 					has_variable = failed_tanzimat
 				}
@@ -393,6 +403,19 @@
 			multiply = {
 				value = 2.0
 				desc = "SPRINGTIME_OF_THE_PEOPLES_UNDERWAY"
+			}
+		}
+
+		if = {
+			limit = {
+				any_country = {
+					country_has_primary_culture = culture
+					is_subject = no
+				}
+			}
+			multiply = {
+				value = 2.0
+				desc = "INDEPENDENT_BRETHREN_NATION"
 			}
 		}
 	}	

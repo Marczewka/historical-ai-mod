@@ -6,7 +6,7 @@
 		}
 		AND = {
 			has_journal_entry = je_german_unification_idea
-			scope:target_country = { has_journal_entry = je_schleswig_holstein_question_denmark }
+			c:DEN = { has_journal_entry = je_schleswig_holstein_question_denmark }
 		}
 	}
 	country_rank >= rank_value:great_power

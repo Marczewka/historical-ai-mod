@@ -1,5 +1,7 @@
 ﻿l_english:
 
+modifier_risorgimento: "Risorgimento"
+austria_italian_radicals: "Risorgimento"
 je_risorgimento_italian_unification_button: "Unite with another Italian state"
 je_risorgimento_italian_unification_button_desc: "Through diplomacy and mutual aims, we are finally able to unify with another Italian state."
 buyers_unfriendly_nation_with_interest_in_alaska_tt: "A hostile [concept_country] toward our buyer with a [concept_rank] equal or higher than theirs has an [concept_interest] in the #bold Pacific Coast#! [concept_strategic_region]"

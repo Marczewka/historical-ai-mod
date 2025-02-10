@@ -9,12 +9,12 @@ GLOBAL = {
 	}
 
 	# States
-	s:STATE_KENYA = {
-		set_owner_of_provinces = {
-			country = c:OMA
-			provinces = { xA02190 x5C1ADA x6B52F1 }
-		}
-	}
+	# s:STATE_KENYA = {
+	# 	set_owner_of_provinces = {
+	# 		country = c:OMA
+	# 		provinces = { xA02190 x5C1ADA x6B52F1 }
+	# 	}
+	# }
 	every_country = {
 		limit = {
 			OR = {

@@ -2,9 +2,9 @@
 	MOVEMENT_IMMEDIATE_RADICALISM_FROM_ENACTMENT = 0.5 # This multiplier of target radicalism impact from law enactment is applied immediately on start of enactment
 	MOVEMENT_IMMEDIATE_RADICALISM_FROM_CANCELLATION = -0.5 # This multiplierof target radicalism impact from law enactment is applied immediately on cancellation of enactment
 	MOVEMENT_RADICALISM_FROM_ACTIVE_LAW_STANCE = -0.05 # Multiplied by a movement's stance on each active law (positive stance = negative radicalism)
-	MOVEMENT_RADICALISM_FROM_ENACTED_LAW_STANCE = -0.25 # Multiplied by a movement's comparative stance on currently or recently enacted law (positive stance = negative radicalism)
-	MOVEMENT_RADICALISM_FROM_RADICAL_SUPPORTERS = 2.0 # 1.0 # Scales against fraction of radicals among movement supporters
-	MOVEMENT_RADICALISM_FROM_LOYALIST_SUPPORTERS = -1.0 # -0.75 # Scales against fraction of loyalists among movement supporters
+	MOVEMENT_RADICALISM_FROM_ENACTED_LAW_STANCE = -0.2 # -0.25 # Multiplied by a movement's comparative stance on currently or recently enacted law (positive stance = negative radicalism)
+	MOVEMENT_RADICALISM_FROM_RADICAL_SUPPORTERS = 1.5 # 1.0 # Scales against fraction of radicals among movement supporters
+	MOVEMENT_RADICALISM_FROM_LOYALIST_SUPPORTERS = -0.75 # Scales against fraction of loyalists among movement supporters
 	MOVEMENT_RADICALISM_FROM_SUPPRESSION = 0.0 # Suppressed movements become this much more radical 
 	MOVEMENT_RADICALISM_FROM_BOLSTERING = 0.0 # Bolstered movements become this much less radical 
 
@@ -293,11 +293,11 @@ NWar = {
 	WAR_EXHAUSTION_TURMOIL_FACTOR = 0.5 #2.0 # At 100% turmoil
 
 	STATE_CONQUEST_HOMELAND_AND_CLAIM_RADICALIZATION = 0.01 # 0.1
-	STATE_CONQUEST_HOMELAND_AND_CLAIM_DEMILITARIZATION = 1 # 0.25
+	STATE_CONQUEST_HOMELAND_AND_CLAIM_DEMILITARIZATION = 0.99 # 0.25
 	STATE_CONQUEST_HOMELAND_OR_CLAIM_RADICALIZATION = 0.05 # 0.3
-	STATE_CONQUEST_HOMELAND_OR_CLAIM_DEMILITARIZATION = 1 # 0.5
+	STATE_CONQUEST_HOMELAND_OR_CLAIM_DEMILITARIZATION = 0.99 # 0.5
 	STATE_CONQUEST_DEFAULT_RADICALIZATION = 0.1 # 0.5
-	STATE_CONQUEST_DEFAULT_DEMILITARIZATION = 1 # 0.75
+	STATE_CONQUEST_DEFAULT_DEMILITARIZATION = 0.99 # 0.75
 	STATE_PEACEFUL_ANNEXATION_RADICALIZATION_FACTOR = 0.25	# If the state was annexed due to an accepted diplomatic demand by the overlord, multiply by this
 	STATE_CONQUEST_KEEP_ALL = 0.0
 }
