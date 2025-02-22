@@ -1,0 +1,12 @@
+#If the capital of a country gets merged then redefine the country with the new capital here
+
+USA = {
+	color = { 66  94  193 }
+	
+	country_type = colonial
+	
+	tier = empire
+	
+	cultures = { yankee dixie }
+	capital = STATE_MARYLAND
+}
