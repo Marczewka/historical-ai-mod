@@ -1,4 +1,4 @@
-#If the capital of a country gets merged then redefine the country with the new capital here
+﻿#If the capital of a country gets merged then redefine the country with the new capital here
 
 USA = {
 	color = { 66  94  193 }

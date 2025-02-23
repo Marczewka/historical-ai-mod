@@ -1,4 +1,4 @@
-#Change the count numbers to reflect the amount of states that have been merged
+﻿#Change the count numbers to reflect the amount of states that have been merged
 #TODO: Make the merged states specifically count for 3 stars
 @usa_canton_width = 0.5
 @usa_canton_height = @[ 1 / 13 * 7 ]

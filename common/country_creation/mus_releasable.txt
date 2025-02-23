@@ -1,4 +1,4 @@
-#If the states being merged are part of any releasables then redefine the releasables here
+﻿#If the states being merged are part of any releasables then redefine the releasables here
 
 # New England
 NEN = {

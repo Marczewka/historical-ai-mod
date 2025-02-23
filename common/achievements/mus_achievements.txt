@@ -1,4 +1,4 @@
-#Adjust the count to reflect the amount of states that have been merged
+﻿#Adjust the count to reflect the amount of states that have been merged
 
 star_swarmed_banner = {
     possible = {

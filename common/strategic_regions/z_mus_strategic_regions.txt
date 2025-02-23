@@ -1,4 +1,4 @@
-#Update regions for merged states
+﻿#Update regions for merged states
 region_new_england = {
 	capital_province = x8F9450
 	map_color = { 0 0.63 0.94 }

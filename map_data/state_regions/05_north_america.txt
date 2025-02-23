@@ -658,7 +658,6 @@ STATE_MARYLAND = {
     }
     naval_exit_id = 3067
 }
-
 # STATE_DELAWARE = {
 #     id = 1023
 #     subsistence_building = "building_subsistence_farms"
@@ -734,7 +733,6 @@ STATE_ILLINOIS = {
         bg_logging = 11
     }
 }
-
 # STATE_RHODE_ISLAND = {
 #     id = 300
 #     subsistence_building = "building_subsistence_fishing_villages"
@@ -752,7 +750,6 @@ STATE_ILLINOIS = {
 #     }
 #     naval_exit_id = 3067
 # }
-
 # STATE_CONNECTICUT = {
 #     id = 301
 #     subsistence_building = "building_subsistence_fishing_villages"
@@ -794,7 +791,6 @@ STATE_MASSACHUSETTS = {
     }
     naval_exit_id = 3067
 }
-
 # STATE_NEW_HAMPSHIRE = {
 #     id = 303
 #     subsistence_building = "building_subsistence_farms"
@@ -814,7 +810,6 @@ STATE_MASSACHUSETTS = {
 #     }
 #     naval_exit_id = 3017
 # }
-
 # STATE_VERMONT = {
 #     id = 304
 #     subsistence_building = "building_subsistence_farms"
