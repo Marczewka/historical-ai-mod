@@ -31,7 +31,13 @@
 	}
 		
 	possible = {
-		has_technology_researched = nationalism
+		any_country = {
+			OR = {
+				country_has_primary_culture = cu:north_italian
+				country_has_primary_culture = cu:south_italian				
+			}
+			has_technology_researched = nationalism
+		}
 		NOR = {
 			country_tier = hegemony
 			country_tier = empire

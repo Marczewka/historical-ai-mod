@@ -289,7 +289,13 @@ has_je_conquest_reason = {
 				country_has_primary_culture = cu:korean
 				is_revolutionary = no
 			}
-		}		
+		}	
+		
+		AND = {
+			has_journal_entry = je_risorgimento
+			has_variable = risorgimento_unifying_stance
+			$TARGET$ = { has_variable = risorgimento_anti_unifying_stance }
+		}
 	}
 }
 

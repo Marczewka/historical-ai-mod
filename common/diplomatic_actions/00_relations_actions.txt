@@ -292,6 +292,15 @@ damage_relations = {
 			}	
 
 			if = {
+				limit = {
+					OR = {
+						has_je_conquest_reason = { TARGET = scope:target_country }
+					}
+				}
+				add = 50
+			}
+
+			if = {
 				limit = {	
 					OR = {
 						is_subject_of = scope:target_country

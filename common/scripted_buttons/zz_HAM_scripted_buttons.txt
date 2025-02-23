@@ -158,6 +158,7 @@ je_risorgimento_austrian_radicals_button = {
 	}
 
 	possible = {
+		has_technology_researched = nationalism
 		custom_tooltip = {
 			text = risorgimento_unifying_stance_tt
 			has_variable = risorgimento_unifying_stance
@@ -329,6 +330,7 @@ je_risorgimento_italian_radicals_button = {
 	}
 
 	possible = {
+		has_technology_researched = nationalism
 		custom_tooltip = {
 			text = risorgimento_unifying_stance_tt
 			has_variable = risorgimento_unifying_stance
@@ -458,6 +460,7 @@ je_risorgimento_italian_unification_button = {
 	}
 
 	possible = {
+		has_technology_researched = nationalism
 		custom_tooltip = {
 			text = risorgimento_unifying_stance_tt
 			has_variable = risorgimento_unifying_stance

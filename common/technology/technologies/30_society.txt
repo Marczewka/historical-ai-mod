@@ -462,50 +462,6 @@ modern_sewerage = {
 	}
 }
 
-quinine = {
-	# Permits colonization of state regions with the Malaria trait
-	era = era_2
-	texture = "gfx/interface/icons/invention_icons/quinine.dds"
-	category = society
-
-	modifier = {
-		country_institution_colonial_affairs_max_investment_add = 1
-	}
-	
-	unlocking_technologies = {
-		colonization
-		pharmaceuticals
-	}
-	
-	ai_weight = {
-		value = 1
-		
-		# Important for colonizers
-		if = {
-			limit = { 
-				navy_size >= 25
-				vtm_country_is_recognized_trigger = yes
-			}
-			add = 1
-		}
-		if = {
-			limit = { 
-				has_strategy = ai_strategy_colonial_expansion
-			}
-			add = 1
-
-			if = {
-				limit = {
-					any_scope_state = {
-						state_is_in_africa = yes
-					}
-				}
-				add = 3
-			}
-		}
-	}
-}
-
 organized_sports = {
 	era = era_2
 	texture = "gfx/interface/icons/invention_icons/organized_sports.dds"
@@ -712,18 +668,6 @@ nationalism = {
 				OR = {
 					country_has_primary_culture = cu:north_german
 					country_has_primary_culture = cu:south_german
-					country_has_primary_culture = cu:north_italian
-					country_has_primary_culture = cu:south_italian
-				}				
-			}
-			add = 2
-		}	
-
-		if = {
-			limit = { 
-				OR = {
-					country_has_primary_culture = cu:north_german
-					country_has_primary_culture = cu:south_german
 				}		
 				country_rank >= rank_value:great_power		
 			}
@@ -736,11 +680,9 @@ nationalism = {
 					country_has_primary_culture = cu:north_italian
 					country_has_primary_culture = cu:south_italian
 				}
-				any_country = {
-					has_journal_entry = je_risorgimento
-				}
+				has_variable = risorgimento_unifying_stance
 			}
-			multiply = 2
+			add = 3
 		}
 	}
 }
@@ -933,6 +875,50 @@ steel_frame_buildings = {
 	
 	ai_weight = {
 		value = 2 # Important in general
+	}
+}
+
+quinine = {
+	# Permits colonization of state regions with the Malaria trait
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/quinine.dds"
+	category = society
+
+	modifier = {
+		country_institution_colonial_affairs_max_investment_add = 1
+	}
+	
+	unlocking_technologies = {
+		colonization
+		pharmaceuticals
+	}
+	
+	ai_weight = {
+		value = 1
+		
+		# Important for colonizers
+		if = {
+			limit = { 
+				navy_size >= 25
+				vtm_country_is_recognized_trigger = yes
+			}
+			add = 1
+		}
+		if = {
+			limit = { 
+				has_strategy = ai_strategy_colonial_expansion
+			}
+			add = 1
+
+			if = {
+				limit = {
+					any_scope_state = {
+						state_is_in_africa = yes
+					}
+				}
+				add = 3
+			}
+		}
 	}
 }
 

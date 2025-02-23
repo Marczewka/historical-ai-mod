@@ -73,6 +73,7 @@ italian_unification.2 = {
 	duration = 1
 
 	trigger = {
+		has_technology_researched = nationalism
 		has_variable = risorgimento_unifying_stance
 		any_country = {
 			NOT = { this = root }
