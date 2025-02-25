@@ -79,9 +79,10 @@ law_frontier_colonization = {
 	}
 
 	modifier = {
+		country_institution_colonial_affairs_max_investment_add = 1
 		state_migration_pull_unincorporated_mult = 0.5
 	}
-	
+
 	institution = institution_colonial_affairs
 
 	institution_modifier = {

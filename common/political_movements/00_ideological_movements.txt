@@ -338,6 +338,13 @@
 	}	
 	
 	additional_radicalism_factors = {
+		owner ?= {
+			add = {
+				value = country_turmoil
+				multiply = 0.25
+				desc = "COUNTRY_TURMOIL"
+			}	
+		}
 		if = {
 			limit = {
 				owner.ruler ?= {
@@ -656,6 +663,13 @@ movement_pro_slavery = {
 	}
 	
 	additional_radicalism_factors = {
+		owner ?= {
+			add = {
+				value = country_turmoil
+				multiply = 0.25
+				desc = "COUNTRY_TURMOIL"
+			}	
+		}
 		if = {
 			limit = {
 				owner.ruler ?= { has_ideology = ideology:ideology_abolitionist }
@@ -1044,6 +1058,13 @@ movement_royalist_absolutist = {
 	
 	additional_radicalism_factors = {
 		owner ?= {
+			add = {
+				value = country_turmoil
+				multiply = 0.25
+				desc = "COUNTRY_TURMOIL"
+			}	
+		}
+		owner ?= {
 			if = {
 				limit = {		
 					has_law = law_type:law_monarchy
@@ -1343,6 +1364,13 @@ movement_royalist_constitutional = {
 	}	
 	
 	additional_radicalism_factors = {
+		owner ?= {
+			add = {
+				value = country_turmoil
+				multiply = 0.25
+				desc = "COUNTRY_TURMOIL"
+			}	
+		}
 		owner ?= {
 			if = {
 				limit = {		
@@ -1671,6 +1699,13 @@ movement_labor = { # Explicitly non-socialist labour movement
 	}	
 	
 	additional_radicalism_factors = {
+		owner ?= {
+			add = {
+				value = country_turmoil
+				multiply = 0.25
+				desc = "COUNTRY_TURMOIL"
+			}	
+		}
 		owner = {
 			if = {
 				limit = { has_institution = institution_social_security }
@@ -2012,6 +2047,13 @@ movement_socialist = {
 	}	
 	
 	additional_radicalism_factors = {
+		owner ?= {
+			add = {
+				value = country_turmoil
+				multiply = 0.25
+				desc = "COUNTRY_TURMOIL"
+			}	
+		}
 		owner = {
 			if = {
 				limit = { has_institution = institution_social_security }
@@ -2051,7 +2093,7 @@ movement_socialist = {
 				desc = "IS_BELOW_15_SOL"
 				value = 15
 				subtract = average_sol
-				multiply = 0.03
+				multiply = 0.05 # 0.03
 				min = 0
 			}
 		}
@@ -2317,12 +2359,19 @@ movement_anarchist = {
 	}	
 	
 	additional_radicalism_factors = {
+		owner ?= {
+			add = {
+				value = country_turmoil
+				multiply = 0.25
+				desc = "COUNTRY_TURMOIL"
+			}	
+		}
 		owner = {
 			add = { 
 				desc = "IS_BELOW_15_SOL"
 				value = 15
 				subtract = average_sol
-				multiply = 0.025
+				multiply = 0.03 # 0.025
 				min = 0
 			}
 		}
@@ -2563,6 +2612,13 @@ movement_communist = {
 	}	
 	
 	additional_radicalism_factors = {
+		owner ?= {
+			add = {
+				value = country_turmoil
+				multiply = 0.25
+				desc = "COUNTRY_TURMOIL"
+			}	
+		}
 		owner = {
 			if = {
 				limit = { has_institution = institution_workplace_safety }
@@ -2893,6 +2949,13 @@ movement_fascist = {
 	}	
 	
 	additional_radicalism_factors = {
+		owner ?= {
+			add = {
+				value = country_turmoil
+				multiply = 0.25
+				desc = "COUNTRY_TURMOIL"
+			}	
+		}
 		owner = {
 			if = {
 				limit = {
@@ -3116,6 +3179,13 @@ movement_corporatist = {
 	}	
 	
 	additional_radicalism_factors = {
+		owner ?= {
+			add = {
+				value = country_turmoil
+				multiply = 0.25
+				desc = "COUNTRY_TURMOIL"
+			}	
+		}
 		owner = {
 			if = {
 				limit = { has_institution = institution_schools }
@@ -3418,7 +3488,23 @@ movement_liberal = {
 	}	
 	
 	additional_radicalism_factors = {
+		owner ?= {
+			add = {
+				value = country_turmoil
+				multiply = 0.25
+				desc = "COUNTRY_TURMOIL"
+			}	
+		}
 		owner = {
+			if = {
+				limit = { has_journal_entry = je_springtime_of_the_peoples }
+
+				add = {
+					value = 0.25
+					desc = "SPRINGTIME_OF_THE_PEOPLES_UNDERWAY"
+				}
+			}
+
 			if = {
 				limit = { has_institution = institution_schools }
 				
@@ -3730,7 +3816,23 @@ movement_radical = {
 	}	
 	
 	additional_radicalism_factors = {
+		owner ?= {
+			add = {
+				value = country_turmoil
+				multiply = 0.25
+				desc = "COUNTRY_TURMOIL"
+			}	
+		}
 		owner = {
+			if = {
+				limit = { has_journal_entry = je_springtime_of_the_peoples }
+
+				add = {
+					value = 0.25
+					desc = "SPRINGTIME_OF_THE_PEOPLES_UNDERWAY"
+				}
+			}
+			
 			if = {
 				limit = { has_institution = institution_schools }
 				
@@ -3973,6 +4075,16 @@ movement_nihilist = {
 			value = state_urbanization_rate
 		}		
 	}	
+
+	additional_radicalism_factors = {
+		owner ?= {
+			add = {
+				value = country_turmoil
+				multiply = 0.25
+				desc = "COUNTRY_TURMOIL"
+			}	
+		}
+	}
 }
 
 movement_positivist = {
@@ -4292,6 +4404,16 @@ movement_positivist = {
 			value = 1000
 		}		
 	}	
+
+	additional_radicalism_factors = {
+		owner ?= {
+			add = {
+				value = country_turmoil
+				multiply = 0.25
+				desc = "COUNTRY_TURMOIL"
+			}	
+		}
+	}
 }
 
 movement_land_reform = {
@@ -4529,6 +4651,16 @@ movement_land_reform = {
 			value = 1000
 		}		
 	}	
+
+	additional_radicalism_factors = {
+		owner ?= {
+			add = {
+				value = country_turmoil
+				multiply = 0.25
+				desc = "COUNTRY_TURMOIL"
+			}	
+		}
+	}
 }
 
 movement_feminist = {
@@ -4734,6 +4866,16 @@ movement_feminist = {
 			value = 1000
 		}		
 	}	
+
+	additional_radicalism_factors = {
+		owner ?= {
+			add = {
+				value = country_turmoil
+				multiply = 0.25
+				desc = "COUNTRY_TURMOIL"
+			}	
+		}
+	}
 }
 
 movement_reactionary = {
@@ -5040,7 +5182,7 @@ movement_reactionary = {
 		owner ?= {
 			add = {
 				value = country_turmoil
-				divide = 0.25
+				multiply = 0.50
 				desc = "COUNTRY_TURMOIL"
 			}	
 		}
@@ -5346,5 +5488,15 @@ movement_modernizer = {
 		weight = {
 			value = 1000
 		}		
-	}		
+	}	
+	
+	additional_radicalism_factors = {
+		owner ?= {
+			add = {
+				value = country_turmoil
+				multiply = 0.25
+				desc = "COUNTRY_TURMOIL"
+			}	
+		}
+	}
 }

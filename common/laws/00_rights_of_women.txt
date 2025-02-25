@@ -16,6 +16,10 @@ law_no_womens_rights = {
 		state_birth_rate_mult = 0.10 # 0.05
 	}
 
+	disallowing_laws = {
+		law_guaranteed_liberties
+	}
+
 	ai_will_do = {
 		literacy_rate < 0.4
 		exists = ruler

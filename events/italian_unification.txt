@@ -1,4 +1,4 @@
-﻿namespace = italian_unification
+namespace = italian_unification
 
 # Unified italian_unification
 italian_unification.1 = {
@@ -122,6 +122,16 @@ italian_unification.2 = {
 			country = scope:italian_annex_country
 			value = 10
 		}
+		if = {
+			limit = {
+				scope:italian_annex_country = {
+					is_player = yes
+				}
+			}
+			scope:italian_annex_country = {
+				play_as = root
+			}
+		}
 		hidden_effect = { # remove all Italian radicals in country that's being annexed pre-annexation, to prevent chain annexations
 			scope:italian_annex_country = {
 				add_radicals = {
@@ -201,30 +211,20 @@ italian_unification.4 = {
 	cooldown = { months = 3 }
 
 	trigger = {
-		NOT = { has_variable = italian_unification_5_happened_here }
-		exists = var:italian_states_radicals_total_bar
-		OR = {
-			var:italian_states_radicals_total_bar >= 25
-			AND = {
-				any_political_movement = {
-					OR = {
-						is_political_movement_type = movement_radical
-						is_political_movement_type = movement_liberal
-					}
-					is_insurrectionary = yes
-				}
-				OR = {
-					any_civil_war = {
-						is_civil_war_type = revolution
-						civil_war_progress >= 0.75
-					}
-					AND = {
-						capital = {
-							turmoil >= 0.25
-						}
-					}
-				}
+		has_variable = risorgimento_anti_unifying_stance
+		any_scope_state = {
+			count < 2
+		}
+		any_political_movement = {
+			OR = {
+				is_political_movement_type = movement_radical
+				is_political_movement_type = movement_liberal
 			}
+			is_insurrectionary = yes
+		}
+		any_civil_war = {
+			is_civil_war_type = revolution
+			civil_war_progress >= 0.75
 		}
 		NOR = {
 			has_revolution = yes
@@ -672,14 +672,14 @@ italian_unification.8 = {
 			country = scope:rsm_revolted_scope
 			value = -30
 		}
-		if = {
-			limit = {
-				is_player = yes
-			}
-			scope:rsm_diplo_play = {
-				add_target_backers = { root }
-			}
-		}
+		# if = {
+		# 	limit = {
+		# 		is_player = yes
+		# 	}
+		# 	scope:rsm_diplo_play = {
+		# 		add_target_backers = { root }
+		# 	}
+		# }
 		if = {
 			limit = {
 				has_diplomatic_pact = {

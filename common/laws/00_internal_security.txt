@@ -39,7 +39,7 @@ law_national_guard = {
 		country_revolution_progress_mult = -0.1
 		country_secession_progress_mult = -0.1
 		state_conscription_rate_add = 0.005
-		political_movement_radicalism_add = -0.03
+		political_movement_radicalism_add = -0.05
 		state_harvest_condition_flood_impact_mult = -0.05
 		state_harvest_condition_wildfire_impact_mult = -0.05
 		state_harvest_condition_extreme_winds_impact_mult = -0.05
@@ -84,8 +84,7 @@ law_secret_police = {
 		country_revolution_progress_mult = -0.1
 		country_secession_progress_mult = -0.1
 		country_suppression_attraction_mult = -0.05
-		political_movement_radicalism_add = -0.03
-		state_radicals_from_political_movements_mult = 0.03
+		political_movement_radicalism_add = -0.05
 	}
 
 	on_enact = {
@@ -114,6 +113,7 @@ law_guaranteed_liberties = {
 	}
 	
 	modifier = {
+		country_institution_cost_institution_schools_mult = -0.4
 		country_institution_home_affairs_max_investment_add = 2
 	}
 	
@@ -123,6 +123,10 @@ law_guaranteed_liberties = {
 		country_secession_progress_mult = -0.1
 		state_radicals_from_political_movements_mult = -0.05
 		state_loyalists_from_political_movements_mult = 0.05
+	}
+
+	on_activate = {
+		custom_tooltip = guaranteed_liberties_tt
 	}
 	
 	ai_enact_weight_modifier = { #Petitions

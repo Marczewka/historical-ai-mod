@@ -28,6 +28,10 @@ law_ethnostate = {
 		country_acceptance_culture_base_add = 15
 	}
 
+	disallowing_laws = {
+		law_guaranteed_liberties
+	}
+
 	acceptance_modifier = {
 		country_radicalism_increases_violent_hostility_mult = 0.33
 		country_radicalism_increases_cultural_erasure_mult = 0.2

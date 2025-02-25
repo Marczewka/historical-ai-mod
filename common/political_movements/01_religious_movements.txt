@@ -274,6 +274,13 @@
 	}	
 	
 	additional_radicalism_factors = {
+		owner ?= {
+			add = {
+				value = country_turmoil
+				multiply = 0.25
+				desc = "COUNTRY_TURMOIL"
+			}	
+		}
 		if = {
 			limit = {
 				owner.ruler ?= {
@@ -658,6 +665,13 @@ movement_religious_minority = {
 	}
 	
 	additional_radicalism_factors = {
+		owner ?= {
+			add = {
+				value = country_turmoil
+				multiply = 0.25
+				desc = "COUNTRY_TURMOIL"
+			}	
+		}
 		add = {
 			value = "owner.average_sol"
 			subtract = "owner.average_sol_for_religion(scope:religion)"

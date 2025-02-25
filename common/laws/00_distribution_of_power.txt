@@ -849,7 +849,8 @@ law_anarchy = {
 		state_political_strength_from_wealth_mult = -0.75
 		country_authority_mult = -0.5
 		country_legitimacy_govt_size_add = 2
-		country_law_enactment_time_mult = 0.25
+		country_law_enactment_time_mult = 0.5
+		country_legitimacy_ideological_incoherence_mult = -0.75
 	}
 
 	can_enact = {

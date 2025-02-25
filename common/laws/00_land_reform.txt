@@ -9,6 +9,7 @@
 		law_interventionism
 		law_laissez_faire
 		law_command_economy
+		law_guaranteed_liberties
 	}
 	
 	on_enact = {

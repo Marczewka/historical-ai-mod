@@ -3089,29 +3089,29 @@ clear_populism_vars = {
 	remove_variable = populism_progress_var_add
 }
 
-do_risorgimento_math = {
-	set_variable = { name = italian_states_pop_total value = 0 }
-	set_variable = { name = italian_states_radicals_total value = 0 }
-	every_scope_state = {
-		limit = {
-			state_region = {
-				OR = {
-					is_homeland = cu:north_italian
-					is_homeland = cu:south_italian
-				}
-			}
-		}
-		set_variable = { name = italian_state_pop_radicals value = this.turmoil }
-		change_variable = { name = italian_state_pop_radicals multiply = this.state_population }
-		ROOT = {
-			change_variable = { name = italian_states_pop_total add = prev.state_population }
-			change_variable = { name = italian_states_radicals_total add = prev.var:italian_state_pop_radicals }
-		}
-	}
-	set_variable = { name = italian_states_radicals_total_bar value = var:italian_states_radicals_total }
-	change_variable = { name = italian_states_radicals_total_bar divide = var:italian_states_pop_total }
-	change_variable = { name = italian_states_radicals_total_bar multiply = 100 }
-}
+# do_risorgimento_math = {
+# 	set_variable = { name = italian_states_pop_total value = 0 }
+# 	set_variable = { name = italian_states_radicals_total value = 0 }
+# 	every_scope_state = {
+# 		limit = {
+# 			state_region = {
+# 				OR = {
+# 					is_homeland = cu:north_italian
+# 					is_homeland = cu:south_italian
+# 				}
+# 			}
+# 		}
+# 		set_variable = { name = italian_state_pop_radicals value = this.turmoil }
+# 		change_variable = { name = italian_state_pop_radicals multiply = this.state_population }
+# 		ROOT = {
+# 			change_variable = { name = italian_states_pop_total add = prev.state_population }
+# 			change_variable = { name = italian_states_radicals_total add = prev.var:italian_state_pop_radicals }
+# 		}
+# 	}
+# 	set_variable = { name = italian_states_radicals_total_bar value = var:italian_states_radicals_total }
+# 	change_variable = { name = italian_states_radicals_total_bar divide = var:italian_states_pop_total }
+# 	change_variable = { name = italian_states_radicals_total_bar multiply = 100 }
+# }
 
 ### Communism
 

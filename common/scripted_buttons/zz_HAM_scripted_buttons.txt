@@ -343,9 +343,7 @@ je_risorgimento_italian_radicals_button = {
 			}
 			custom_tooltip = {
 				text = risorgimento_opposing_stance_tt
-				NOT = {
-					has_variable = risorgimento_unifying_stance
-				}
+				has_variable = risorgimento_anti_unifying_stance
 			}
 			not = {
 				has_modifier = modifier_risorgimento
@@ -409,9 +407,7 @@ je_risorgimento_italian_radicals_button = {
 				}
 				custom_tooltip = {
 					text = risorgimento_opposing_stance_tt
-					NOT = {
-						has_variable = risorgimento_unifying_stance
-					}
+					has_variable = risorgimento_anti_unifying_stance
 				}
 				not = {
 					has_modifier = modifier_risorgimento

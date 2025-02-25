@@ -14,12 +14,14 @@ law_outlawed_dissent = {
 		country_suppression_attraction_mult = -0.5
 		country_tech_spread_mult = -0.15
 		country_leverage_resistance_mult = 0.5
-		political_movement_radicalism_add = -0.1
-		state_radicals_from_political_movements_mult = 0.1
 	}
 	
 	unlocking_technologies = {
 		political_agitation
+	}
+
+	disallowing_laws = {
+		law_guaranteed_liberties
 	}
 
 	ai_enact_weight_modifier = { #Petitions
@@ -44,12 +46,14 @@ law_censorship = {
 		country_suppression_attraction_mult = -0.4
 		country_tech_spread_mult = -0.10
 		country_leverage_resistance_mult = 0.25
-		political_movement_radicalism_add = -0.05
-		state_radicals_from_political_movements_mult = 0.05
 	}
 
 	unlocking_technologies = {
 		law_enforcement
+	}
+
+	disallowing_laws = {
+		law_guaranteed_liberties
 	}
 
 	ai_enact_weight_modifier = { #Petitions
@@ -97,8 +101,7 @@ law_protected_speech = {
 	modifier = {
 		country_tech_spread_mult = 0.25
 		country_leverage_resistance_mult = -0.25
-		political_movement_radicalism_add = 0.05
-		state_radicals_from_political_movements_mult = -0.05}
+	}
 	
 	on_activate = {
 		custom_tooltip = protected_speech_tt
