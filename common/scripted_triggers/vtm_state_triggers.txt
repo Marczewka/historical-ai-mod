@@ -21,50 +21,50 @@
 	}
 }
 
-is_difficult_terrain = {
-	OR = {
-		# Europe
-		has_state_trait = state_trait_scottish_highlands
-		# Middle East
-		has_state_trait = state_trait_zagros_mountains
-		has_state_trait = state_trait_alborz_mountains
-		# SEA
-		has_state_trait = state_trait_burmese_teak
-		has_state_trait = state_trait_indochinese_forest
-		has_state_trait = state_trait_borneo_rainforest
-		# Oceania
-		has_state_trait = state_trait_great_dividing_range
-		# America
-		has_state_trait = state_trait_cascades
-		has_state_trait = state_trait_sierra_madre_occidental
-		has_state_trait = state_trait_sierra_madre_oriental
-		has_state_trait = state_trait_central_american_cordilleras
-		has_state_trait = state_trait_andes
-	}
-}
+# is_difficult_terrain = {
+# 	OR = {
+# 		# Europe
+# 		has_state_trait = state_trait_scottish_highlands
+# 		# Middle East
+# 		has_state_trait = state_trait_zagros_mountains
+# 		has_state_trait = state_trait_alborz_mountains
+# 		# SEA
+# 		has_state_trait = state_trait_burmese_teak
+# 		has_state_trait = state_trait_indochinese_forest
+# 		has_state_trait = state_trait_borneo_rainforest
+# 		# Oceania
+# 		has_state_trait = state_trait_great_dividing_range
+# 		# America
+# 		has_state_trait = state_trait_cascades
+# 		has_state_trait = state_trait_sierra_madre_occidental
+# 		has_state_trait = state_trait_sierra_madre_oriental
+# 		has_state_trait = state_trait_central_american_cordilleras
+# 		has_state_trait = state_trait_andes
+# 	}
+# }
 
-is_very_difficult_terrain = {
-	OR = {
-		# Europe
-		has_state_trait = state_trait_alps_mountains
-		has_state_trait = state_trait_caucasus_mountains
-		# Middle East
-		has_state_trait = state_trait_arabian_desert
-		has_state_trait = state_trait_siberian_terrain
-		# Asia
-		has_state_trait = state_trait_taklamakan_desert
-		has_state_trait = state_trait_himalayas_mountains
-		has_state_trait = state_trait_gobi_desert
-		# Oceania
-		has_state_trait = state_trait_australian_desert
-		# Africa
-		has_state_trait = state_trait_sahara_desert
-		has_state_trait = state_trait_congo_forest
-		has_state_trait = state_trait_atlas_mountains
-		# America
-		#has_state_trait = state_trait_amazon_rainforest
-		has_state_trait = state_trait_floridian_wetlands
-		has_state_trait = state_trait_rocky_mountains
-		has_state_trait = state_trait_northern_canadian_terrain
-	}
-}
+# is_very_difficult_terrain = {
+# 	OR = {
+# 		# Europe
+# 		has_state_trait = state_trait_alps_mountains
+# 		has_state_trait = state_trait_caucasus_mountains
+# 		# Middle East
+# 		has_state_trait = state_trait_arabian_desert
+# 		has_state_trait = state_trait_siberian_terrain
+# 		# Asia
+# 		has_state_trait = state_trait_taklamakan_desert
+# 		has_state_trait = state_trait_himalayas_mountains
+# 		has_state_trait = state_trait_gobi_desert
+# 		# Oceania
+# 		has_state_trait = state_trait_australian_desert
+# 		# Africa
+# 		has_state_trait = state_trait_sahara_desert
+# 		has_state_trait = state_trait_congo_forest
+# 		has_state_trait = state_trait_atlas_mountains
+# 		# America
+# 		#has_state_trait = state_trait_amazon_rainforest
+# 		has_state_trait = state_trait_floridian_wetlands
+# 		has_state_trait = state_trait_rocky_mountains
+# 		has_state_trait = state_trait_northern_canadian_terrain
+# 	}
+# }

@@ -232,6 +232,7 @@ je_risorgimento_austrian_radicals_button = {
 	}
 
 	effect = {
+		custom_tooltip = je_risorgimento_austrian_radicals_button
 		ROOT = {
 			save_scope_as = saboteur_country
 		}
@@ -393,6 +394,7 @@ je_risorgimento_italian_radicals_button = {
 	}
 
 	effect = {
+		custom_tooltip = je_risorgimento_italian_radicals_button
 		ROOT = {
 			save_scope_as = saboteur_country
 		}

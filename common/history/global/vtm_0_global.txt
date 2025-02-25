@@ -3,18 +3,31 @@
 # Avoids a lot of headaches when updating after each patch
 # If you are already editing the map you can remove this and just do all your changes in the respective files if you so desire
 GLOBAL = {
+
+	# State traits
+	every_state = { # We have to do this because "has_state_trait" only works on state scopes, not state regions.
+		## Put these last
+		if = {
+			limit = {
+				is_cold_water_port = yes
+				NOT = { has_state_trait = state_trait_cold_water_port }
+			}
+			state_region = { add_state_trait = state_trait_cold_water_port }
+		}
+	}
+	
 	# Homelands
 	s:STATE_TRANSDANUBIA = {
 		remove_homeland = cu:south_german
 	}
 
 	# States
-	# s:STATE_KENYA = {
-	# 	set_owner_of_provinces = {
-	# 		country = c:OMA
-	# 		provinces = { xA02190 x5C1ADA x6B52F1 }
-	# 	}
-	# }
+	s:STATE_KENYA = {
+		set_owner_of_provinces = {
+			country = c:OMA
+			provinces = { xA02190 x5C1ADA x6B52F1 }
+		}
+	}
 	every_country = {
 		limit = {
 			OR = {

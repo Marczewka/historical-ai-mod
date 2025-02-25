@@ -1,14 +1,15 @@
 ﻿l_english:
 
+je_risorgimento_reason: "The winds of nationalism sweeping Europe have begun to pass through [ROOT.GetCountry.GetName], inspiring figures both within our government and without to look towards the restoration of a single, unified Italy.\n\nGetting close to a #red;bold;shadow radical#! or #red;bold;shadow liberal#! #red;bold;shadow revolution#!, while only having one [concept_state], will lead to the seizure of the [ROOT.GetCountry.GetAdjective] government by pan-Italian revolutionaries[ROOT.GetCountry.GetCustom('italy_fate_loc')]."
 modifier_risorgimento: "Risorgimento"
 austria_italian_radicals: "Risorgimento"
 je_risorgimento_italian_unification_button: "Unite with another Italian state"
 je_risorgimento_italian_unification_button_desc: "Through diplomacy and mutual aims, we are finally able to unify with another Italian state."
 buyers_unfriendly_nation_with_interest_in_alaska_tt: "A hostile [concept_country] toward our buyer with a [concept_rank] equal or higher than theirs has an [concept_interest] in the #bold Pacific Coast#! [concept_strategic_region]"
+unfriendly_nation_with_interest_in_alaska_tt: "A hostile [concept_country] with a [concept_rank] equal or higher than ours has an [concept_interest] in the #bold Pacific Coast#! [concept_strategic_region]"
 italian_minor_dont_annex_tt: "Hasn't rejected to annex in the past #bold five years#!"
 has_formed_ethiopia_tt: "Has formed the nation of #v $ETH$#!"
 manifested_destiny_tt: "Has #bold manifested destiny#."
-guaranteed_liberties_tt:0 "Cannot use [GetDecreeType('decree_violent_suppression').GetName] ([concept_decree])"
 
 HAM_je_eastern_frontier_tt_1: "#bold Khorasan#! is owned by [SCOPE.GetRootScope.GetCountry.GetName] or its subjects:\n[SCOPE.sStateRegion('herat_scope').GetName], [SCOPE.sStateRegion('merv_scope').GetName], [SCOPE.sStateRegion('balkh_scope').GetName], [SCOPE.sStateRegion('central_highlands_scope').GetName], [SCOPE.sStateRegion('kabul_scope').GetName], [SCOPE.sStateRegion('kandahar_scope').GetName], [SCOPE.sStateRegion('northern_baluchistan_scope').GetName]"
 HAM_je_eastern_frontier_tt_2: "#bold Chorasmia#! is owned by [SCOPE.GetRootScope.GetCountry.GetName] or its subjects:\n[SCOPE.sStateRegion('khiva_scope').GetName], [SCOPE.sStateRegion('turkmenia_state_scope').GetName]"
@@ -20,3 +21,7 @@ HAM_je_eastern_frontier_tt_3: "#bold Transoxiana#! is owned by [SCOPE.GetRootSco
  dp_unify_afghanistan_tooltip:1 "#header Start a $dp_unify_afghanistan$ [concept_diplomatic_play]#!\n$TOOLTIP_DELIMITER$\n$dp_unify_afghanistan_desc$"
  dp_unify_afghanistan_desc:0 "Sets the initiating [concept_war_goal] to annex all lesser Afghanistann countries."
  AFG_tt:0 "[SCOPE.sCountry('target_country').GetName] can form Afghanistan"
+ je_sick_man_education_goal:1 "Increase the literacy rate of your people to 20%."
+ protected_speech_tt:0 "Cannot [concept_exile], [concept_bolster] or [concept_suppress]"
+ guaranteed_liberties_tt:0 "Cannot use [GetDecreeType('decree_violent_suppression').GetName] ([concept_decree])"
+ 

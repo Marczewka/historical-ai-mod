@@ -1,0 +1,10 @@
+﻿GAL = {
+	color = { 13  81  130 }
+	
+	country_type = recognized
+
+	tier = principality
+	
+	cultures = { polish }
+	capital = STATE_EAST_GALICIA
+}
