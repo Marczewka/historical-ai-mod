@@ -1,22 +1,43 @@
 ﻿COUNTRIES = {
-    c:MEX ?= {
-      set_institution_investment_level = {
-        institution = institution_colonial_affairs
-        level = 2
+  c:MEX ?= {
+    set_institution_investment_level = {
+      institution = institution_colonial_affairs
+      level = 2
+    }
+  }
+  c:CHL ?= {
+    activate_law = law_type:law_no_colonial_affairs
+  }
+  c:BIC ?= {
+    set_military_wage_level = medium
+  }
+  c:RUS ?= {
+    set_tax_level = medium
+  }
+  c:USA ?= {
+    # lower taxes make sense for substantial tariffs
+    set_tax_level = medium
+    add_journal_entry = { type = je_oregon }
+    trigger_event = {
+      id = native_resettlement.1
+    }
+  }
+  
+  every_country = {
+    limit = {
+      OR = {
+        country_has_primary_culture = cu:north_german
+        country_has_primary_culture = cu:south_german
       }
     }
-    c:CHL ?= {
-		  activate_law = law_type:law_no_colonial_affairs
+    add_journal_entry = { type = je_german_unification_idea }
+    add_journal_entry = { type = je_schleswig_holstein_question }
+  }
+  
+  every_country = {
+    limit = {
+      can_form_nation = ETH
     }
-    c:BIC ?= {
-      set_military_wage_level = medium
-    }
-    c:RUS ?= {
-      set_tax_level = medium
-    }
-    c:USA ?= {
-      # have to make tariffs viable
-      set_tax_level = medium
-      add_journal_entry = { type = je_oregon }
-    }
+    add_journal_entry = { type = je_age_of_princes }
+  }
 }

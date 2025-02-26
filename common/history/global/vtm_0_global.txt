@@ -21,13 +21,13 @@ GLOBAL = {
 		remove_homeland = cu:south_german
 	}
 
-	# States
-	s:STATE_KENYA = {
-		set_owner_of_provinces = {
-			country = c:OMA
-			provinces = { xA02190 x5C1ADA x6B52F1 }
-		}
-	}
+	# # States
+	# s:STATE_KENYA = {
+	# 	set_owner_of_provinces = {
+	# 		country = c:OMA
+	# 		provinces = { xA02190 x5C1ADA x6B52F1 }
+	# 	}
+	# }
 	every_country = {
 		limit = {
 			OR = {
