@@ -16,7 +16,6 @@
 				is_split_state = no
 				is_capital = no
 			}
-			is_player = no
 		}
 	}
 

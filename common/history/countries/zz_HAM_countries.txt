@@ -1,18 +1,22 @@
 ﻿COUNTRIES = {
-  c:MEX ?= {
+  every_country = {
+    limit = {
+      OR = {
+				has_law = law_type:law_colonial_exploitation
+				has_law = law_type:law_colonial_resettlement
+				has_law = law_type:law_frontier_colonization
+			}
+    }
     set_institution_investment_level = {
       institution = institution_colonial_affairs
-      level = 2
+      level = 1
     }
+  }
+  c:FRA ?= {
+    activate_law = law_type:law_homesteading
   }
   c:CHL ?= {
     activate_law = law_type:law_no_colonial_affairs
-  }
-  c:GBR ?= {
-    set_institution_investment_level = {
-			institution = institution_police
-			level = 2
-		}
   }
   c:BIC ?= {
     set_military_wage_level = medium

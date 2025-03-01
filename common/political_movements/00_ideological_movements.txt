@@ -1728,7 +1728,7 @@ movement_labor = { # Explicitly non-socialist labour movement
 				limit = { has_institution = institution_workplace_safety }
 				
 				add = {
-					value = 3
+					value = 1 # 3
 					subtract = "institution_investment_level(institution_workplace_safety)"
 					multiply = 0.05
 					desc = "INSTITUTION_FUNDING_LEVEL_workplace_safety"
@@ -2076,7 +2076,7 @@ movement_socialist = {
 				limit = { has_institution = institution_workplace_safety }
 				
 				add = {
-					value = 3
+					value = 1 # 3
 					subtract = "institution_investment_level(institution_workplace_safety)"
 					multiply = 0.05
 					desc = "INSTITUTION_FUNDING_LEVEL_workplace_safety"
@@ -2624,7 +2624,7 @@ movement_communist = {
 				limit = { has_institution = institution_workplace_safety }
 				
 				add = {
-					value = 3
+					value = 1 # 3
 					subtract = "institution_investment_level(institution_workplace_safety)"
 					multiply = 0.05
 					desc = "INSTITUTION_FUNDING_LEVEL_workplace_safety"

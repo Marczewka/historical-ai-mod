@@ -56,14 +56,6 @@ vtm_je_italian_unification_button = {
 			}
 		}
 		c:FRA ?= { trigger_event = { id = natural_borders.3 popup = yes } }
-		hidden_effect = {
-			c:FRA ?= {
-				set_secret_goal = {
-					country = ROOT
-					secret_goal = befriend
-				}
-			}
-		}
 	}
 
 	ai_chance = {

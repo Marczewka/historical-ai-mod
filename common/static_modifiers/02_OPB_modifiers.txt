@@ -17,6 +17,11 @@ aus_unified_sgf = {
 	country_prestige_mult = 0.1
 }
 
+fra_secular_legacy = { #URGENT
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	state_birth_rate_mult = -0.3
+}
+
 communist_pressure_modifier = { #URGENT
 icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
 interest_group_ig_trade_unions_pol_str_mult = 0.8 #0.5
