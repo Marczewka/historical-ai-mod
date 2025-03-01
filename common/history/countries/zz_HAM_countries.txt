@@ -20,6 +20,9 @@
   c:RUS ?= {
     set_tax_level = medium
   }
+  c:JAP ?= {
+    set_tax_level = low
+  }
   c:USA ?= {
     # lower taxes make sense for substantial tariffs
     set_tax_level = medium
@@ -46,4 +49,19 @@
     }
     add_journal_entry = { type = je_age_of_princes }
   }
+
+  every_country = {
+    limit = {
+      is_country_type = unrecognized
+      has_technology_researched = colonization
+      OR = {
+        country_rank >= rank_value:unrecognized_major_power
+        any_overlord_or_above = {
+          country_rank >= rank_value:great_power
+        }
+      }
+    }
+    add_journal_entry = { type = je_earn_recognition }
+  }
+
 }

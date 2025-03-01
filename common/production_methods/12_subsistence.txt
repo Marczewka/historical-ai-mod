@@ -68,7 +68,7 @@ pm_homesteading_building_subsistence = {
 	
 	building_modifiers = {
 		workforce_scaled = {
-			goods_output_grain_add = 0.5 # 0.25
+			goods_output_grain_add = 0.25
 		}	
 	
 		unscaled = {

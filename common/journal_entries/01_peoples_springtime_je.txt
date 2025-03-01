@@ -35,6 +35,7 @@
 			OR = {
 				is_political_movement_type = movement_liberal
 				is_political_movement_type = movement_radical
+				is_political_movement_type = movement_cultural_minority
 			}
 			political_movement_radicalism >= 0.25
 		}
