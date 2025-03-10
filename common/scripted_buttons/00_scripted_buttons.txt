@@ -1121,21 +1121,6 @@ je_south_bessarabian_retrocession = {
 	}
 
 	possible = {
-		custom_tooltip = {
-			text = je_south_bessarabian_retrocession_button_tt1
-
-	        any_country = {
-	            country_rank >= rank_value:great_power
-	            NOT = { 
-	            	has_war_with = ROOT 
-	            	any_scope_state = {
-	            		state_region = s:STATE_BESSARABIA
-	            	}
-	            }
-	            has_interest_marker_in_region = ROOT.capital.region
-	            relations:root > 25
-	        }
-	    }
         custom_tooltip = {
         	text = je_south_bessarabian_retrocession_button_tt2
 
@@ -1144,7 +1129,7 @@ je_south_bessarabian_retrocession = {
 					state_region = s:STATE_BESSARABIA
 					owner = {
 						NOT = { ROOT = this }
-						relations:root > 0
+						relations:root > relations_threshold:cold
 						NOT = { has_war_with = ROOT }
 					}
 					is_split_state = no
@@ -1155,7 +1140,7 @@ je_south_bessarabian_retrocession = {
 						state_region = s:STATE_BESSARABIA
 						owner = {
 							NOT = { ROOT = this }
-							relations:root > 0
+							relations:root > relations_threshold:cold
 							NOT = { has_war_with = ROOT }
 						}
 						is_split_state = no
@@ -1173,7 +1158,7 @@ je_south_bessarabian_retrocession = {
 		random_country = {
 			limit = {
 				NOT = { ROOT = this }
-				relations:root >= 25
+				relations:root > relations_threshold:cold
 				NOT = { has_war_with = ROOT }
 				any_scope_state = {
 					state_region = s:STATE_BESSARABIA

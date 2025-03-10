@@ -378,16 +378,6 @@ movement_cultural_minority = {
 		}
 		if = {
 			limit = {
-				any_country = {
-					country_has_primary_culture = culture
-				}
-			}
-			multiply = {
-				value = 2
-			}
-		}
-		if = {
-			limit = {
 				owner ?= {
 					has_variable = failed_tanzimat
 				}
@@ -748,7 +738,25 @@ movement_cultural_minority = {
 			}
 			multiply = {
 				value = 2.0
-				desc = "je_dual_monarchy"
+				desc = "DUAL_MONARCHY_UNDERWAY"
+			}
+		}
+
+		if = {
+			limit = {
+				owner ?= {
+					any_scope_state = {
+						state_region = { is_homeland = root.culture }				
+					}
+				}
+				any_country = {
+					country_has_primary_culture = root.culture
+					is_subject = no
+				}
+			}
+			multiply = {
+				value = 2.0
+				desc = "INDEPENDENT_BRETHREN_NATION"
 			}
 		}
 
@@ -760,19 +768,6 @@ movement_cultural_minority = {
 			multiply = {
 				value = 2.0
 				desc = "SPRINGTIME_OF_THE_PEOPLES_UNDERWAY"
-			}
-		}
-
-		if = {
-			limit = {
-				any_country = {
-					country_has_primary_culture = culture
-					is_subject = no
-				}
-			}
-			multiply = {
-				value = 2.0
-				desc = "INDEPENDENT_BRETHREN_NATION"
 			}
 		}
 	}	
@@ -888,15 +883,17 @@ movement_cultural_minority = {
 		}	
 
 		if = {
-			limit = { 
-				owner = { has_journal_entry = je_dead_man_walking } 
+			limit = {
+				owner ?= {
+					has_variable = failed_tanzimat
+				}
 				scope:culture = { has_discrimination_trait = european_heritage }
 			}
-			add = {
+			multiply = {
 				value = 0.25
-				desc = "DEAD_MAN_WALKING_UNDERWAY"
+				desc = "FAILED_TANZIMAT_REFORMS"
 			}
-		}	
+		}
 	
 		add = {
 			value = "owner.average_sol_for_primary_cultures"

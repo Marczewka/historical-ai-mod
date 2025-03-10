@@ -23,6 +23,14 @@ italian_unification.1 = {
 	}
 
 	immediate = {
+		if = {
+			limit = {
+				any_scope_state = {
+					state_region = s:STATE_LAZIO
+				}
+			}
+			set_capital = STATE_LAZIO
+		}
 		ruler.interest_group = {
 			save_scope_as = ruler_ig_scope
 		}
@@ -75,8 +83,16 @@ italian_unification.2 = {
 	trigger = {
 		has_technology_researched = nationalism
 		has_modifier = modifier_risorgimento_support
+		NOR = {
+			is_revolutionary = yes
+			is_secessionist = yes
+		}
 		any_country = {
 			NOT = { this = root }
+			NOR = {
+				is_revolutionary = yes
+				is_secessionist = yes
+			}
 			OR = {
 				country_has_primary_culture = cu:north_italian
 				country_has_primary_culture = cu:south_italian
@@ -85,9 +101,13 @@ italian_unification.2 = {
 				is_subject = no
 				is_subject_of = ROOT
 			}
-			this.gdp < root.gdp
+			OR = {
+				this.gdp < root.gdp
+				root = { is_player = yes }
+			}
 			country_rank <= rank_value:minor_power
 			relations:root >= relations_threshold:amicable
+			is_player = no
 			NOT = { has_variable = italian_minor_dont_annex }
 			has_modifier = modifier_risorgimento_support
 		}
@@ -97,6 +117,10 @@ italian_unification.2 = {
 		random_country = {
 			limit = {
 				NOT = { this = root }
+				NOR = {
+					is_revolutionary = yes
+					is_secessionist = yes
+				}
 				OR = {
 					country_has_primary_culture = cu:north_italian
 					country_has_primary_culture = cu:south_italian
@@ -105,9 +129,13 @@ italian_unification.2 = {
 					is_subject = no
 					is_subject_of = ROOT
 				}
-				this.gdp < root.gdp
+				OR = {
+					this.gdp < root.gdp
+					root = { is_player = yes }
+				}
 				country_rank <= rank_value:minor_power
 				relations:root >= relations_threshold:amicable
+				is_player = no
 				NOT = { has_variable = italian_minor_dont_annex }
 				has_modifier = modifier_risorgimento_support
 			}
@@ -121,16 +149,6 @@ italian_unification.2 = {
 		create_incident = {
 			country = scope:italian_annex_country
 			value = 10
-		}
-		if = {
-			limit = {
-				scope:italian_annex_country = {
-					is_player = yes
-				}
-			}
-			scope:italian_annex_country = {
-				play_as = root
-			}
 		}
 		hidden_effect = { # remove all Italian radicals in country that's being annexed pre-annexation, to prevent chain annexations
 			scope:italian_annex_country = {

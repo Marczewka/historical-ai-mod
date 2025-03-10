@@ -1,27 +1,42 @@
 ﻿l_english:
-native_resettlement.1.d:1 "President Andrew Jackson has defied the ruling of the Supreme Court and ordered the removal of the [SCOPE.sCulture('cherokee_culture').GetName] people to the [SCOPE.sCountry('indian_territory_scope').GetName]."
 
-notification_ita_italian_anti_unification_intent_name: "[SCOPE.sCountry('italian_unifier_candidate').GetName] Opposes Italian Unification"
-notification_ita_italian_anti_unification_intent_desc: "The government of [SCOPE.sCountry('italian_unifier_candidate').GetRuler.GetPrimaryRoleTitle] [SCOPE.sCountry('italian_unifier_candidate').GetRuler.GetFullName] has signaled opposition for the unification of the Italian peninsula into a single nation."
-notification_ita_italian_anti_unification_intent_tooltip: "#header $notification_ita_italian_anti_unification_intent_name$#!\n$TOOLTIP_DELIMITER$\n$notification_ita_italian_anti_unification_intent_desc$"
+# Poland
+rejected_polish_union_pol_var_tt: "Hasn't rejected to annex"
+je_christ_of_nations_unification_button: "Unite with another Polish state"
+je_christ_of_nations_unification_button_desc: "Through diplomacy and mutual aims, we are finally able to unify with another Polish state."
+polish_radicals: "Christ of Nations"
+owns_polish_homelands_tt: "Owns [GetCulture('polish').GetName] [concept_homeland] states"
 
+notification_polish_decision_agitation_stirred_name: "Unrest in #bold Polish#! Regions"
+notification_polish_decision_agitation_stirred_desc: "#bold Polish#! nationalist unrest has sharply increased in [SCOPE.sCountry('victim_country').GetName] #bold Polish#! territories, in response to rumblings of resurrection of #bold Poland#!. [SCOPE.sCountry('saboteur_country').GetAdjective] propaganda is suspected to be the root of the unrest."
+notification_polish_decision_agitation_stirred_tooltip: "#header $notification_polish_decision_agitation_stirred_name$#!\n$TOOLTIP_DELIMITER$\n$notification_polish_decision_agitation_stirred_desc$"
+
+notification_polish_national_agitation_occurred_name: "[SCOPE.sCulture('agitation_culture').GetName] Unrest in [SCOPE.sState('agitation_state').GetName]"
+notification_polish_national_agitation_occurred_desc: "[SCOPE.sCulture('agitation_culture').GetName] nationalist unrest has sharply increased in [SCOPE.sState('agitation_state').GetName]. Agents of [SCOPE.sCountry('agitation_sponsor').GetName] have been suspected of fostering the seditious behavior."
+notification_polish_national_agitation_occurred_tooltip: "#header $notification_polish_national_agitation_occurred_name$#!\n$TOOLTIP_DELIMITER$\n$notification_polish_national_agitation_occurred_desc$
+
+# Italy
 je_risorgimento_reason: "The winds of nationalism sweeping Europe have begun to pass through [ROOT.GetCountry.GetName], inspiring figures both within our government and without to look towards the restoration of a single, unified Italy.\n\nGetting close to a #red;bold;shadow radical#! or #red;bold;shadow liberal#! #red;bold;shadow revolution#!, while only having one [concept_state], will lead to the seizure of the [ROOT.GetCountry.GetAdjective] government by pan-Italian revolutionaries[ROOT.GetCountry.GetCustom('italy_fate_loc')]."
 modifier_risorgimento: "Risorgimento"
 austria_italian_radicals: "Risorgimento"
 je_risorgimento_italian_unification_button: "Unite with another Italian state"
 je_risorgimento_italian_unification_button_desc: "Through diplomacy and mutual aims, we are finally able to unify with another Italian state."
-
-notification_nationalism_decision_agitation_stirred_name: "Unrest in #bold Italian#! Regions"
-notification_nationalism_decision_agitation_stirred_desc: "#bold Italian#! nationalist unrest has sharply increased in [SCOPE.sCountry('victim_country').GetName] #bold Italian#! territories, in response to rumblings of unification amongst the states of the #bold Italian#! peninsula. [SCOPE.sCountry('saboteur_country').GetAdjective] propaganda is suspected to be the root of the unrest."
-notification_nationalism_decision_agitation_stirred_tooltip: "#header $notification_nationalism_decision_agitation_stirred_name$#!\n$TOOLTIP_DELIMITER$\n$notification_nationalism_decision_agitation_stirred_desc$"
+italian_minor_dont_annex_tt: "Hasn't rejected to annex in the past #bold five years#!"
 
 notification_sabotage_decision_agitation_stirred_name: "Pro-Unification Unrest Strikes [SCOPE.sCountry('victim_country').GetName]"
 notification_sabotage_decision_agitation_stirred_desc: "Inspired by the calls for Italian unification from [SCOPE.sCountry('saboteur_country').GetAdjective], unrest has spiked across [SCOPE.sCountry('victim_country').GetName] lands."
 notification_sabotage_decision_agitation_stirred_tooltip: "#header $notification_sabotage_decision_agitation_stirred_name$#!\n$TOOLTIP_DELIMITER$\n$notification_sabotage_decision_agitation_stirred_desc$"
 
+notification_ita_italian_anti_unification_intent_name: "[SCOPE.sCountry('italian_unifier_candidate').GetName] Opposes Italian Unification"
+notification_ita_italian_anti_unification_intent_desc: "The government of [SCOPE.sCountry('italian_unifier_candidate').GetRuler.GetPrimaryRoleTitle] [SCOPE.sCountry('italian_unifier_candidate').GetRuler.GetFullName] has signaled opposition for the unification of the Italian peninsula into a single nation."
+notification_ita_italian_anti_unification_intent_tooltip: "#header $notification_ita_italian_anti_unification_intent_name$#!\n$TOOLTIP_DELIMITER$\n$notification_ita_italian_anti_unification_intent_desc$"
+
+notification_nationalism_decision_agitation_stirred_name: "Unrest in #bold Italian#! Regions"
+notification_nationalism_decision_agitation_stirred_desc: "#bold Italian#! nationalist unrest has sharply increased in [SCOPE.sCountry('victim_country').GetName] #bold Italian#! territories, in response to rumblings of unification amongst the states of the #bold Italian#! peninsula. [SCOPE.sCountry('saboteur_country').GetAdjective] propaganda is suspected to be the root of the unrest."
+notification_nationalism_decision_agitation_stirred_tooltip: "#header $notification_nationalism_decision_agitation_stirred_name$#!\n$TOOLTIP_DELIMITER$\n$notification_nationalism_decision_agitation_stirred_desc$"
+
 buyers_unfriendly_nation_with_interest_in_alaska_tt: "A hostile [concept_country] toward our buyer with a [concept_rank] equal or higher than theirs has an [concept_interest] in the #bold Pacific Coast#! [concept_strategic_region]"
 unfriendly_nation_with_interest_in_alaska_tt: "A hostile [concept_country] with a [concept_rank] equal or higher than ours has an [concept_interest] in the #bold Pacific Coast#! [concept_strategic_region]"
-italian_minor_dont_annex_tt: "Hasn't rejected to annex in the past #bold five years#!"
 has_formed_ethiopia_tt: "Has formed the nation of #v $ETH$#!"
 manifested_destiny_tt: "Has #bold manifested destiny#."
 

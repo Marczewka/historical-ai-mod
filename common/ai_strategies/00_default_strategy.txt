@@ -4678,6 +4678,13 @@ ai_strategy_default = {
 
 				if = {
 					limit = {
+						has_je_reconcile_reason = { TARGET = scope:target_country }
+					}
+					add = 10000
+				}	
+
+				if = {
+					limit = {
 						scope:target_country = { 
 							has_secret_goal = {
 								who = root

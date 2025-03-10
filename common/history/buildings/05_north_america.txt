@@ -105,7 +105,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_scholastic_education" "pm_secular_academia" }
+				activate_production_methods={ "pm_philosophy_department" "pm_secular_academia" }
 			}
 			create_building={
 				building="building_iron_mine"
@@ -893,7 +893,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_scholastic_education" "pm_secular_academia" }
+				activate_production_methods={ "pm_philosophy_department" "pm_secular_academia" }
 			}
 			create_building={
 				building="building_food_industry"
@@ -1941,7 +1941,7 @@
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_scholastic_education" "pm_secular_academia" }
+				activate_production_methods={ "pm_philosophy_department" "pm_secular_academia" }
 			}
 			create_building={
 				building="building_textile_mills"

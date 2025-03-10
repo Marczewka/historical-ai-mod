@@ -457,34 +457,3 @@ je_sick_man_bureaucracy = {
 
 	should_be_pinned_by_default = yes
 }
-
-je_dead_man_walking = {
-	icon = "gfx/interface/icons/event_icons/event_skull.dds"
-
-	group = je_group_historical_content
-
-	complete = {
-		has_law = law_type:law_multicultural
-		has_law = law_type:law_total_separation
-		bureaucracy >= 0 
-		approaching_bureaucracy_shortage = no
-	}
-
-	on_complete = {
-		trigger_event = {
-			id = dead_man.1
-		}
-	}
-
-	on_timeout = {
-		trigger_event = {
-			id = dead_man.3
-		}
-	}
-
-	transferable = yes
-
-	weight = 10000
-	should_be_pinned_by_default = yes
-	timeout = 5475
-}

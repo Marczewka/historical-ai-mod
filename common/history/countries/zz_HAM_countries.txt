@@ -19,19 +19,16 @@
     set_military_wage_level = medium
   }
   c:RUS ?= {
-    set_tax_level = high
+    set_tax_level = medium
   }
   c:JAP ?= {
     set_tax_level = low
     set_military_wage_level = high # samurai stipends
   }
   c:USA ?= {
-    # lower taxes make sense for substantial tariffs
+    # lower taxes make sense in the case of higher tariffs
     set_tax_level = medium
     add_journal_entry = { type = je_oregon }
-    trigger_event = {
-      id = native_resettlement.1
-    }
   }
   
   every_country = {

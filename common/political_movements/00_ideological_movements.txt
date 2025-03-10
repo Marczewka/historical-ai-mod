@@ -3233,6 +3233,16 @@ movement_liberal = {
 				value = 0.1
 			}
 		}
+		if = {
+			limit = {
+				owner ?= {
+					has_journal_entry = je_springtime_of_the_peoples
+				}
+			}
+			multiply = {
+				value = 2
+			}
+		}
 	}	
 	on_created = {
 		add_movement_enthusiasm_modifier = yes
@@ -3456,6 +3466,15 @@ movement_liberal = {
 			value = literacy_rate
 			add = 0.10
 		}
+		if = {
+			limit = { 
+				owner ?= { has_journal_entry = je_springtime_of_the_peoples } 
+			}
+			multiply = {
+				value = 2.0
+				desc = "SPRINGTIME_OF_THE_PEOPLES_UNDERWAY"
+			}
+		}
 	}
 	
 	revolution = {
@@ -3560,6 +3579,16 @@ movement_radical = {
 			}
 			multiply = {
 				value = 0.25
+			}
+		}
+		if = {
+			limit = {
+				owner ?= {
+					has_journal_entry = je_springtime_of_the_peoples
+				}
+			}
+			multiply = {
+				value = 2
 			}
 		}
 	}	
@@ -3783,6 +3812,15 @@ movement_radical = {
 			desc = "POP_RADICALS"
 			value = pop_radical_fraction
 			add = 1
+		}
+		if = {
+			limit = { 
+				owner ?= { has_journal_entry = je_springtime_of_the_peoples } 
+			}
+			multiply = {
+				value = 2.0
+				desc = "SPRINGTIME_OF_THE_PEOPLES_UNDERWAY"
+			}
 		}
 	}
 	

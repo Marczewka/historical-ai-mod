@@ -18,3 +18,17 @@ ita_italian_anti_unification_intent = {
 
 	notification_type = feed
 }
+
+polish_decision_agitation_stirred = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/revolution.dds"
+
+	notification_type = feed
+}
+
+polish_national_agitation_occurred = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/revolution.dds"
+
+	notification_type = feed
+}

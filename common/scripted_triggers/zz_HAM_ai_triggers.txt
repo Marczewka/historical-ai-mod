@@ -167,15 +167,6 @@ has_je_conquest_reason = {
 		}
 
 		AND = {
-			has_journal_entry = je_alaska
-			$TARGET$ = {
-				any_scope_state = {
-					state_region = s:STATE_ALASKA
-				}
-			}
-		}
-
-		AND = {
 			country_has_primary_culture = cu:russian
 			has_law = law_type:law_national_supremacy
 			$TARGET$ = {
@@ -352,40 +343,10 @@ has_je_befriend_reason = {
 		}
 
 		AND = {
-			has_journal_entry = je_sale_of_alaska
-			$TARGET$ = { 
-				NOT = { is_subject = yes }
-				NOT = { this = root }
-				country_is_in_north_america = yes
-				relations:root > relations_threshold:cold
-				country_rank >= rank_value:great_power
-				any_scope_state = {
-					region = sr:region_pacific_coast
-					is_incorporated = yes
-				} 
-			}			
-		}
-
-		AND = {
-			has_journal_entry = je_alaska
-			$TARGET$ = { c:RUS ?= this }			
-		}
-
-		AND = {
 			has_journal_entry = je_risorgimento
 			has_modifier = modifier_risorgimento_support
 			$TARGET$ = { has_modifier = modifier_risorgimento_support }
 		}
-		
-		AND = {
-			has_journal_entry = je_oregon
-			$TARGET$ = { c:GBR ?= this }
-		}
-
-		AND = {
-			c:GBR ?= this
-			$TARGET$ = { has_journal_entry = je_oregon }			
-		}		
 	
 		AND = {
 			c:GBR ?= this
@@ -483,4 +444,47 @@ has_je_protect_reason = {
 			}
 		}			
 	}	
+}
+
+has_je_reconcile_reason = {
+	can_befriend_target_country = yes
+
+	AND = {
+		has_journal_entry = je_sale_of_alaska
+		$TARGET$ = { 
+			NOT = { is_subject = yes }
+			NOT = { this = root }
+			country_is_in_north_america = yes
+			relations:root > relations_threshold:cold
+			country_rank >= rank_value:great_power
+			any_scope_state = {
+				region = sr:region_pacific_coast
+				is_incorporated = yes
+			} 
+		}			
+	}
+
+	AND = {
+		has_journal_entry = je_alaska
+		$TARGET$ = { c:RUS ?= this }			
+	}
+
+	AND = {
+		has_journal_entry = je_unite_the_principalities
+		$TARGET$ = { 
+			country_rank >= rank_value:great_power
+			NOT = { has_war_with = ROOT }
+			has_interest_marker_in_region = ROOT.capital.region
+		}			
+	}
+
+	AND = {
+		has_journal_entry = je_oregon
+		$TARGET$ = { c:GBR ?= this }
+	}
+
+	AND = {
+		c:GBR ?= this
+		$TARGET$ = { has_journal_entry = je_oregon }			
+	}		
 }

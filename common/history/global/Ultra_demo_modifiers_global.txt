@@ -7,8 +7,6 @@ GLOBAL = {
 		region_state:FRA = {
 			add_modifier = {
 				name = fra_secular_legacy
-				years = 80
-				is_decaying = yes
 			}
 		}
 	}
@@ -16,8 +14,6 @@ GLOBAL = {
 		region_state:FRA = {
 			add_modifier = {
 				name = fra_secular_legacy
-				years = 80
-				is_decaying = yes
 			}
 		}
 	}
@@ -25,8 +21,6 @@ GLOBAL = {
 		region_state:FRA = {
 			add_modifier = {
 				name = fra_secular_legacy
-				years = 80
-				is_decaying = yes
 			}
 		}
 	}
@@ -34,8 +28,6 @@ GLOBAL = {
 		region_state:FRA = {
 			add_modifier = {
 				name = fra_secular_legacy
-				years = 80
-				is_decaying = yes
 			}
 		}
 	}
@@ -43,8 +35,6 @@ GLOBAL = {
 		region_state:FRA = {
 			add_modifier = {
 				name = fra_secular_legacy
-				years = 80
-				is_decaying = yes
 			}
 		}
 	}
@@ -52,8 +42,6 @@ GLOBAL = {
 		region_state:FRA = {
 			add_modifier = {
 				name = fra_secular_legacy
-				years = 80
-				is_decaying = yes
 			}
 		}
 	}
@@ -61,8 +49,6 @@ GLOBAL = {
 		region_state:FRA = {
 			add_modifier = {
 				name = fra_secular_legacy
-				years = 80
-				is_decaying = yes
 			}
 		}
 	}
@@ -70,8 +56,6 @@ GLOBAL = {
 		region_state:FRA = {
 			add_modifier = {
 				name = fra_secular_legacy
-				years = 80
-				is_decaying = yes
 			}
 		}
 	}
@@ -79,8 +63,6 @@ GLOBAL = {
 		region_state:FRA = {
 			add_modifier = {
 				name = fra_secular_legacy
-				years = 80
-				is_decaying = yes
 			}
 		}
 	}
@@ -88,8 +70,6 @@ GLOBAL = {
 		region_state:FRA = {
 			add_modifier = {
 				name = fra_secular_legacy
-				years = 80
-				is_decaying = yes
 			}
 		}
 	}
@@ -97,8 +77,6 @@ GLOBAL = {
 		region_state:FRA = {
 			add_modifier = {
 				name = fra_secular_legacy
-				years = 80
-				is_decaying = yes
 			}
 		}
 	}
@@ -106,8 +84,6 @@ GLOBAL = {
 		region_state:FRA = {
 			add_modifier = {
 				name = fra_secular_legacy
-				years = 80
-				is_decaying = yes
 			}
 		}
 	}
@@ -115,8 +91,6 @@ GLOBAL = {
 		region_state:FRA = {
 			add_modifier = {
 				name = fra_secular_legacy
-				years = 80
-				is_decaying = yes
 			}
 		}
 	}
@@ -124,8 +98,6 @@ GLOBAL = {
 		region_state:FRA = {
 			add_modifier = {
 				name = fra_secular_legacy
-				years = 80
-				is_decaying = yes
 			}
 		}
 	}
@@ -133,8 +105,6 @@ GLOBAL = {
 		region_state:FRA = {
 			add_modifier = {
 				name = fra_secular_legacy
-				years = 80
-				is_decaying = yes
 			}
 		}
 	}
@@ -142,8 +112,6 @@ GLOBAL = {
 		region_state:FRA = {
 			add_modifier = {
 				name = fra_secular_legacy
-				years = 80
-				is_decaying = yes
 			}
 		}
 	}
@@ -151,8 +119,6 @@ GLOBAL = {
 		region_state:FRA = {
 			add_modifier = {
 				name = fra_secular_legacy
-				years = 80
-				is_decaying = yes
 			}
 		}
 	}
@@ -160,8 +126,6 @@ GLOBAL = {
 		region_state:FRA = {
 			add_modifier = {
 				name = fra_secular_legacy
-				years = 80
-				is_decaying = yes
 			}
 		}
 	}
@@ -169,8 +133,6 @@ GLOBAL = {
 		region_state:FRA = {
 			add_modifier = {
 				name = fra_secular_legacy
-				years = 80
-				is_decaying = yes
 			}
 		}
 	}
@@ -178,8 +140,6 @@ GLOBAL = {
 		region_state:FRA = {
 			add_modifier = {
 				name = fra_secular_legacy
-				years = 80
-				is_decaying = yes
 			}
 		}
 	}

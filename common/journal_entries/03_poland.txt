@@ -4,17 +4,13 @@
 	group = je_group_historical_content
 
     scripted_button = christ_of_nations_button
+    scripted_button = je_christ_of_nations_unification_button
 
     is_shown_when_inactive = {
         OR = {
             c:POL ?= this
             c:KRA ?= this
-            AND = {
-                c:GAL ?= this
-                ruler = {
-                    culture = cu:polish
-                }
-            }
+            c:GAL ?= this
         }
         NOT = {
             sr:region_poland = {
@@ -27,7 +23,12 @@
     }
 
     possible = {
-        has_technology_researched = nationalism
+        any_country = {
+			OR = {
+				country_has_primary_culture = cu:polish		
+			}
+			has_technology_researched = nationalism
+		}
     }
 
     immediate = {

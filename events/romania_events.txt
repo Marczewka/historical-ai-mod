@@ -275,6 +275,14 @@ romania.3 = {
 			}
 			annex = c:TRS
 		}
+		if = {
+			limit = {
+				any_scope_state = {
+					state_region = s:STATE_WALLACHIA
+				}
+			}
+			set_capital = STATE_WALLACHIA
+		}
 		change_tag = ROM
 		unification_claims_effect = yes
 		ai_chance = {
