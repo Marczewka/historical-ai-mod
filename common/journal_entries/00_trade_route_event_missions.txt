@@ -48,18 +48,14 @@ je_set_up_grain_import = {
 	}
 
 	complete = {
-		custom_tooltip = {
-			text = corn_low_price_tt
-			AND = {
-				scope:journal_entry = {
-					is_goal_complete = yes
-				}
-				market_capital.market = {
-					mg:grain = { 
-						market_goods_pricier < 0.0 
-					}
-				}
+		capital.market = {
+			any_trade_route = {
+				importer.owner = root
+				goods = g:grain
 			}
+		}
+		scope:journal_entry = {
+			is_goal_complete = yes
 		}
 	}
 
@@ -113,6 +109,10 @@ je_set_up_grain_import = {
 	weight = 200
 
 	transferable = no
+
+	progressbar = yes
+
+	should_be_pinned_by_default = yes
 }
 
 
@@ -129,18 +129,14 @@ je_set_up_steel_import = {
 	}
 
 	complete = {
-		custom_tooltip = {
-			text = steel_low_price_tt
-			AND = {
-				scope:journal_entry = {
-					is_goal_complete = yes
-				}
-				market_capital.market = {
-					mg:steel = { 
-						market_goods_pricier < 0.0 
-					}
-				}
+		capital.market = {
+			any_trade_route = {
+				importer.owner = root
+				goods = g:steel
 			}
+		}
+		scope:journal_entry = {
+			is_goal_complete = yes
 		}
 	}
 
@@ -194,6 +190,10 @@ je_set_up_steel_import = {
 	weight = 200
 
 	transferable = no
+
+	progressbar = yes
+
+	should_be_pinned_by_default = yes
 }
 
 
@@ -210,18 +210,14 @@ je_set_up_paper_import = {
 	}
 
 	complete = {
-		custom_tooltip = {
-			text = paper_low_price_tt
-			AND = {
-				scope:journal_entry = {
-					is_goal_complete = yes
-				}
-				market_capital.market = {
-					mg:paper = { 
-						market_goods_pricier < 0.0 
-					}
-				}
+		capital.market = {
+			any_trade_route = {
+				importer.owner = root
+				goods = g:paper
 			}
+		}
+		scope:journal_entry = {
+			is_goal_complete = yes
 		}
 	}
 
@@ -275,4 +271,8 @@ je_set_up_paper_import = {
 	weight = 200
 
 	transferable = no
+
+	progressbar = yes
+
+	should_be_pinned_by_default = yes
 }

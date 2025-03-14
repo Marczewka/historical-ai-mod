@@ -2561,7 +2561,20 @@ ai_strategy_default = {
 				}
 			}
 			add = 100
-		}			
+		}		
+		
+		# Danish Nationalism
+		if = {
+			limit = {
+				has_journal_entry = je_schleswig_holstein_question_denmark
+				scope:target_country = {
+					any_state = {
+						state_region = s:STATE_SCHLESWIG_HOLSTEIN
+					}
+				}
+			}
+			add = 100
+		}	
 		
 		# Schleswig-Holstein question
 		if = {
@@ -2659,6 +2672,29 @@ ai_strategy_default = {
 				}
 			}
 			add = 300
+		}
+
+		if = {
+			limit = {
+				c:MEX ?= this
+				scope:target_country = {
+					c:GUA ?= this
+					any_scope_state = {
+						state_region = s:STATE_CHIAPAS
+					}
+				}
+			}
+			add = 300
+		}
+
+		if = {
+			limit = {
+				c:GUA ?= this
+				scope:target_country = {
+					c:ALT ?= this
+				}
+			}
+			add = 50
 		}
 
 		# Sardinia confident after treaty of Turin
@@ -6001,6 +6037,16 @@ ai_strategy_default = {
 		transfer_subject = {
 			if = {
 				limit = {
+					has_diplomatic_pact = {
+						who = scope:target_country.top_overlord
+						type = rivalry
+					}							
+				}
+				add = 50 # 25
+			}
+			
+			if = {
+				limit = {
 					has_secret_goal = {
 						who = scope:target_country
 						secret_goal = dominate
@@ -6233,7 +6279,7 @@ ai_strategy_default = {
 		}	
 
 		humiliation = {
-			value = 25
+			value = 10 # 25
 		}	
 		
 		join_power_bloc = {
@@ -6649,14 +6695,14 @@ ai_strategy_default = {
 							type = rivalry
 						}							
 					}
-					add = 25
+					add = 50 # 25
 				}
 
 				if = {
 					limit = {
 						scope:target_country.top_overlord.infamy >= infamy_threshold:pariah
 					}
-					add = 25
+					add = 50 # 25
 				}
 			}
 
@@ -6726,14 +6772,14 @@ ai_strategy_default = {
 							type = rivalry
 						}			
 					}
-					add = 25
+					add = 50 # 25
 				}
 
 				if = {
 					limit = {
 						scope:target_country.infamy >= infamy_threshold:pariah
 					}
-					add = 25
+					add = 50 # 25
 				}				
 			}
 			

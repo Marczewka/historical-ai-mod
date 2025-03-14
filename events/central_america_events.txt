@@ -107,6 +107,9 @@ central_america.2 = {
 					set_variable = ca_secession_country
 				}
 			}
+			s:STATE_GUATEMALA = {
+				add_claim = c:GUA
+			}
 			if = {
 				limit = {
 					exists = s:STATE_CHIAPAS.region_state:UCA
@@ -435,6 +438,9 @@ central_america.3 = {
 				tag = GUA
 				origin = this
 				state = scope:secession_state
+			}
+			s:STATE_GUATEMALA = {
+				add_claim = c:GUA
 			}
 			if = {
 				limit = { 

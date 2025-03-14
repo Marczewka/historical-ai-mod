@@ -14,15 +14,6 @@
 
 	immediate = {
 		trigger_event = { id = vtm_denmark.1 }
-		if = {
-			limit = {
-				is_ai = yes
-			}
-			set_secret_goal = {
-				country = c:SCH
-				secret_goal = dominate 
-			}
-		}
 	}
 
 	complete = { #complete if Schleswig is controlled directly by Denmark

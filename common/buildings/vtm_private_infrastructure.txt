@@ -150,21 +150,21 @@ building_railway = {
 	}
 	
 	should_auto_expand = { 
+		building_has_goods_shortage = no
 		occupancy >= 0.8
 		OR = {
 			cash_reserves_ratio > 0.5
 			is_subsidized = yes
 		}
-		OR = {
-			state = {
+		state = {
+			OR = {
 				sg:transportation = { 
 					state_goods_pricier > 0.5 
 				}
+				relative_infrastructure < 1
 			}
-			state.market_access < 1
 		}
 		NOT = { is_under_construction = yes }
-
 	}
 	ownership_type = self
 

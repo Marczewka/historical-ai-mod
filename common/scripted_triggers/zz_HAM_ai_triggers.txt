@@ -50,6 +50,20 @@ has_je_conquest_reason = {
 
 	OR = {	
 		AND = {
+			c:MEX ?= this
+			$TARGET$ = {
+				any_scope_state = {
+					state_region = s:STATE_CHIAPAS
+				}
+			}
+		}
+		AND = {
+			c:GUA ?= this
+			$TARGET$ = {
+				c:ALT ?= this
+			}
+		}
+		AND = {
 			has_journal_entry = je_sick_man_syria
 			$TARGET$ = {
 				any_scope_state = {
@@ -87,6 +101,15 @@ has_je_conquest_reason = {
 				any_scope_state = {
 					state_region = { is_homeland = cu:greek }
 					has_claim_by = root
+				}
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_schleswig_holstein_question_denmark
+			$TARGET$ = {
+				any_scope_state = {
+					state_region = s:STATE_SCHLESWIG_HOLSTEIN
 				}
 			}
 		}
@@ -281,6 +304,14 @@ has_je_conquest_reason = {
 				is_revolutionary = no
 			}
 		}	
+
+		AND = {
+			has_global_variable = schleswig_holstein_question_solved
+			has_strategy = ai_strategy_unify_germany
+			$TARGET$ = {
+				is_unification_candidate = GER
+			}
+		}
 		
 		AND = {
 			has_journal_entry = je_risorgimento
@@ -387,6 +418,15 @@ has_je_protect_reason = {
 	country_rank > $TARGET$.country_rank
 	
 	OR = {
+		AND = {
+			has_journal_entry = wants_to_solve_schleswig_holstein
+			$TARGET$ = { 
+				overlord = {
+					is_oppressor_of_schleswig_holstein = yes
+				} 
+			}			
+		}
+
 		AND = {
 			has_journal_entry = je_texas_usa
 			$TARGET$ = { has_journal_entry = je_texas_tex }			
