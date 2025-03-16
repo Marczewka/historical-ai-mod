@@ -1075,6 +1075,7 @@ ai_strategy_default = {
 							} 
 						}					
 					multiply = 2.0
+					add = 20	
 				}
 
 				if = {
@@ -1113,7 +1114,6 @@ ai_strategy_default = {
 					limit = {
 						scope:target_state = { is_homeland_of_country_cultures = root }
 						NOR = {
-							country_has_primary_culture = cu:platinean
 							country_has_primary_culture = cu:south_andean
 							country_has_primary_culture = cu:north_andean
 						}
@@ -6108,20 +6108,6 @@ ai_strategy_default = {
 				add = 100
 			}		
 			
-			# Ottomans should want Syria back
-			if = {
-				limit = {
-					has_journal_entry = je_sick_man_syria
-					scope:enemy_country = {
-						OR = {
-							owns_entire_state_region = STATE_HEDJAZ
-						}
-					}
-				}
-				add = 100
-			}
-
-
 			min = 0
 			max = 100			
 		}		
@@ -6295,6 +6281,14 @@ ai_strategy_default = {
 					scope:target_country = {
 						has_variable = war_of_the_confederation_attacker
 					}
+				}
+				add = 50
+			}	
+
+			if = {
+				limit = {
+					has_variable = war_of_the_confederation_attacker
+					scope:target_country = { c:BOL ?= this }
 				}
 				add = 50
 			}	
