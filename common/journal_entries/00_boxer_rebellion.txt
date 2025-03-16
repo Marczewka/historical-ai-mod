@@ -7,7 +7,6 @@
         c:CHI ?= this
        	has_technology_researched = nationalism
         country_has_primary_culture = cu:manchu
-        country_has_primary_culture = cu:han
     }
     possible = {
     	c:CHI ?= this
