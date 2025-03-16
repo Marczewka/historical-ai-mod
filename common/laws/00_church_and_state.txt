@@ -282,6 +282,7 @@ law_state_atheism = {
 		law_theocracy
 		law_monarchy
 		law_religious_schools
+		law_guaranteed_liberties
 	}
 
 	can_enact = {

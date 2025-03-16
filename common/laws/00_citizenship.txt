@@ -103,10 +103,6 @@ law_national_supremacy = {
 	on_enact = {
 		recalculate_pop_ig_support = yes
 	}
-
-	disallowing_laws = {
-		law_guaranteed_liberties
-	}
 	
 	modifier = {
 		country_authority_add = 150
