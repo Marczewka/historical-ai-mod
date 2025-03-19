@@ -669,9 +669,14 @@ nationalism = {
 					country_has_primary_culture = cu:north_german
 					country_has_primary_culture = cu:south_german
 				}		
-				country_rank >= rank_value:great_power		
 			}
-			add = 3
+			add = 2
+			if = {
+				limit = {
+					country_rank >= rank_value:great_power		
+				}
+				add = 2
+			}
 		}	
 		
 		if = {
@@ -682,7 +687,7 @@ nationalism = {
 				}
 				has_modifier = modifier_risorgimento_support
 			}
-			add = 3
+			multiply = 4
 		}
 	}
 }

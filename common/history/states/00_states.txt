@@ -2664,7 +2664,6 @@ STATES = {
 		
 		add_homeland = cu:patagonian		
 		add_claim = c:CHL
-		add_claim = c:ARG
 	}
 	s:STATE_SOUTH_ATLANTIC_ISLANDS = {
 		create_state = {
