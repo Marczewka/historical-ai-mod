@@ -25,11 +25,11 @@ law_ethnostate = {
 		country_authority_add = 200
 
 		#From this block, we only apply the highest value a Pop qualifies for
-		country_acceptance_primary_culture_add = 115
-		country_acceptance_shared_heritage_and_cultural_trait_add = 55
-		country_acceptance_shared_heritage_trait_add = 35
-		country_acceptance_shared_cultural_trait_add = 15
-		country_acceptance_culture_base_add = 15
+		country_acceptance_primary_culture_add = 115 # 100
+		country_acceptance_shared_heritage_and_cultural_trait_add = 55 # 40
+		country_acceptance_shared_heritage_trait_add = 35 # 20
+		country_acceptance_shared_cultural_trait_add = 15 # 0
+		country_acceptance_culture_base_add = 15 # 0
 	}
 
 	acceptance_modifier = {
@@ -60,9 +60,9 @@ law_ethnostate = {
 		country_political_strength_second_rate_citizen_mult = -0.15
 		country_political_strength_full_acceptance_mult = 0.25
 
-		country_wage_violent_hostility_mult = -0.3 # -0.5
-		country_wage_cultural_erasure_mult = -0.25 # -0.4
-		country_wage_open_prejudice_mult = -0.2 # -0.25
+		country_wage_violent_hostility_mult = -0.5
+		country_wage_cultural_erasure_mult = -0.4
+		country_wage_open_prejudice_mult = -0.25
 		country_wage_second_rate_citizen_mult = -0.15
 		# country_wage_full_acceptance_mult = 0.25
 
@@ -108,11 +108,11 @@ law_national_supremacy = {
 		country_authority_add = 150
 
 		#From this block, we only apply the highest value a Pop qualifies for
-		country_acceptance_primary_culture_add = 115
-		country_acceptance_shared_heritage_and_cultural_trait_add = 75
-		country_acceptance_shared_heritage_trait_add = 55
-		country_acceptance_shared_cultural_trait_add = 35
-		country_acceptance_culture_base_add = 15
+		country_acceptance_primary_culture_add = 115 # 100
+		country_acceptance_shared_heritage_and_cultural_trait_add = 75 # 60
+		country_acceptance_shared_heritage_trait_add = 55 # 40
+		country_acceptance_shared_cultural_trait_add = 35 # 20
+		country_acceptance_culture_base_add = 15 # 0
 	}
 
 	acceptance_modifier = {
@@ -143,9 +143,9 @@ law_national_supremacy = {
 		country_political_strength_second_rate_citizen_mult = -0.1
 		country_political_strength_full_acceptance_mult = 0.20
 
-		country_wage_violent_hostility_mult = -0.25 # -0.4
-		country_wage_cultural_erasure_mult = -0.2 # -0.3
-		country_wage_open_prejudice_mult = -0.15 # -0.2
+		country_wage_violent_hostility_mult = -0.4
+		country_wage_cultural_erasure_mult = -0.3
+		country_wage_open_prejudice_mult = -0.2
 		country_wage_second_rate_citizen_mult = -0.1
 		# country_wage_full_acceptance_mult = 0.20
 
@@ -191,11 +191,11 @@ law_racial_segregation = {
 		country_authority_add = 100
 
 		#From this block, we only apply the highest value a Pop qualifies for
-		country_acceptance_primary_culture_add = 115
-		country_acceptance_shared_heritage_and_cultural_trait_add = 85
-		country_acceptance_shared_heritage_trait_add = 65
-		country_acceptance_shared_cultural_trait_add = 45
-		country_acceptance_culture_base_add = 25
+		country_acceptance_primary_culture_add = 115 # 100
+		country_acceptance_shared_heritage_and_cultural_trait_add = 85 # 70
+		country_acceptance_shared_heritage_trait_add = 65 # 50
+		country_acceptance_shared_cultural_trait_add = 45 # 30
+		country_acceptance_culture_base_add = 25 # 10
 	}
 
 	acceptance_modifier = {
@@ -219,9 +219,9 @@ law_racial_segregation = {
 		country_political_strength_second_rate_citizen_mult = 0.1
 		country_political_strength_full_acceptance_mult = 0.1
 
-		country_wage_violent_hostility_mult = -0.2 # -0.3
-		country_wage_cultural_erasure_mult = -0.15 # -0.2
-		country_wage_open_prejudice_mult = -0.1 # -0.1
+		country_wage_violent_hostility_mult = -0.3
+		country_wage_cultural_erasure_mult = -0.2
+		country_wage_open_prejudice_mult = -0.1
 		# country_wage_second_rate_citizen_mult = 0.05
 		# country_wage_full_acceptance_mult = 0.15
 
@@ -272,11 +272,11 @@ law_cultural_exclusion = {
 		country_authority_add = 50
 
 		#From this block, we only apply the highest value a Pop qualifies for
-		country_acceptance_primary_culture_add = 115
-		country_acceptance_shared_heritage_and_cultural_trait_add = 95
-		country_acceptance_shared_heritage_trait_add = 75
-		country_acceptance_shared_cultural_trait_add = 55
-		country_acceptance_culture_base_add = 35
+		country_acceptance_primary_culture_add = 115 # 115
+		country_acceptance_shared_heritage_and_cultural_trait_add = 95 # 80
+		country_acceptance_shared_heritage_trait_add = 75 # 60
+		country_acceptance_shared_cultural_trait_add = 55 # 40
+		country_acceptance_culture_base_add = 35 # 20
 	}
 
 	acceptance_modifier = {
@@ -300,9 +300,9 @@ law_cultural_exclusion = {
 		country_political_strength_second_rate_citizen_mult = 0.1
 		country_political_strength_full_acceptance_mult = 0.1
 
-		country_wage_violent_hostility_mult = -0.2 # -0.3
-		country_wage_cultural_erasure_mult = -0.15 # -0.2
-		country_wage_open_prejudice_mult = -0.1 # -0.1
+		country_wage_violent_hostility_mult = -0.3
+		country_wage_cultural_erasure_mult = -0.2
+		country_wage_open_prejudice_mult = -0.1
 		# country_wage_full_acceptance_mult = 0.05
 
 		country_qualification_growth_violent_hostility_mult = -0.5
@@ -353,11 +353,11 @@ law_multicultural = {
 
 	modifier = {
 		#From this block, we only apply the highest value a Pop qualifies for
-		country_acceptance_primary_culture_add = 115
-		country_acceptance_shared_heritage_and_cultural_trait_add = 105
-		country_acceptance_shared_heritage_trait_add = 100
-		country_acceptance_shared_cultural_trait_add = 95
-		country_acceptance_culture_base_add = 90
+		country_acceptance_primary_culture_add = 115 # 100
+		country_acceptance_shared_heritage_and_cultural_trait_add = 105 # 90
+		country_acceptance_shared_heritage_trait_add = 100 # 85
+		country_acceptance_shared_cultural_trait_add = 95 # 80
+		country_acceptance_culture_base_add = 90 # 75
 	}
 
 	acceptance_modifier = {
@@ -374,9 +374,9 @@ law_multicultural = {
 		country_assimilation_cultural_erasure_mult = 0.05
 		country_assimilation_open_prejudice_mult = 0.15
 
-		# country_wage_violent_hostility_mult = -0.2
-		# country_wage_cultural_erasure_mult = -0.1
-		# country_wage_open_prejudice_mult = -0.05
+		country_wage_violent_hostility_mult = -0.2
+		country_wage_cultural_erasure_mult = -0.1
+		country_wage_open_prejudice_mult = -0.05
 
 		country_disallow_military_work_violent_hostility_bool = no
  		country_disallow_military_work_cultural_erasure_bool = no

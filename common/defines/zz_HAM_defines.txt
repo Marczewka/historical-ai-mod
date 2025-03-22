@@ -210,7 +210,6 @@ NPops = {
 	COLONY_SPEED_PER_PROVINCE_DIFF_FROM_STANDARD = 0.02	# For every province the state region has above or below COLONY_SPEED_PROVINCE_SIZE_STANDARD, increase or decrease colonization speed by this rate (as a percentage)
 	COLONY_SPEED_POPULATION_INCREMENT = 200000			# Determines the number of people across both colonizing and colonized states that should start slowing down the rate of colonization; set to 0 to disable
 	COLONY_SPEED_MALUS_PER_POPULATION_INCREMENT = 0.25	# Starting at COLONY_SPEED_THRESHOLD_FROM_POPULATION inhabitants, increase the number of days to complete by this amount proportional to population in the colony + state of province being colonized above 200K (e.g. at COLONY_SPEED_THRESHOLD_FROM_POPULATION = 200K, this set to 0.5, and at 300K total inhabitants, multiply growth by 1/1.25 = 0.8; at 600K inhabitants, multiply by 0.25)
-}
 
 ### Pop Growth Constants
 ## Base Values per month
@@ -222,12 +221,12 @@ NPops = {
 ## SoL Thresholds
 @pop_growth_equilibrium_sol = 5		# Equilibrium is pops stop starving and where growth first becomes positive
 @pop_growth_transition_sol = 10     # Transition determines how long birthrate "lags" behind mortality before starting to drop. Setting to same as equilibrium leads to no "lag" (only matters for birthrate)
-@pop_growth_max_sol = 15 #11 #20			# Growth Max is where net growth generally is at it's highest (only matters for mortality)
-@pop_growth_stable_sol = 20 #17 #20 #30			# Stable is where birthrate and mortality stop changing and hit their minimum values
+@pop_growth_max_sol = 15 #20			# Growth Max is where net growth generally is at it's highest (only matters for mortality)
+@pop_growth_stable_sol = 20 #30			# Stable is where birthrate and mortality stop changing and hit their minimum values
 
 ## Others
-@transition_birthrate_mult = 1.0		# If you want the birthrate "lag" to go to a higher or lower value than max_birthrate. (you can also just change it directly below)
-@max_growth_mortality_mult = 0.35	# What proportion of birthrate_at_growth_max mortality should be at. Higher means lower growth
+@transition_birthrate_mult = 0.95 #1.0		# If you want the birthrate "lag" to go to a higher or lower value than max_birthrate. (you can also just change it directly below)
+@max_growth_mortality_mult = 0.40 #0.35	# What proportion of birthrate_at_growth_max mortality should be at. Higher means lower growth
 
 ### Pop Growth Derived values
 # Generally, for each one of these derived values below we're really just doing one of three operations (or combination of them):
@@ -277,6 +276,7 @@ NPops = {
 # else if (sol < POP_GROWTH_STABLE_SOL)
 # { birthrate = sol * POP_GROWTH_BIRTHRATE_TRANSITION_SLOPE + POP_GROWTH_BIRTHRATE_TRANSITION_INTERCEPT }
 # else { birthrate = POP_GROWTH_MIN_BIRTHRATE } 
+}
 
 NPops = {
 	## Birthrate
