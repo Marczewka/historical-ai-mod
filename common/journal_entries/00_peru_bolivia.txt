@@ -350,7 +350,6 @@ je_war_of_the_confederation = {
 	}
 
 	on_complete = {
-		remove_variable = war_of_the_confederation_attacker
 		custom_tooltip = {
 			text = peru_bolivia_complete_tt
 			if = {

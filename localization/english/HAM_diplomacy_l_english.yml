@@ -1,0 +1,2 @@
+﻿l_english:
+ DIPLOMATIC_PACT_RECIPIENT_GREAT_POWER: "One [Concept('concept_country', '$concept_country$')] is a [concept_unrecognized_power] while the other is a [concept_great_power]"

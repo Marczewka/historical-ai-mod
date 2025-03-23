@@ -51,12 +51,6 @@ ai_strategy_default = {
 			limit = { has_journal_entry = je_divided_monarchists }
 			add = 100
 		}
-
-		# Revolution aversion for Slavery Debate
-		if = {
-			limit = { has_journal_entry = je_acw_countdown }
-			add = 100
-		}
 	}
 	
 	# If base chance for law to pass is below this, don't enact it
@@ -1244,6 +1238,16 @@ ai_strategy_default = {
 
 			if = {
 				limit = {
+					has_journal_entry = je_unify_afghanistan
+					scope:target_state = {
+						is_homeland_of_country_cultures = root
+					}
+				}
+				add = 75
+			}
+
+			if = {
+				limit = {
 					has_journal_entry = je_eastern_frontier
 					scope:target_state = {
 						OR = {
@@ -1959,7 +1963,7 @@ ai_strategy_default = {
 				add = 100
 			}
 
-			if = { #Indian suzerain will be aggressive against Afganistan, if Afghanistan is threatened by Russia.
+			if = { #Indian suzerain will be aggressive against Afghanistan, if Afghanistan is threatened by Russia.
 				limit = {
 					AND = {
 						c:RUS ?= {
@@ -2420,6 +2424,27 @@ ai_strategy_default = {
 			}
 			add = 0.5
 		}	
+
+		# # Afghanistan
+		# if = {
+		# 	limit = {
+		# 		has_journal_entry = je_unify_afghanistan
+		# 		scope:target_country = {
+		# 			OR = {
+		# 				has_journal_entry = je_unify_afghanistan
+		# 				any_scope_state = {
+		# 					OR = {
+		# 						state_region = s:STATE_KABUL
+		# 						state_region = s:STATE_HERAT
+		# 						state_region = s:STATE_KANDAHAR
+		# 						state_region = s:STATE_CENTRAL_HIGHLANDS
+		# 					}
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# 	add = 3
+		# }	
 		
 		# Persia
 		if = {
@@ -3266,6 +3291,25 @@ ai_strategy_default = {
 			add = 25
 		}
 
+		# Afghan Consolidation
+		if = {
+			limit = {
+				has_journal_entry = je_unify_afghanistan
+				scope:target_country = {
+					OR = {
+						has_journal_entry = je_unify_afghanistan
+						OR = {
+							has_state_in_state_region = STATE_KABUL
+							has_state_in_state_region = STATE_HERAT
+							has_state_in_state_region = STATE_KANDAHAR
+							has_state_in_state_region = STATE_CENTRAL_HIGHLANDS
+						}
+					}
+				}
+			}
+			add = 10 # 35
+		}
+
         # Neutral Switzerland
         if = {
             limit = {
@@ -3509,7 +3553,6 @@ ai_strategy_default = {
 					has_strategy = ai_strategy_territorial_expansion 
 					has_strategy = ai_strategy_unify_italy
 					has_strategy = ai_strategy_unify_ethiopia
-					has_strategy = ai_strategy_unify_afghanistan
 					has_strategy = ai_strategy_unify_china
 				}
 			}
@@ -5794,24 +5837,20 @@ ai_strategy_default = {
 					country_rank > scope:target_country.country_rank
 					scope:target_country.country_rank < rank_value:major_power
 					scope:target_country = { NOT = { is_subject_of = root }	}
-					if = {
-						limit = {
-							scope:target_country = {
-								is_adjacent_to_country = root
-							} 
-						}
-						add = 25
+				}
+				if = {
+					limit = {
+						scope:target_country = {
+							is_adjacent_to_country = root
+						} 
 					}
-					if = {
-						limit = {
-							any_subject_or_below = {
-								scope:target_country = {
-									is_adjacent_to_country = prev
-								}
-							}
-						}
-						add = 10
+					add = 25
+				}
+				if = {
+					limit = {
+						can_reach_target_country = yes
 					}
+					add = 10
 				}
 			}
 			
@@ -6100,7 +6139,17 @@ ai_strategy_default = {
 		
 		take_treaty_port = {
 			add = scope:target_state.ai_treaty_port_value:root	
-			
+
+			if = {
+				limit = {
+					country_rank >= rank_value:great_power
+					scope:target_country = {
+						has_modifier = opium_wars_addiction_modifier
+					}
+				}
+				add = 100
+			}
+
 			# Britain should go for Hong Kong when starting Opium Wars play against Qing
 			if = {
 				limit = {
@@ -6120,6 +6169,7 @@ ai_strategy_default = {
 		transfer_subject = {
 			if = {
 				limit = {
+					can_reach_target_country = yes
 					has_secret_goal = {
 						who = scope:target_country
 						secret_goal = dominate
@@ -6151,6 +6201,18 @@ ai_strategy_default = {
 		}		
 		
 		make_protectorate = {
+
+			if = {
+				limit = {
+					can_reach_target_country = yes
+					has_secret_goal = {
+						who = scope:target_country
+						secret_goal = dominate
+					}	
+				}
+			
+				add = scope:target_country.ai_subject_value:root			
+			}	
 
 			if = {
 				limit = {
@@ -6207,17 +6269,6 @@ ai_strategy_default = {
 				add = 25
 			}
 
-			if = {
-				limit = {
-					has_secret_goal = {
-						who = scope:target_country
-						secret_goal = dominate
-					}
-				}
-			
-				add = scope:target_country.ai_subject_value:root			
-			}	
-
 			min = 0
 			max = 100				
 		}
@@ -6225,6 +6276,7 @@ ai_strategy_default = {
 		make_tributary = {
 			if = {
 				limit = {
+					can_reach_target_country = yes
 					has_secret_goal = {
 						who = scope:target_country
 						secret_goal = dominate
@@ -6773,24 +6825,20 @@ ai_strategy_default = {
 						who = scope:target_country.top_overlord
 						type = rivalry
 					}
-					if = {
-						limit = {
-							scope:target_country = {
-								is_adjacent_to_country = root
-							} 
-						}
-						add = 25
+				}
+				if = {
+					limit = {
+						scope:target_country = {
+							is_adjacent_to_country = root
+						} 
 					}
-					if = {
-						limit = {
-							any_subject_or_below = {
-								scope:target_country = {
-									is_adjacent_to_country = prev
-								}
-							}
-						}
-						add = 10
+					add = 25
+				}
+				if = {
+					limit = {
+						can_reach_target_country = yes
 					}
+					add = 10
 				}
 			}
 

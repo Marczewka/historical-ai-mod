@@ -54,3 +54,8 @@ schleswig_holstein_question_solver = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
 	country_prestige_mult = 0.2
 }
+
+trail_of_tears_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
+	state_cherokee_standard_of_living_add = -1
+}

@@ -505,31 +505,31 @@ dynamite = {
 	}
 }
 
-rubber_mastication = {
-	# Unlocks Rubber Plantations
-	era = era_3
-	texture = "gfx/interface/icons/invention_icons/rubber.dds"
-	category = production
+# rubber_mastication = {
+# 	# Unlocks Rubber Plantations
+# 	era = era_3
+# 	texture = "gfx/interface/icons/invention_icons/rubber.dds"
+# 	category = production
 	
-	unlocking_technologies = {	
-		fractional_distillation
-		chemical_bleaching
-	}
+# 	unlocking_technologies = {	
+# 		fractional_distillation
+# 		chemical_bleaching
+# 	}
 	
-	ai_weight = {
-		value = 1
+# 	ai_weight = {
+# 		value = 1
 		
-		if = {
-			limit = { 
-				OR = {
-					 has_strategy = ai_strategy_industrial_expansion
-					 has_strategy = ai_strategy_resource_expansion
-				}
-			}
-			add = 3
-		}	
-	}
-}	
+# 		if = {
+# 			limit = { 
+# 				OR = {
+# 					 has_strategy = ai_strategy_industrial_expansion
+# 					 has_strategy = ai_strategy_resource_expansion
+# 				}
+# 			}
+# 			add = 3
+# 		}	
+# 	}
+# }	
 
 rotary_valve_engine = {
 	# Unlocks Rotary Valve Engine PM in Furniture Manufacturies, Tooling Workshops, Paper Mills, Steel Mills, Motor Industry
@@ -624,7 +624,7 @@ aniline = {
 	category = production
 	
 	unlocking_technologies = {	
-		rubber_mastication
+		vulcanization
 	}
 	
 	ai_weight = {
@@ -654,7 +654,8 @@ vulcanization = {
 	category = production
 	
 	unlocking_technologies = {	
-		rubber_mastication
+		fractional_distillation
+		chemical_bleaching
 	}
 	
 	ai_weight = {

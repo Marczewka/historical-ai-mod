@@ -896,7 +896,7 @@ movement_cultural_minority = {
 		}
 	
 		add = {
-			value = "owner.average_sol_for_primary_cultures"
+			value = "owner.average_sol"
 			subtract = "owner.average_sol_for_culture(scope:culture)"
 			multiply = 0.05
 			max = 0.5

@@ -60,9 +60,9 @@ law_ethnostate = {
 		country_political_strength_second_rate_citizen_mult = -0.15
 		country_political_strength_full_acceptance_mult = 0.25
 
-		country_wage_violent_hostility_mult = -0.5
-		country_wage_cultural_erasure_mult = -0.4
-		country_wage_open_prejudice_mult = -0.25
+		country_wage_violent_hostility_mult = -0.3 # -0.5
+		country_wage_cultural_erasure_mult = -0.25 # -0.4
+		country_wage_open_prejudice_mult = -0.2 # -0.25
 		country_wage_second_rate_citizen_mult = -0.15
 		# country_wage_full_acceptance_mult = 0.25
 
@@ -143,9 +143,9 @@ law_national_supremacy = {
 		country_political_strength_second_rate_citizen_mult = -0.1
 		country_political_strength_full_acceptance_mult = 0.20
 
-		country_wage_violent_hostility_mult = -0.4
-		country_wage_cultural_erasure_mult = -0.3
-		country_wage_open_prejudice_mult = -0.2
+		country_wage_violent_hostility_mult = -0.25 # -0.4
+		country_wage_cultural_erasure_mult = -0.2 # -0.3
+		country_wage_open_prejudice_mult = -0.15 # -0.2
 		country_wage_second_rate_citizen_mult = -0.1
 		# country_wage_full_acceptance_mult = 0.20
 
@@ -219,9 +219,9 @@ law_racial_segregation = {
 		country_political_strength_second_rate_citizen_mult = 0.1
 		country_political_strength_full_acceptance_mult = 0.1
 
-		country_wage_violent_hostility_mult = -0.3
-		country_wage_cultural_erasure_mult = -0.2
-		country_wage_open_prejudice_mult = -0.1
+		country_wage_violent_hostility_mult = -0.2 # -0.3
+		country_wage_cultural_erasure_mult = -0.15 # -0.2
+		country_wage_open_prejudice_mult = -0.1 # -0.1
 		# country_wage_second_rate_citizen_mult = 0.05
 		# country_wage_full_acceptance_mult = 0.15
 
@@ -300,9 +300,9 @@ law_cultural_exclusion = {
 		country_political_strength_second_rate_citizen_mult = 0.1
 		country_political_strength_full_acceptance_mult = 0.1
 
-		country_wage_violent_hostility_mult = -0.3
-		country_wage_cultural_erasure_mult = -0.2
-		country_wage_open_prejudice_mult = -0.1
+		country_wage_violent_hostility_mult = -0.2 # -0.3
+		country_wage_cultural_erasure_mult = -0.15 # -0.2
+		country_wage_open_prejudice_mult = -0.1 # -0.1
 		# country_wage_full_acceptance_mult = 0.05
 
 		country_qualification_growth_violent_hostility_mult = -0.5
@@ -374,7 +374,7 @@ law_multicultural = {
 		country_assimilation_cultural_erasure_mult = 0.05
 		country_assimilation_open_prejudice_mult = 0.15
 
-		country_wage_violent_hostility_mult = -0.2
+		country_wage_violent_hostility_mult = -0.15 # -0.2
 		country_wage_cultural_erasure_mult = -0.1
 		country_wage_open_prejudice_mult = -0.05
 

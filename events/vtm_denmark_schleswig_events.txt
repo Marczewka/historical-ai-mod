@@ -38,17 +38,19 @@ vtm_denmark.1 = { #startup event that informs player about the Danish desire to 
 	option = {
 		name = vtm_denmark.1.a
 		c:HOL ?= {
-			limit = {
-				is_subject_of = root
-			}
-			add_liberty_desire = 30
-			change_relations = {
-				country = root
-				value = -30
-			}
-			set_secret_goal = {
-					country = c:DEN
-					secret_goal = antagonize 
+			if = {
+				limit = {
+					is_subject_of = root
+				}
+				add_liberty_desire = 30
+				change_relations = {
+					country = root
+					value = -30
+				}
+				set_secret_goal = {
+						country = c:DEN
+						secret_goal = antagonize 
+				}
 			}
 		}
 	}
@@ -207,12 +209,14 @@ vtm_denmark.4 = {
 			}
 		}
 		c:HOL ?= {
-			limit = {
-				is_subject_of = root
-			}
-			change_relations = {
-				country = root
-				value = -20
+			if = {
+				limit = {
+					is_subject_of = root
+				}
+				change_relations = {
+					country = root
+					value = -20
+				}
 			}
 		}
 		every_country = {
@@ -250,12 +254,14 @@ vtm_denmark.4 = {
 			}
 		}
 		c:HOL ?= {
-			limit = {
-				is_subject_of = root
-			}
-			change_relations = {
-				country = root
-				value = 10
+			if = {
+				limit = {
+					is_subject_of = root
+				}
+				change_relations = {
+					country = root
+					value = 10
+				}
 			}
 		}
 		every_country = {
@@ -322,12 +328,14 @@ vtm_denmark.5 = {
 			}
 		}
 		c:HOL ?= {
-			limit = {
-				is_subject_of = root
-			}
-			change_relations = {
-				country = root
-				value = -20
+			if = {
+				limit = {
+					is_subject_of = root
+				}
+				change_relations = {
+					country = root
+					value = -20
+				}
 			}
 		}
 		every_country = {
@@ -370,12 +378,14 @@ vtm_denmark.5 = {
 			}
 		}
 		c:HOL ?= {
-			limit = {
-				is_subject_of = root
-			}
-			change_relations = {
-				country = root
-				value = 10
+			if = {
+				limit = {
+					is_subject_of = root
+				}
+				change_relations = {
+					country = root
+					value = 10
+				}
 			}
 		}
 		every_country = {
@@ -430,12 +440,14 @@ vtm_denmark.6 = {
 			}
 		}
 		c:HOL ?= {
-			limit = {
-				is_subject_of = root
-			}
-			change_relations = {
-				country = root
-				value = -20
+			if = {
+				limit = {
+					is_subject_of = root
+				}
+				change_relations = {
+					country = root
+					value = -20
+				}
 			}
 		}
 		every_country = {
@@ -461,12 +473,14 @@ vtm_denmark.6 = {
 			}
 		}
 		c:HOL ?= {
-			limit = {
-				is_subject_of = root
-			}
-			change_relations = {
-				country = root
-				value = 10
+			if = {
+				limit = {
+					is_subject_of = root
+				}
+				change_relations = {
+					country = root
+					value = 10
+				}
 			}
 		}
 		every_country = {

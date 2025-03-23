@@ -735,9 +735,14 @@ mobilization_option_motorized_recon = {
 mobilization_option_balloon_recon = {
 	texture = "gfx/interface/icons/mobilization_options/balloon_recon.dds"
 
-	unlocking_principles = {
-		principle_military_industry_3
+	# unlocking_principles = {
+	# 	principle_military_industry_3
+	# }
+
+	unlocking_technologies = {
+		zeppelins
 	}
+
 
 	possible = {
 		market ?= {

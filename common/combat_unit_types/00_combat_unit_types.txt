@@ -144,7 +144,7 @@ combat_unit_type_skirmish_infantry = {
         unit_morale_loss_add = 20 #was 10
     }
 
-	unlocking_technologies = { general_staff }
+	unlocking_technologies = { percussion_cap }
 
     combat_unit_image = {
         trigger = { 
