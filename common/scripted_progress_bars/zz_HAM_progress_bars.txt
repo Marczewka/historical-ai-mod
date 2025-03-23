@@ -9,6 +9,20 @@
 	monthly_progress = {
 		if = {
 			limit = {
+				any_country = {
+					has_diplomatic_pact = {
+						who = root
+						type = request_recognition
+					}
+				}
+			}
+			add = {
+				desc = "earning_recognition_progress_embassy_tt"
+				value = 1
+			}
+		}
+		if = {
+			limit = {
 				OR = {
 					# Your GDP per Capita is relatively high
 					gdp_per_capita_ranking <= 20 # Lower = better

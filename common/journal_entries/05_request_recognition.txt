@@ -62,6 +62,20 @@
 			# Advance Conditions
 			if = {
 				limit = {
+					any_country = {
+						has_diplomatic_pact = {
+							who = root
+							type = request_recognition
+						}
+					}
+				}
+				change_variable = {
+					name = recognition_progress_var
+					add = 1
+				}
+			}
+			if = {
+				limit = {
 					OR = {
 						# Your GDP per Capita is relatively high
 						gdp_per_capita_ranking <= 20
