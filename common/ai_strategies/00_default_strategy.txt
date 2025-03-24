@@ -1294,6 +1294,32 @@ ai_strategy_default = {
 
 			if = {
 				limit = {
+					has_journal_entry = je_indochina
+				}
+				
+				if = {
+					limit = {
+						scope:target_state = {
+							OR = {
+								state_region = s:STATE_TONKIN
+								state_region = s:STATE_ANNAM
+								state_region = s:STATE_MEKONG
+								state_region = s:STATE_LAOS
+								state_region = s:STATE_CAMBODIA							
+							}
+						}					
+					}
+					add = 25 
+					
+					if = {
+						limit = { is_adjacent_to_state = scope:target_state }
+						multiply = 2
+					}
+				}
+			}
+
+			if = {
+				limit = {
 					has_journal_entry = je_conquer_oregon
 					scope:target_state = {
 						OR = {
@@ -2661,7 +2687,7 @@ ai_strategy_default = {
 					}					
 				}
 			}
-			add = 5
+			add = 50 # 5
 		}
 
 		# Ottomans should be very aggressive against owners of Syria and Egypt when they have the relevant JE's
@@ -2702,6 +2728,26 @@ ai_strategy_default = {
 				}
 			}
 			add = 300
+		}
+
+		# Indochina
+		if = {
+			limit = {
+				has_journal_entry = je_indochina
+				scope:target_country = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_TONKIN
+							state_region = s:STATE_ANNAM
+							state_region = s:STATE_MEKONG
+							state_region = s:STATE_LAOS
+							state_region = s:STATE_CAMBODIA				
+						}
+					}
+					NOT = { is_subject_of = ROOT }	
+				}
+			}
+			add = 100
 		}
 
 		# Extra french aggression for Haiti renouncing debt payments
@@ -2814,8 +2860,6 @@ ai_strategy_default = {
 							state_region = s:STATE_PEGU
 							state_region = s:STATE_PASHTUNISTAN
 							state_region = s:STATE_QUETTA
-							state_region = s:STATE_MALAYA
-							state_region = s:STATE_NORTH_BORNEO
 						}
 					}
 				}

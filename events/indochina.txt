@@ -29,20 +29,21 @@ indochina.1 = {
 			region = sr:region_indochina
 		}
 		NOT = {
+			overlord = { country_has_state_religion = rel:catholic }
 			country_has_state_religion = rel:catholic
+			has_law = law_type:law_total_separation
 			has_variable = indochina_campaign_target
 		}
-		has_law = law_type:law_state_religion
 		any_scope_pop = {
 			religion = rel:catholic
 		}
-		any_country = { # there must be a Catholic Great Power who can react to all this
-			country_has_state_religion = rel:catholic
-			country_rank = rank_value:great_power
-			capital = {
-				NOT = { region = sr:region_indochina }
-			}
-		}
+		# any_country = { # there must be a Catholic Great Power who can react to all this
+		# 	country_has_state_religion = rel:catholic
+		# 	country_rank = rank_value:great_power
+		# 	capital = {
+		# 		NOT = { region = sr:region_indochina }
+		# 	}
+		# }
 	}
 
 	immediate = {
@@ -54,20 +55,28 @@ indochina.1 = {
 					capital = {
 						NOT = { region = sr:region_indochina }
 					}
-					is_player = yes
+					OR = {
+						has_interest_marker_in_region = region_indochina
+						has_strategy = ai_strategy_colonial_expansion
+						is_player = yes
+					}
 				}
 			}
 			random_country = {
-				limit = {
-					country_has_state_religion = rel:catholic
-					country_rank = rank_value:great_power
-					capital = {
-						NOT = { region = sr:region_indochina }
-					}
+			limit = {
+				country_has_state_religion = rel:catholic
+				country_rank = rank_value:great_power
+				capital = {
+					NOT = { region = sr:region_indochina }
+				}
+				OR = {
+					has_interest_marker_in_region = region_indochina
+					has_strategy = ai_strategy_colonial_expansion
 					is_player = yes
 				}
-				save_scope_as = potential_imperial_power
 			}
+			save_scope_as = potential_imperial_power
+		}
 		}
 		else = {
 			random_country = {
@@ -106,12 +115,20 @@ indochina.1 = {
 			}
 		}
 		hidden_effect = {
-			set_variable = indochina_campaign_target
+			set_variable = {
+				name = indochina_campaign_target
+				months = normal_modifier_time
+			}
 		}
 		custom_tooltip = {
 			text = you_will_regret_this
-			scope:potential_imperial_power = {
-				trigger_event = { id = indochina.3 days = 30 }
+			if = {
+				limit = {
+					NOT = { has_global_variable = indochina_intervention_happened }
+				}
+				scope:potential_imperial_power = {
+					trigger_event = { id = indochina.3 days = 30 }
+				}
 			}
 		}
 
@@ -183,7 +200,7 @@ indochina.2 = {
 		has_interest_marker_in_region = region_indochina
 		country_has_state_religion = rel:catholic
 		country_rank = rank_value:great_power
-		is_player = yes
+		# is_player = yes
 		capital = {
 			NOT = { region = sr:region_indochina }
 		}
@@ -195,10 +212,10 @@ indochina.2 = {
 			capital = {
 				region = sr:region_indochina
 			}
-			NOT = {
+			NOR = {
 				country_has_state_religion = rel:catholic
+				has_law = law_type:law_total_separation
 			}
-			has_law = law_type:law_state_religion
 			any_scope_pop = {
 				religion = rel:catholic
 			}
@@ -214,19 +231,28 @@ indochina.2 = {
 				capital = {
 					region = sr:region_indochina
 				}
-				NOT = {
+				NOR = {
 					country_has_state_religion = rel:catholic
+					has_law = law_type:law_total_separation
 				}
-				has_law = law_type:law_state_religion
 				any_scope_pop = {
 					religion = rel:catholic
 				}
 			}
 			save_scope_as = potential_imperialism_target
 
+			random_scope_state = {
+				limit = {
+					any_scope_pop = {
+						religion = rel:catholic
+					}
+				}
+				save_scope_as = catholic_state
+			}
+
 			set_variable = {
 				name = indochina_campaign_target
-				value = yes
+				months = normal_modifier_time
 			}
 		}
 
@@ -237,6 +263,15 @@ indochina.2 = {
 	option = {
 		name = indochina.2.a
 		default_option = yes
+		ai_chance = {
+			base = 0
+			modifier = {
+				trigger = {
+					has_strategy = ai_strategy_colonial_expansion
+				}
+				add = 100
+			}
+		}
 
 		add_journal_entry = {
 			type = je_indochina
@@ -252,6 +287,73 @@ indochina.2 = {
 		create_incident = {
 			country = scope:potential_imperialism_target
 			value = 20
+		}
+
+		# Add Claims
+		s:STATE_TONKIN = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+							owner = { is_subject_of = ROOT }
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_ANNAM = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+							owner = { is_subject_of = ROOT }
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_MEKONG = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+							owner = { is_subject_of = ROOT }
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_LAOS = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+							owner = { is_subject_of = ROOT }
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_CAMBODIA = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+							owner = { is_subject_of = ROOT }
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
 		}
 
 		every_country = {
@@ -271,11 +373,20 @@ indochina.2 = {
 
 	option = {
 		name = indochina.2.b
-
-		change_relations = {
-			country = scope:potential_imperialism_target
-			value = 30
+		ai_chance = {
+			base = 100
+			modifier = {
+				trigger = {
+					has_strategy = ai_strategy_colonial_expansion
+				}
+				add = -100
+			}
 		}
+
+		# change_relations = {
+		# 	country = scope:potential_imperialism_target
+		# 	value = 30
+		# }
 		every_interest_group = {
 			limit = {
 				OR = {
@@ -289,9 +400,9 @@ indochina.2 = {
 			add_modifier = {
 				name = inaction_in_indochina
 				months = normal_modifier_time
+				is_decaying = yes
 			}
 		}
-		remove_variable = indochina_campaign_target
 	}
 }
 
@@ -334,6 +445,15 @@ indochina.3 = {
 	option = {
 		name = indochina.3.a
 		default_option = yes
+		ai_chance = {
+			base = 0
+			modifier = {
+				trigger = {
+					has_strategy = ai_strategy_colonial_expansion
+				}
+				add = 100
+			}
+		}
 
 		add_journal_entry = {
 			type = je_indochina
@@ -358,6 +478,73 @@ indochina.3 = {
 			value = 20
 		}
 
+		# Add Claims
+		s:STATE_TONKIN = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+							owner = { is_subject_of = ROOT }
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_ANNAM = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+							owner = { is_subject_of = ROOT }
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_MEKONG = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+							owner = { is_subject_of = ROOT }
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_LAOS = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+							owner = { is_subject_of = ROOT }
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_CAMBODIA = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+							owner = { is_subject_of = ROOT }
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+
 		every_country = {
 			limit = {
 				OR = {
@@ -373,14 +560,22 @@ indochina.3 = {
 		}
 	}
 
-
 	option = {
-		name = indochina.2.b # Same localization as the second option in event indochina.2
-
-		change_relations = {
-			country = scope:indochina_target
-			value = 30
+		name = indochina.2.b
+		ai_chance = {
+			base = 100
+			modifier = {
+				trigger = {
+					has_strategy = ai_strategy_colonial_expansion
+				}
+				add = -100
+			}
 		}
+
+		# change_relations = {
+		# 	country = scope:potential_imperialism_target
+		# 	value = 30
+		# }
 		every_interest_group = {
 			limit = {
 				OR = {
@@ -394,11 +589,7 @@ indochina.3 = {
 			add_modifier = {
 				name = inaction_in_indochina
 				months = normal_modifier_time
-			}
-		}
-		hidden_effect = {
-			scope:indochina_target = {
-				remove_variable = indochina_campaign_target
+				is_decaying = yes
 			}
 		}
 	}
@@ -432,77 +623,77 @@ indochina.4 = {
 	immediate = {
 	}
 
-	option = {
-		name = indochina.4.a
-		trigger = {
-			any_scope_state = {
-				region = sr:region_indochina
-			}
-		}
+	# option = {
+	# 	name = indochina.4.a
+	# 	trigger = {
+	# 		any_scope_state = {
+	# 			region = sr:region_indochina
+	# 		}
+	# 	}
 
-		every_scope_state = {
-			limit = {
-				region = sr:region_indochina
-			}
-			add_modifier = {
-				name = indochinese_assimilation_modifier
-				months = long_modifier_time
-			}
-		}
-	}
+	# 	every_scope_state = {
+	# 		limit = {
+	# 			region = sr:region_indochina
+	# 		}
+	# 		add_modifier = {
+	# 			name = indochinese_assimilation_modifier
+	# 			months = long_modifier_time
+	# 		}
+	# 	}
+	# }
 
-	option = {
-		name = indochina.4.b
-		trigger = {
-			has_technology_researched = vulcanization # rubber_mastication
-			any_scope_state = {
-				has_potential_resource = bg_rubber
-				region = sr:region_indochina
-			}
-		}
+	# option = {
+	# 	name = indochina.4.b
+	# 	trigger = {
+	# 		has_technology_researched = vulcanization # rubber_mastication
+	# 		any_scope_state = {
+	# 			has_potential_resource = bg_rubber
+	# 			region = sr:region_indochina
+	# 		}
+	# 	}
 
-		every_scope_state = {
-			limit = {
-				has_potential_resource = bg_rubber
-				region = sr:region_indochina
-			}
+	# 	every_scope_state = {
+	# 		limit = {
+	# 			has_potential_resource = bg_rubber
+	# 			region = sr:region_indochina
+	# 		}
 
-			add_modifier = {
-				name = indochinese_rubber
-				months = long_modifier_time
-			}
-		}
-	}
+	# 		add_modifier = {
+	# 			name = indochinese_rubber
+	# 			months = long_modifier_time
+	# 		}
+	# 	}
+	# }
 
-	option = {
-		name = indochina.4.c
-		trigger = {
-			any_subject_or_below = {
-				capital = {
-					region = sr:region_indochina
-				}
-			}
-		}
+	# option = {
+	# 	name = indochina.4.c
+	# 	trigger = {
+	# 		any_subject_or_below = {
+	# 			capital = {
+	# 				region = sr:region_indochina
+	# 			}
+	# 		}
+	# 	}
 
-		every_subject_or_below = {
-			limit = {
-				capital = {
-					region = sr:region_indochina
-				}
-			}
-			custom_tooltip = {
-				text = indochina_subjects_loyal
-				set_secret_goal = {
-					country = ROOT
-					secret_goal = befriend
-				}
-			}
-			add_modifier = {
-				name = maintained_by_the_metropole
-				months = long_modifier_time
-			}
-		}
-	}
+	# 	every_subject_or_below = {
+	# 		limit = {
+	# 			capital = {
+	# 				region = sr:region_indochina
+	# 			}
+	# 		}
+	# 		custom_tooltip = {
+	# 			text = indochina_subjects_loyal
+	# 			set_secret_goal = {
+	# 				country = ROOT
+	# 				secret_goal = befriend
+	# 			}
+	# 		}
+	# 		add_modifier = {
+	# 			name = maintained_by_the_metropole
+	# 			months = long_modifier_time
+	# 		}
+	# 	}
+	# }
 
 	option = {
 		name = indochina.4.dd

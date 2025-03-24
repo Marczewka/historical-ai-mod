@@ -143,7 +143,7 @@ je_opium_wars = {
 			text = opium_wars_fail_tt
 			scope:target = {
 				NOT = {
-					any_primary_culture = {
+					any_scope_culture = {
 						has_cultural_obsession = opium
 					}
 				}

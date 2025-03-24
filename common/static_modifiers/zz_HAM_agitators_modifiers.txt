@@ -1,0 +1,4 @@
+﻿too_gentle_on_missionaries = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_approval_add = -5
+}

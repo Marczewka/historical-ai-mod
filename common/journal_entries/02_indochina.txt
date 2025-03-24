@@ -1,0 +1,30 @@
+﻿je_indochina = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_foreign_affairs
+
+	immediate = {
+		set_global_variable = indochina_intervention_happened
+	}
+
+	complete = {
+		country_or_subject_owns_entire_state_region = STATE_TONKIN
+		country_or_subject_owns_entire_state_region = STATE_ANNAM
+		country_or_subject_owns_entire_state_region = STATE_MEKONG
+		country_or_subject_owns_entire_state_region = STATE_LAOS
+		country_or_subject_owns_entire_state_region = STATE_CAMBODIA	
+	}
+
+	on_complete = {
+		trigger_event = { id = indochina.4 }
+	}
+	
+	weight = 100
+	
+	transferable = no
+
+	invalid = {
+	}
+
+	should_be_pinned_by_default = yes
+}
