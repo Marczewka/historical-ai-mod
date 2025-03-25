@@ -6,8 +6,8 @@
 	
 	MOVEMENT_WEEKLY_RADICALISM_CHANGE = 0.01 # How much does a movement's radicalism change towards its calculated target each week
 	MOVEMENT_MONTHLY_RADICALS_THRESHOLD = 0.5 # At this level of radicalism, movement supporters start being radicalized each month at an amount scaled by the radicalism value
-	MOVEMENT_MONTHLY_RADICALS_SCALING_MIN = 0.005 # The minimum % of supporters radicalized each month when above the radicalization threshold
-	MOVEMENT_MONTHLY_RADICALS_SCALING_MAX = 0.025 # The maximum % of supporters radicalized each month when above the radicalization threshold 
+	MOVEMENT_MONTHLY_RADICALS_SCALING_MIN = 0.01 # 0.005 # The minimum % of supporters radicalized each month when above the radicalization threshold
+	MOVEMENT_MONTHLY_RADICALS_SCALING_MAX = 0.05 # 0.025 # The maximum % of supporters radicalized each month when above the radicalization threshold 
 	MOVEMENT_LOYALISTS_ON_APPROVED_ENACTMENT = 0.25 # The % of supporters who become more loyal when a law the movement approves of is enacted
 	
 	# Movements with less radicalism than this do not impact law enactment chances
@@ -70,8 +70,8 @@ NMilitary = {
 	BATTLE_RAW_MANPOWER_INFLICTED_CASUALTY_RATIO = 0.25 # 0.5		# applied to the number of casualties caused by raw number of troops, ie without considering Offense/Defense - increasing this makes CE less important and battles more lethal
 	BATTLE_COMBAT_EFFICIENCY_INFLICTED_CASUALTY_RATIO = 1.75 # 1.5	# applied to the number of casualties caused by troops with Offense/Defense also factored in - increasing this makes CE more important and battles more lethal
 
-	BASE_MORALE_RECOVERED_PER_DAY = 0.03			# Default morale recovered is 3% per day
-	BASE_MORALE_RECOVERED_PER_DAY_SLOW_RATE = 0.1	# If current morale exceeds formation supply, multiply the excess gained by this value
+	BASE_MORALE_RECOVERED_PER_DAY = 0.01 # 0.03			# Default morale recovered is 3% per day
+	BASE_MORALE_RECOVERED_PER_DAY_SLOW_RATE = 0.05 # 0.1	# If current morale exceeds formation supply, multiply the excess gained by this value
 	BASE_MORALE_LOST_PER_DAY = 0.05					# Default morale lost when out of supply is 5%
 
 	CONVOY_RAIDING_STRENGTH_MULT = 0.3					# How strong each Convoy raiding point is ( num flotillas * ce offense )

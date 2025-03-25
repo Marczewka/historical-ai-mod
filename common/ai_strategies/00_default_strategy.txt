@@ -1176,7 +1176,7 @@ ai_strategy_default = {
 
 			if = {
 				limit = {
-					has_journal_entry = je_consolidate_colonial_rule
+					c:BIC ?= this
 					scope:target_country = {
 						is_country_type = unrecognized
 						target_is_our_or_fellow_subject = no
@@ -1292,6 +1292,7 @@ ai_strategy_default = {
 				}
 			}
 
+			# Indochina
 			if = {
 				limit = {
 					has_journal_entry = je_indochina
@@ -1307,14 +1308,15 @@ ai_strategy_default = {
 								state_region = s:STATE_LAOS
 								state_region = s:STATE_CAMBODIA							
 							}
-						}					
+							NOR = {
+								owner = { country_has_state_religion = rel:catholic }
+								owner = { 
+									overlord = { country_has_state_religion = rel:catholic } 
+								}
+							}
+						}		
 					}
 					add = 25 
-					
-					if = {
-						limit = { is_adjacent_to_state = scope:target_state }
-						multiply = 2
-					}
 				}
 			}
 
@@ -2756,7 +2758,10 @@ ai_strategy_default = {
 							state_region = s:STATE_CAMBODIA				
 						}
 					}
-					NOT = { is_subject_of = ROOT }	
+					NOR = { 
+						country_has_state_religion = rel:catholic
+						overlord = { country_has_state_religion = rel:catholic }
+					}	
 				}
 			}
 			add = 300
@@ -2825,7 +2830,7 @@ ai_strategy_default = {
 		# East India Company vs its neighbors
 		if = {
 			limit = {
-				has_journal_entry = je_consolidate_colonial_rule
+				c:BIC ?= this
 				scope:target_country = {
 					is_country_type = unrecognized
 					target_is_our_or_fellow_subject = no
@@ -6288,7 +6293,7 @@ ai_strategy_default = {
 			
 			if = {
 				limit = {
-					has_journal_entry = je_consolidate_colonial_rule
+					c:BIC ?= this
 					scope:target_country = {
 						is_country_type = unrecognized
 						target_is_our_or_fellow_subject = no
@@ -6672,11 +6677,13 @@ ai_strategy_default = {
 					}					
 				}
 
-				add = {
-					value = scope:target_country.gdp
-					divide = 1000000 # 100000
-					max = 10 # 25
-				}
+				add = 5
+
+				# add = {
+				# 	value = scope:target_country.gdp
+				# 	divide = 1000000 # 100000
+				# 	max = 5 # 25
+				# }
 
 				
 				# Relations with target
@@ -6726,6 +6733,19 @@ ai_strategy_default = {
 		}		
 
 		revoke_claim = {
+			if = {
+				limit = {
+					has_strategy = ai_strategy_colonial_expansion
+					can_reach_target_state = yes
+					scope:target_state = { 
+						owner = {
+							is_country_type = decentralized
+						}
+					}
+				}
+
+				add = 25
+			}
 			if = {
 				limit = {
 					scope:target_state = { owner = root }

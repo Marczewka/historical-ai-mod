@@ -229,6 +229,9 @@ italian_unification.4 = {
 	cooldown = { months = 3 }
 
 	trigger = {
+		NOT = {
+			is_subject = yes
+		}
 		any_scope_state = {
 			count < 2
 		}

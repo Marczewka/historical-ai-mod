@@ -8,15 +8,32 @@
 	}
 
 	complete = {
-		country_or_subject_owns_entire_state_region = STATE_TONKIN
-		country_or_subject_owns_entire_state_region = STATE_ANNAM
-		country_or_subject_owns_entire_state_region = STATE_MEKONG
-		country_or_subject_owns_entire_state_region = STATE_LAOS
-		country_or_subject_owns_entire_state_region = STATE_CAMBODIA	
+		any_state = {
+			filter = {
+				OR = {
+					state_region = s:STATE_TONKIN
+					state_region = s:STATE_ANNAM
+					state_region = s:STATE_MEKONG
+					state_region = s:STATE_LAOS
+					state_region = s:STATE_CAMBODIA
+				}
+			}
+			OR = {
+				owner = { country_has_state_religion = rel:catholic }
+				owner = { 
+					overlord = { country_has_state_religion = rel:catholic } 
+				}
+			}
+			percent >= 0.80
+		}
 	}
 
 	on_complete = {
 		trigger_event = { id = indochina.4 }
+	}
+
+	invalid = {
+		NOT = { country_has_state_religion = rel:catholic }
 	}
 	
 	weight = 100

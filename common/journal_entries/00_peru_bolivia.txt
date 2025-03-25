@@ -38,12 +38,15 @@
 		OR = {
 			c:SPU ?= {
 				is_subject_of = c:BOL
+				is_subject_type = subject_type_puppet
 			}
 			c:NPU ?= {
 				is_subject_of = c:BOL
+				is_subject_type = subject_type_puppet
 			}
 			c:PEU ?= {
 				is_subject_of = c:BOL
+				is_subject_type = subject_type_puppet
 			}
 		}
 		custom_tooltip = {

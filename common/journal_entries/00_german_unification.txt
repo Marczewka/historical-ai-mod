@@ -16,15 +16,28 @@
 		OR = {
 			country_has_primary_culture = cu:north_german
 			country_has_primary_culture = cu:south_german
-		}			
+		}
 	}
 
 	complete = {
-		custom_tooltip = {
-			text = je_schleswig_holstein_question_state_ownership_desc
-			country_rank >= rank_value:great_power
-			OR = {
-				has_truce_with = c:DEN
+		trigger_if = {
+			limit = {
+				OR = {
+					c:HOL ?= this
+					c:SCH ?= this
+				}
+			}
+			is_subject = no
+		}
+		trigger_if = {
+			limit = {
+				NOT = { c:HOL ?= this }
+				NOT = { c:SCH ?= this }
+				exists = c:DEN
+			}
+			custom_tooltip = {
+				text = je_schleswig_holstein_question_state_ownership_desc
+				country_rank >= rank_value:great_power
 				s:STATE_SCHLESWIG_HOLSTEIN = {
 					any_scope_state = {
 						OR = {
@@ -33,29 +46,35 @@
 						}
 					}
 				}
-			}
-			s:STATE_SCHLESWIG_HOLSTEIN = {
-				any_scope_state = {
-					count = all
-					owner = {
-						OR = {
-							AND = {
-								is_subject = no
-								OR = {
-									country_has_primary_culture = cu:north_german
-									country_has_primary_culture = cu:south_german
+				s:STATE_SCHLESWIG_HOLSTEIN = {
+					any_scope_state = {
+						count = all
+						owner = {
+							OR = {
+								AND = {
+									is_subject = no
+									OR = {
+										country_has_primary_culture = cu:north_german
+										country_has_primary_culture = cu:south_german
+									}
 								}
-							}
-							top_overlord = {
-								OR = {
-									country_has_primary_culture = cu:north_german
-									country_has_primary_culture = cu:south_german
+								top_overlord = {
+									OR = {
+										country_has_primary_culture = cu:north_german
+										country_has_primary_culture = cu:south_german
+									}
 								}
 							}
 						}
 					}
 				}
 			}
+		}
+		trigger_if = {
+			limit = {
+				c:LUB ?= this
+			}
+			country_or_subject_owns_entire_state_region = STATE_SCHLESWIG_HOLSTEIN
 		}
 	}
 	
@@ -74,7 +93,7 @@
 			is_decaying = yes
 		}	
 		c:AUS ?= {
-			change_relations = { country = c:PRU value = -50 }
+			change_relations = { country = c:PRU value = -25 }
 		}
 		hidden_effect = { set_global_variable = schleswig_holstein_question_solved }		
 	}

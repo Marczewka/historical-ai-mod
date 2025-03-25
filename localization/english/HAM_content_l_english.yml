@@ -69,6 +69,5 @@ HAM_je_eastern_frontier_tt_3: "#bold Transoxiana#! is owned by [SCOPE.GetRootSco
   je_set_up_paper_import:0 "Set Up Paper Import"
   je_set_up_paper_import_status:0 "Start importing $paper$ and keep it's prices low."
   je_set_up_paper_import_reason:0 "At the request of the $ig_intelligentsia$, we have promised to import $paper$ to reduce material costs for their literary ambitions."
-  je_schleswig_holstein_question_state_ownership_desc:1 "[GetPlayer.GetName] liberated or conquered $STATE_SCHLESWIG_HOLSTEIN$ and no non-German [concept_country] owns or controls a part of the [concept_state]"
 
   political_differences: "opposition to revolution's agenda"
