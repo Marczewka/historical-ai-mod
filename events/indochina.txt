@@ -29,8 +29,10 @@ indochina.1 = {
 			region = sr:region_indochina
 		}
 		NOR = {
-			overlord = { country_has_state_religion = rel:catholic }
-			country_has_state_religion = rel:catholic
+			top_overlord = { 
+				religion = { has_discrimination_trait = christian }
+			}
+			religion = { has_discrimination_trait = christian }
 			has_law = law_type:law_total_separation
 			has_variable = indochina_campaign_target
 		}
@@ -293,9 +295,9 @@ indochina.2 = {
 				limit = {
 					any_scope_state = {
 						NOR = {
-							owner = { country_has_state_religion = rel:catholic }
+							owner = { religion = { has_discrimination_trait = christian } }
 							owner = { 
-								overlord = { country_has_state_religion = rel:catholic } 
+								top_overlord = { religion = { has_discrimination_trait = christian } } 
 							}
 						}
 					}
@@ -308,9 +310,9 @@ indochina.2 = {
 				limit = {
 					any_scope_state = {
 						NOR = {
-							owner = { country_has_state_religion = rel:catholic }
+							owner = { religion = { has_discrimination_trait = christian } }
 							owner = { 
-								overlord = { country_has_state_religion = rel:catholic } 
+								top_overlord = { religion = { has_discrimination_trait = christian } } 
 							}
 						}
 					}
@@ -323,9 +325,9 @@ indochina.2 = {
 				limit = {
 					any_scope_state = {
 						NOR = {
-							owner = { country_has_state_religion = rel:catholic }
+							owner = { religion = { has_discrimination_trait = christian } }
 							owner = { 
-								overlord = { country_has_state_religion = rel:catholic } 
+								top_overlord = { religion = { has_discrimination_trait = christian } } 
 							}
 						}
 					}
@@ -338,9 +340,9 @@ indochina.2 = {
 				limit = {
 					any_scope_state = {
 						NOR = {
-							owner = { country_has_state_religion = rel:catholic }
+							owner = { religion = { has_discrimination_trait = christian } }
 							owner = { 
-								overlord = { country_has_state_religion = rel:catholic } 
+								top_overlord = { religion = { has_discrimination_trait = christian } } 
 							}
 						}
 					}
@@ -353,9 +355,9 @@ indochina.2 = {
 				limit = {
 					any_scope_state = {
 						NOR = {
-							owner = { country_has_state_religion = rel:catholic }
+							owner = { religion = { has_discrimination_trait = christian } }
 							owner = { 
-								overlord = { country_has_state_religion = rel:catholic } 
+								top_overlord = { religion = { has_discrimination_trait = christian } } 
 							}
 						}
 					}
@@ -492,9 +494,9 @@ indochina.3 = {
 				limit = {
 					any_scope_state = {
 						NOR = {
-							owner = { country_has_state_religion = rel:catholic }
+							owner = { religion = { has_discrimination_trait = christian } }
 							owner = { 
-								overlord = { country_has_state_religion = rel:catholic } 
+								top_overlord = { religion = { has_discrimination_trait = christian } } 
 							}
 						}
 					}
@@ -507,9 +509,9 @@ indochina.3 = {
 				limit = {
 					any_scope_state = {
 						NOR = {
-							owner = { country_has_state_religion = rel:catholic }
+							owner = { religion = { has_discrimination_trait = christian } }
 							owner = { 
-								overlord = { country_has_state_religion = rel:catholic } 
+								top_overlord = { religion = { has_discrimination_trait = christian } } 
 							}
 						}
 					}
@@ -522,9 +524,9 @@ indochina.3 = {
 				limit = {
 					any_scope_state = {
 						NOR = {
-							owner = { country_has_state_religion = rel:catholic }
+							owner = { religion = { has_discrimination_trait = christian } }
 							owner = { 
-								overlord = { country_has_state_religion = rel:catholic } 
+								top_overlord = { religion = { has_discrimination_trait = christian } } 
 							}
 						}
 					}
@@ -537,9 +539,9 @@ indochina.3 = {
 				limit = {
 					any_scope_state = {
 						NOR = {
-							owner = { country_has_state_religion = rel:catholic }
+							owner = { religion = { has_discrimination_trait = christian } }
 							owner = { 
-								overlord = { country_has_state_religion = rel:catholic } 
+								top_overlord = { religion = { has_discrimination_trait = christian } } 
 							}
 						}
 					}
@@ -552,9 +554,9 @@ indochina.3 = {
 				limit = {
 					any_scope_state = {
 						NOR = {
-							owner = { country_has_state_religion = rel:catholic }
+							owner = { religion = { has_discrimination_trait = christian } }
 							owner = { 
-								overlord = { country_has_state_religion = rel:catholic } 
+								top_overlord = { religion = { has_discrimination_trait = christian } } 
 							}
 						}
 					}

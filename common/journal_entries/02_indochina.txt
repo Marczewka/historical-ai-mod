@@ -19,9 +19,9 @@
 				}
 			}
 			OR = {
-				owner = { country_has_state_religion = rel:catholic }
+				owner = { religion = { has_discrimination_trait = christian } }
 				owner = { 
-					overlord = { country_has_state_religion = rel:catholic } 
+					top_overlord = { religion = { has_discrimination_trait = christian } } 
 				}
 			}
 			percent >= 0.80
@@ -33,7 +33,7 @@
 	}
 
 	invalid = {
-		NOT = { country_has_state_religion = rel:catholic }
+		NOT = { religion = { has_discrimination_trait = christian } }
 	}
 	
 	weight = 100

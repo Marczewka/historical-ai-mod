@@ -70,4 +70,5 @@ HAM_je_eastern_frontier_tt_3: "#bold Transoxiana#! is owned by [SCOPE.GetRootSco
   je_set_up_paper_import_status:0 "Start importing $paper$ and keep it's prices low."
   je_set_up_paper_import_reason:0 "At the request of the $ig_intelligentsia$, we have promised to import $paper$ to reduce material costs for their literary ambitions."
 
-  political_differences: "opposition to revolution's agenda"
+  political_differences: "opposition to revolution's ideology"
+  schleswig_holstein: "support for liberation of Schleswig-Holstein"

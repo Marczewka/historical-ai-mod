@@ -20,7 +20,6 @@
 						}
 					}
 				}
-				relations:root <= 20
 				NOT = {
 					any_political_movement = {
 						has_modifier = polish_radicals
@@ -45,7 +44,6 @@
 						}
 					}
 				}
-				relations:root <= 20
 				NOT = {
 					any_political_movement = {
 						is_political_movement_type = movement_cultural_minority
@@ -56,6 +54,7 @@
 					}
 				}
 			}
+			change_relations = { country = ROOT value = -25 }
 			every_scope_state = {
 				limit = {
 					state_region = { 

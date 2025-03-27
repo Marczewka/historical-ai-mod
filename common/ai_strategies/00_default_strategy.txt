@@ -131,6 +131,26 @@ ai_strategy_default = {
 			}
 		}
 
+		### Schleswig-Holstein question
+		if = {
+			limit = { 
+				wants_to_solve_schleswig_holstein = yes
+				scope:enemy_country = {
+					is_oppressor_of_schleswig_holstein = yes
+				}
+				scope:country = {
+					any_state = {
+						state_region = s:STATE_SCHLESWIG_HOLSTEIN
+					}
+				}
+			}
+
+			add = {
+				value = 100
+				desc = "schleswig_holstein"
+			}
+		}
+
 		### German Leadership War
 		if = { # Non-Germans should stay out of the leadership war unless they have a good reason to intervene
 			limit = {
@@ -295,7 +315,10 @@ ai_strategy_default = {
 					c:GBR ?= this
 					c:RUS ?= this
 				}
-				has_journal_entry = je_great_game_control
+				OR = {
+					country_rank = rank_value:great_power
+					has_journal_entry = je_great_game_control
+				}
 				has_diplomatic_relevance = scope:enemy_country
 				scope:enemy_country = { # enemy_country is the rival Great Power
 					OR = {
@@ -305,7 +328,10 @@ ai_strategy_default = {
 					NOT = {
 						this = root
 					}
-					has_journal_entry = je_great_game_control
+					OR = {
+						country_rank = rank_value:great_power
+						has_journal_entry = je_great_game_control
+					}
 				}
 				scope:country = { # country is the country they're at war with
 					OR = {
@@ -518,26 +544,26 @@ ai_strategy_default = {
 			}
 		}
 		
-		if = { # Qing and other Central Asian Khanates will be more willing help a player Kenesary Khan
-			limit = {
-				scope:country = {
-					c:KAZ ?= this
-					is_player = yes
-				}
-				has_strategic_adjacency = scope:country
-				OR = {
-					c:CHI ?= this
-					capital.region = sr:region_central_asia
-				}
-				scope:enemy_country = {
-					country_has_primary_culture = cu:russian
-				}
-			}
-			add = {
-				value = 50
-				desc = "supporting_kenesary"
-			}
-		}
+		# if = { # Qing and other Central Asian Khanates will be more willing help a player Kenesary Khan
+		# 	limit = {
+		# 		scope:country = {
+		# 			c:KAZ ?= this
+		# 			is_player = yes
+		# 		}
+		# 		has_strategic_adjacency = scope:country
+		# 		OR = {
+		# 			c:CHI ?= this
+		# 			capital.region = sr:region_central_asia
+		# 		}
+		# 		scope:enemy_country = {
+		# 			country_has_primary_culture = cu:russian
+		# 		}
+		# 	}
+		# 	add = {
+		# 		value = 50
+		# 		desc = "supporting_kenesary"
+		# 	}
+		# }
 		
 		if = { # Recognition of Kenesary
 			limit = {
@@ -998,18 +1024,18 @@ ai_strategy_default = {
 				}
 				
 				add = {
-					value = 10
+					value = 10 # 20
 				
 					add = {
 						value = scope:target_state.state_population
 						divide = 100000
-						max = 10						
+						max = 10 # 20
 					}
 					
 					add = {
 						value = scope:target_state.gdp
 						divide = 100000
-						max = 10
+						max = 20
 					}						
 				}	
 
@@ -1236,15 +1262,16 @@ ai_strategy_default = {
 				add = 50
 			}
 
-			# if = {
-			# 	limit = {
-			# 		has_journal_entry = je_unify_afghanistan
-			# 		scope:target_state = {
-			# 			is_homeland_of_country_cultures = root
-			# 		}
-			# 	}
-			# 	add = 75
-			# }
+			if = {
+				limit = {
+					has_journal_entry = je_unify_afghanistan
+					is_subject = yes
+					scope:target_state = {
+						is_homeland_of_country_cultures = root
+					}
+				}
+				add = 50
+			}
 
 			if = {
 				limit = {
@@ -1381,6 +1408,10 @@ ai_strategy_default = {
 					has_journal_entry = je_conquest_of_central_asia
 					scope:target_state = {
 						region = sr:region_central_asia
+						NOR = {
+							state_region = s:STATE_DZUNGARIA
+							state_region = s:STATE_ALASKA
+						}
 					}
 				}
 				add = 75
@@ -2116,14 +2147,14 @@ ai_strategy_default = {
 	# Using this value in other strategies will function additively
 	# root is the AI doing the evaluation, scope:overlord is prospective overlord
 	become_subject_value = {
-		value = -100
+		value = -300 # -100
 
 		if = {
 			limit = {
 				NOT = { has_strategic_adjacency = scope:overlord }
 			}
 			
-			add = -10
+			add = -50 # -10
 		}			
 
 		if = {
@@ -2140,7 +2171,7 @@ ai_strategy_default = {
 			}
 			add = {
 				value = "scope:overlord.ai_army_comparison(root)"
-				max = 25
+				max = 50 # 25
 			}				
 		}
 		else = {
@@ -2171,7 +2202,7 @@ ai_strategy_default = {
 			limit = {
 				is_in_customs_union_with = scope:overlord
 			}
-			add = 10
+			add = 50 # 10
 		}					
 		
 		add = {
@@ -2196,7 +2227,7 @@ ai_strategy_default = {
 						}							
 					}
 				}
-				value = 10
+				value = 25 # 10
 			}			
 			if = {
 				limit = {
@@ -2205,7 +2236,7 @@ ai_strategy_default = {
 						attitude = cautious
 					}
 				}
-				value = -25
+				value = -50 # -25
 			}					
 			if = {
 				limit = {
@@ -2241,27 +2272,27 @@ ai_strategy_default = {
 				limit = {
 					"relations(scope:overlord)" < relations_threshold:cordial
 				}
-				value = -25
+				value = -50 # -25
 			}					
 			if = {
 				limit = {
 					"relations(scope:overlord)" >= relations_threshold:cordial
 					"relations(scope:overlord)" < relations_threshold:amicable
 				}
-				value = 5
+				value = 10 # 5
 			}					
 			if = {
 				limit = {
 					"relations(scope:overlord)" >= relations_threshold:amicable
 					"relations(scope:overlord)" < relations_threshold:friendly
 				}
-				value = 10
+				value = 25 # 10
 			}	
 			if = {
 				limit = {
 					"relations(scope:overlord)" >= relations_threshold:friendly
 				}
-				value = 25
+				value = 50 # 25
 			}				
 		}
 		
@@ -2301,7 +2332,7 @@ ai_strategy_default = {
 		}	
 
 		max = 0
-		min = -200
+		min = -400 # -200
 	}		
 	
 	# Recklessness multiplies the AI's estimation of its own strength, so at recklessness 2 it believes its forces to be twice as strong as they actually are
@@ -2408,6 +2439,7 @@ ai_strategy_default = {
 			limit = {
 				has_journal_entry = je_greek_nationalism
 				scope:target_country = {
+					NOT = { country_has_primary_culture = cu:greek }
 					any_state = {
 						state_region = { is_homeland = cu:greek }
 						has_claim_by = root
@@ -2589,7 +2621,19 @@ ai_strategy_default = {
 					owes_obligation_to = ROOT
 				}
 			}
-			add = 10
+			add = 3
+		}
+
+		# Denmark wants Schleswig
+		if = {
+			limit = {
+				has_journal_entry = je_schleswig_holstein_question_denmark
+				exists = c:SCH
+				scope:target_country = {
+					THIS = c:SCH
+				}
+			}
+			add = 3
 		}
 	}
 	
@@ -2665,6 +2709,7 @@ ai_strategy_default = {
 			limit = {
 				has_journal_entry = je_greek_nationalism
 				scope:target_country = {
+					NOT = { country_has_primary_culture = cu:greek }
 					any_state = {
 						state_region = { is_homeland = cu:greek }
 						has_claim_by = root
@@ -2764,7 +2809,7 @@ ai_strategy_default = {
 					}	
 				}
 			}
-			add = 300
+			add = 50
 		}
 
 		# Extra french aggression for Haiti renouncing debt payments
@@ -3142,7 +3187,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 5
+			add = 10 # 5
 		}
 		
 		# Russia should very aggressively go for the Caucasus if it's still a great power.
@@ -3352,24 +3397,25 @@ ai_strategy_default = {
 			add = 25
 		}
 
-		# # Afghan Consolidation
-		# if = {
-		# 	limit = {
-		# 		has_journal_entry = je_unify_afghanistan
-		# 		scope:target_country = {
-		# 			OR = {
-		# 				has_journal_entry = je_unify_afghanistan
-		# 				OR = {
-		# 					has_state_in_state_region = STATE_KABUL
-		# 					has_state_in_state_region = STATE_HERAT
-		# 					has_state_in_state_region = STATE_KANDAHAR
-		# 					has_state_in_state_region = STATE_CENTRAL_HIGHLANDS
-		# 				}
-		# 			}
-		# 		}
-		# 	}
-		# 	add = 35
-		# }
+		# Afghan Consolidation
+		if = {
+			limit = {
+				has_journal_entry = je_unify_afghanistan
+				is_subject = yes
+				scope:target_country = {
+					OR = {
+						has_journal_entry = je_unify_afghanistan
+						OR = {
+							has_state_in_state_region = STATE_KABUL
+							has_state_in_state_region = STATE_HERAT
+							has_state_in_state_region = STATE_KANDAHAR
+							has_state_in_state_region = STATE_CENTRAL_HIGHLANDS
+						}
+					}
+				}
+			}
+			add = 35
+		}
 
         # Neutral Switzerland
         if = {
@@ -4404,7 +4450,10 @@ ai_strategy_default = {
 		region_central_asia = {
 			if = {
 				limit = {
-					has_journal_entry = je_great_game_control
+					OR = {
+						country_rank = rank_value:great_power
+						has_journal_entry = je_great_game_control
+					}
 					OR = {
 						c:GBR ?= this
 						c:RUS ?= this
@@ -4419,7 +4468,10 @@ ai_strategy_default = {
 		region_persia = {
 			if = {
 				limit = {
-					has_journal_entry = je_great_game_control
+					OR = {
+						country_rank = rank_value:great_power
+						has_journal_entry = je_great_game_control
+					}
 					OR = {
 						c:GBR ?= this
 						c:RUS ?= this
@@ -5891,7 +5943,7 @@ ai_strategy_default = {
 					}
 				}
 				add = 250
-			}		
+			}
 			
 			if = {
 				limit = {
@@ -5906,6 +5958,15 @@ ai_strategy_default = {
 						} 
 					}
 					add = 25
+				}
+			}
+
+			if = {
+				limit = {
+					has_diplomatic_pact = {
+						who = scope:target_country.top_overlord
+						type = rivalry
+					}
 				}
 				if = {
 					limit = {
@@ -6203,9 +6264,13 @@ ai_strategy_default = {
 
 			if = {
 				limit = {
-					country_rank >= rank_value:great_power
-					scope:target_country = {
-						has_modifier = opium_wars_addiction_modifier
+					should_carve_up_china = yes
+					scope:target_state = {
+						OR = {
+							region = sr:region_north_china
+							region = sr:region_south_china
+							region = sr:region_manchuria
+						}
 					}
 				}
 				add = 100
@@ -6238,7 +6303,7 @@ ai_strategy_default = {
 				}
 			
 				add = scope:target_country.ai_subject_value:root
-			}		
+			}
 		
 			if = {
 				limit = { 
@@ -6449,7 +6514,7 @@ ai_strategy_default = {
 		}	
 
 		humiliation = {
-			value = 5 # 25
+			value = 1 # 25
 		}	
 		
 		join_power_bloc = {
@@ -6480,17 +6545,15 @@ ai_strategy_default = {
 					country_rank >= rank_value:major_power					
 					"ai_ideological_opinion(scope:target_country)" <= -35 # -25	
 					scope:target_country = { is_subject = no }
-					OR = {
-						scope:target_country = {
-							is_adjacent_to_country = root
-						}
-						has_diplomatic_pact = {
-							who = scope:target_country
-							type = rivalry
-						}	
+					scope:target_country = {
+						is_adjacent_to_country = root
 					}
+					has_diplomatic_pact = {
+						who = scope:target_country
+						type = rivalry
+					}	
 				}
-				add = 10
+				add = 5
 			}
 
 			if = {
@@ -6652,6 +6715,18 @@ ai_strategy_default = {
 					}
 				}
 				add = 75
+			}
+
+			# AI should open up large isolationist powers, not subjugate them
+			if = {
+				limit = {
+					has_strategy = ai_strategy_economic_imperialism
+					scope:target_country = { 
+						has_law = law_type:law_isolationism
+						gdp >= 5000000
+					} 			
+				}
+				add = 100
 			}
 
 			# Not worth doing against very small countries

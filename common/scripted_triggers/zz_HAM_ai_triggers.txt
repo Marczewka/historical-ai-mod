@@ -333,6 +333,27 @@ has_je_befriend_reason = {
 	
 	OR = {
 		AND = {
+			NOT = { has_variable = ionian_islands_var }
+			country_has_primary_culture = cu:greek
+			is_subject = no
+			exists = c:ION
+			c:ION = {
+				is_subject = yes
+				is_player = no
+				NOT = { is_subject_of = ROOT }
+				top_overlord = {
+					is_player = no
+				}
+			}
+			$TARGET$ = { 
+				OR = {
+					c:ION.top_overlord ?= this
+					c:ION ?= this
+				}
+			}
+		}
+
+		AND = {
 			has_journal_entry = vtm_je_treaty_of_turin
 			$TARGET$ = { 
 				has_journal_entry = je_risorgimento
@@ -413,6 +434,26 @@ has_je_protect_reason = {
 	country_rank > $TARGET$.country_rank
 	
 	OR = {
+		AND = {
+			NOT = { has_variable = ionian_islands_var }
+			country_has_primary_culture = cu:greek
+			is_subject = no
+			exists = c:ION
+			c:ION = {
+				is_subject = yes
+				is_player = no
+				NOT = { is_subject_of = ROOT }
+				top_overlord = {
+					is_player = no
+				}
+			}
+			$TARGET$ = { 
+				OR = {
+					c:ION ?= this
+				}
+			}
+		}
+
 		AND = {
 			wants_to_solve_schleswig_holstein = yes
 			$TARGET$ = { 

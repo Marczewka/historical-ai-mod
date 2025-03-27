@@ -889,7 +889,7 @@ movement_cultural_minority = {
 				}
 				scope:culture = { has_discrimination_trait = european_heritage }
 			}
-			multiply = {
+			add = {
 				value = 0.25
 				desc = "FAILED_TANZIMAT_REFORMS"
 			}

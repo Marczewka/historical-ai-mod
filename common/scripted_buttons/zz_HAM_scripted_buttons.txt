@@ -181,7 +181,6 @@ je_risorgimento_austrian_radicals_button = {
 						}
 					}
 				}
-				relations:root <= 20
 				NOT = {
 					any_political_movement = {
 						has_modifier = austria_italian_radicals
@@ -214,7 +213,6 @@ je_risorgimento_austrian_radicals_button = {
 							}
 						}
 					}
-					relations:root <= 20
 					NOT = {
 						any_political_movement = {
 							is_political_movement_type = movement_cultural_minority
@@ -250,7 +248,6 @@ je_risorgimento_austrian_radicals_button = {
 						}
 					}
 				}
-				relations:root <= 20
 				NOT = {
 					any_political_movement = {
 						is_political_movement_type = movement_cultural_minority
@@ -262,6 +259,7 @@ je_risorgimento_austrian_radicals_button = {
 					}
 				}
 			}
+			change_relations = { country = ROOT value = -25 }
 			every_scope_state = {
 				limit = {
 					state_region = { 
@@ -359,7 +357,6 @@ je_risorgimento_italian_radicals_button = {
 			not = {
 				has_modifier = modifier_risorgimento
 			}
-			relations:root <= 20
 		}
 	}
 
@@ -418,11 +415,8 @@ je_risorgimento_italian_radicals_button = {
 					text = risorgimento_opposing_stance_tt
 					has_modifier = modifier_risorgimento_opposition
 				}
-				not = {
-					has_modifier = modifier_risorgimento
-				}
-				relations:root <= 20
 			}
+			change_relations = { country = ROOT value = -25 }
 			every_scope_state = {
 				limit = {
 					state_region = { 

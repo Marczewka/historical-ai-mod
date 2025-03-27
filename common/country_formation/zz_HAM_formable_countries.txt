@@ -1,0 +1,12 @@
+﻿AFG = {
+	states = {
+		STATE_HERAT
+		STATE_KANDAHAR
+		STATE_KABUL 
+		STATE_CENTRAL_HIGHLANDS
+	}
+	
+	required_states_fraction = 0.75
+
+	ai_will_do = { always = yes }
+}

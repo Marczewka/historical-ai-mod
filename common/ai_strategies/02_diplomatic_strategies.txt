@@ -3262,7 +3262,7 @@ ai_strategy_unify_afghanistan = {
 		
 		add = {
 			value = army_size
-			multiply = 2
+			multiply = 3
 		}
 		
 		if = {
