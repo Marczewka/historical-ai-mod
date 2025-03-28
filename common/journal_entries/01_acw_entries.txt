@@ -183,8 +183,10 @@ je_acw_reincorporate = {
 				is_homeland = cu:dixie
 			}
 			is_incorporated = yes	
+			# loyalist_fraction = {
+			# 	value >= 0.2
 			radical_fraction = {
-				value < 0.1
+				value < 0.15
 				culture = cu:dixie
 			}
 		}
@@ -292,8 +294,8 @@ je_acw_wild_wild_west = {
 						is_homeland = cu:yankee
 					}
 				}
-				devastation > 0.15
-				turmoil > 0.15
+				devastation > 0.15 # 0.1
+				turmoil > 0.15 # 0.1
 			}
 		}
 	}

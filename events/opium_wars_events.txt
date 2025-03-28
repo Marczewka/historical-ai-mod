@@ -197,7 +197,7 @@ opium_wars.1 = {
 			months = long_modifier_time
 		}
 		ai_chance = {
-			base = 100
+			base = 95 # 100
 		}
 	}
 	option = {
@@ -214,7 +214,7 @@ opium_wars.1 = {
 			chi_remove_1_fragile_unity = yes
 		}				
 		ai_chance = {
-			base = 10
+			base = 5 # 10
 		}
 	}
 }

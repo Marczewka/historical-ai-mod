@@ -106,5 +106,11 @@ vtm_je_italian_unification_button = {
 			}
 			add = -5
 		}
+		modifier = {
+			trigger = {
+				has_truce_with = c:AUS
+			}
+			add = -5
+		}
 	}
 }

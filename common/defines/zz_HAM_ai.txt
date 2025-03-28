@@ -1,8 +1,4 @@
 ﻿NAI = {
-	UNIFICATION_AGGRESSION_MULT_HIGHER_TIER = 1 # 20 # AI aggression is multiplied by this for calculating whether they should try to start a unification/leadership play, if the country would end up forming a nation of a higher tier
-
-	CONSTRUCTION_RESERVES_NEW_CONSTRUCTIONS = 0.05 #0.1 # If gold reserves are less than this after adding the cost of a new construction, don't queue it
-
 	DIPLO_PLAY_SWAY_THRESHOLD = 1.5 # 2.0 # If AI has this much military strength compared to enemy, don't bother trying to sway anyone
 
 	DIPLO_PLAY_NEUTRALITY_IN_SUBJECT_CONFLICT = -75 #-50 # If either side in the play is a subject, subtract this amount of neutrality score
@@ -16,7 +12,7 @@
 	CHANGE_LAW_PRO_IG_IDEOLOGIES_FACTOR = 100 # For enacting laws, per ideology match for IGs we approve of
 	CHANGE_LAW_ANTI_IG_IDEOLOGIES_FACTOR = -25 # For enacting laws, per ideology match for IGs we disapprove of
 	CHANGE_LAW_POLITICAL_MOVEMENT_FACTOR = 1000 # Scales against ( support * radicalism ) for each movement that would increase the law's chance to be enacted
-	CHANGE_LAW_POTENTIAL_CIVIL_WAR_THRESHOLD = 85 #75 # If the political movement to preserve the law the AI is replacing would have at least this much radicalism, AI considers it a potential civil war cause
+	CHANGE_LAW_POTENTIAL_CIVIL_WAR_THRESHOLD = 75 # If the political movement to preserve the law the AI is replacing would have at least this much radicalism, AI considers it a potential civil war cause
 	CHANGE_LAW_POTENTIAL_CIVIL_WAR_ENACT_CHANCE = 10 # 100 # Chance that the AI will proceed with a law change that could cause a civil war (1 = 1%)
 	CHANGE_LAW_CIVIL_WAR_BOLDNESS_RANGE = 100 # AI boldness (the score that revolution aversion must beat to cancel enactment) for a particular law is set on a random range of 0 - this
 	CHANGE_LAW_CIVIL_WAR_BOLDNESS_TIMED_WEIGHT_DURATION = 24 # When the AI randomly sets its boldness for a particular law, how many months does that timed weight last
@@ -32,4 +28,22 @@
 	AI_PEACE_AGREEMENT_BASE_VALUE = -30 #-10
 	AI_PEACE_AGREEMENT_SELF_WARGOAL_MULT = 1.5 # 3.0 # For each wargoal we have that's being pressed, apply wargoal value * this
 	AI_PEACE_AGREEMENT_ENEMY_WARGOAL_SELF_MULT = -10 # -8 # For each wargoal that the enemy is pressing against us, apply wargoal value * this
+
+
+	# At what fraction of combat strength and morale/org will the AI attack
+	FRONT_MIN_OVERALL_STRENGTH_FACTOR_TO_ATTACK = 1 # 0.8			# Must have at least this multiplier of overall power projection on the front compared to the enemy's to want to attack
+	FRONT_MIN_INDIVIDUAL_ARMY_STRENGTH_FACTOR_TO_ATTACK = 1 # 0.95 	# Must have at least this multiplier of average power projection of allied formations on the front to want to attack
+	FRONT_MIN_MORALE_TO_ATTACK = 0.8							# As a fraction of max morale (1)
+	FRONT_MIN_ORGANIZATION_TO_ATTACK = 0.8						# As a fraction of formation's max organization
+
+	# Below data is used to determine which states should be colonized first
+	NUM_GROWING_COLONIES_BASE = 1 # How many colonies will the AI keep growing at once (base amount)
+	NUM_GROWING_COLONIES_SCALED = 0.02 # 0.01 # 1 extra colony at once per this amount of colonial growth points
+	NUM_GROWING_COLONIES_MAX = 10 # 5 # No more than this amount of growing colonies at once, regardless of amount of colonial growth points
+	COLONY_BASE_WEIGHT = 50
+	COLONY_POPULATION_WEIGHT = 0.2	# Per 10000 pops
+	COLONY_ARABLE_LAND_WEIGHT = 10
+	COLONY_ADJACENT_WEIGHT_MULT = 10.0
+	COLONY_UNCONTESTED_WEIGHT_MULT = 3.0
+	COLONY_RANDOM_FACTOR = 2
 }

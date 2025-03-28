@@ -38,15 +38,12 @@
 		OR = {
 			c:SPU ?= {
 				is_subject_of = c:BOL
-				is_subject_type = subject_type_puppet
 			}
 			c:NPU ?= {
 				is_subject_of = c:BOL
-				is_subject_type = subject_type_puppet
 			}
 			c:PEU ?= {
 				is_subject_of = c:BOL
-				is_subject_type = subject_type_puppet
 			}
 		}
 		custom_tooltip = {
@@ -382,6 +379,12 @@ je_war_of_the_confederation = {
 				trigger_event = { id = peru_bolivia_events.5 popup = yes }
 			}
 		}
+		if = {
+			limit = {
+				has_modifier = modifier_against_the_confederation
+			}
+			remove_modifier = modifier_against_the_confederation
+		}
 	}
 
 	fail = {
@@ -393,6 +396,12 @@ je_war_of_the_confederation = {
 
 	on_fail = {
 		trigger_event = { id = peru_bolivia_events.7 popup = yes }
+		if = {
+			limit = {
+				has_modifier = modifier_against_the_confederation
+			}
+			remove_modifier = modifier_against_the_confederation
+		}
 	}
 
 	invalid = {
@@ -422,6 +431,15 @@ je_war_of_the_confederation = {
 					}
 				}
 			}
+		}
+	}
+
+	on_invalid = {
+		if = {
+			limit = {
+				has_modifier = modifier_against_the_confederation
+			}
+			remove_modifier = modifier_against_the_confederation
 		}
 	}
 

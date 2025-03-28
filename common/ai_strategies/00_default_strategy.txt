@@ -152,7 +152,6 @@ ai_strategy_default = {
 		}
 
 		### Risorgimento
-
 		if = {
 			limit = { 
 				exists = scope:is_initiator
@@ -160,9 +159,7 @@ ai_strategy_default = {
 					scope:diplomatic_play_type = play_type:dp_secession
 					scope:diplomatic_play_type = play_type:dp_revolution
 				}
-				root = {
-					has_modifier = modifier_risorgimento_support
-				}
+				has_modifier = modifier_risorgimento_support
 				scope:country = {
 					has_modifier = modifier_risorgimento_support
 				}
@@ -173,6 +170,44 @@ ai_strategy_default = {
 			add = {
 				value = 50
 				desc = "risorgimento_support"
+			}
+		}
+
+		### Dismantle Peru-Bolivia
+		if = {
+			limit = {
+				has_modifier = modifier_against_the_confederation
+				scope:enemy_country = {
+					c:BOL = this
+				}
+			}
+			add = {
+				value = 50
+				desc = "against_the_confederation"
+			}
+		}
+
+		### Protect Herat
+		if = {
+			limit = { 
+				c:GBR = this
+				scope:enemy_country = {
+					c:PER = this
+					play_participant_has_war_goal_of_type_against = {
+						type = return_state
+						target = scope:country
+					}
+				}
+				scope:country = {
+					any_state = {
+						state_region = s:STATE_HERAT
+					}
+				}
+			}
+
+			add = {
+				value = 100
+				desc = "protect_herat"
 			}
 		}
 
@@ -1218,12 +1253,19 @@ ai_strategy_default = {
 							region = sr:region_bombay
 							region = sr:region_bengal
 							region = sr:region_central_india
-							state_region = s:STATE_KASHMIR
 							state_region = s:STATE_MANDALAY
 							state_region = s:STATE_KACHIN
 							state_region = s:STATE_SHAN_STATES
 							state_region = s:STATE_PASHTUNISTAN
 							state_region = s:STATE_QUETTA
+							AND = {
+								OR = {
+									state_region = s:STATE_KASHMIR
+									state_region = s:STATE_EASTERN_HIMALAYAS
+									state_region = s:STATE_HIMALAYAS
+								}
+								root.top_overlord = { has_journal_entry = je_opium_wars }
+							}
 						}
 					}
 				}
@@ -1274,10 +1316,11 @@ ai_strategy_default = {
 							has_journal_entry = je_unify_afghanistan
 							is_subject = yes
 						}
-						this ?= c:AFG
+						c:AFG ?= this
 					}
 					scope:target_state = {
-						is_homeland_of_country_cultures = root
+						is_homeland = cu:pashtun
+						is_homeland = cu:tajik
 					}
 				}
 				add = 50
@@ -1346,7 +1389,7 @@ ai_strategy_default = {
 								state_region = s:STATE_CAMBODIA							
 							}
 							NOR = {
-								owner = { religion = { has_discrimination_trait = christian } }
+								religion = { has_discrimination_trait = christian }
 								top_overlord = { 
 									religion = { has_discrimination_trait = christian }
 								}
@@ -2157,7 +2200,7 @@ ai_strategy_default = {
 	# Using this value in other strategies will function additively
 	# root is the AI doing the evaluation, scope:overlord is prospective overlord
 	become_subject_value = {
-		value = -300 # -100
+		value = -400 # -100
 
 		if = {
 			limit = {
@@ -2619,7 +2662,7 @@ ai_strategy_default = {
 					has_journal_entry = je_peru_bolivia
 				}
 			}
-			add = 0.25
+			add = 0.5
 		}
 
 		# Sardinia confident after treaty of Turin
@@ -2840,7 +2883,7 @@ ai_strategy_default = {
 						}
 					}
 					NOR = { 
-						owner = { religion = { has_discrimination_trait = christian } }
+						religion = { has_discrimination_trait = christian }
 						top_overlord = { 
 							religion = { has_discrimination_trait = christian }
 						}
@@ -2924,13 +2967,20 @@ ai_strategy_default = {
 							region = sr:region_bengal
 							region = sr:region_central_india
 							region = sr:region_punjab
-							state_region = s:STATE_KASHMIR
 							state_region = s:STATE_MANDALAY
 							state_region = s:STATE_KACHIN
 							state_region = s:STATE_SHAN_STATES
 							state_region = s:STATE_PEGU
 							state_region = s:STATE_PASHTUNISTAN
 							state_region = s:STATE_QUETTA
+							AND = {
+								OR = {
+									state_region = s:STATE_KASHMIR
+									state_region = s:STATE_EASTERN_HIMALAYAS
+									state_region = s:STATE_HIMALAYAS
+								}
+								root.top_overlord = { has_journal_entry = je_opium_wars }
+							}
 						}
 					}
 				}
@@ -2953,13 +3003,15 @@ ai_strategy_default = {
 							region = sr:region_bengal
 							region = sr:region_central_india
 							region = sr:region_punjab
-							state_region = s:STATE_KASHMIR
 							state_region = s:STATE_MANDALAY
 							state_region = s:STATE_KACHIN
 							state_region = s:STATE_SHAN_STATES
 							state_region = s:STATE_PEGU
 							state_region = s:STATE_PASHTUNISTAN
 							state_region = s:STATE_QUETTA
+							state_region = s:STATE_KASHMIR
+							state_region = s:STATE_EASTERN_HIMALAYAS
+							state_region = s:STATE_HIMALAYAS
 						}
 					}
 				}
@@ -3443,7 +3495,7 @@ ai_strategy_default = {
 						has_journal_entry = je_unify_afghanistan
 						is_subject = yes
 					}
-					this ?= c:AFG
+					c:AFG ?= this
 				}
 				scope:target_country = {
 					OR = {
@@ -5014,6 +5066,7 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					scope:target_country = {
+						c:BOL ?= this
 						has_journal_entry = je_peru_bolivia
 					}
 					has_modifier = modifier_against_the_confederation
@@ -5925,7 +5978,7 @@ ai_strategy_default = {
 						value >= 1
 					}					
 				}
-				add = 25
+				add = 10 # 25
 
 				if = {
 					limit = { has_technology_researched = quinine }
@@ -5949,7 +6002,7 @@ ai_strategy_default = {
 					limit = {
 						power_bloc ?= { has_principle_group = principle_group:principle_group_colonial_offices }
 					}
-					add = 50
+					add = 5 # 50
 				}
 
 				if = {
@@ -6425,13 +6478,20 @@ ai_strategy_default = {
 								region = sr:region_bengal
 								region = sr:region_central_india
 								region = sr:region_punjab
-								state_region = s:STATE_KASHMIR
 								state_region = s:STATE_MANDALAY
 								state_region = s:STATE_KACHIN
 								state_region = s:STATE_SHAN_STATES
 								state_region = s:STATE_PEGU
 								state_region = s:STATE_PASHTUNISTAN
 								state_region = s:STATE_QUETTA	
+								AND = {
+									OR = {
+										state_region = s:STATE_KASHMIR
+										state_region = s:STATE_EASTERN_HIMALAYAS
+										state_region = s:STATE_HIMALAYAS
+									}
+									root.top_overlord = { has_journal_entry = je_opium_wars }
+								}
 							}
 						}
 					}

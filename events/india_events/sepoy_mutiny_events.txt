@@ -2079,6 +2079,8 @@ sepoy_mutiny_events.4 = {
 						region = sr:region_central_india
 						region = sr:region_himalayas
 						region = sr:region_persia
+						region = sr:region_bombay
+						region = sr:region_madras
 					}
 				}			
 			}
@@ -2498,7 +2500,7 @@ sepoy_mutiny_events.8 = {
 			text = sepoy_mutiny_progress_from_events_bengal_2_year
 			set_variable = { 
 				name = bengal_progress_from_events_var_add_2
-				value = -1
+				value = -0.5 # -1
 				months = 12
 			}
 		}
@@ -2566,8 +2568,8 @@ sepoy_mutiny_events.8 = {
 					text = sepoy_mutiny_progress_from_events_bengal_2_year
 					set_variable = { 
 						name = bengal_progress_from_events_var_add_2
-						value = -1
-						months = 12
+						value = -0.5 # -1
+						months = 24 # 12
 					}
 				}	
 			}
@@ -2666,7 +2668,7 @@ sepoy_mutiny_events.9 = {
 			text = sepoy_mutiny_progress_from_events_bengal_2_year
 			set_variable = { 
 			name = bengal_progress_from_events_var_add_3
-				value = -1
+				value = -0.5 # -1
 				months = 12
 			}
 		}	
@@ -2825,7 +2827,7 @@ sepoy_mutiny_events.10 = {
 			text = sepoy_mutiny_progress_from_events_bengal_2_year
 			set_variable = { 
 			name = bengal_progress_from_events_var_add_4
-				value = -1
+				value = -0.5 # -1
 				months = 12
 			}
 		}
@@ -2877,17 +2879,17 @@ sepoy_mutiny_events.10 = {
 			text = sepoy_mutiny_progress_from_events_2_tt
 			set_variable = { 
 				name = bengal_progress_from_events_var_add_4
-				value = -1
+				value = -0.5 # -1
 				months = normal_modifier_time
 			}
 			set_variable = { 
 				name = bombay_progress_from_events_var_add_4
-				value = -1
+				value = -0.5 # -1
 				months = normal_modifier_time
 			}
 			set_variable = { 
 				name = madras_progress_from_events_var_add_4
-				value = -1
+				value = -0.5 # -1
 				months = normal_modifier_time
 			}
 		}
