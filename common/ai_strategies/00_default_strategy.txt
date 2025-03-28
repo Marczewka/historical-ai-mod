@@ -146,8 +146,33 @@ ai_strategy_default = {
 			}
 
 			add = {
-				value = 100
+				value = 50
 				desc = "schleswig_holstein"
+			}
+		}
+
+		### Risorgimento
+
+		if = {
+			limit = { 
+				exists = scope:is_initiator
+				OR = {
+					scope:diplomatic_play_type = play_type:dp_secession
+					scope:diplomatic_play_type = play_type:dp_revolution
+				}
+				root = {
+					has_modifier = modifier_risorgimento_support
+				}
+				scope:country = {
+					has_modifier = modifier_risorgimento_support
+				}
+				scope:enemy_country = {
+					NOT = { has_modifier = modifier_risorgimento_support }
+				}
+			}
+			add = {
+				value = 50
+				desc = "risorgimento_support"
 			}
 		}
 
@@ -283,29 +308,7 @@ ai_strategy_default = {
 					desc = "veiled_protectorate_egypt_support"
 				}
 			}							
-		}	
-
-		### Risorgimento
-
-		if = {
-			limit = { 
-				exists = scope:is_initiator
-				scope:diplomatic_play_type = play_type:dp_secession
-				root = {
-					has_modifier = modifier_risorgimento_support
-				}
-				scope:country = {
-					has_modifier = modifier_risorgimento_support
-				}
-				scope:enemy_country = {
-					NOT = { has_modifier = modifier_risorgimento_support }
-				}
-			}
-			add = {
-				value = 150
-				desc = "risorgimento_support"
-			}
-		}	
+		}		
 
 		### The Great Game
 
@@ -764,7 +767,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 0.25
+			add = 0.35 # 0.25
 		}
 
 		# USA should Manifest a lot of Destiny
@@ -1035,7 +1038,7 @@ ai_strategy_default = {
 					add = {
 						value = scope:target_state.gdp
 						divide = 100000
-						max = 20
+						max = 10 # 20
 					}						
 				}	
 
@@ -1130,6 +1133,8 @@ ai_strategy_default = {
 									any_scope_state = { 
 										owner = ROOT 
 										is_treaty_port = no
+										state_population > 100000
+										is_incorporated = yes
 									}
 								}
 							}
@@ -1181,7 +1186,7 @@ ai_strategy_default = {
 						}
 					}
 					multiply = 2
-				}				
+				}
 			}
 		
 			if = {
@@ -1264,8 +1269,13 @@ ai_strategy_default = {
 
 			if = {
 				limit = {
-					has_journal_entry = je_unify_afghanistan
-					is_subject = yes
+					OR = {
+						AND = {
+							has_journal_entry = je_unify_afghanistan
+							is_subject = yes
+						}
+						this ?= c:AFG
+					}
 					scope:target_state = {
 						is_homeland_of_country_cultures = root
 					}
@@ -1336,9 +1346,9 @@ ai_strategy_default = {
 								state_region = s:STATE_CAMBODIA							
 							}
 							NOR = {
-								owner = { country_has_state_religion = rel:catholic }
-								owner = { 
-									overlord = { country_has_state_religion = rel:catholic } 
+								owner = { religion = { has_discrimination_trait = christian } }
+								top_overlord = { 
+									religion = { has_discrimination_trait = christian }
 								}
 							}
 						}		
@@ -1410,7 +1420,7 @@ ai_strategy_default = {
 						region = sr:region_central_asia
 						NOR = {
 							state_region = s:STATE_DZUNGARIA
-							state_region = s:STATE_ALASKA
+							state_region = s:STATE_TIANSHAN
 						}
 					}
 				}
@@ -2449,16 +2459,16 @@ ai_strategy_default = {
 			add = 1.0
 		}				
 
-		#Italian Nightmare
-		if = {
-			limit = {
-				has_journal_entry = je_risorgimento
-				scope:target_country = {
-					has_journal_entry = je_risorgimento
-				}
-			}
-			add = 0.5
-		}
+		# #Italian Nightmare
+		# if = {
+		# 	limit = {
+		# 		has_journal_entry = je_risorgimento
+		# 		scope:target_country = {
+		# 			has_journal_entry = je_risorgimento
+		# 		}
+		# 	}
+		# 	add = 0.5
+		# }
 
 		# French Natural Borders
 		if = {
@@ -2620,6 +2630,20 @@ ai_strategy_default = {
 				c:FRA = {
 					owes_obligation_to = ROOT
 				}
+				scope:target_country = {
+					NOR = {
+						country_has_primary_culture = cu:south_italian
+						country_has_primary_culture = cu:north_italian
+					}
+					any_scope_state = {
+						state_region = {
+							OR = {
+								is_homeland = cu:south_italian
+								is_homeland = cu:north_italian
+							}
+						}
+					}
+				}
 			}
 			add = 3
 		}
@@ -2749,6 +2773,18 @@ ai_strategy_default = {
 			add = 50 # 5
 		}
 
+		# AI should open up Japan
+		if = {
+			limit = {
+				has_strategy = ai_strategy_economic_imperialism
+				scope:target_country = { 
+					has_law = law_type:law_isolationism
+					gdp >= 5000000
+				} 			
+			}
+			add = 50
+		}
+
 		# Ottomans should be very aggressive against owners of Syria and Egypt when they have the relevant JE's
 		if = {
 			limit = {
@@ -2804,8 +2840,10 @@ ai_strategy_default = {
 						}
 					}
 					NOR = { 
-						country_has_state_religion = rel:catholic
-						overlord = { country_has_state_religion = rel:catholic }
+						owner = { religion = { has_discrimination_trait = christian } }
+						top_overlord = { 
+							religion = { has_discrimination_trait = christian }
+						}
 					}	
 				}
 			}
@@ -3400,8 +3438,13 @@ ai_strategy_default = {
 		# Afghan Consolidation
 		if = {
 			limit = {
-				has_journal_entry = je_unify_afghanistan
-				is_subject = yes
+				OR = {
+					AND = {
+						has_journal_entry = je_unify_afghanistan
+						is_subject = yes
+					}
+					this ?= c:AFG
+				}
 				scope:target_country = {
 					OR = {
 						has_journal_entry = je_unify_afghanistan
@@ -3415,6 +3458,18 @@ ai_strategy_default = {
 				}
 			}
 			add = 35
+		}
+
+		# Denmark wants Schleswig
+		if = {
+			limit = {
+				has_journal_entry = je_schleswig_holstein_question_denmark
+				exists = c:SCH
+				scope:target_country = {
+					THIS = c:SCH
+				}
+			}
+			add = 100
 		}
 
         # Neutral Switzerland
@@ -5856,12 +5911,13 @@ ai_strategy_default = {
 					scope:target_country = { is_country_type = unrecognized }
 					scope:target_country = { NOT = { is_subject_of = root }	}
 					scope:target_country = {
-						OR = {
-							is_subject = no
-							top_overlord ?= {
-								is_country_type = unrecognized
-							}
-						}
+						is_subject = no
+						# OR = {
+						# 	is_subject = no
+						# 	top_overlord ?= {
+						# 		is_country_type = unrecognized
+						# 	}
+						# }
 					}	
 					has_technology_researched = colonization
 					institution_investment_level = {
@@ -6717,7 +6773,7 @@ ai_strategy_default = {
 				add = 75
 			}
 
-			# AI should open up large isolationist powers, not subjugate them
+			# AI should open up Japan
 			if = {
 				limit = {
 					has_strategy = ai_strategy_economic_imperialism

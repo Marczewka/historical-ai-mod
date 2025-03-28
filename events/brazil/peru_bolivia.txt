@@ -503,7 +503,26 @@ peru_bolivia_events.4 = {
 		name = peru_bolivia_events.4.a
 		default_option = yes
 		ai_chance = {
-			base = 25
+			base = 5 # 25
+			modifier = {
+				trigger = {
+					OR = {
+						has_attitude = {
+							who = c:BOL
+							attitude = belligerent
+						}
+						has_attitude = {
+							who = c:BOL
+							attitude = domineering
+						}	
+						has_attitude = {
+							who = c:BOL
+							attitude = antagonistic
+						}
+					}	
+				}
+				add = 50
+			}
 		}
 		add_journal_entry = {
 			type = je_war_of_the_confederation
@@ -534,6 +553,25 @@ peru_bolivia_events.4 = {
 		name = peru_bolivia_events.4.b
 		ai_chance = {
 			base = 5
+			modifier = {
+				trigger = {
+					OR = {
+						has_attitude = {
+							who = c:BOL
+							attitude = genial
+						}
+						has_attitude = {
+							who = c:BOL
+							attitude = conciliatory
+						}							
+						has_attitude = {
+							who = c:BOL
+							attitude = cooperative
+						}	
+					}	
+				}
+				add = 50
+			}
 		}
 		add_journal_entry = {
 			type = je_war_of_the_confederation
@@ -557,14 +595,17 @@ peru_bolivia_events.4 = {
 	
 	option = {
 		name = peru_bolivia_events.4.c
-		trigger = {
-			NOR = {
-				c:CHL ?= this
-				c:ARG ?= this
-			}
-		}
 		ai_chance = {
 			base = 50
+			modifier = {
+				trigger = {
+					OR = {
+						c:CHL ?= this
+						c:ARG ?= this
+					}
+				}
+				add = -50
+			}
 		}
 		custom_tooltip = ignore_peru_bol_tt
 	}

@@ -19,6 +19,17 @@
 			country = c:LIB 
 			type = protectorate
 		}
+		create_diplomatic_pact = {
+			country = c:LIB 
+			type = guarantee_independence
+		}
+	}
+
+	c:PRU ?= {
+		create_diplomatic_pact = {
+			country = c:MEC
+			type = protectorate
+		}
 	}
 
 	c:BIC ?= {

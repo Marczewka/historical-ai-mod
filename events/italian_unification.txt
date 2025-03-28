@@ -956,7 +956,7 @@ italian_unification.10 = {
 				trigger = {
 					has_law = law_type:law_theocracy
 				}
-				add = 50
+				add = 100
 			}
 			modifier = {
 				trigger = {

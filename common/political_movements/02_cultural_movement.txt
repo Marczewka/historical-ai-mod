@@ -381,9 +381,10 @@ movement_cultural_minority = {
 				owner ?= {
 					has_variable = failed_tanzimat
 				}
+				culture = { has_discrimination_trait = european_heritage }
 			}
 			multiply = {
-				value = 2
+				value = 10
 			}
 		}
 		if = {
@@ -802,7 +803,7 @@ movement_cultural_minority = {
 						value >= 0.05
 					}					
 				}
-				add = 10
+				add = 5 #10
 
 				if = {
 					limit = {
@@ -811,7 +812,7 @@ movement_cultural_minority = {
 							value >= 0.75
 						}
 					}
-					add = 1000
+					add = 500 # 1000
 				}
 				else_if = {
 					limit = {
@@ -820,7 +821,7 @@ movement_cultural_minority = {
 							value >= 0.5
 						}
 					}
-					add = 500
+					add = 200 # 500
 				}
 				else_if = {
 					limit = {
@@ -829,7 +830,7 @@ movement_cultural_minority = {
 							value >= 0.25
 						}
 					}
-					add = 100
+					add = 50 # 100
 				}
 				else_if = {
 					limit = {
@@ -838,7 +839,7 @@ movement_cultural_minority = {
 							value >= 0.1
 						}
 					}
-					add = 50
+					add = 10 # 50
 				}
 			}				
 		}

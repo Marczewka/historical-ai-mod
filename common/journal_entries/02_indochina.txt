@@ -31,16 +31,13 @@
 	on_complete = {
 		trigger_event = { id = indochina.4 }
 	}
-
-	invalid = {
-		NOT = { religion = { has_discrimination_trait = christian } }
-	}
 	
 	weight = 100
 	
 	transferable = no
 
 	invalid = {
+		NOT = { religion = { has_discrimination_trait = christian } }
 	}
 
 	should_be_pinned_by_default = yes

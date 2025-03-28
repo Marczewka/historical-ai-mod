@@ -1,18 +1,4 @@
-﻿wants_to_solve_schleswig_holstein = {
-	OR = {
-		AND = {
-			NOT = { has_journal_entry = je_german_unification_idea }
-			has_journal_entry = je_schleswig_holstein_question 
-		}
-		AND = {
-			has_journal_entry = je_german_unification_idea
-			c:DEN = { has_journal_entry = je_schleswig_holstein_question_denmark }
-		}
-	}
-	country_rank >= rank_value:great_power
-}
-
-can_reach_target_country = {
+﻿can_reach_target_country = {
 	has_diplomatic_relevance = scope:target_country
 	OR = {
 		has_strategic_land_adjacency = scope:target_country

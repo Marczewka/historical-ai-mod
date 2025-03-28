@@ -138,6 +138,7 @@ STATES = {
 		create_state = {
 			country = c:RUS
 			owned_provinces = { x50F5CB }
+			state_type = unincorporated
 		}
 		
 		add_homeland = cu:bulgarian
@@ -5890,6 +5891,7 @@ STATES = {
 		create_state = {
 			country = c:RUS
 			owned_provinces = { x327755 xC09080 }
+			state_type = unincorporated
 		}
 
 		add_homeland = cu:turkish
