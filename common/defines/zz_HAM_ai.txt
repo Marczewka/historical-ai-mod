@@ -44,8 +44,8 @@
 	WAR_GOAL_UNACCEPTABLE_INFAMY_FACTOR = 0			# Wargoal value is multiplied by this if it would bring the country above unacceptable infamy levels
 	WAR_GOAL_NOT_PRIMARY_DEMAND_FACTOR = 0.5		# Wargoal value for sway offers is multiplied by this if it would not be added as a primary demand
 
-	WAR_GOAL_MAKE_PRIMARY_DEMAND_SCORE_MULT = 0.5 # 0.75   # Multiply score of an existing wargoal by this when determining whether to make it into a primary demand instead of adding a new wargoal
-	WAR_GOAL_MAKE_PRIMARY_DEMAND_RETURN_STATE_SCORE_MULT = 0.75 # 1.25 # Overrides WAR_GOAL_MAKE_PRIMARY_DEMAND_SCORE_MULT for return state wargoals
+	WAR_GOAL_MAKE_PRIMARY_DEMAND_SCORE_MULT = 0.25 # 0.75   # Multiply score of an existing wargoal by this when determining whether to make it into a primary demand instead of adding a new wargoal
+	WAR_GOAL_MAKE_PRIMARY_DEMAND_RETURN_STATE_SCORE_MULT = 0.50 # 1.25 # Overrides WAR_GOAL_MAKE_PRIMARY_DEMAND_SCORE_MULT for return state wargoals
 	WAR_GOAL_MIN_SCORE_TO_MAKE_PRIMARY_DEMAND = 30	 # A wargoal needs to have at least this much score (before applying WAR_GOAL_MAKE_PRIMARY_DEMAND_SCORE_MULT) for AI to make it a primary demand
 
 

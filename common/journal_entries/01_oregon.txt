@@ -21,6 +21,12 @@
 
 	on_complete = {
 		c:GBR = { trigger_event = { id = oregon.2 } }
+		hidden_effect = {
+			set_secret_goal = {
+				country = c:RUS
+				secret_goal = reconcile 
+			}
+		}
 	}
 
 	fail = {

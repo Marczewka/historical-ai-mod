@@ -308,6 +308,7 @@
 			add = {
 				desc = "DIPLOMATIC_ACCEPTANCE_ARMY_STRENGTH"
 				value = "scope:actor.ai_army_comparison(root)"
+				multiply = 4
 				min = -100 # -50
 				max = 100 # 50
 			}	

@@ -30,7 +30,7 @@
 							}
 							turmoil >= 0.15 # 0.10
 						}
-						subtract = 0.1
+						subtract = this.turmoil
 					}
 				}
 			}
@@ -60,7 +60,7 @@
 							}
 							loyalty >= 0.15 # 0.10
 						}
-						subtract = 0.1
+						subtract = this.loyalty
 					}
 				}
 			}
@@ -94,7 +94,8 @@
 							}
 							liberty_desire >= 75
 						}
-						subtract = 0.1
+						subtract = this.liberty_desire
+						divide = 500
 					}
 				}
 			}
@@ -128,7 +129,14 @@
 							}
 							liberty_desire <= 25
 						}
-						add = 0.1
+						add = {
+							value = 0.25
+							subtract = {
+								value = liberty_desire
+								multiply = 0.01
+							}
+							divide = 2.5
+						}
 					}
 				}
 			}
@@ -406,7 +414,7 @@ sepoy_mutiny_progress_bar_bombay = {
 							region = sr:region_bombay						
 							turmoil >= 0.15 # 0.10
 						}
-						subtract = 0.1
+						subtract = this.turmoil
 					}
 				}
 			}
@@ -428,7 +436,7 @@ sepoy_mutiny_progress_bar_bombay = {
 							region = sr:region_bombay						
 							loyalty >= 0.15 # 0.10
 						}
-						subtract = 0.1
+						subtract = this.loyalty
 					}
 				}
 			}
@@ -454,7 +462,8 @@ sepoy_mutiny_progress_bar_bombay = {
 							}
 							liberty_desire >= 75
 						}
-						subtract = 0.1
+						subtract = this.liberty_desire
+						divide = 500
 					}
 				}
 			}
@@ -480,7 +489,14 @@ sepoy_mutiny_progress_bar_bombay = {
 							}
 							liberty_desire <= 25				
 						}
-						add = 0.1
+						add = {
+							value = 0.25
+							subtract = {
+								value = liberty_desire
+								multiply = 0.01
+							}
+							divide = 2.5
+						}
 					}
 				}
 			}
@@ -760,7 +776,7 @@ sepoy_mutiny_progress_bar_madras = {
 							region = sr:region_madras						
 							turmoil >= 0.15 # 0.10
 						}
-						subtract = 0.1
+						subtract = this.turmoil
 					}
 				}
 			}
@@ -782,7 +798,7 @@ sepoy_mutiny_progress_bar_madras = {
 							region = sr:region_madras						
 							loyalty >= 0.15 # 0.10
 						}
-						subtract = 0.1
+						subtract = this.loyalty
 					}
 				}
 			}
@@ -808,7 +824,8 @@ sepoy_mutiny_progress_bar_madras = {
 							}
 							liberty_desire >= 75
 						}
-						subtract = 0.1
+						subtract = this.liberty_desire
+						divide = 500
 					}
 				}
 			}
@@ -834,7 +851,14 @@ sepoy_mutiny_progress_bar_madras = {
 							}
 							liberty_desire <= 25
 						}
-						add = 0.1
+						add = {
+							value = 0.25
+							subtract = {
+								value = liberty_desire
+								multiply = 0.01
+							}
+							divide = 2.5
+						}
 					}
 				}
 			}

@@ -150,28 +150,6 @@ ai_strategy_default = {
 			}
 		}
 
-		### Risorgimento
-		if = {
-			limit = { 
-				exists = scope:is_initiator
-				OR = {
-					scope:diplomatic_play_type = play_type:dp_secession
-					scope:diplomatic_play_type = play_type:dp_revolution
-				}
-				has_modifier = modifier_risorgimento_support
-				scope:country = {
-					has_modifier = modifier_risorgimento_support
-				}
-				scope:enemy_country = {
-					NOT = { has_modifier = modifier_risorgimento_support }
-				}
-			}
-			add = {
-				value = 300
-				desc = "risorgimento_support"
-			}
-		}
-
 		### Dismantle Peru-Bolivia
 		if = {
 			limit = {
@@ -238,50 +216,49 @@ ai_strategy_default = {
 				desc = "protect_herat"
 			}
 		}
-		
-		### Protect Herat
+
 		if = {
 			limit = { 
 				OR = {
 					c:GBR = this
 					has_journal_entry = je_unify_afghanistan
 				}
-				scope:enemy_country = {
-					any_scope_state = {
-						state_region = s:STATE_HERAT
-					}
-				}
 				scope:country = {
 					c:PER = this
 					OR = {
 						play_participant_has_war_goal_of_type_against = {
 							type = return_state
-							target = scope:enemy_country
+							target = scope:country
 						}
 						play_participant_has_war_goal_of_type_against = {
 							type = conquer_state
-							target = scope:enemy_country
+							target = scope:country
 						}
 						play_participant_has_war_goal_of_type_against = {
 							type = make_protectorate
-							target = scope:enemy_country
+							target = scope:country
 						}								
 						play_participant_has_war_goal_of_type_against = {
 							type = liberate_country
-							target = scope:enemy_country
+							target = scope:country
 						}
 						play_participant_has_war_goal_of_type_against = {
 							type = liberate_subject
-							target = scope:enemy_country
+							target = scope:country
 						}		
 						play_participant_has_war_goal_of_type_against = {
 							type = transfer_subject
-							target = scope:enemy_country
+							target = scope:country
 						}
 						play_participant_has_war_goal_of_type_against = {
 							type = take_treaty_port
-							target = scope:enemy_country
+							target = scope:country
 						}
+					}
+				}
+				scope:enemy_country = {
+					any_scope_state = {
+						state_region = s:STATE_HERAT
 					}
 				}
 			}
@@ -481,6 +458,28 @@ ai_strategy_default = {
 				}
 			}							
 		}		
+
+		### Risorgimento
+		if = {
+			limit = { 
+				exists = scope:is_initiator
+				OR = {
+					scope:diplomatic_play_type = play_type:dp_secession
+					scope:diplomatic_play_type = play_type:dp_revolution
+				}
+				has_modifier = modifier_risorgimento_support
+				scope:country = {
+					has_modifier = modifier_risorgimento_support
+				}
+				scope:enemy_country = {
+					NOT = { has_modifier = modifier_risorgimento_support }
+				}
+			}
+			add = {
+				value = 300
+				desc = "risorgimento_support"
+			}
+		}
 
 		### The Great Game
 
@@ -1204,36 +1203,59 @@ ai_strategy_default = {
 			add = 10
 		}
 
-		### Protect Herat
+		# ### Protect Herat
+		# if = {
+		# 	limit = { 
+		# 		OR = {
+		# 			c:GBR = this
+		# 			has_journal_entry = je_unify_afghanistan
+		# 		}
+		# 		scope:target_country = {
+		# 			any_scope_state = {
+		# 				state_region = s:STATE_HERAT
+		# 			}
+		# 		}
+		# 	}
+
+		# 	add = 10
+		# }
+
+		# ### Monroe Doctrine
+		# if = {
+		# 	limit = { 
+		# 		c:USA = this
+		# 		scope:target_country = {
+		# 			OR = {
+		# 				country_is_in_north_america = yes
+		# 				country_is_in_central_america = yes
+		# 				country_is_in_south_america = yes
+		# 			}
+		# 		}
+		# 	}
+		# 	add = 10
+		# }
+
+		### Risorgimento
 		if = {
 			limit = { 
-				OR = {
-					c:GBR = this
-					has_journal_entry = je_unify_afghanistan
-				}
+				has_modifier = modifier_risorgimento_support
 				scope:target_country = {
-					any_scope_state = {
-						state_region = s:STATE_HERAT
-					}
+					has_modifier = modifier_risorgimento_support
 				}
 			}
-
-			add = 5
+			add = 10
 		}
 
-		### Monroe Doctrine
+		### Schleswig-Holstein
 		if = {
 			limit = { 
-				c:USA = this
-				scope:target_country = {
-					OR = {
-						country_is_in_north_america = yes
-						country_is_in_central_america = yes
-						country_is_in_south_america = yes
-					}
+				wants_to_solve_schleswig_holstein = yes
+				scope:target_country.top_overlord = {
+					is_oppressor_of_schleswig_holstein = yes
 				}
 			}
-			add = 5
+
+			add = 10
 		}
 
 		min = 0
@@ -1363,7 +1385,7 @@ ai_strategy_default = {
 				}		
 			}
 			else = {
-				if = {
+				if = { # Primarily take claims and important split states
 					limit = { 
 						OR = {
 							scope:target_state = { 
@@ -1372,19 +1394,29 @@ ai_strategy_default = {
 									any_scope_state = { 
 										owner = ROOT 
 										is_treaty_port = no
-										state_population > 100000
 										is_incorporated = yes
 									}
 								}
 							}
 							scope:target_state = { has_claim_by = root } 
-							} 
-						}					
+						} 
+					}					
 					multiply = 2.0
 					add = 20	
 				}
+				else_if = { # Secondarily take our homelands
+					limit = {
+						scope:target_state = { is_homeland_of_country_cultures = root }
+						# NOR = {
+						# 	country_has_primary_culture = cu:south_andean
+						# 	country_has_primary_culture = cu:north_andean
+						# 	country_has_primary_culture = cu:platinean
+						# }
+					}
+					multiply = 2
+				}
 
-				if = {
+				if = { # Not coastal states when directly/wargoal isn't bordering enemy
 					limit = { 
 						NOT = { has_strategic_land_adjacency = scope:target_state } 
 						scope:target_state = { has_port = no }
@@ -1392,39 +1424,28 @@ ai_strategy_default = {
 					multiply = 0.5
 				}
 
-				if = {
+				if = { # Not directly/wargoal bordering states when directly/wargoal is bordering enemy
 					limit = {
 						has_strategic_land_adjacency = scope:target_country
 						NOT = { has_strategic_land_adjacency = scope:target_state }
 					}
-					multiply = 0.5
+					multiply = 0.25 # 0.5
 				}
-				else_if = {
+				else_if = { # Not bordering states when dircetly bordering enemy
 					limit = {
 						is_adjacent_to_country = scope:target_country
 						NOT = { is_adjacent_to_state = scope:target_state }
 					}
-					multiply = 0.75
+					multiply = 0.5 # 0.75
 				}		
 
 				# More reluctant to get involved in plays for states that AI doesn't strongly desire
 				if = {
 					limit = {
-						is_diplomatic_play_involved_with = scope:target_country
+						NOT = { is_diplomatic_play_involved_with = scope:target_country }
 						ai_strongly_desires_target_state = no			
 					}
 					multiply = 0.5
-				}
-			
-				if = {
-					limit = {
-						scope:target_state = { is_homeland_of_country_cultures = root }
-						NOR = {
-							country_has_primary_culture = cu:south_andean
-							country_has_primary_culture = cu:north_andean
-						}
-					}
-					multiply = 2
 				}
 			}
 		
@@ -1519,38 +1540,38 @@ ai_strategy_default = {
 				add = 50
 			}
 
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							has_journal_entry = je_unify_afghanistan
-							is_subject = yes
-						}
-						c:AFG ?= this
-					}
-					scope:target_state.state_region = {
-						is_homeland = cu:pashtun
-						is_homeland = cu:tajik
-					}
-				}
-				add = 50
-			}
+			# if = {
+			# 	limit = {
+			# 		OR = {
+			# 			AND = {
+			# 				has_journal_entry = je_unify_afghanistan
+			# 				is_subject = yes
+			# 			}
+			# 			c:AFG ?= this
+			# 		}
+			# 		scope:target_state.state_region = {
+			# 			is_homeland = cu:pashtun
+			# 			is_homeland = cu:tajik
+			# 		}
+			# 	}
+			# 	add = 50
+			# }
 
-			if = {
-				limit = {
-					has_journal_entry = je_eastern_frontier
-					scope:target_state = {
-						OR = {
-							region = sr:region_persia
-							region = sr:region_central_asia
-							region = sr:region_bombay
-							region = sr:region_punjab
-						}
-						has_claim_by = ROOT
-					}
-				}
-				add = 75
-			}
+			# if = {
+			# 	limit = {
+			# 		has_journal_entry = je_eastern_frontier
+			# 		scope:target_state = {
+			# 			OR = {
+			# 				region = sr:region_persia
+			# 				region = sr:region_central_asia
+			# 				region = sr:region_bombay
+			# 				region = sr:region_punjab
+			# 			}
+			# 			has_claim_by = ROOT
+			# 		}
+			# 	}
+			# 	add = 75
+			# }
 
 			if = {
 				limit = {
@@ -2769,18 +2790,18 @@ ai_strategy_default = {
 		# 	add = 3
 		# }	
 		
-		# Persia
-		if = {
-			limit = {
-				has_journal_entry = je_eastern_frontier
-				scope:target_country = {
-					capital = {
-						region = sr:region_persia
-					}
-				}
-			}
-			add = 1
-		}
+		# # Persia
+		# if = {
+		# 	limit = {
+		# 		has_journal_entry = je_eastern_frontier
+		# 		scope:target_country = {
+		# 			capital = {
+		# 				region = sr:region_persia
+		# 			}
+		# 		}
+		# 	}
+		# 	add = 1
+		# }
 
 		#Taiping
 		if = { 
@@ -2878,7 +2899,6 @@ ai_strategy_default = {
 		# Sardinia confident after treaty of Turin
 		if = {
 			limit = {
-				has_journal_entry = je_risorgimento
 				has_modifier = modifier_risorgimento_support
 				c:FRA = {
 					owes_obligation_to = ROOT
@@ -2922,8 +2942,8 @@ ai_strategy_default = {
 		# Revanchism
 		if = {
 			limit = {
-				country_rank < rank_value:great_power
 				scope:target_country = {
+					top_overlord = { country_rank < rank_value:great_power }
 					any_scope_state = {
 						has_claim_by = ROOT
 					}
@@ -3741,30 +3761,30 @@ ai_strategy_default = {
 			add = 25
 		}
 
-		# Afghan Consolidation
-		if = {
-			limit = {
-				OR = {
-					AND = {
-						has_journal_entry = je_unify_afghanistan
-						is_subject = yes
-					}
-					c:AFG ?= this
-				}
-				scope:target_country = {
-					OR = {
-						has_journal_entry = je_unify_afghanistan
-						OR = {
-							has_state_in_state_region = STATE_KABUL
-							has_state_in_state_region = STATE_HERAT
-							has_state_in_state_region = STATE_KANDAHAR
-							has_state_in_state_region = STATE_CENTRAL_HIGHLANDS
-						}
-					}
-				}
-			}
-			add = 35
-		}
+		# # Afghan Consolidation
+		# if = {
+		# 	limit = {
+		# 		OR = {
+		# 			AND = {
+		# 				has_journal_entry = je_unify_afghanistan
+		# 				is_subject = yes
+		# 			}
+		# 			c:AFG ?= this
+		# 		}
+		# 		scope:target_country = {
+		# 			OR = {
+		# 				has_journal_entry = je_unify_afghanistan
+		# 				OR = {
+		# 					has_state_in_state_region = STATE_KABUL
+		# 					has_state_in_state_region = STATE_HERAT
+		# 					has_state_in_state_region = STATE_KANDAHAR
+		# 					has_state_in_state_region = STATE_CENTRAL_HIGHLANDS
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# 	add = 35
+		# }
 
         # Neutral Switzerland
         if = {
@@ -7094,19 +7114,6 @@ ai_strategy_default = {
 				add = 50
 			}				
 			
-			# AI should open up Japan
-			if = {
-				limit = {
-					has_strategy = ai_strategy_colonial_expansion 
-					has_strategy = ai_strategy_economic_imperialism
-					scope:target_country = { 
-						has_law = law_type:law_isolationism
-						gdp >= 5000000
-					} 			
-				}
-				add = 200
-			}
-			
 			# Not worth doing against very small markets
 			if = {
 				limit = {
@@ -7150,19 +7157,6 @@ ai_strategy_default = {
 					}
 				}
 				add = 75
-			}
-
-			# AI should open up Japan
-			if = {
-				limit = {
-					has_strategy = ai_strategy_colonial_expansion 
-					has_strategy = ai_strategy_economic_imperialism
-					scope:target_country = { 
-						has_law = law_type:law_isolationism
-						gdp >= 5000000
-					} 			
-				}
-				add = 100
 			}
 
 			# Not worth doing against very small countries

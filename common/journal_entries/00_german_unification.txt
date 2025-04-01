@@ -92,10 +92,16 @@
 			months = long_modifier_time
 			is_decaying = yes
 		}	
-		c:AUS ?= {
-			change_relations = { country = c:PRU value = -25 }
+		c:PRU ?= {
+			change_relations = { country = c:AUS value = -25 }
 		}
-		hidden_effect = { set_global_variable = schleswig_holstein_question_solved }		
+		hidden_effect = { 
+			set_global_variable = schleswig_holstein_question_solved 
+			set_secret_goal = {
+				country = c:AUS
+				secret_goal = conquer 
+			}
+		}		
 	}
 	
 	status_desc = {

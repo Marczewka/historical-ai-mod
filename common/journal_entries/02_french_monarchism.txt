@@ -208,14 +208,10 @@
 
 	fail = {
 		any_political_movement = {
-			OR = {
-				is_political_movement_type = movement_liberal
-				is_political_movement_type = movement_radical
-			}
-			is_revolutionary = yes
+			is_political_movement_type = movement_radical
+			is_insurrectionary = yes
 		}
 		OR = {
-			has_journal_entry = je_springtime_of_the_peoples
 			any_civil_war = {
 				is_civil_war_type = revolution
 				civil_war_progress >= 0.75

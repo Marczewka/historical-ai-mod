@@ -300,14 +300,9 @@ vtm_denmark.5 = {
 			}
 		}
 		hidden_effect = {
-			if = {
-				limit = {
-					is_ai = yes
-				}
-				set_secret_goal = {
-					country = c:SCH
-					secret_goal = dominate 
-				}
+			set_secret_goal = {
+				country = c:SCH
+				secret_goal = dominate 
 			}
 		}
 		default_option = yes

@@ -490,7 +490,7 @@ ai_strategy_territorial_expansion = {
 			
 		if = {
 			limit = { ig:ig_armed_forces = { is_powerful = yes } }
-			multiply = 1.5
+			multiply = 1.25 # 1.5
 		}			
 		
 		if = {
@@ -538,10 +538,19 @@ ai_strategy_territorial_expansion = {
 		if = {
 			limit = { 
 				c:ETH ?= THIS
+				number_of_claims > 0
 			}
-			add = 100
+			add = 20 # 100
 		}
-		
+
+		if = {
+			limit = { 
+				c:AFG ?= THIS
+				number_of_claims > 0
+			}
+			add = 20 # 100
+		}
+
 		if = {
 			limit = { has_radical_leftist_government = yes }
 			multiply = 0.5
@@ -1082,12 +1091,12 @@ ai_strategy_colonial_expansion = {
 		}
 		
 		if = {
-			limit = { country_rank = rank_value:major_power }
+			limit = { country_rank >= rank_value:major_power }
 			add = 5
 		}	
 
 		if = {
-			limit = { country_rank = rank_value:great_power }
+			limit = { country_rank >= rank_value:great_power }
 			add = 5
 		}			
 		
@@ -1118,21 +1127,21 @@ ai_strategy_colonial_expansion = {
 		}		
 		
 		if = {
-			limit = { navy_size >= 75 }
+			limit = { navy_size >= 150 } # 75
 			multiply = 1.5
 		}	
 
 		if = {
-			limit = { has_technology_researched = civilizing_mission }
-			multiply = 2.0
+			limit = { NOT = { has_technology_researched = civilizing_mission } }
+			multiply = 0.5
 		}	
 		
-		if = {
-			limit = {
-				power_bloc ?= { has_principle_group = principle_group:principle_group_colonial_offices }
-			}
-			multiply = 1.5
-		}		
+		# if = {
+		# 	limit = {
+		# 		power_bloc ?= { has_principle_group = principle_group:principle_group_colonial_offices }
+		# 	}
+		# 	multiply = 1.5
+		# }		
 		
 		if = {
 			limit = { has_radical_leftist_government = yes }
@@ -1426,7 +1435,7 @@ ai_strategy_economic_imperialism = {
 		if = {
 			limit = { 
 				country_rank = rank_value:great_power
-				has_technology_researched = civilizing_mission
+				# has_technology_researched = quinine # civilizing_mission
 				navy_size >= 25
 				scope:target_country = {
 					c:JAP ?= this 
@@ -1976,12 +1985,12 @@ ai_strategy_economic_imperialism = {
 		}	
 
 		if = {
-			limit = { navy_size < 50 }
+			limit = { navy_size < 25 } # 50
 			multiply = 0.5
 		}		
 		
 		if = {
-			limit = { navy_size >= 150 }
+			limit = { navy_size >= 100 } # 150
 			multiply = 1.5
 		}	
 		
@@ -3256,7 +3265,7 @@ ai_strategy_unify_afghanistan = {
 	}	
 
 	possible = {
-		is_subject = no
+		# is_subject = no
 		has_journal_entry = je_unify_afghanistan
 	}
 
@@ -3444,7 +3453,7 @@ ai_strategy_unify_ethiopia = {
 	}	
 
 	possible = {
-		is_subject = no
+		# is_subject = no
 		has_journal_entry = je_age_of_princes
 	}
 
@@ -4178,7 +4187,7 @@ ai_strategy_unify_china = {
 
 	possible = {
 		has_global_variable = china_shatters
-		is_subject = no
+		# is_subject = no
 		can_form_nation = CHI		
 	}
 

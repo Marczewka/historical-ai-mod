@@ -1,6 +1,9 @@
 ﻿ai_strongly_desires_target_state = {
 	OR = {
-		scope:target_state = { is_homeland_of_country_cultures = root } # AI is interested in homelands	
+		has_secret_goal = { # AI wants to conquer the state owner
+			who = scope:target_state.owner
+			secret_goal = conquer
+		}	
 		scope:target_state = { has_claim_by = root } # AI always wants claims	
 	}			
 }
@@ -8,20 +11,18 @@
 ai_desires_target_state = {
 	OR = {
 		ai_strongly_desires_target_state = yes
-		has_secret_goal = { # AI wants to conquer the state owner
-			who = scope:target_state.owner
-			secret_goal = conquer
-		}
+		scope:target_state = { is_homeland_of_country_cultures = root } # AI is interested in homelands
 		AND = { # AI wants to unify split states
 			scope:target_state = { 
 				is_split_state = yes 
-				state_region = {
+				state_region = { 
 					any_scope_state = { 
-						owner = root 
+						owner = ROOT 
 						is_treaty_port = no
+						state_population > 100000
 					}
 				}
-			}				
+			}			
 		}
 		AND = { # Aggressive AI wants nearby land
 			OR = {

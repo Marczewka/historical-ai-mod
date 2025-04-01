@@ -503,7 +503,7 @@ peru_bolivia_events.4 = {
 		name = peru_bolivia_events.4.a
 		default_option = yes
 		ai_chance = {
-			base = 5 # 25
+			base = 25
 			modifier = {
 				trigger = {
 					OR = {
@@ -520,15 +520,6 @@ peru_bolivia_events.4 = {
 							attitude = antagonistic
 						}
 					}	
-				}
-				add = 50
-			}
-			modifier = {
-				trigger = {
-					OR = {
-						c:CHL ?= this
-						c:ARG ?= this
-					}
 				}
 				add = 50
 			}

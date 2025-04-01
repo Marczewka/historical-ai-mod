@@ -1,0 +1,5 @@
+﻿AI = {
+	c:MEX ?= {
+		set_strategy = ai_strategy_maintain_power_balance
+	}	
+}	

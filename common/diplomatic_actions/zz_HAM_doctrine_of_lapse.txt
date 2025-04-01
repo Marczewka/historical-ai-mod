@@ -78,18 +78,42 @@
 			
 			if = {
 				limit = { NOT = { has_variable = doctrine_of_lapse_cooldown } }
-				add = 0.05 # 0.25				
+				add = 0.25				
 			}
 		}
 		
 		propose_score = {
-			value = 5
+			value = 0 # 5
 
 			if = {
 				limit = {
-					NOT = {
-						exists = scope:target_country.heir
-					}			
+					scope:target_country = {
+						ruler ?= {
+							is_female = yes
+						}
+					}
+				}
+				add = 15
+			}
+
+			if = {
+				limit = {
+					scope:target_country = {
+						ruler ?= {
+							is_female = no
+						}
+						AND = {
+							ruler = {
+								age >= define:NCharacters|OLD_AGE
+							}
+							OR = {
+								NOT = { exists = heir }
+								heir ?= {
+									is_female = yes
+								}
+							}					
+						}
+					}
 				}
 				add = 15
 			}
@@ -112,7 +136,7 @@
 						}
 					}
 				}
-				multiply = 0
+				multiply = 0.1 # 0
 			}
 		}
 	

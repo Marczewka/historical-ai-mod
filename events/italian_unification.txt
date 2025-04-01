@@ -830,7 +830,8 @@ italian_unification.10 = {
 		}
 		set_variable = { 
 			name = stance_cooldown_var 
-			months = normal_modifier_time }
+			months = normal_modifier_time 
+		}
 	}
 
 	option = {

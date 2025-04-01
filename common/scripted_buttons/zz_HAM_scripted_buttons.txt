@@ -613,6 +613,13 @@ je_risorgimento_change_stance_button = {
 	}
 
 	effect = {
+		root = {
+			save_scope_as = italian_unifier_candidate
+		}
+		set_variable = { 
+			name = stance_cooldown_var 
+			months = normal_modifier_time 
+		}
 		if = {
 			limit = {
 				has_modifier = modifier_risorgimento_opposition
