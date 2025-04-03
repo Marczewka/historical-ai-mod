@@ -683,7 +683,13 @@ italian_unification.8 = {
 		name = italian_unification.8.a
 		default_option = yes
 		ai_chance = {
-			base = 75
+			base = 0
+			modifier = {
+				trigger = {
+					has_modifier = modifier_risorgimento_support
+				}
+				add = 75
+			}
 		}
 		change_relations = {
 			country = c:RSM
@@ -693,14 +699,9 @@ italian_unification.8 = {
 			country = scope:rsm_revolted_scope
 			value = -30
 		}
-		# if = {
-		# 	limit = {
-		# 		is_player = yes
-		# 	}
-		# 	scope:rsm_diplo_play = {
-		# 		add_target_backers = { root }
-		# 	}
-		# }
+		scope:rsm_diplo_play = {
+			add_target_backers = { root }
+		}
 		if = {
 			limit = {
 				has_diplomatic_pact = {
@@ -945,7 +946,24 @@ italian_unification.10 = {
 					}
 				}
 			}
-			change_relations = { country = ROOT value = -25 }
+			change_relations = { country = ROOT value = -50 }
+			create_diplomatic_catalyst = {  
+				type = catalyst_event_negative
+				target = root
+			}
+		}
+		every_country = {
+			limit = {
+				custom_tooltip = {
+					text = risorgimento_unifying_stance_tt
+					has_modifier = modifier_risorgimento_support
+				}
+			}
+			change_relations = { country = ROOT value = 25 }
+			create_diplomatic_catalyst = {  
+				type = catalyst_event_positive
+				target = root
+			}
 		}
 		if = {
 			limit = {
@@ -958,7 +976,7 @@ italian_unification.10 = {
 	option = {
 		name = italian_unification.10.b
 		ai_chance = {
-			base = 0
+			base = 15
 			modifier = {
 				trigger = {
 					has_law = law_type:law_theocracy

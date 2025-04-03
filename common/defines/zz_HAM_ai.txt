@@ -5,6 +5,17 @@
 
 	DIPLO_PLAY_REVERSE_SWAY_TRANSFER_SUBJECT_VALUE_FACTOR = -1.5 #-1.0 # Multiplied by how much the AI values the subject they're offering to transfer to the sway target
 
+	DIPLO_PLAY_SWAY_LOW_IMPACT_FACTOR = -100 # Maximum effect applied to acceptance of a reverse-sway if a country has little to lose from the enemy side's wargoals 
+	DIPLO_PLAY_SWAY_LOW_IMPACT_THRESHOLD = 50 # At this total enemy wargoal impact or below, acceptance is reduced by up to DIPLO_PLAY_SWAY_LOW_IMPACT_FACTOR (at 0 impact) 
+	DIPLO_PLAY_SWAY_NON_PRIMARY_DEMAND_IMPACT_MULT = 0.5 # Secondary demands have their impact multiplied by this factor for the purpose of measuring the low impact factor above
+	DIPLO_PLAY_SWAY_SUBJECT_IMPACT_VALUE_DIVISOR = 500 # Wargoals on subjects have their impact multiplied by (the subject's value for overlord divided by this) for the purpose of measuring the low impact factor above (clamped to 0-1) 
+	DIPLO_PLAY_SWAY_INCOME_TRANSFER_PACTS_OF_SAME_TYPE_FACTOR = -30 # Added to acceptance score for each income transfer pact the target country has of the same type (where they are the receiver of the money) 
+
+	# AI uses these values to determine how 'impactful' a wargoal is, ie how much they would like to avoid having it enforced on them etc
+	DIPLO_PLAY_WAR_GOAL_IMPACT_MANEUEVERS_MULT = 0.5 # 1 	 	# Maneuvers cost of a wargoal is multiplied by this and added to impact
+	DIPLO_PLAY_WAR_GOAL_IMPACT_INFAMY_MULT = 3 # 0.5 		# Infamy generation of a wargoal is multiplied by this and added to impact
+	DIPLO_PLAY_WAR_GOAL_IMPACT_CONQUEST_MULT = 8 # 2.0		# Wargoals that outright conquer states or annex whole countries have their overall impact multiplied by this
+
 	# Boldness determines the confidence threshold at which the AI will back down in a play
 	# Each individual boldness factor is multiplied a dice roll range of (x0 to x1) for actual boldness value in each play - boldness can end up negative!
 	# Boldness also plays a role for determining whether undecided countries will join a play unprompted

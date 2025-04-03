@@ -3525,7 +3525,7 @@ movement_liberal = {
 				limit = { has_journal_entry = je_springtime_of_the_peoples }
 
 				add = {
-					value = 0.25
+					value = 0.10 # 0.25
 					desc = "SPRINGTIME_OF_THE_PEOPLES_UNDERWAY"
 				}
 			}

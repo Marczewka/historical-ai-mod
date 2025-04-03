@@ -460,9 +460,21 @@ german_unification.5 = {
 
 	trigger = {}
 
+	immediate = {
+
+	}
+
 	option = {
 		name = german_unification.5.a
 		default_option = yes	
+		create_diplomatic_catalyst = {  
+			type = catalyst_event_negative
+			target = c:DEN
+		}
+		change_relations = {
+			country = c:DEN
+			value = -50
+		}
 		if = {
 			limit = { country_has_primary_culture = cu:north_german }
 			add_journal_entry = {

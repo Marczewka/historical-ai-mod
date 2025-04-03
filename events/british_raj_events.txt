@@ -685,6 +685,14 @@ raj.7 = {
 				}
 				activate_law = law_type:law_hindu_caste_codified
 			}
+			if = {
+				limit = {
+					NOT = {
+						has_law = law_type:law_frontier_colonization
+					}
+				}
+				activate_law = law_type:law_frontier_colonization
+			}
 		}
 		# Remove exempt from service from medium loyalty vassals
 		every_country = {

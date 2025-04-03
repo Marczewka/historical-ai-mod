@@ -2,3 +2,4 @@
 DUAL_MONARCHY_UNDERWAY: "The Matter of Hungary [concept_journal_entry] underway"
 CHRIST_OF_NATIONS_UNDERWAY: "Christ of Nations [concept_journal_entry] underway while remaining a subject"
 INDEPENDENT_BRETHREN_NATION: "Independent bretheren nation"
+STANDARD_OF_LIVING_FOR_CULTURE: "[SCOPE.sCulture('culture').GetName] [concept_sol] compared to the [concept_primary_cultures] [concept_sol]"

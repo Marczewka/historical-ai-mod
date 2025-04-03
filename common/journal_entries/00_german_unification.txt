@@ -94,13 +94,19 @@
 		}	
 		c:PRU ?= {
 			change_relations = { country = c:AUS value = -25 }
+			hidden_effect = {
+				set_secret_goal = {
+					country = c:AUS
+					secret_goal = conquer 
+				}
+			}
+			create_diplomatic_catalyst = {  
+				type = catalyst_event_negative
+				target = c:AUS
+			}
 		}
 		hidden_effect = { 
 			set_global_variable = schleswig_holstein_question_solved 
-			set_secret_goal = {
-				country = c:AUS
-				secret_goal = conquer 
-			}
 		}		
 	}
 	

@@ -63,3 +63,9 @@ cizye_tax = {
 	tax_heathen_add = 0.10
 	state_conscription_rate_mult = -0.4
 }
+
+modifier_against_the_confederation = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	state_conscription_rate_mult = 0.25
+	# country_diplomatic_play_maneuvers_add = 10
+}

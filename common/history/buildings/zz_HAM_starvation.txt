@@ -16,6 +16,23 @@
 			}
         }
     }
+	s:STATE_SANTIAGO={
+		region_state:CHL={
+			create_building={
+				building="building_wheat_farm"
+				add_ownership={
+					building={
+						type="building_wheat_farm"
+						country="c:CHL"
+						levels=5 # 1
+						region="STATE_SANTIAGO"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled"  }
+			}
+		}
+	}
 	s:STATE_PUNJAB= {
 		region_state:PAN= {
 			create_building = {
@@ -173,6 +190,38 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_anchorage" }
+			}
+		}
+	}
+	s:STATE_ELBE={
+		region_state:BRE={
+			create_building={
+				building="building_rye_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:BRE"
+						levels=1
+						region="STATE_ELBE"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming"  "pm_tools_disabled" "pm_no_secondary" }
+			}
+		}
+		region_state:HAM={
+			create_building={
+				building="building_rye_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:HAM"
+						levels=1
+						region="STATE_ELBE"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming"  "pm_tools_disabled" "pm_no_secondary" }
 			}
 		}
 	}

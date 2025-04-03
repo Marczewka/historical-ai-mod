@@ -66,6 +66,10 @@
 				country = c:MEX
 				value = 20
 			}
+			create_diplomatic_catalyst = {  
+				type = catalyst_event_negative
+				target = c:MEX
+			}
 		}	
 		# Add Claims
 		s:STATE_CALIFORNIA = { 
@@ -240,20 +244,20 @@
 	}
 
 	ai_chance = {
-		base = 1
+		base = 0
 		modifier = {
 			trigger = { 
 				OR = {
 					ig:ig_landowners = {
-						is_powerful = yes
 						is_in_government = yes
 					}
 					ig:ig_rural_folk = {
-						is_powerful = yes
 						is_in_government = yes
 					}
 					has_law = law_type:law_slavery_banned
+					exists = c:CSA
 				}
+				is_at_war = no
 			}
 			add = 100
 		}

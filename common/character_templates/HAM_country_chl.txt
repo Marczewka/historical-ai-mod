@@ -1,0 +1,20 @@
+﻿### Interest Group Leaders ###
+CHL_Manuel_Bulnes = { # Manuel Bules Prieto, nephew of José Joaquin Prieto and future president of Chile himself
+	first_name = "Manuel"
+	last_name = "Bulnes"
+	historical = yes
+	culture = primary_culture
+	female = no
+	commander_rank = default
+	interest_group = ig_armed_forces
+	ideology = ideology_moderate
+	birth_date = 1799.12.25
+	ig_leader = yes
+	is_general = yes
+	traits = {
+		popular_commander
+		honorable
+		experienced_offensive_planner
+	}
+	trait_generation = { }
+}

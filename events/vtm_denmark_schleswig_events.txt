@@ -110,141 +110,141 @@ vtm_denmark.3 = {
 		}
 	}
 }
-#Danish agitator agitates to unify, other countries get annoyed
-vtm_denmark.4 = { 
-	type = country_event
-	placement = s:STATE_SCHLESWIG_HOLSTEIN.region_state:SCH
+# #Danish agitator agitates to unify, other countries get annoyed
+# vtm_denmark.4 = { 
+# 	type = country_event
+# 	placement = s:STATE_SCHLESWIG_HOLSTEIN.region_state:SCH
 
-	title = vtm_denmark.4.t
-	desc = vtm_denmark.4.d
-	flavor = vtm_denmark.4.f
+# 	title = vtm_denmark.4.t
+# 	desc = vtm_denmark.4.d
+# 	flavor = vtm_denmark.4.f
 
-	event_image = {
-		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
-	}
+# 	event_image = {
+# 		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
+# 	}
 
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+# 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+# 	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
 
-	icon = "gfx/interface/icons/event_icons/event_map.dds"
+# 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 
-	duration = 3
+# 	duration = 3
 
-	trigger = {
-		AND = {
-			any_scope_character = {
-				this.interest_group = {
-					OR = {
-						is_interest_group_type = ig_petty_bourgeoisie
-						is_interest_group_type = ig_intelligentsia
-						ig_is_liberal = yes
-					}
-				}
-				has_role = agitator
-			}
-			NOT = {
-				any_scope_character = {
-					OR = {
-						has_modifier = imperious_leader_good_modifier
-						has_modifier = public_shame_modifier
-					}
-				}
-			}
-		}
-	}
+# 	trigger = {
+# 		AND = {
+# 			any_scope_character = {
+# 				this.interest_group = {
+# 					OR = {
+# 						is_interest_group_type = ig_petty_bourgeoisie
+# 						is_interest_group_type = ig_intelligentsia
+# 						ig_is_liberal = yes
+# 					}
+# 				}
+# 				has_role = agitator
+# 			}
+# 			NOT = {
+# 				any_scope_character = {
+# 					OR = {
+# 						has_modifier = imperious_leader_good_modifier
+# 						has_modifier = public_shame_modifier
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
 
-	immediate = {
-		random_scope_character = {
-			limit = {
-				this.interest_group = {
-					OR = {
-						is_interest_group_type = ig_petty_bourgeoisie
-						is_interest_group_type = ig_intelligentsia
-						ig_is_liberal = yes
-					}
-				}
-				has_role = agitator
-			}
-			save_scope_as = pro_schleswig_agitator
-			this.interest_group = {
-				save_scope_as = agitator_ig_scope
-			}
-		}
-	}
+# 	immediate = {
+# 		random_scope_character = {
+# 			limit = {
+# 				this.interest_group = {
+# 					OR = {
+# 						is_interest_group_type = ig_petty_bourgeoisie
+# 						is_interest_group_type = ig_intelligentsia
+# 						ig_is_liberal = yes
+# 					}
+# 				}
+# 				has_role = agitator
+# 			}
+# 			save_scope_as = pro_schleswig_agitator
+# 			this.interest_group = {
+# 				save_scope_as = agitator_ig_scope
+# 			}
+# 		}
+# 	}
 
-	option = {
-		name = vtm_denmark.4.a
-		scope:agitator_ig_scope = {
-			add_modifier = {
-				name = vtm_denmark_accepted_agitation
-				months = normal_modifier_time
-			}
-		}
-		scope:pro_schleswig_agitator = {
-			add_modifier = {
-				name = imperious_leader_good_modifier
-				months = normal_modifier_time
-			}
-		}
-		every_country = {
-			limit = {
-				is_subject_of = root
-			}
-			change_relations = {
-				country = root
-				value = -20
-			}
-		}
-		every_country = {
-			limit = {
-				has_journal_entry = je_schleswig_holstein_question
-				country_rank > rank_value:minor_power
-			}
-			change_relations = {
-				country = root
-				value = -10
-			}
-		}
-		default_option = yes
-		ai_chance = 100
-	}
+# 	option = {
+# 		name = vtm_denmark.4.a
+# 		scope:agitator_ig_scope = {
+# 			add_modifier = {
+# 				name = vtm_denmark_accepted_agitation
+# 				months = normal_modifier_time
+# 			}
+# 		}
+# 		scope:pro_schleswig_agitator = {
+# 			add_modifier = {
+# 				name = imperious_leader_good_modifier
+# 				months = normal_modifier_time
+# 			}
+# 		}
+# 		every_country = {
+# 			limit = {
+# 				is_subject_of = root
+# 			}
+# 			change_relations = {
+# 				country = root
+# 				value = -20
+# 			}
+# 		}
+# 		every_country = {
+# 			limit = {
+# 				has_journal_entry = je_schleswig_holstein_question
+# 				country_rank > rank_value:minor_power
+# 			}
+# 			change_relations = {
+# 				country = root
+# 				value = -10
+# 			}
+# 		}
+# 		default_option = yes
+# 		ai_chance = 100
+# 	}
 
-	option = {
-		name = vtm_denmark.4.b
-		scope:agitator_ig_scope = {
-			add_modifier = {
-				name = vtm_denmark_rejected_agitation
-				months = normal_modifier_time
-			}
-		}
-		scope:pro_schleswig_agitator = {
-			add_modifier = {
-				name = public_shame_modifier
-				months = normal_modifier_time
-			}
-		}
-		every_country = {
-			limit = {
-				is_subject_of = root
-			}
-			change_relations = {
-				country = root
-				value = 20
-			}
-		}
-		every_country = {
-			limit = {
-				has_journal_entry = je_schleswig_holstein_question
-				country_rank > rank_value:minor_power
-			}
-			change_relations = {
-				country = root
-				value = 10
-			}
-		}
-		ai_chance = 0
-	}
-}
+# 	option = {
+# 		name = vtm_denmark.4.b
+# 		scope:agitator_ig_scope = {
+# 			add_modifier = {
+# 				name = vtm_denmark_rejected_agitation
+# 				months = normal_modifier_time
+# 			}
+# 		}
+# 		scope:pro_schleswig_agitator = {
+# 			add_modifier = {
+# 				name = public_shame_modifier
+# 				months = normal_modifier_time
+# 			}
+# 		}
+# 		every_country = {
+# 			limit = {
+# 				is_subject_of = root
+# 			}
+# 			change_relations = {
+# 				country = root
+# 				value = 20
+# 			}
+# 		}
+# 		every_country = {
+# 			limit = {
+# 				has_journal_entry = je_schleswig_holstein_question
+# 				country_rank > rank_value:minor_power
+# 			}
+# 			change_relations = {
+# 				country = root
+# 				value = 10
+# 			}
+# 		}
+# 		ai_chance = 0
+# 	}
+# }
 # Danes in Schleswig stir agitation / DENMARK TO THE EIDER! / Pan-Scandis
 vtm_denmark.5 = { 
 	type = country_event
@@ -330,68 +330,68 @@ vtm_denmark.5 = {
 		ai_chance = 0
 	}
 }
-# Plans to fully integrate Schleswig are being prepped (puppet Schleswig)
-vtm_denmark.6 = { 
-	type = country_event
-	placement = ROOT
+# # Plans to fully integrate Schleswig are being prepped (puppet Schleswig)
+# vtm_denmark.6 = { 
+# 	type = country_event
+# 	placement = ROOT
 
-	title = vtm_denmark.6.t
-	desc = vtm_denmark.6.d
-	flavor = vtm_denmark.6.f
+# 	title = vtm_denmark.6.t
+# 	desc = vtm_denmark.6.d
+# 	flavor = vtm_denmark.6.f
 
-	event_image = {
-		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
-	}
+# 	event_image = {
+# 		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
+# 	}
 
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+# 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+# 	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
 
-	icon = "gfx/interface/icons/event_icons/event_map.dds"
+# 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 
-	duration = 3
+# 	duration = 3
 
-	trigger = {
-		has_diplomatic_pact = {
-			who = c:SCH
-			type = puppet
-		}	
-	}
+# 	trigger = {
+# 		has_diplomatic_pact = {
+# 			who = c:SCH
+# 			type = puppet
+# 		}	
+# 	}
 
-	immediate = {
-	}
+# 	immediate = {
+# 	}
 
-	option = {
-		name = vtm_denmark.6.a
-		every_country = {
-			limit = {
-				has_journal_entry = je_schleswig_holstein_question
-				country_rank > rank_value:minor_power
-			}
-			change_relations = {
-				country = root
-				value = -30
-			}
-		}
-		default_option = yes
-		ai_chance = 100
-	}
+# 	option = {
+# 		name = vtm_denmark.6.a
+# 		every_country = {
+# 			limit = {
+# 				has_journal_entry = je_schleswig_holstein_question
+# 				country_rank > rank_value:minor_power
+# 			}
+# 			change_relations = {
+# 				country = root
+# 				value = -30
+# 			}
+# 		}
+# 		default_option = yes
+# 		ai_chance = 100
+# 	}
 
-	option = {
-		name = vtm_denmark.6.b
-		every_country = {
-			limit = {
-				has_journal_entry = je_schleswig_holstein_question
-				country_rank > rank_value:minor_power
-			}
-			change_relations = {
-				country = root
-				value = 30
-			}
-		}
-		create_bidirectional_truce = {
-			country = c:SCH
-			months = 36
-		}
-		ai_chance = 0
-	}
-}
+# 	option = {
+# 		name = vtm_denmark.6.b
+# 		every_country = {
+# 			limit = {
+# 				has_journal_entry = je_schleswig_holstein_question
+# 				country_rank > rank_value:minor_power
+# 			}
+# 			change_relations = {
+# 				country = root
+# 				value = 30
+# 			}
+# 		}
+# 		create_bidirectional_truce = {
+# 			country = c:SCH
+# 			months = 36
+# 		}
+# 		ai_chance = 0
+# 	}
+# }

@@ -138,7 +138,7 @@ bg_power = {
 		default_auto_expand_rule = yes
 	}
 	
-	economy_of_scale_ai_factor = 1.5
+	economy_of_scale_ai_factor = 0.5 # 1.5
 	foreign_investment_ai_factor = 0.1 #0.5
 
 	infrastructure_usage_per_level = 2
@@ -159,4 +159,19 @@ bg_infrastructure = {
 	
 	economy_of_scale_ai_factor = 1.5
 	foreign_investment_ai_factor = 0.25 #0.75
+}
+
+bg_private_infrastructure = {
+	parent_group = bg_infrastructure
+	
+	is_government_funded = no
+	subsidized = yes
+	
+	economy_of_scale = yes
+	
+	cash_reserves_max = 25000
+	
+	economy_of_scale_ai_factor = 0.5
+	
+	urbanization = 5
 }

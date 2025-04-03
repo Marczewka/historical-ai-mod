@@ -505,13 +505,13 @@ peru_bolivia_events.4 = {
 		name = peru_bolivia_events.4.a
 		default_option = yes
 		ai_chance = {
-			base = 25
+			base = 0 # 25
 			modifier = {
 				trigger = {
 					OR = {
 						has_attitude = {
 							who = c:BOL
-							attitude = belligerent
+							attitude = antagonistic
 						}
 						has_attitude = {
 							who = c:BOL
@@ -519,9 +519,9 @@ peru_bolivia_events.4 = {
 						}	
 						has_attitude = {
 							who = c:BOL
-							attitude = antagonistic
-						}
-					}	
+							attitude = belligerent
+						}	
+					}
 				}
 				add = 50
 			}
@@ -553,7 +553,7 @@ peru_bolivia_events.4 = {
 	option = {
 		name = peru_bolivia_events.4.b
 		ai_chance = {
-			base = 5
+			base = 0 # 5
 			modifier = {
 				trigger = {
 					OR = {
@@ -568,6 +568,10 @@ peru_bolivia_events.4 = {
 						has_attitude = {
 							who = c:BOL
 							attitude = cooperative
+						}	
+						has_attitude = {
+							who = c:BOL
+							attitude = protective
 						}	
 					}	
 				}

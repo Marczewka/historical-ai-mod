@@ -1,9 +1,28 @@
 ﻿ai_strongly_desires_target_state = {
 	OR = {
-		has_secret_goal = { # AI wants to conquer the state owner
-			who = scope:target_state.owner
-			secret_goal = conquer
-		}	
+		AND = { # Aggressive AI wants nearby land
+			OR = {
+				has_strategy = ai_strategy_world_revolution
+				has_strategy = ai_strategy_territorial_expansion
+			}					
+			has_strategic_adjacency = scope:target_state
+			has_secret_goal = { # AI wants to conquer the state owner
+				who = scope:target_state.owner
+				secret_goal = conquer
+			}	
+		}
+		AND = { # Colonialist AI wants colonies
+			OR = {
+				has_strategy = ai_strategy_economic_imperialism
+				has_strategy = ai_strategy_colonial_expansion
+			}
+			scope:target_state.owner = { is_country_type = unrecognized }				
+			can_reach_target_state = yes
+			has_secret_goal = { # AI wants to conquer the state owner
+				who = scope:target_state.owner
+				secret_goal = conquer
+			}	
+		}
 		scope:target_state = { has_claim_by = root } # AI always wants claims	
 	}			
 }
@@ -388,22 +407,10 @@ has_je_subjugation_reason = {
 }
 
 has_je_befriend_reason = {
+	can_befriend_target_country = yes
 	country_rank <= $TARGET$.country_rank
 	
 	OR = {
-		AND = {
-			NOT = { c:AFG ?= this }
-			any_scope_state = {
-				state_region = s:STATE_HERAT
-			}
-			c:PER ?= {
-				is_adjacent_to_country = ROOT
-			}
-			$TARGET$ = { 
-				c:GBR = this
-			}
-		}
-
 		AND = {
 			NOT = { has_variable = ionian_islands_var }
 			country_has_primary_culture = cu:greek
@@ -471,6 +478,16 @@ has_je_befriend_reason = {
 				has_variable = AFG_appealed_to_RUS
 			}
 		}
+
+		AND = {
+			has_journal_entry = je_unify_afghanistan
+			$TARGET$ = {
+				OR = {
+					c:RUS ?= this
+					c:GBR ?= this
+				}
+			}
+		}
 		
 		AND = {
 			has_variable = sided_with_korean_gov
@@ -498,6 +515,7 @@ has_je_befriend_reason = {
 }
 
 has_je_protect_reason = {
+	can_befriend_target_country = yes
 	country_rank > $TARGET$.country_rank
 	
 	OR = {
@@ -600,6 +618,7 @@ has_je_protect_reason = {
 }
 
 has_je_reconcile_reason = {
+	can_befriend_target_country = yes
 
 	AND = {
 		has_journal_entry = je_sale_of_alaska

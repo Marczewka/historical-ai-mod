@@ -154,7 +154,7 @@
 		value = 10
 		
 		if = {
-			limit = { country_rank < rank_value:major_power }
+			limit = { country_rank >= rank_value:major_power }
 			add = 10
 		}
 
@@ -233,7 +233,7 @@ ai_strategy_territorial_expansion = {
 	}
 	
 	recklessness = {
-		value = 0.25
+		# value = 0.25
 	}
 	
 	aggression = {
@@ -489,13 +489,34 @@ ai_strategy_territorial_expansion = {
 		}
 			
 		if = {
-			limit = { ig:ig_armed_forces = { is_powerful = yes } }
-			multiply = 1.25 # 1.5
+			limit = { 
+				any_interest_group = {
+					is_powerful = yes
+					is_in_government = yes
+					OR = {
+						leader = {
+							has_ideology = ideology:ideology_jingoist_leader
+						}
+						has_ideology = ideology:ideology_jingoist
+					}
+				}
+			}
+			multiply = 1.5
 		}			
 		
 		if = {
 			limit = { country_is_in_europe = yes }
-			multiply = 0.10 #0.25
+			multiply = 0.25
+		}
+		if = {
+			limit = { 
+				OR = {
+					country_is_in_north_america = yes
+					country_is_in_central_america = yes
+					country_is_in_south_america = yes
+				}
+			}
+			multiply = 0.5
 		}
 		if = {
 			limit = {
@@ -540,7 +561,7 @@ ai_strategy_territorial_expansion = {
 				c:ETH ?= THIS
 				number_of_claims > 0
 			}
-			add = 20 # 100
+			add = 100
 		}
 
 		if = {
@@ -548,7 +569,7 @@ ai_strategy_territorial_expansion = {
 				c:AFG ?= THIS
 				number_of_claims > 0
 			}
-			add = 20 # 100
+			add = 100
 		}
 
 		if = {
@@ -631,7 +652,7 @@ ai_strategy_colonial_expansion = {
 	}
 	
 	recklessness = {
-		value = 0.1
+		# value = 0.1
 	}
 	
 	# Added to value from default strategy
@@ -1127,7 +1148,7 @@ ai_strategy_colonial_expansion = {
 		}		
 		
 		if = {
-			limit = { navy_size >= 150 } # 75
+			limit = { navy_size >= 75 }
 			multiply = 1.5
 		}	
 
@@ -1434,15 +1455,27 @@ ai_strategy_economic_imperialism = {
 		# Very aggressive about opening up Japan
 		if = {
 			limit = { 
+				OR = {
+					has_technology_researched = civilizing_mission # Just to make sure it doesn't happen immediately in 1836
+					AND = {
+						this ?= c:USA
+						any_scope_state = {
+							is_incorporated = yes
+							region = sr:region_pacific_coast
+							is_homeland_of_country_cultures = ROOT
+						}
+					}
+				}
 				country_rank = rank_value:great_power
-				# has_technology_researched = quinine # civilizing_mission
 				navy_size >= 25
-				scope:target_country = {
-					c:JAP ?= this 
+				scope:target_country = { 
+					exists = c:JAP
+					this = c:JAP		
 					has_law = law_type:law_isolationism
+					gdp >= 5000000
 				} 
 			}
-			add = 10
+			add = 20
 		}
 		if = {
 			limit = {
@@ -1550,6 +1583,17 @@ ai_strategy_economic_imperialism = {
 		region_japan = { # Great Powers with significant navies should pay attention to Japan
 			if = {
 				limit = {
+					OR = {
+						has_technology_researched = civilizing_mission # Just to make sure it doesn't happen immediately in 1836
+						AND = {
+							this ?= c:USA
+							any_scope_state = {
+								is_incorporated = yes
+								region = sr:region_pacific_coast
+								is_homeland_of_country_cultures = ROOT
+							}
+						}
+					}
 					exists = c:JAP
 					c:JAP = { has_law = law_type:law_isolationism }
 					country_rank = rank_value:great_power
@@ -1576,12 +1620,13 @@ ai_strategy_economic_imperialism = {
 				}
 				add = 1000
 			}		
-			if = {
+			else_if = {
 				limit = {
 					NOT = { scope:target_country = { is_subject_of = root } }
 					has_strategic_adjacency = scope:target_country
 					scope:target_country = { 
 						has_law = law_type:law_isolationism
+						gdp >= 2000000
 						NOT = { capital.region = sr:region_japan }	
 					}
 				}
@@ -1656,6 +1701,7 @@ ai_strategy_economic_imperialism = {
 				limit = {
 					scope:target_country = { 
 						has_law = law_type:law_isolationism 
+						gdp >= 2000000
 						capital.region = sr:region_japan												
 					} 
 				}
@@ -2096,14 +2142,14 @@ ai_strategy_unify_germany = {
 	}	
 
 	recklessness = {
-		value = 0.5
+		value = 0.1 # 0.5
 
-		if = {
-			limit = {
-				has_technology_researched = pan-nationalism
-			}
-			add = 0.25
-		}	
+		# if = {
+		# 	limit = {
+		# 		has_technology_researched = pan-nationalism
+		# 	}
+		# 	add = 0.25
+		# }	
 	}
 	
 	aggression = {
@@ -2136,12 +2182,9 @@ ai_strategy_unify_germany = {
 							state_region = s:STATE_SCHLESWIG_HOLSTEIN
 						}
 					}
-				scope:target_state = {
-					state_region = s:STATE_SCHLESWIG_HOLSTEIN
-				}		
 				has_global_variable = scandis_successful
 			}
-			add = 3
+			add = 5
 		}
 
 		if = {
@@ -2151,9 +2194,6 @@ ai_strategy_unify_germany = {
 							state_region = s:STATE_SCHLESWIG_HOLSTEIN
 						}
 					}
-				scope:target_state = {
-					state_region = s:STATE_SCHLESWIG_HOLSTEIN
-				}		
 				has_technology_researched = pan-nationalism
 			}
 			add = 20
@@ -2332,7 +2372,7 @@ ai_strategy_unify_germany = {
 				}
 				can_reach_target_state = yes					
 			}
-			add = 100
+			add = 20 # 100
 		}
 	}
 	
@@ -2475,43 +2515,43 @@ ai_strategy_unify_germany = {
 				add = 1000
 			}
 		}
-		liberate_subject = {
-			if = { # We dont like German states that are subjects to non-Germans
-				limit = {
-					scope:target_country = {
-						OR = {
-							country_has_primary_culture = cu:north_german
-							country_has_primary_culture = cu:south_german
-						}
-					}
-					scope:target_country.top_overlord = {
-						NOR = {
-							country_has_primary_culture = cu:north_german
-							country_has_primary_culture = cu:south_german						
-						}
-					}
-				}
-				add = 100
-			}
+		# liberate_subject = {
+		# 	if = { # We dont like German states that are subjects to non-Germans
+		# 		limit = {
+		# 			scope:target_country = {
+		# 				OR = {
+		# 					country_has_primary_culture = cu:north_german
+		# 					country_has_primary_culture = cu:south_german
+		# 				}
+		# 			}
+		# 			scope:target_country.top_overlord = {
+		# 				NOR = {
+		# 					country_has_primary_culture = cu:north_german
+		# 					country_has_primary_culture = cu:south_german						
+		# 				}
+		# 			}
+		# 		}
+		# 		add = 100
+		# 	}
 			
-			if = { # We dont like German states that are subjects to Germans
-				limit = {
-					scope:target_country = {
-						OR = {
-							country_has_primary_culture = cu:north_german
-							country_has_primary_culture = cu:south_german
-						}
-					}
-					scope:target_country.top_overlord = {
-						OR = {
-							country_has_primary_culture = cu:north_german
-							country_has_primary_culture = cu:south_german						
-						}
-					}
-				}
-				add = 100
-			}
-		}	
+		# 	if = { # We dont like German states that are subjects to Germans
+		# 		limit = {
+		# 			scope:target_country = {
+		# 				OR = {
+		# 					country_has_primary_culture = cu:north_german
+		# 					country_has_primary_culture = cu:south_german
+		# 				}
+		# 			}
+		# 			scope:target_country.top_overlord = {
+		# 				OR = {
+		# 					country_has_primary_culture = cu:north_german
+		# 					country_has_primary_culture = cu:south_german						
+		# 				}
+		# 			}
+		# 		}
+		# 		add = 100
+		# 	}
+		# }	
 		humiliation = {
 			if = {
 				limit = {
@@ -2573,6 +2613,7 @@ ai_strategy_unify_germany = {
 		conquer = {				
 			if = {
 				limit = {
+					has_global_variable = schleswig_holstein_question_solved
 					scope:target_country = {				
 						is_unification_candidate = GER
 					}
@@ -2634,6 +2675,7 @@ ai_strategy_unify_germany = {
 		antagonize = {				
 			if = {
 				limit = {
+					has_global_variable = schleswig_holstein_question_solved
 					scope:target_country = {
 						is_unification_candidate = GER
 					}
@@ -2758,24 +2800,24 @@ ai_strategy_unify_italy = {
 	}		
 	
 	recklessness = {
-		value = 0.5
-		if = { #unification-recklessness
-				limit = {
-					has_journal_entry = je_risorgimento
-					has_technology_researched = pan-nationalism
-					scope:target_country = {
-						any_scope_state = {
-							OR = {
-								state_region = s:STATE_LOMBARDY
-								state_region = s:STATE_VENETIA
-								state_region = s:STATE_ISTRIA
-								state_region = s:STATE_SOUTH_TYROL
-							}
-						}
-					}
-				}
-				add = 5
-			}
+		value = 0.1 # 0.5
+		# if = { #unification-recklessness
+		# 		limit = {
+		# 			has_journal_entry = je_risorgimento
+		# 			has_technology_researched = pan-nationalism
+		# 			scope:target_country = {
+		# 				any_scope_state = {
+		# 					OR = {
+		# 						state_region = s:STATE_LOMBARDY
+		# 						state_region = s:STATE_VENETIA
+		# 						state_region = s:STATE_ISTRIA
+		# 						state_region = s:STATE_SOUTH_TYROL
+		# 					}
+		# 				}
+		# 			}
+		# 		}
+		# 		add = 5
+		# 	}
 	}	
 	
 	aggression = {
@@ -2865,7 +2907,7 @@ ai_strategy_unify_italy = {
 				}	
 				can_reach_target_state = yes
 			}
-			add = 100
+			add = 20 # 100
 		}
 	}
 	
@@ -3150,7 +3192,7 @@ ai_strategy_unify_afghanistan = {
 	}			
 		
 	recklessness = {
-		value = 0.25
+		value = 0.10 # 0.25
 	}	
 	
 	aggression = {
@@ -3199,7 +3241,7 @@ ai_strategy_unify_afghanistan = {
 				}
 				can_reach_target_state = yes
 			}
-			add = 100
+			add = 20 # 100
 		}	
 	}
 	
@@ -3274,7 +3316,7 @@ ai_strategy_unify_afghanistan = {
 		
 		add = {
 			value = army_size
-			multiply = 2.5
+			multiply = 2
 		}
 		
 		if = {
@@ -3335,7 +3377,7 @@ ai_strategy_unify_ethiopia = {
 	}			
 		
 	recklessness = {
-		value = 0.5
+		value = 0.1 # 0.5
 	}	
 	
 	aggression = {
@@ -3389,7 +3431,7 @@ ai_strategy_unify_ethiopia = {
 				}
 				can_reach_target_state = yes
 			}
-			add = 100
+			add = 20 # 100
 		}	
 	}
 	
@@ -3525,7 +3567,7 @@ ai_strategy_unify_arabia = {
 	}			
 		
 	recklessness = {
-		value = 0.5
+		value = 0.1 # 0.5
 	}	
 	
 	aggression = {
@@ -3588,7 +3630,7 @@ ai_strategy_unify_arabia = {
 				}
 				can_reach_target_state = yes
 			}
-			add = 100
+			add = 20 # 100
 		}	
 	}
 	
@@ -3720,7 +3762,7 @@ ai_strategy_unify_scandinavia = {
 	}			
 		
 	recklessness = {
-		value = 0.5
+		value = 0.1 # 0.5
 	}	
 	
 	aggression = {
@@ -3787,7 +3829,7 @@ ai_strategy_unify_scandinavia = {
 				}
 				can_reach_target_state = yes
 			}
-			add = 100
+			add = 20 # 100
 		}	
 	}
 	
@@ -4035,7 +4077,7 @@ ai_strategy_unify_china = {
 	}			
 		
 	recklessness = {
-		value = 0.5
+		value = 0.1 # 0.5
 	}	
 	
 	aggression = {
@@ -4078,7 +4120,7 @@ ai_strategy_unify_china = {
 				}
 				can_reach_target_state = yes
 			}
-			add = 100
+			add = 20 # 100
 		}	
 	}
 	
@@ -4422,7 +4464,7 @@ ai_strategy_world_revolution = {
 	}
 	
 	recklessness = {
-		value = 0.5
+		value = 0.1 # 0.5
 	}
 	
 	aggression = {
@@ -4889,7 +4931,7 @@ ai_strategy_restore_natural_borders = {
 	}
 	
 	recklessness = {
-		value = 0.25
+		value = 0.1 # 0.25
 	}
 	
 	aggression = {
@@ -5070,7 +5112,18 @@ ai_strategy_restore_natural_borders = {
 		}
 			
 		if = {
-			limit = { ig:ig_armed_forces = { is_powerful = yes } }
+			limit = { 
+				any_interest_group = {
+					is_powerful = yes
+					is_in_government = yes
+					OR = {
+						leader = {
+							has_ideology = ideology:ideology_jingoist_leader
+						}
+						has_ideology = ideology:ideology_jingoist
+					}
+				}	
+			}
 			multiply = 1.5
 		}			
 		

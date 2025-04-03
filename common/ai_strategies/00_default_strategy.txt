@@ -476,7 +476,7 @@ ai_strategy_default = {
 				}
 			}
 			add = {
-				value = 300
+				value = 500
 				desc = "risorgimento_support"
 			}
 		}
@@ -996,6 +996,17 @@ ai_strategy_default = {
 			}
 			add = 0.25
 		}		
+
+		# Prussia should take whole of Schleswig-Holstein
+		if = {
+			limit = { 
+				wants_to_solve_schleswig_holstein = yes
+				scope:enemy_country = {
+					is_oppressor_of_schleswig_holstein = yes
+				}
+			}
+			add = 0.25
+		}	
 		
 		# French Natural Borders
 		if = {
@@ -1203,37 +1214,40 @@ ai_strategy_default = {
 			add = 10
 		}
 
-		# ### Protect Herat
-		# if = {
-		# 	limit = { 
-		# 		OR = {
-		# 			c:GBR = this
-		# 			has_journal_entry = je_unify_afghanistan
-		# 		}
-		# 		scope:target_country = {
-		# 			any_scope_state = {
-		# 				state_region = s:STATE_HERAT
-		# 			}
-		# 		}
-		# 	}
+		### Protect Herat
+		if = {
+			limit = { 
+				OR = {
+					c:GBR = this
+					has_journal_entry = je_unify_afghanistan
+				}
+				scope:target_country = {
+					is_diplomatic_play_involved_with = c:PER
+					any_scope_state = {
+						state_region = s:STATE_HERAT
+					}
+					NOT = { c:AFG ?= this }
+				}
+			}
+			multiply = 0
+			add = 10
+		}
 
-		# 	add = 10
-		# }
-
-		# ### Monroe Doctrine
-		# if = {
-		# 	limit = { 
-		# 		c:USA = this
-		# 		scope:target_country = {
-		# 			OR = {
-		# 				country_is_in_north_america = yes
-		# 				country_is_in_central_america = yes
-		# 				country_is_in_south_america = yes
-		# 			}
-		# 		}
-		# 	}
-		# 	add = 10
-		# }
+		### Monroe Doctrine
+		if = {
+			limit = { 
+				c:USA = this
+				scope:target_country = {
+					OR = {
+						country_is_in_north_america = yes
+						country_is_in_central_america = yes
+						country_is_in_south_america = yes
+					}
+				}
+			}
+			multiply = 0
+			add = 10
+		}
 
 		### Risorgimento
 		if = {
@@ -1292,7 +1306,7 @@ ai_strategy_default = {
 				
 					add = {
 						value = scope:target_state.state_population
-						divide = 100000
+						divide = 1000000 # 100000
 						max = 10 # 20
 					}
 					
@@ -1761,24 +1775,11 @@ ai_strategy_default = {
 				limit = { 
 					wants_to_solve_schleswig_holstein = yes
 					scope:target_country = {
-						OR = {
-							is_oppressor_of_schleswig_holstein = yes
-							overlord = {
-								is_oppressor_of_schleswig_holstein = yes
-							}
-						}
+						is_oppressor_of_schleswig_holstein = yes
 					}
+					scope:target_state = { state_region = s:STATE_SCHLESWIG_HOLSTEIN }
 				}
-				
-				if = {
-					limit = {
-						scope:target_state = { state_region = s:STATE_SCHLESWIG_HOLSTEIN }				
-					}				
-					add = 100
-				}
-				else = {
-					multiply = 0.0
-				}
+				add = 20
 			}	
 		
 			if = {
@@ -2630,7 +2631,7 @@ ai_strategy_default = {
 			limit = {
 				scope:target_country.infamy >= infamy_threshold:pariah		
 			}
-			add = 1
+			add = 10 # 1
 		}		
 		
 		# Braver against own overlord in general
@@ -2744,30 +2745,30 @@ ai_strategy_default = {
 		# 	add = 0.5
 		# }
 
-		# French Natural Borders
-		if = {
-			limit = {
-				has_journal_entry = je_french_natural_borders
-				OR = {
-					has_strategy = ai_strategy_territorial_expansion
-					has_strategy = ai_strategy_restore_natural_borders
-				}
-				scope:target_country = {
-					any_scope_state = {
-						OR = {
-							state_region = {
-								is_homeland = cu:french
-							}
-							state_region = s:STATE_WALLONIA
-							state_region = s:STATE_FLANDERS
-							state_region = s:STATE_RHINELAND
-							state_region = s:STATE_NORTH_RHINE
-						}
-					}
-				}
-			}
-			add = 0.5
-		}	
+		# # French Natural Borders
+		# if = {
+		# 	limit = {
+		# 		has_journal_entry = je_french_natural_borders
+		# 		OR = {
+		# 			has_strategy = ai_strategy_territorial_expansion
+		# 			has_strategy = ai_strategy_restore_natural_borders
+		# 		}
+		# 		scope:target_country = {
+		# 			any_scope_state = {
+		# 				OR = {
+		# 					state_region = {
+		# 						is_homeland = cu:french
+		# 					}
+		# 					state_region = s:STATE_WALLONIA
+		# 					state_region = s:STATE_FLANDERS
+		# 					state_region = s:STATE_RHINELAND
+		# 					state_region = s:STATE_NORTH_RHINE
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# 	add = 0.5
+		# }	
 
 		# # Afghanistan
 		# if = {
@@ -2837,18 +2838,18 @@ ai_strategy_default = {
 			add = 5
 		}
 
-		# Acre claimant wants Acre
-		if = {
-			limit = {
-				has_journal_entry = je_acre_dispute
-				scope:target_country = {
-					any_scope_state = {
-						state_region = s:STATE_ACRE
-					}
-				}
-			}
-			add = 0.5
-		}
+		# # Acre claimant wants Acre
+		# if = {
+		# 	limit = {
+		# 		has_journal_entry = je_acre_dispute
+		# 		scope:target_country = {
+		# 			any_scope_state = {
+		# 				state_region = s:STATE_ACRE
+		# 			}
+		# 		}
+		# 	}
+		# 	add = 0.5
+		# }
 
 		# Italian minors will want to help San Marco if involved
 		if = {
@@ -2893,7 +2894,7 @@ ai_strategy_default = {
 					has_journal_entry = je_peru_bolivia
 				}
 			}
-			add = 0.75 # 0.5
+			add = 1
 		}
 
 		# Sardinia confident after treaty of Turin
@@ -2943,7 +2944,11 @@ ai_strategy_default = {
 		if = {
 			limit = {
 				scope:target_country = {
-					top_overlord = { country_rank < rank_value:great_power }
+					if = {
+						limit = { is_subject = yes }
+						top_overlord = { country_rank < rank_value:great_power }
+					}
+					country_rank < rank_value:great_power
 					any_scope_state = {
 						has_claim_by = ROOT
 					}
@@ -2987,7 +2992,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 300
+			add = 100
 		}
 		
 		# Opium wars aggressor should be very, very aggressive against target if they're banning opium
@@ -2999,7 +3004,7 @@ ai_strategy_default = {
 					is_banning_goods = g:opium
 				}
 			}
-			add = 300
+			add = 100
 		}
 		
 		# Greek Nationalism
@@ -3043,7 +3048,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 50
+			add = 100
 		}
 
 		if = { #Carving up China
@@ -3063,18 +3068,6 @@ ai_strategy_default = {
 			add = 50 # 5
 		}
 
-		# AI should open up Japan
-		if = {
-			limit = {
-				has_strategy = ai_strategy_economic_imperialism
-				scope:target_country = { 
-					has_law = law_type:law_isolationism
-					gdp >= 5000000
-				} 			
-			}
-			add = 25
-		}
-
 		# Ottomans should be very aggressive against owners of Syria and Egypt when they have the relevant JE's
 		if = {
 			limit = {
@@ -3088,7 +3081,7 @@ ai_strategy_default = {
 					THIS = c:EGY
 				}
 			}
-			add = 300
+			add = 100
 		}
 
 		# USA should be extremely aggressive against owners of their Manifest Destiny states
@@ -3112,7 +3105,7 @@ ai_strategy_default = {
 					NOT = { has_journal_entry = je_texas_tex }	
 				}
 			}
-			add = 300
+			add = 100
 		}
 
 		# USA should be aggressive against CSA
@@ -3173,7 +3166,7 @@ ai_strategy_default = {
 					has_journal_entry = je_peru_bolivia
 				}
 			}
-			add = 300
+			add = 100
 		}
 
 		if = {
@@ -3191,7 +3184,7 @@ ai_strategy_default = {
 						c:GUA ?= this
 					}
 				}
-				add = 300
+				add = 100
 			}
 			else_if = {
 				limit = {
@@ -3624,7 +3617,7 @@ ai_strategy_default = {
 					}
                 }
             }
-            add = 300
+            add = 100
         }
 		
 		# Acre claimant wants Acre
@@ -3832,7 +3825,16 @@ ai_strategy_default = {
 			limit = {
 				scaled_debt > 0
 			}
-			add = -150
+			add = -100
+		}
+
+		if = { # Don't risk war while in revolution
+			limit = {
+				any_political_movement = {
+					is_insurrectionary = yes
+				}
+			}
+			add = -100
 		}
 	}
 	
@@ -5983,7 +5985,7 @@ ai_strategy_default = {
 					limit = {
 						power_bloc ?= { has_principle_group = principle_group:principle_group_colonial_offices }
 					}
-					add = 50
+					add = 10 # 50
 				}
 
 				if = {

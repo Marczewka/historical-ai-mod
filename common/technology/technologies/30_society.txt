@@ -678,7 +678,20 @@ nationalism = {
 				add = 2
 			}
 		}	
-		
+
+		if = {
+			limit = {
+				OR = {
+					country_has_primary_culture = cu:north_italian
+					country_has_primary_culture = cu:south_italian
+				}
+				NOT = {
+					has_law = law_type:law_traditionalism
+				}
+			}
+			add = 2
+		}
+
 		if = {
 			limit = {
 				OR = {

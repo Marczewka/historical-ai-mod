@@ -1,8 +1,4 @@
 ﻿DIPLOMACY = {
-	c:HER ?= {
-		set_relations = { country = c:GBR value = 30 }
-	}
-
 	c:AUS ?= { 
 		set_relations = { country = c:TUR value = -10 }
 	}

@@ -272,7 +272,7 @@ law_cultural_exclusion = {
 		country_authority_add = 50
 
 		#From this block, we only apply the highest value a Pop qualifies for
-		country_acceptance_primary_culture_add = 115 # 115
+		country_acceptance_primary_culture_add = 115 # 100
 		country_acceptance_shared_heritage_and_cultural_trait_add = 95 # 80
 		country_acceptance_shared_heritage_trait_add = 75 # 60
 		country_acceptance_shared_cultural_trait_add = 55 # 40

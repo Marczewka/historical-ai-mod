@@ -2,4 +2,10 @@
 	c:MEX ?= {
 		set_strategy = ai_strategy_maintain_power_balance
 	}	
+	c:CHL?= {
+		set_strategy = ai_strategy_maintain_power_balance
+	}	
+	c:ARG?= {
+		set_strategy = ai_strategy_maintain_power_balance
+	}	
 }	
