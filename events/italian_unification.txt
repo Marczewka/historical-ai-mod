@@ -235,16 +235,30 @@ italian_unification.4 = {
 		any_scope_state = {
 			count < 2
 		}
-		any_political_movement = {
-			OR = {
-				is_political_movement_type = movement_radical
-				is_political_movement_type = movement_liberal
+		OR = {
+			AND = {
+				any_political_movement = {
+					OR = {
+						is_political_movement_type = movement_radical
+						is_political_movement_type = movement_liberal
+					}
+					is_insurrectionary = yes
+				}
+				any_civil_war = {
+					is_civil_war_type = revolution
+					civil_war_progress >= 0.75
+				}
 			}
-			is_insurrectionary = yes
-		}
-		any_civil_war = {
-			is_civil_war_type = revolution
-			civil_war_progress >= 0.75
+			AND = {
+				any_political_movement = {
+					OR = {
+						is_political_movement_type = movement_radical
+						is_political_movement_type = movement_liberal
+					}
+					political_movement_radicalism >= 0.75
+				}
+				c:LUC ?= this
+			}
 		}
 		NOR = {
 			has_revolution = yes

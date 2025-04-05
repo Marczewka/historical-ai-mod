@@ -161,7 +161,7 @@ je_alaska = {
 			}
 		}
 		create_diplomatic_catalyst = {  
-			type = catalyst_event_positive
+			type = catalyst_journal_entry
 			target = scope:alaska_overlord
 		}
 	}

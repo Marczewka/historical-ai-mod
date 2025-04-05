@@ -280,6 +280,8 @@ has_je_conquest_reason = {
 						state_region = s:STATE_HERAT
 						state_region = s:STATE_KANDAHAR
 						state_region = s:STATE_CENTRAL_HIGHLANDS
+						state_region = s:STATE_NORTHERN_BALUCHISTAN
+						state_region = s:STATE_BALKH
 					}
 				}
 			}
