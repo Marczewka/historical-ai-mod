@@ -12,12 +12,6 @@
 		base = 0
 		modifier = {
 			trigger = { 
-				scaled_debt > 0
-			}
-			add = 25
-		}
-		modifier = {
-			trigger = { 
 				has_modifier = declared_bankruptcy
 			}
 			add = 50
@@ -71,6 +65,7 @@
 				}
 			}
 		}
+		scaled_debt > 0
 	}
 
 	effect = {
@@ -125,18 +120,16 @@ je_buy_alaska_button = {
 			relations:root > relations_threshold:poor
 		}
 		scope:alaska_overlord = {
-			OR = {
-				custom_tooltip = {
-					text = buyers_unfriendly_nation_with_interest_in_alaska_tt
-					any_country = {
-						country_rank >= prev.country_rank
-						NOT = { this = prev }
-						has_interest_marker_in_region = sr:region_pacific_coast
-						relations:prev < relations_threshold:cordial
-					}
+			custom_tooltip = {
+				text = buyers_unfriendly_nation_with_interest_in_alaska_tt
+				any_country = {
+					country_rank >= prev.country_rank
+					NOT = { this = prev }
+					has_interest_marker_in_region = sr:region_pacific_coast
+					relations:prev < relations_threshold:cordial
 				}
-				scaled_debt > 0
 			}
+			scaled_debt > 0
 		}
 	}
 
@@ -199,7 +192,7 @@ je_risorgimento_austrian_radicals_button = {
 		base = 50
 		modifier = {
 			trigger = {
-				is_at_war = no
+				is_at_war = yes
 			}
 			add = -100
 		}
@@ -381,7 +374,7 @@ je_risorgimento_italian_radicals_button = {
 		base = 50
 		modifier = {
 			trigger = {
-				is_at_war = no
+				is_at_war = yes
 			}
 			add = -100
 		}
@@ -505,7 +498,7 @@ je_risorgimento_italian_radicals_button = {
 				}
 				add_modifier = {
 					name = modifier_risorgimento
-					months = short_modifier_time
+					months = normal_modifier_time
 				}
 			}
 			THIS = {
@@ -619,6 +612,15 @@ je_risorgimento_change_stance_button = {
 				NOR = { 
 					has_law = law_type:law_autocracy 
 					has_law = law_type:law_oligarchy
+				}
+			}
+			add = 50
+		}
+		modifier = {
+			trigger = {
+				OR = { 
+					has_law = law_type:law_census_voting
+					has_law = law_type:law_universal_suffrage
 				}
 			}
 			add = 50
@@ -739,7 +741,7 @@ je_risorgimento_change_stance_button = {
 			}
 			change_relations = { country = ROOT value = 25 }
 			create_diplomatic_catalyst = {  
-				type = catalyst_event_positive
+				type = catalyst_journal_entry
 				target = root
 			}
 		}

@@ -83,6 +83,14 @@ raj.1 = {
 				}
 				activate_law = law_type:law_hindu_caste_codified
 			}
+			if = {
+				limit = {
+					NOT = {
+						has_law = law_type:law_frontier_colonization
+					}
+				}
+				activate_law = law_type:law_frontier_colonization
+			}
 			ig:ig_industrialists = {
 				set_interest_group_name = ig_government_of_india
 			}

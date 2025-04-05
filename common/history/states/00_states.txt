@@ -3787,6 +3787,7 @@ STATES = {
 		create_state = {
 			country = c:FRA
 			owned_provinces = { xABADB1 }
+			state_type = treaty_port
 		}
 		create_state = {
 			country = c:DEN
@@ -4256,6 +4257,7 @@ STATES = {
 		create_state = {
 			country = c:GBR
 			owned_provinces = { xC00130 }
+			state_type = treaty_port
 		}
 		create_state = {
 			country = c:PRK

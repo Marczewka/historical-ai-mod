@@ -26,6 +26,10 @@
 	TURMOIL_STATE_EFFECTS_THRESHOLD = 0.15				# How much turmoil a state needs to have before it gets any state-wide effects
 	TURMOIL_STATE_HIGH_EFFECTS_THRESHOLD = 0.33			# Above this turmoil, add a harsher modifier
 	TURMOIL_STATE_EXTREME_EFFECTS_THRESHOLD = 0.66		# Above this turmoil, add the harshest modifier
+
+	CIVIL_WAR_COOLDOWN_MONTHS = 6									# After a civil war concludes, it takes this long before another one can start
+
+	DEFAULT_TRUCE_MONTHS = 36 # 60
 }
 
 NEconomy = {
@@ -89,6 +93,8 @@ NMilitary = {
 }	
 
 NDiplomacy = {
+	DIPLOMATIC_CATALYST_TYPE_OVERTAKEN_IN_PRESTIGE_RANK = ""
+
 	SWAY_OFFER_TIMEOUT_DAYS = 14
 	SWAY_OFFER_REJECTED_COOLDOWN_DAYS = 7 # Must wait this many days before trying to sway a country that rejected your previous sway
 	SWAY_OFFER_CALL_IN_OBLIGATION_MANEUVERS_COST = 10

@@ -106,7 +106,7 @@
 
 		requirement_to_maintain = {
 			trigger = {
-				country_rank >= scope:target_country.country_rank
+				country_rank > scope:target_country.country_rank
 			}
 		}
 

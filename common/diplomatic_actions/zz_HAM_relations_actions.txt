@@ -144,6 +144,12 @@
 	
 		will_propose = { 
 			OR = {
+				has_je_befriend_reason = { TARGET = scope:target_country }
+				has_je_protect_reason = { TARGET = scope:target_country }
+				AND = {
+					has_je_reconcile_reason = { TARGET = scope:target_country }
+					scope:target_country.relations:root <= relations_threshold:poor
+				}
 				AND = {
 					has_attitude = {
 						who = scope:target_country
@@ -169,6 +175,12 @@
 		will_break = {
 			OR = {
 				NOR = {
+					has_je_befriend_reason = { TARGET = scope:target_country }
+					has_je_protect_reason = { TARGET = scope:target_country }
+					AND = {
+						has_je_reconcile_reason = { TARGET = scope:target_country }
+						scope:target_country.relations:root <= relations_threshold:poor
+					}
 					has_attitude = {
 						who = scope:target_country
 						attitude = genial
@@ -299,7 +311,9 @@ damage_relations = {
 				limit = {
 					OR = {
 						has_je_conquest_reason = { TARGET = scope:target_country }
+						has_je_subjugation_reason = { TARGET = scope:target_country }
 					}
+					scope:target_country.relations:root > relations_threshold:neutral
 				}
 				add = 50
 			}
@@ -345,6 +359,13 @@ damage_relations = {
 		will_propose = { 
 			OR = {
 				AND = {
+					OR = {
+						has_je_conquest_reason = { TARGET = scope:target_country }
+						has_je_subjugation_reason = { TARGET = scope:target_country }
+					}
+					scope:target_country.relations:root > relations_threshold:neutral
+				}
+				AND = {
 					has_attitude = {
 						who = scope:target_country
 						attitude = antagonistic
@@ -370,6 +391,8 @@ damage_relations = {
 		will_break = { 
 			OR = {
 				NOR = {
+					has_je_conquest_reason = { TARGET = scope:target_country }
+					has_je_subjugation_reason = { TARGET = scope:target_country }
 					has_attitude = {
 						who = scope:target_country
 						attitude = belligerent

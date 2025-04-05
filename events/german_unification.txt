@@ -467,13 +467,13 @@ german_unification.5 = {
 	option = {
 		name = german_unification.5.a
 		default_option = yes	
-		create_diplomatic_catalyst = {  
-			type = catalyst_event_negative
-			target = c:DEN
-		}
 		change_relations = {
 			country = c:DEN
-			value = -50
+			value = -25
+		}
+		create_diplomatic_catalyst = {  
+			type = catalyst_journal_entry
+			target = c:DEN
 		}
 		if = {
 			limit = { country_has_primary_culture = cu:north_german }

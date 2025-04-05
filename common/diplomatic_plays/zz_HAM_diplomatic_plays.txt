@@ -97,3 +97,30 @@ dp_unify_afghanistan = {
 
 	on_war_end = {}
 }
+
+dp_take_treaty_port = {
+	
+	war_goal = take_treaty_port
+	
+	texture = "gfx/interface/icons/war_goals/take_treaty_port.dds"
+	
+	possible = {
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		NOT = { is_subject_of = scope:target_country }
+		scope:target_country = {
+			is_country_type = unrecognized
+			NOT = { is_country_type = decentralized }
+			NOT = { is_subject_of = root }
+		}
+		diplomatic_play_has_no_relations_blockers = yes	
+	}
+	
+	ai_acceptance_max = 100
+	
+	on_weekly_pulse = {}
+	
+	on_war_begins = {}
+
+	on_war_end = {}
+}

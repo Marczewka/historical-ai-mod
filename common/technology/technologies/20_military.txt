@@ -441,6 +441,13 @@ enlistment_offices = {
 	
 	ai_weight = {
 		value = 1
+		
+		if = {
+			limit = {
+				has_strategy = ai_strategy_unify_germany
+			}
+			add = 3
+		}
 	}
 }
 
@@ -513,6 +520,13 @@ breech_loading_artillery = {
 	
 	ai_weight = {
 		value = 1.5 # Important tech in general
+		
+		if = {
+			limit = {
+				has_strategy = ai_strategy_unify_germany
+			}
+			add = 1
+		}
 	}
 }
 

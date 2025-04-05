@@ -1399,6 +1399,19 @@ revolution_pulse_events.10 = {
 	
 	option = {
 		name = revolution_pulse_events.10.a 
+		ai_chance = {
+			base = 25
+			modifier = {
+				trigger = {
+					OR = {
+						has_strategy = ai_strategy_conservative_agenda
+						has_strategy = ai_strategy_reactionary_agenda
+						has_strategy = ai_strategy_maintain_mandate_of_heaven
+					}
+				}
+				add = -25
+			}
+		}
 		scope:ongoing_revolution = {
 			add_civil_war_progress = revolution_retreat_very_large
 		}
@@ -1475,6 +1488,19 @@ revolution_pulse_events.10 = {
 
 	option = {
 		name = revolution_pulse_events.10.b
+		ai_chance = {
+			base = 25
+			modifier = {
+				trigger = {
+					OR = {
+						has_strategy = ai_strategy_conservative_agenda
+						has_strategy = ai_strategy_reactionary_agenda
+						has_strategy = ai_strategy_maintain_mandate_of_heaven
+					}
+				}
+				add = -25
+			}
+		}
 		scope:ongoing_revolution = {
 			add_civil_war_progress = revolution_retreat_large
 		}
@@ -1552,6 +1578,18 @@ revolution_pulse_events.10 = {
 	option = {
 		name = revolution_pulse_events.10.c
 		default_option = yes
+		ai_chance = {
+			base = 25
+			modifier = {
+				trigger = {
+					OR = {
+						has_strategy = ai_strategy_progressive_agenda
+						has_strategy = ai_strategy_egalitarian_agenda
+					}
+				}
+				add = -25
+			}
+		}
 		scope:ongoing_revolution = {
 			add_civil_war_progress = revolution_advance_large
 		}

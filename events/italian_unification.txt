@@ -961,7 +961,7 @@ italian_unification.10 = {
 			}
 			change_relations = { country = ROOT value = 25 }
 			create_diplomatic_catalyst = {  
-				type = catalyst_event_positive
+				type = catalyst_journal_entry
 				target = root
 			}
 		}

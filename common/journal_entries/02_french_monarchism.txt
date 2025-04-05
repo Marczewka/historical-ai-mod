@@ -218,7 +218,7 @@
 			}
 			AND = {
 				capital = {
-					turmoil >= 0.25
+					turmoil >= 0.15 # 0.25
 				}
 			}
 		}

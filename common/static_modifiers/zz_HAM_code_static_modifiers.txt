@@ -873,6 +873,7 @@ successfully_met_foreign_imposition_legitimacy = {
 }
 
 movement_suppressed_after_civil_war = {
-	icon = "gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds"
-	political_movement_pop_attraction_mult = -2.0
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	political_movement_pop_attraction_mult = -0.5 # -2.0
+	political_movement_radicalism_add = -1
 }

@@ -101,7 +101,7 @@
 				}
 			}
 			create_diplomatic_catalyst = {  
-				type = catalyst_event_negative
+				type = catalyst_journal_entry
 				target = c:AUS
 			}
 		}

@@ -62,7 +62,7 @@
 		is_two_sided_pact = no
 		
 		relations_progress_per_day = -1 # At -100, -1 relations
-		relations_improvement_min = -50
+		relations_improvement_min = - 20 # -50
 
 		first_modifier = {
 			country_pact_leverage_generation_mult = -0.5

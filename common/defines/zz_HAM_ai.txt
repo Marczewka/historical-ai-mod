@@ -49,6 +49,41 @@
 	DIPLO_PLAY_CONFIDENCE_HIGH_THRESHOLD = 25 		# If confidence is this or above, show it as high
 	DIPLO_PLAY_CONFIDENCE_VERY_HIGH_THRESHOLD = 50 		# If confidence is this or above, show it as very high
 
+	
+
+	# Determines how much the AI values a reverse-sway based on the military power it would add to their side
+	# If that power would make up the full difference between no military at all and DIPLO_PLAY_REVERSE_SWAY_THRESHOLD, use the full value, otherwise scale it against the amount of the difference made up
+	# For example, if the new supporter would bring military power compared to enemy from 1.0x to 2.0x, and DIPLO_PLAY_REVERSE_SWAY_THRESHOLD is 2.0, we would apply half this value
+	DIPLO_PLAY_REVERSE_SWAY_ADDED_MILITARY_POWER_FACTOR = 100 # 50
+
+	# If the added military power value is below this, consider the country's help to not be worth anything and reject the offer
+	DIPLO_PLAY_REVERSE_SWAY_MIN_ADDED_MILITARY_POWER = 5
+
+	# Multiply added military power factor by the amount they are currently outmatched against the enemy
+	# IE; at 0x enemy military power this full modifier gets applied, at 0.5x military power half of it is applied, and at 1x+ none of it is
+	DIPLO_PLAY_REVERSE_SWAY_ADDED_MILITARY_POWER_OUTMATCHED_MULT = 4.0
+
+	# If the AI's side is outmatching the enemy by more than DIPLO_PLAY_REVERSE_SWAY_THRESHOLD, the difference between their military power ratio and DIPLO_PLAY_REVERSE_SWAY_THRESHOLDis multiplied by this and added to acceptance
+	DIPLO_PLAY_REVERSE_SWAY_OUTMATCHING_FACTOR = -25.0
+
+	DIPLO_PLAY_REVERSE_SWAY_BASE_FACTORS_MULT = 0.5 # Apply basic factors such as relations, attitude, ideological opinion etc to reverse-sway with this multiplier
+	DIPLO_PLAY_REVERSE_SWAY_WARGOAL_VALUE_FACTOR = -2.0 # Multiply by how much the AI wants a requested wargoal themselves if they were the holder and apply to reverse-sway acceptance
+	DIPLO_PLAY_REVERSE_SWAY_WARGOAL_IMPACT_FACTOR = -0.5 # Multiply by wargoal maneuvers cost (to determine how impactful it is) and apply to reverse-sway acceptance for a requested wargoal
+	DIPLO_PLAY_REVERSE_SWAY_WARGOAL_INFAMY_FACTOR = -0.5 # Multiply by infamy impact and apply to reverse-sway acceptance for a requested wargoal
+	DIPLO_PLAY_REVERSE_SWAY_OFFER_OBLIGATION_MIN_VALUE = 5 # AI value for an obligation is never lower than this when it's considering whether to accept a reverse-sway
+	DIPLO_PLAY_REVERSE_SWAY_OFFER_OBLIGATION_FACTOR = -6.0 # Multiply by how much the AI would value the obligation if it was the country offering support and apply to reverse-sway acceptance for an obligation
+	DIPLO_PLAY_REVERSE_SWAY_CALL_IN_OBLIGATION_FACTOR = -3.0 # Multiply by how much the AI values the obligation it holds and apply to reverse-sway acceptance for calling in obligation
+	DIPLO_PLAY_REVERSE_SWAY_STATE_VALUE_FACTOR = -2.0 # Multiplied by AI strategy value for owned state to determine reluctance to cede it in a reverse-sway
+	DIPLO_PLAY_REVERSE_SWAY_BECOME_SUBJECT_VALUE_FACTOR = 1.0 # Multiplied by how much the AI wants to become a subject of the sway target
+	DIPLO_PLAY_REVERSE_SWAY_TRANSFER_SUBJECT_VALUE_FACTOR = -1.0 # Multiplied by how much the AI values the subject they're offering to transfer to the sway target
+	DIPLO_PLAY_REVERSE_SWAY_CALL_ALLY_DESIRE = 25 # Added to AI scoring for reverse sway call ally even though call ally isn't actually valid for reverse-sways, so they can score it against other sway types
+
+	DIPLO_PLAY_ADD_WARGOAL_MIN_SCORE = 20 # A wargoal needs at least this value for AI to add it to the play
+
+	DIPLO_PLAY_SWAY_MINIMUM_OBLIGATION_VALUE = 15 # 10 # Obligations worth less than this are rejected
+
+
+
 	# Below data is used to determine which wargoals the AI will pick
 	WAR_GOAL_RANDOM_FACTOR = 2.0 					# The higher this is, the more random AI wargoal selection will be
 	WAR_GOAL_UNDESIRABLE_INFAMY_FACTOR = 0.5 		# Wargoal value is multiplied by this if it would bring the country above undesirable infamy levels
