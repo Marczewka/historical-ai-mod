@@ -57,14 +57,14 @@
 	DIPLO_PLAY_REVERSE_SWAY_ADDED_MILITARY_POWER_FACTOR = 100 # 50
 
 	# If the added military power value is below this, consider the country's help to not be worth anything and reject the offer
-	DIPLO_PLAY_REVERSE_SWAY_MIN_ADDED_MILITARY_POWER = 5
+	DIPLO_PLAY_REVERSE_SWAY_MIN_ADDED_MILITARY_POWER = 10 # 5
 
 	# Multiply added military power factor by the amount they are currently outmatched against the enemy
 	# IE; at 0x enemy military power this full modifier gets applied, at 0.5x military power half of it is applied, and at 1x+ none of it is
 	DIPLO_PLAY_REVERSE_SWAY_ADDED_MILITARY_POWER_OUTMATCHED_MULT = 4.0
 
 	# If the AI's side is outmatching the enemy by more than DIPLO_PLAY_REVERSE_SWAY_THRESHOLD, the difference between their military power ratio and DIPLO_PLAY_REVERSE_SWAY_THRESHOLDis multiplied by this and added to acceptance
-	DIPLO_PLAY_REVERSE_SWAY_OUTMATCHING_FACTOR = -25.0
+	DIPLO_PLAY_REVERSE_SWAY_OUTMATCHING_FACTOR = -200.0 # -25.0
 
 	DIPLO_PLAY_REVERSE_SWAY_BASE_FACTORS_MULT = 0.5 # Apply basic factors such as relations, attitude, ideological opinion etc to reverse-sway with this multiplier
 	DIPLO_PLAY_REVERSE_SWAY_WARGOAL_VALUE_FACTOR = -2.0 # Multiply by how much the AI wants a requested wargoal themselves if they were the holder and apply to reverse-sway acceptance
@@ -118,8 +118,11 @@
 	CONSTRUCTION_DEBT_RESUME_CRITICAL_CONSTRUCTION = 0.95 # If critical constructions are paused, resume once debt is this low relative to ceiling
 	CONSTRUCTION_DEBT_PAUSE_CRITICAL_CONSTRUCTION = 0.99 # If in this much relative debt to debt ceiling, pause all critical constructions
 
+	REFORM_GOVERNMENT_MONTHS_BETWEEN_CHANGES = 12 # 30 		# If the AI doesn't have elections, it won't consider changing government composition more often than this to avoid lots of radicals
+
 	# Below data is used for General Orders:
 	HQ_DEFENSE_MIN_THEATER_SCORE = 20 # 100			# Theater of local HQ must have at least this importance score to have a minimum garrison
+	
 	# Below data is used to calculate how much weight the AI places on enacting/revoking a law
 	CHANGE_LAW_RANDOM_FACTOR = 0.25 # 1.0 # The higher this is, the more random AI law enactment will be
 	CHANGE_LAW_PRO_IG_IDEOLOGIES_FACTOR = 100 # For enacting laws, per ideology match for IGs we approve of

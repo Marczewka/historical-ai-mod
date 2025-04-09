@@ -376,7 +376,7 @@ oregon.4 = {
 		}
 		create_diplomatic_catalyst = {  
 			type = catalyst_journal_entry
-			target = britain_scope
+			target = c:GBR
 		}
 	}
 }

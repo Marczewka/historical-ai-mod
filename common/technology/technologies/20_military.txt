@@ -138,7 +138,7 @@ napoleonic_warfare = {
 		
 		if = {
 			limit = { has_journal_entry = je_sick_man_army }
-			add = 5 # 100
+			add = 3 # 100
 		}
 	}
 }
@@ -358,6 +358,11 @@ general_staff = {
 	
 	ai_weight = {
 		value = 2 # Important tech in general
+
+		if = {
+			limit = { has_journal_entry = je_sick_man_army }
+			add = 2
+		}
 	}
 }
 

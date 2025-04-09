@@ -260,6 +260,20 @@
 					value = 10000
 				}
 			}
+
+			add = {
+				if = {
+					limit = {
+						is_secessionist = yes
+						scope:actor = {
+							any_primary_culture = {
+								is_primary_culture_of = root
+							}
+						}
+					}
+					value = 10000
+				}
+			}
 			
 			add = {
 				desc = "DIPLOMATIC_ACCEPTANCE_ATTITUDE"

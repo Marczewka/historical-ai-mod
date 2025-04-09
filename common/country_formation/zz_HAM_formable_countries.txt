@@ -1,12 +1,22 @@
 ﻿AFG = {
 	states = {
+		STATE_KABUL
 		STATE_HERAT
 		STATE_KANDAHAR
-		STATE_KABUL 
 		STATE_CENTRAL_HIGHLANDS
+		STATE_NORTHERN_BALUCHISTAN
+		STATE_BALKH
 	}
 	
-	required_states_fraction = 0.75
+	required_states_fraction = 0.66 # 1
 
+	ai_will_do = { always = yes }
+}
+
+ETH = {
+	use_culture_states = yes
+
+	required_states_fraction = 0.75 # 0.50
+	
 	ai_will_do = { always = yes }
 }

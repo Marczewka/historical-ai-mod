@@ -15,9 +15,6 @@
         	state_region = { is_homeland = cu:han }
 	        NOT = { owner = ROOT }
         }
-        hidden_trigger = {
-            NOT = { has_variable = boxer_rebellion_failure }
-        }
     }
     immediate = {
         trigger_event = { id = boxer_rebellion_events.1 } # The Yihetuan Movement
@@ -39,7 +36,6 @@
     timeout = 1825
     on_timeout = {
         trigger_event = { id = boxer_rebellion_events.3 } # The Qing and the Han
-        set_global_variable = boxer_rebellion_failure
     }
     weight = 1000
     should_be_pinned_by_default = yes

@@ -59,7 +59,7 @@
 	}
 
 	ai_chance = {
-		base = 1 # 0
+		base = 100 # 0
 		# modifier = {
 		# 	has_technology_researched = pan-nationalism
 		# 	add = 100
@@ -107,7 +107,7 @@ canada_unite_gbr = {
 	}
 
 	ai_chance = {
-		base = 1 # 0
+		base = 100 # 0
 		# modifier = {
 		# 	has_technology_researched = pan-nationalism
 		# 	add = 100
@@ -180,7 +180,7 @@ australia_unite_aus = {
 	}
 
 	ai_chance = {
-		base = 1 # 0
+		base = 100 # 0
 		# modifier = {
 		# 	has_technology_researched = pan-nationalism
 		# 	add = 100
@@ -230,7 +230,7 @@ australia_unite_gbr = {
 	}
 
 	ai_chance = {
-		base = 1 # 0
+		base = 100 # 0
 		# modifier = {
 		# 	has_technology_researched = pan-nationalism
 		# 	add = 100

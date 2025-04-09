@@ -225,5 +225,11 @@ sick_man.3 = {
 		ruler = {
 			kill_character = yes
 		}
+		every_country = {
+			create_diplomatic_catalyst = {  
+				type = catalyst_journal_entry
+				target = root
+			}
+		}
 	}
 }

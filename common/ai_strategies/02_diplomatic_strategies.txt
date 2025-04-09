@@ -4,6 +4,7 @@
 	type = diplomatic
 	
 	will_form_power_bloc = {
+		NOT = { has_journal_entry = je_oregon }
 		global_country_ranking = 1
 	}
 	
@@ -164,6 +165,7 @@ ai_strategy_territorial_expansion = {
 	type = diplomatic
 	
 	will_form_power_bloc = {
+		NOT = { has_journal_entry = je_oregon }
 		OR = {
 			global_country_ranking <= 3
 			AND = {
@@ -352,6 +354,7 @@ ai_strategy_colonial_expansion = {
 	type = diplomatic
 	
 	will_form_power_bloc = {
+		NOT = { has_journal_entry = je_oregon }
 		OR = {
 			global_country_ranking <= 3
 			AND = {
@@ -694,12 +697,7 @@ ai_strategy_colonial_expansion = {
 		}	
 
 		if = {
-			limit = { NOT = { has_technology_researched = civilizing_mission } }
-			multiply = 0.5
-		}	
-
-		if = {
-			limit = { has_technology_researched = malaria_prevention }
+			limit = { has_technology_researched = civilizing_mission }
 			multiply = 1.5
 		}	
 		
@@ -849,6 +847,7 @@ ai_strategy_economic_imperialism = {
 	type = diplomatic
 	
 	will_form_power_bloc = {
+		NOT = { has_journal_entry = je_oregon }
 		OR = {
 			global_country_ranking <= 3
 			AND = {
@@ -1373,7 +1372,7 @@ ai_strategy_unify_germany = {
 					}
 				}
 			}
-			add = 25
+			add = 5 # 25
 		}
 	}	
 
@@ -1605,7 +1604,7 @@ ai_strategy_unify_italy = {
 					}				
 				}
 			}
-			add = 25
+			add = 5 # 25
 		}
 	}		
 	
@@ -1742,6 +1741,7 @@ ai_strategy_unify_italy = {
 		value = 0
 		add = {
 			value = army_size
+			multiply = 0.5
 		}
 		if = {
 			limit = {
@@ -1790,7 +1790,7 @@ ai_strategy_unify_afghanistan = {
 			limit = { 
 				scope:target_country = { has_journal_entry = je_unify_afghanistan }
 			}
-			add = 25
+			add = 5 # 25
 		}
 	}			
 		
@@ -1975,7 +1975,7 @@ ai_strategy_unify_ethiopia = {
 			limit = { 
 				scope:target_country = { can_form_nation = ETH }
 			}
-			add = 25
+			add = 5 # 25
 		}
 	}			
 		
@@ -2165,7 +2165,7 @@ ai_strategy_unify_arabia = {
 			limit = { 
 				scope:target_country = { can_form_nation = ARA }
 			}
-			add = 25
+			add = 5 # 25
 		}
 	}			
 		
@@ -2360,7 +2360,7 @@ ai_strategy_unify_scandinavia = {
 			limit = { 
 				scope:target_country = { can_form_nation = SCA }
 			}
-			add = 25
+			add = 5 # 25
 		}
 	}			
 		
@@ -2675,7 +2675,7 @@ ai_strategy_unify_china = {
 			limit = { 
 				scope:target_country = { can_form_nation = CHI }
 			}
-			add = 25
+			add = 5 # 25
 		}
 	}			
 		

@@ -313,7 +313,7 @@ stock_exchange = {
 	}
 	
 	ai_weight = {
-		value = 2 #1
+		value = 2.5 #1
 	}
 }
 
@@ -937,6 +937,13 @@ quinine = {
 				add = 3
 			}
 		}
+		# Conquest of the Desert
+		if = {
+			limit = { 
+				has_journal_entry = je_patagonia			
+			}
+			add = 3
+		}	
 	}
 }
 
@@ -1281,7 +1288,7 @@ zeppelins = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 	}
 }
 
@@ -1346,7 +1353,7 @@ central_planning = {
 	}
 	
 	ai_weight = {
-		value = 1.5 # Important in general
+		value = 2.5 # 1.5 # Important in general
 	}
 }
 
@@ -1592,7 +1599,7 @@ macroeconomics = {
 	}
 	
 	ai_weight = {
-		value = 2 
+		value = 1.5 # 2 
 	}
 }
 
@@ -1647,6 +1654,6 @@ paved_roads = {
 	}
 	
 	ai_weight = {
-		value = 3 # Important for those nice-looking roads!
+		value = 2.5 # 3 # Important for those nice-looking roads!
 	}
 }

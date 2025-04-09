@@ -53,6 +53,7 @@ german_unification.1 = {
 						country_has_primary_culture = cu:south_german
 					}					
 				}
+				NOT = { c:LUX ?= this }
 				OR = {
 					capital.region = sr:region_north_germany
 					capital.region = sr:region_south_germany
@@ -278,7 +279,11 @@ german_unification.3 = {
 
 	trigger = {
 		NOT = { has_global_variable = bismarck_variable }
-		wants_to_solve_schleswig_holstein = yes
+		ig:ig_landowners = {
+			# is_powerful = yes
+			is_in_government = yes
+		}
+		is_unification_candidate = GER
 		has_technology_researched = nationalism
 		game_date > 1846.1.1
 		game_date < 1898.1.1

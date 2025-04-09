@@ -92,6 +92,9 @@
 			months = long_modifier_time
 			is_decaying = yes
 		}	
+		hidden_effect = { 
+			set_global_variable = schleswig_holstein_question_solved 
+		}
 		c:PRU ?= {
 			change_relations = { country = c:AUS value = -25 }
 			create_diplomatic_catalyst = {  
@@ -99,9 +102,6 @@
 				target = c:AUS
 			}
 		}
-		hidden_effect = { 
-			set_global_variable = schleswig_holstein_question_solved 
-		}		
 	}
 	
 	status_desc = {

@@ -261,5 +261,20 @@
 			}
 			add = 100
 		}
+		modifier = {
+			trigger = { 
+				any_interest_group = {
+					is_in_government = yes
+					OR = {
+						leader = {
+							has_ideology = ideology:ideology_jingoist_leader
+						}
+						has_ideology = ideology:ideology_jingoist
+					}
+				}	
+				is_at_war = no
+			}
+			add = 10
+		}
 	}
 }

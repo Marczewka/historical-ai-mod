@@ -47,12 +47,13 @@ law_ethnostate = {
 		country_voting_power_second_rate_citizen_mult = -0.5
 		country_allow_voting_full_acceptance_bool = yes
 
+		country_allow_assimilation_violent_hostility_bool = no
 		country_allow_assimilation_cultural_erasure_bool = yes
 		country_allow_assimilation_open_prejudice_bool = yes
 		country_allow_assimilation_second_rate_citizen_bool = yes
 
-		country_assimilation_cultural_erasure_mult = 0.05
-		country_assimilation_open_prejudice_mult = 0.15
+		country_assimilation_cultural_erasure_mult = -0.3 # 0.05
+		country_assimilation_open_prejudice_mult = -0.15 # 0.15
 
 		country_political_strength_violent_hostility_mult = -0.5
 		country_political_strength_cultural_erasure_mult = -0.4
@@ -134,8 +135,8 @@ law_national_supremacy = {
 		country_allow_assimilation_open_prejudice_bool = yes
 		country_allow_assimilation_second_rate_citizen_bool = yes
 
-		country_assimilation_cultural_erasure_mult = 0.05
-		country_assimilation_open_prejudice_mult = 0.15
+		country_assimilation_cultural_erasure_mult = -0.3 # 0.05
+		country_assimilation_open_prejudice_mult = -0.15 # 0.15
 
 		country_political_strength_violent_hostility_mult = -0.4
 		country_political_strength_cultural_erasure_mult = -0.3
@@ -210,8 +211,8 @@ law_racial_segregation = {
 		country_allow_assimilation_open_prejudice_bool = yes
 		country_allow_assimilation_second_rate_citizen_bool = yes
 
-		country_assimilation_cultural_erasure_mult = 0.05
-		country_assimilation_open_prejudice_mult = 0.15
+		country_assimilation_cultural_erasure_mult = -0.3 # 0.05
+		country_assimilation_open_prejudice_mult = -0.15 # 0.15
 
 		country_political_strength_violent_hostility_mult = -0.3
 		country_political_strength_cultural_erasure_mult = -0.2
@@ -275,7 +276,7 @@ law_cultural_exclusion = {
 		country_acceptance_primary_culture_add = 115 # 100
 		country_acceptance_shared_heritage_and_cultural_trait_add = 95 # 80
 		country_acceptance_shared_heritage_trait_add = 75 # 60
-		country_acceptance_shared_cultural_trait_add = 55 # 40
+		country_acceptance_shared_cultural_trait_add = 60 # 55 # 40
 		country_acceptance_culture_base_add = 45 # 35 # 20
 	}
 
@@ -284,8 +285,8 @@ law_cultural_exclusion = {
 		country_allow_assimilation_open_prejudice_bool = yes
 		country_allow_assimilation_second_rate_citizen_bool = yes
 
-		country_assimilation_cultural_erasure_mult = 0.05
-		country_assimilation_open_prejudice_mult = 0.15
+		country_assimilation_cultural_erasure_mult = -0.3 # 0.05
+		country_assimilation_open_prejudice_mult = -0.15 # 0.15
 		
 		country_allow_voting_violent_hostility_bool = no
 		country_voting_power_cultural_erasure_mult = -0.25
@@ -371,8 +372,8 @@ law_multicultural = {
 		country_allow_assimilation_open_prejudice_bool = yes
 		country_allow_assimilation_second_rate_citizen_bool = yes
 
-		country_assimilation_cultural_erasure_mult = 0.05
-		country_assimilation_open_prejudice_mult = 0.15
+		country_assimilation_cultural_erasure_mult = -0.3 # 0.05
+		country_assimilation_open_prejudice_mult = -0.15 # 0.15
 
 		country_wage_violent_hostility_mult = -0.15 # -0.2
 		country_wage_cultural_erasure_mult = -0.1

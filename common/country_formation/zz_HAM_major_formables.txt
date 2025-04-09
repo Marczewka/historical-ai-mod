@@ -42,14 +42,31 @@
 }
 
 ITA = {
-	use_culture_states = yes
+	# use_culture_states = yes
+
+	states = {
+		STATE_PIEDMONT
+		STATE_LOMBARDY
+		STATE_VENETIA
+		STATE_EMILIA
+		STATE_TUSCANY
+		STATE_ROMAGNA
+		STATE_UMBRIA
+		STATE_LAZIO
+		STATE_ABRUZZO
+		STATE_CAMPANIA
+		STATE_AQUILA
+		STATE_CALABRIA
+		STATE_SICILY
+		STATE_SARDINIA
+	}
 	
 	is_major_formation = yes
 	
 	unification_play = dp_unify_italy
 	leadership_play = dp_leadership_italy
 
-	required_states_fraction = 0.8 # 0.7
+	required_states_fraction = 0.85 # 0.7
 
 	ai_will_do = { has_technology_researched = nationalism }
 

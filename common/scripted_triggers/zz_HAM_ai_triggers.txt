@@ -120,12 +120,29 @@ has_je_conquest_reason = {
 		}
 
 		AND = {
+			has_journal_entry = je_scramble_for_africa
+			$TARGET$ = {
+				country_is_in_africa = yes
+				is_country_type = unrecognized
+				is_subject = no
+			}
+		}
+
+		AND = {
 			has_journal_entry = je_greek_nationalism
 			$TARGET$ = {
 				any_scope_state = {
 					state_region = { is_homeland = cu:greek }
 					has_claim_by = root
 				}
+			}
+		}
+
+		$TARGET$ = {
+			has_variable = failed_tanzimat
+			any_scope_state = {
+				is_homeland_of_country_cultures = root
+				has_claim_by = root
 			}
 		}
 
@@ -377,18 +394,7 @@ has_je_subjugation_reason = {
 			$TARGET$ = c:SCH		
 		}
 		AND = { # Open up Japan	
-			has_strategy = ai_strategy_economic_imperialism
-			OR = {
-				has_technology_researched = civilizing_mission # Just to make sure it doesn't happen immediately in 1836
-				AND = {
-					this ?= c:USA
-					any_scope_state = {
-						region = sr:region_pacific_coast
-					}
-				}
-			}
-			country_rank = rank_value:great_power
-			navy_size >= 25
+			this ?= c:USA
 			scope:target_country = { 
 				exists = c:JAP
 				this = c:JAP		
@@ -504,9 +510,19 @@ has_je_befriend_reason = {
 		AND = {
 			has_journal_entry = je_risorgimento
 			has_modifier = modifier_risorgimento_support
+			is_unification_candidate = ITA
 			$TARGET$ = { 
 				has_modifier = modifier_risorgimento_support 
 				NOT = { is_unification_candidate = ITA }
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_risorgimento
+			has_modifier = modifier_risorgimento_support
+			NOT = { is_unification_candidate = ITA }
+			$TARGET$ = { 
+				has_modifier = modifier_risorgimento_support 
 			}
 		}
 	

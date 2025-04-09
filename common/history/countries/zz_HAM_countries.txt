@@ -49,9 +49,9 @@
     activate_law = law_type:law_racial_segregation
     activate_law = law_type:law_freedom_of_conscience
   }
-  c:CHL ?= {
-    activate_law = law_type:law_no_colonial_affairs # colonizes too quickly
-  }
+  # c:CHL ?= {
+  #   activate_law = law_type:law_no_colonial_affairs # colonizes too quickly
+  # }
   c:HAI ?= {
     set_tax_level = very_high
     set_government_wage_level = very_low

@@ -99,7 +99,7 @@
 	}
 
 	ai_chance = {
-		base = 1
+		base = 100 # 1
 	}
 }
 
@@ -110,7 +110,7 @@ patagonia_button = {
 	visible = { always = yes }
 
 	possible = {
-		has_technology_researched = civilizing_mission
+		has_technology_researched = quinine # civilizing_mission
 		ig:ig_armed_forces = { 
 			is_marginal = no
 		}
@@ -133,6 +133,6 @@ patagonia_button = {
 	}
 
 	ai_chance = {
-		base = 10
+		base = 100 # 10
 	}
 }

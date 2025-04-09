@@ -2093,7 +2093,7 @@ movement_socialist = {
 				desc = "IS_BELOW_15_SOL"
 				value = 15
 				subtract = average_sol
-				multiply = 0.05 # 0.03
+				multiply = 0.03
 				min = 0
 			}
 		}

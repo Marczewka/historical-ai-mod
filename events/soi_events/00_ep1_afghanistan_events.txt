@@ -1101,6 +1101,54 @@ gg_afghanistan.4 = { #Afghanistan unifies
 		ai_chance = {
 			base = 25
 		}
+		s:STATE_KABUL = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_HERAT = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_KANDAHAR = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		s:STATE_CENTRAL_HIGHLANDS = { 
+			if = {
+				limit = {
+					any_scope_state = {
+						NOT = {
+							owner = ROOT
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
 		add_modifier = {
 			name = unification_prestige
 			months = very_long_modifier_time

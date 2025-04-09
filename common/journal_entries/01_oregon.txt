@@ -25,7 +25,10 @@
 
 	fail = {
 		c:GBR = {
-			relations:ROOT <= relations_threshold:cold
+			has_diplomatic_pact = {
+				who = root
+				type = rivalry
+			}	
 		}
 	}
 

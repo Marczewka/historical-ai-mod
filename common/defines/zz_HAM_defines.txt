@@ -27,13 +27,13 @@
 	TURMOIL_STATE_HIGH_EFFECTS_THRESHOLD = 0.33			# Above this turmoil, add a harsher modifier
 	TURMOIL_STATE_EXTREME_EFFECTS_THRESHOLD = 0.66		# Above this turmoil, add the harshest modifier
 
-	CIVIL_WAR_COOLDOWN_MONTHS = 2 # 6									# After a civil war concludes, it takes this long before another one can start
+	CIVIL_WAR_COOLDOWN_MONTHS = 1 # 6									# After a civil war concludes, it takes this long before another one can start
 
-	CIVIL_WAR_MAX_PROGRESS_AT_CHECKPOINT = 0.50 # 0.25	# A civil war can advance at most this amount per checkpoint, regardless of radicalism
+	CIVIL_WAR_MAX_PROGRESS_AT_CHECKPOINT = 0.25	# A civil war can advance at most this amount per checkpoint, regardless of radicalism
 	MIN_RADICALISM_FOR_CIVIL_WAR_PROGRESSION = 0.75	# A political movement must have this much radicalism for a civil war to start organizing
 	MIN_RADICALISM_FOR_CIVIL_WAR_START = 1.0		# Allow a civil war to start at this amount of radicalism or more
 	CIVIL_WAR_PROGRESS_DECAY = 0.1					# The progress of civil wars with insufficient support decays at this rate
-	CIVIL_WAR_PROGRESS_RADICALISM_WEIGHT = 0.50 # 0.2  	# civil wars gain progress based on the movement's radicalism, multiplied by this weight (may be affected by modifiers)
+	CIVIL_WAR_PROGRESS_RADICALISM_WEIGHT = 0.2  	# civil wars gain progress based on the movement's radicalism, multiplied by this weight (may be affected by modifiers)
 	CIVIL_WAR_CHECKPOINT_INTERVAL_BASE_WEEKS = 8   # civil war progress will be updated every this many weeks (may be affected by modifiers)
 	CIVIL_WAR_CHECKPOINT_INTERVAL_MAXIMUM_WEEKS = 52	# This serves as a limit, to protect modifiers from reducing the progress speed to zero
 }

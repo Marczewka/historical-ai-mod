@@ -339,6 +339,10 @@ italian_unification.4 = {
 				country_has_primary_culture = cu:north_italian
 				country_has_primary_culture = cu:south_italian
 			}
+			NOR = {
+				is_revolutionary = yes
+				is_secessionist = yes
+			}
 		}
 	}
 
@@ -371,6 +375,10 @@ italian_unification.4 = {
 					is_subject = yes
 				}
 				has_modifier = modifier_risorgimento_support
+				NOR = {
+					is_revolutionary = yes
+					is_secessionist = yes
+				}
 				NOT = {
 					THIS = ROOT
 				}
@@ -394,6 +402,10 @@ italian_unification.4 = {
 						is_subject = yes
 					}
 					has_modifier = modifier_risorgimento_support
+					NOR = {
+						is_revolutionary = yes
+						is_secessionist = yes
+					}
 					NOT = {
 						THIS = ROOT
 					}
@@ -416,6 +428,10 @@ italian_unification.4 = {
 					}
 					NOT = {
 						is_subject = yes
+					}
+					NOR = {
+						is_revolutionary = yes
+						is_secessionist = yes
 					}
 					NOT = {
 						THIS = ROOT

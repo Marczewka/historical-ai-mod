@@ -98,7 +98,7 @@ dual_monarchy.1 = {
 			has_variable = dual_monarchy_fail
 		}
 		add_radicals = {
-			value = large_radicals # very_large_radicals
+			value = very_large_radicals
 			culture = cu:hungarian
 		}
 		# # add radicals from discrimination

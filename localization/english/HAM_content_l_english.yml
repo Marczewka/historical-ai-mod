@@ -76,7 +76,9 @@ HAM_je_eastern_frontier_tt_3: "#bold Transoxiana#! is owned by [SCOPE.GetRootSco
   je_set_up_paper_import_reason:0 "At the request of the $ig_intelligentsia$, we have promised to import $paper$ to reduce material costs for their literary ambitions."
 
   political_differences: "opposition to revolution's ideology"
+  brethren_secession: "wants to help brethren secession"
   schleswig_holstein: "support for liberation of Schleswig-Holstein"
   risorgimento_support: "support for Risorgimento"
   against_the_confederation: "opposition to Peru-Bolivia"
+  against_ottomans: "Ottoman Empire failed Tanzimat"
   protect_herat: "wants to protect Herat from Persia"

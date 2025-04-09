@@ -1830,11 +1830,37 @@ je_unify_afghanistan = {
 	}
 	
 	on_complete = {
-
+		if = {
+			limit = {
+				has_variable = AFG_appealed_to_RUS
+			}
+			remove_variable = AFG_appealed_to_RUS
+		}
+		if = {
+			limit = {
+				has_variable = AFG_appealed_to_GBR
+			}
+			remove_variable = AFG_appealed_to_GBR
+		}
 	}
 
 	invalid = {
 		exists = c:AFG
+	}
+
+	on_invalid = {
+		if = {
+			limit = {
+				has_variable = AFG_appealed_to_RUS
+			}
+			remove_variable = AFG_appealed_to_RUS
+		}
+		if = {
+			limit = {
+				has_variable = AFG_appealed_to_GBR
+			}
+			remove_variable = AFG_appealed_to_GBR
+		}
 	}
 		
 	weight = 1000
