@@ -20,7 +20,18 @@
 	}
 
 	possible = {
-		has_technology_researched = nationalism
+		OR = {
+			has_technology_researched = nationalism
+			any_country = {
+				NOT = { THIS = ROOT }
+				any_scope_state = {
+					state_region = s:STATE_SAVOY
+					is_split_state = no
+					is_capital = no
+				}
+				has_technology_researched = nationalism
+			}
+		}
 		hidden_trigger = {
 			is_revolutionary = no
 			is_subject = no

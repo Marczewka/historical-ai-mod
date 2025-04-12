@@ -96,7 +96,6 @@
 			set_global_variable = schleswig_holstein_question_solved 
 		}
 		c:PRU ?= {
-			change_relations = { country = c:AUS value = -25 }
 			create_diplomatic_catalyst = {  
 				type = catalyst_journal_entry
 				target = c:AUS
@@ -280,6 +279,15 @@ je_north_german_unification = {
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 	
 	group = je_group_historical_content
+
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:north_german
+	}
+
+	possible = {
+		NOT = { has_journal_entry = je_german_unification_idea }
+		country_has_primary_culture = cu:north_german
+	}
 	
 	complete = {
 		custom_tooltip = {
@@ -356,6 +364,15 @@ je_south_german_unification = {
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 	
 	group = je_group_historical_content
+
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:south_german
+	}
+
+	possible = {
+		NOT = { has_journal_entry = je_german_unification_idea }
+		country_has_primary_culture = cu:south_german
+	}
 
 	fail = {
 		custom_tooltip = {

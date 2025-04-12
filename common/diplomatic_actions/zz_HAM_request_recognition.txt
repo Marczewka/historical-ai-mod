@@ -34,19 +34,19 @@
 		}	
 	}
 
-	accept_effect = {
-		custom_tooltip = {
-			text = request_recognition_tt
-			if = {
-				limit = {
-					has_journal_entry = je_earn_recognition
-				}
-				je:je_earn_recognition ?= {
-					add_progress = { value = 20 name = earn_recognition_progress_bar }
-				}
-			}
-		}		
-	}
+	# accept_effect = {
+	# 	custom_tooltip = {
+	# 		text = request_recognition_tt
+	# 		if = {
+	# 			limit = {
+	# 				has_journal_entry = je_earn_recognition
+	# 			}
+	# 			je:je_earn_recognition ?= {
+	# 				add_progress = { value = 20 name = earn_recognition_progress_bar }
+	# 			}
+	# 		}
+	# 	}		
+	# }
 	
 	decline_effect = {
 		change_relations = { country = scope:target_country value = -20 }
@@ -554,21 +554,21 @@ offer_recognition = {
 
 	reverse_pact = request_recognition
 
-	accept_effect = {
-		custom_tooltip = {
-			text = offer_recognition_tt
-			scope:target_country = {
-				if = {
-					limit = {
-						has_journal_entry = je_earn_recognition
-					}
-					je:je_earn_recognition ?= {
-						add_progress = { value = 20 name = earn_recognition_progress_bar }
-					}
-				}
-			}
-		}		
-	}
+	# accept_effect = {
+	# 	custom_tooltip = {
+	# 		text = offer_recognition_tt
+	# 		scope:target_country = {
+	# 			if = {
+	# 				limit = {
+	# 					has_journal_entry = je_earn_recognition
+	# 				}
+	# 				je:je_earn_recognition ?= {
+	# 					add_progress = { value = 20 name = earn_recognition_progress_bar }
+	# 				}
+	# 			}
+	# 		}
+	# 	}		
+	# }
 
 	decline_effect = {
 		change_relations = { country = scope:target_country value = -20 }

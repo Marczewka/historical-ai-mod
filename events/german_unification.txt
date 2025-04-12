@@ -472,10 +472,6 @@ german_unification.5 = {
 	option = {
 		name = german_unification.5.a
 		default_option = yes	
-		change_relations = {
-			country = c:DEN
-			value = -25
-		}
 		create_diplomatic_catalyst = {  
 			type = catalyst_journal_entry
 			target = c:DEN
@@ -491,7 +487,7 @@ german_unification.5 = {
 			add_journal_entry = {
 				type = je_south_german_unification
 			}
-		}		
+		}	
 	}
 }
 

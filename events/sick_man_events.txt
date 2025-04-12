@@ -226,6 +226,12 @@ sick_man.3 = {
 			kill_character = yes
 		}
 		every_country = {
+			limit = {
+				OR = {
+					capital.region = sr:region_balkans
+					capital.region = sr:region_danubia
+				}
+			}
 			create_diplomatic_catalyst = {  
 				type = catalyst_journal_entry
 				target = root

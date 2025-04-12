@@ -1381,7 +1381,7 @@ ai_strategy_unify_germany = {
 	}	
 
 	recklessness = {
-		value = 0.5
+		value = 0.25 # 0.5
 
 		if = {
 			limit = {
@@ -1486,25 +1486,26 @@ ai_strategy_unify_germany = {
 	}
 	
 	secret_goal_scores = {
-		protect = {		
-			if = {
-				limit = {
-					scope:target_country = {
-						OR = {
-							country_has_primary_culture = cu:north_german
-							country_has_primary_culture = cu:south_german
-						}
-						NOT = { is_unification_candidate = GER }
-						OR = { 
-							is_supporting_unification_candidate = { who = root country_formation = GER }
-							is_subject_of = root
-							is_in_customs_union_with = root
-						}						
-					}
-				}
-				add = 1000
-			}		
-		}		
+		# Moved to je_reason
+		# protect = {		
+		# 	if = {
+		# 		limit = {
+		# 			scope:target_country = {
+		# 				OR = {
+		# 					country_has_primary_culture = cu:north_german
+		# 					country_has_primary_culture = cu:south_german
+		# 				}
+		# 				NOT = { is_unification_candidate = GER }
+		# 				OR = { 
+		# 					is_supporting_unification_candidate = { who = root country_formation = GER }
+		# 					is_subject_of = root
+		# 					is_in_customs_union_with = root
+		# 				}						
+		# 			}
+		# 		}
+		# 		add = 1000
+		# 	}		
+		# }		
 		dominate = {		
 			if = {
 				limit = {
@@ -1613,7 +1614,7 @@ ai_strategy_unify_italy = {
 	}		
 	
 	recklessness = {
-		value = 0.5
+		value = 0.25 # 0.5
 	}	
 	
 	aggression = {
@@ -1984,7 +1985,7 @@ ai_strategy_unify_ethiopia = {
 	}			
 		
 	recklessness = {
-		value = 1.0
+		value = 0.25 # 1.0
 	}	
 	
 	aggression = {
@@ -2174,7 +2175,7 @@ ai_strategy_unify_arabia = {
 	}			
 		
 	recklessness = {
-		value = 0.5
+		value = 0.25 # 0.5
 	}	
 	
 	aggression = {
@@ -2369,7 +2370,7 @@ ai_strategy_unify_scandinavia = {
 	}			
 		
 	recklessness = {
-		value = 0.5
+		value = 0.25 # 0.5
 	}	
 	
 	aggression = {
@@ -2684,7 +2685,7 @@ ai_strategy_unify_china = {
 	}			
 		
 	recklessness = {
-		value = 0.5
+		value = 0.25 # 0.5
 	}	
 	
 	aggression = {
@@ -3016,7 +3017,7 @@ ai_strategy_world_revolution = {
 	}
 	
 	recklessness = {
-		value = 0.5
+		value = 0.25 # 0.5
 	}
 	
 	aggression = {

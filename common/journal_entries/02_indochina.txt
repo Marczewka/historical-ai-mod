@@ -18,11 +18,8 @@
 					state_region = s:STATE_CAMBODIA
 				}
 			}
-			OR = {
-				owner = { religion = { has_discrimination_trait = christian } }
-				owner = { 
-					top_overlord = { religion = { has_discrimination_trait = christian } } 
-				}
+			owner = { 
+				top_overlord = { religion = { has_discrimination_trait = christian } } 
 			}
 			percent >= 1
 		}

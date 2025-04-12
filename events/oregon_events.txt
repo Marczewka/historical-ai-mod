@@ -235,30 +235,6 @@ oregon.3 = {
 		c:GBR = {
 			save_scope_as = britain_scope
 		}
-		hidden_effect = {
-			random_state = {
-				limit = {
-					state_region = s:STATE_ALASKA
-					owner = {
-						NOT = { is_country_type = decentralized }
-					}
-				}
-				save_scope_as = alaska_state
-				owner = {
-					if = {
-						limit = { 
-							is_subject = no 
-						}
-						save_scope_as = alaska_overlord
-					}
-					else = {
-						overlord = { 
-							save_scope_as = alaska_overlord 
-						}
-					}
-				}
-			}
-		}
 	}
 	
 	option = {
@@ -321,10 +297,6 @@ oregon.3 = {
 				}
 				set_state_owner = c:USA
 			}
-		}
-		create_diplomatic_catalyst = {  
-			type = catalyst_journal_entry
-			target = scope:alaska_overlord
 		}
 	}
 }

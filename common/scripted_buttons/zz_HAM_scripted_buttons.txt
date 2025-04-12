@@ -726,7 +726,7 @@ je_risorgimento_change_stance_button = {
 					}
 				}
 			}
-			change_relations = { country = ROOT value = -50 }
+			change_relations = { country = ROOT value = -25 }
 			ROOT = {
 				create_diplomatic_catalyst = {  
 					type = catalyst_journal_entry

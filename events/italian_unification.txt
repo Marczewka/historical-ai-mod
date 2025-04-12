@@ -220,7 +220,6 @@ italian_unification.2 = {
 					type = alliance
 				}
 			}
-			change_relations = { country = ROOT value = 50 }
 			create_diplomatic_catalyst = {  
 				type = catalyst_event_positive
 				target = root
@@ -629,7 +628,6 @@ italian_unification.5 = {
 					type = alliance
 				}
 			}
-			change_relations = { country = ROOT value = 50 }
 			create_diplomatic_catalyst = {  
 				type = catalyst_event_positive
 				target = root
@@ -1028,6 +1026,12 @@ italian_unification.10 = {
 				}
 				add = -50
 			}
+			modifier = {
+				trigger = {
+					has_law = law_type:law_traditionalism
+				}
+				add = -50
+			}
 		}
 		default_option = yes
 		custom_tooltip = {
@@ -1104,7 +1108,7 @@ italian_unification.10 = {
 					}
 				}
 			}
-			change_relations = { country = ROOT value = -50 }
+			change_relations = { country = ROOT value = -25 }
 			ROOT = {
 				create_diplomatic_catalyst = {  
 					type = catalyst_journal_entry

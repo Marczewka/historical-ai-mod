@@ -84,7 +84,7 @@ law_secret_police = {
 		country_revolution_progress_mult = -0.1
 		country_secession_progress_mult = -0.1
 		country_suppression_attraction_mult = -0.05
-		political_movement_radicalism_add = -0.05
+		political_movement_radicalism_add = -0.03 # -0.05
 	}
 
 	on_enact = {
