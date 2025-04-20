@@ -110,12 +110,15 @@ patagonia_button = {
 	visible = { always = yes }
 
 	possible = {
-		has_technology_researched = quinine # civilizing_mission
+		has_technology_researched = nationalism # civilizing_mission
 		ig:ig_armed_forces = { 
 			is_marginal = no
 		}
 		any_scope_state = {
 			OR = {
+				state_region = s:STATE_CHACO
+				state_region = s:STATE_SANTA_FE
+				state_region = s:STATE_BUENOS_AIRES
 				state_region = s:STATE_ARAUCANIA
 				state_region = s:STATE_PATAGONIA
 				state_region = s:STATE_RIO_NEGRO
