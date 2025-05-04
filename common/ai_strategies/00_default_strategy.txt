@@ -2379,8 +2379,8 @@ ai_strategy_default = {
 						state_region = s:STATE_ADANA
 					}
 				}
-				multiply = 0
 			}
+			multiply = 0
 		}
 		
 		# Not worth doing against very small markets

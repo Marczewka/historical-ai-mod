@@ -1241,7 +1241,7 @@ philosophical_pragmatism = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 	}
 }
 

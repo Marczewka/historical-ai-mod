@@ -530,7 +530,7 @@
 			}
 			if = {
 				limit = {
-					exists ?= c:BIC
+					exists = c:BIC
 				}
 				custom_tooltip = {
 					text = bic_abandon_claims_tt

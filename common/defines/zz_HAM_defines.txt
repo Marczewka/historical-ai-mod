@@ -378,8 +378,3 @@ NTravelNetwork = {
 	DIRECT_CONNECTION_NODE_SEARCH_DISTANCE = 2000 #1200	# Default distance allowed to pathfind in a direct line from a (start/target) map point to a travel node (if no valid are found, it is expanded)
 	DIRECT_CONNECTION_MAP_MAX_DISTANCE = 500 #200		# Maximum distance allowed to pathfind in a direct line between start and target map points directly
 }
-
-NGraphics = {
-	ROUTE_PAVED_ROAD_TECH = "paved_roads"
-	ROUTE_PAVED_ROAD_MIN_INFRASTRUCTURE = 200.0
-}
