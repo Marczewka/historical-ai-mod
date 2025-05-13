@@ -236,16 +236,6 @@ romania.3 = {
 	}
 
 	immediate = {
-        random_neighbouring_state = {
-            limit = {
-                owner = {
-                    has_variable = romania_union_partner
-                }
-            }
-            owner = {
-                save_scope_as = romania_lesser_union_partner
-            }
-        }
         if = {
         	limit = {
 	        	exists = c:TRS
@@ -256,6 +246,17 @@ romania.3 = {
 	        c:TRS = {
 	        	save_scope_as = transylvania_union_partner
 	        }
+        }
+		random_neighbouring_state = {
+            limit = {
+                owner = {
+                    has_variable = romania_union_partner
+					NOT = { c:TRS ?= this }
+                }
+            }
+            owner = {
+                save_scope_as = romania_lesser_union_partner
+            }
         }
 	}
 

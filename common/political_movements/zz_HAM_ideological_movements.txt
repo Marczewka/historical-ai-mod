@@ -258,10 +258,6 @@
 			}
 		}
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}
 
 	secession = {
@@ -351,10 +347,6 @@
 			}
 		}		
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}	
 	
 	additional_radicalism_factors = {
@@ -586,10 +578,6 @@ movement_pro_slavery = {
 			}
 		}
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}
 	
 	secession = {
@@ -696,10 +684,6 @@ movement_pro_slavery = {
 			}
 		}	
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}
 	
 	additional_radicalism_factors = {
@@ -1063,10 +1047,6 @@ movement_royalist_absolutist = {
 			}
 		}
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}
 	
 	secession = {
@@ -1101,10 +1081,6 @@ movement_royalist_absolutist = {
 			}
 		}	
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 		
 		forced_tags = {
 			BHT = {
@@ -1387,10 +1363,6 @@ movement_royalist_constitutional = {
 			}
 		}
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}
 	
 	secession = {
@@ -1428,10 +1400,6 @@ movement_royalist_constitutional = {
 			}
 		}		
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 		
 		forced_tags = {
 			BHT = {
@@ -1767,10 +1735,6 @@ movement_labor = { # Explicitly non-socialist labour movement
 			}
 		}
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}
 	
 	secession = {
@@ -1792,10 +1756,6 @@ movement_labor = { # Explicitly non-socialist labour movement
 			}
 		}		
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}	
 	
 	additional_radicalism_factors = {
@@ -2124,10 +2084,6 @@ movement_socialist = {
 			}
 		}
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}
 	
 	secession = {
@@ -2160,10 +2116,6 @@ movement_socialist = {
 			}
 		}		
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}	
 	
 	additional_radicalism_factors = {
@@ -3067,10 +3019,6 @@ movement_fascist = {
 			}
 		}
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}
 	
 	secession = {
@@ -3307,10 +3255,6 @@ movement_corporatist = {
 			}
 		}
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}
 	
 	secession = {
@@ -3641,10 +3585,6 @@ movement_liberal = {
 			}
 		}
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}
 	
 	secession = {
@@ -3669,10 +3609,6 @@ movement_liberal = {
 			}
 		}		
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}	
 	
 	additional_radicalism_factors = {
@@ -4011,10 +3947,6 @@ movement_radical = {
 			}
 		}
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}
 	
 	secession = {
@@ -4039,10 +3971,6 @@ movement_radical = {
 			}
 		}		
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}	
 	
 	additional_radicalism_factors = {
@@ -4307,10 +4235,6 @@ movement_nihilist = {
 			}
 		}
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}
 	
 	secession = {
@@ -4332,10 +4256,6 @@ movement_nihilist = {
 			}
 		}		
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}	
 
 	additional_radicalism_factors = {
@@ -4660,10 +4580,6 @@ movement_positivist = {
 			}
 		}
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}
 	
 	secession = {
@@ -4899,10 +4815,6 @@ movement_land_reform = {
 			}
 		}
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}
 	
 	secession = {
@@ -5142,10 +5054,6 @@ movement_feminist = {
 			}
 		}
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}
 	
 	secession = {
@@ -5463,10 +5371,6 @@ movement_reactionary = {
 			}
 		}
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}
 	
 	secession = {
@@ -5785,10 +5689,6 @@ movement_modernizer = {
 			}
 		}
 
-		target_fraction_of_states = {
-			value = political_movement_support
-			add = scope:clout
-		}
 	}
 	
 	secession = {

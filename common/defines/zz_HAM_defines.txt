@@ -230,6 +230,16 @@ NDiplomacy = {
 	COLONY_PROVINCE_ADJACENCY_SCORE = 25 # 20 # How much will colonies prioritize adjacency to existing provinces when growing the colony
 	COLONY_PROVINCE_NO_ADJACENCY_MULT = 0.1 # Multiply by this if no adjacencies at all
 	COLONY_PROVINCE_RANDOM_FACTOR = 1.25 # 1.5 # The higher this is, the more random colonization province picking will be
+
+	PRESTIGE_FROM_COUNTRY_GDP_DIVISOR = 1000000
+	PRESTIGE_FROM_COUNTRY_GDP = 3 # Per PRESTIGE_FROM_COUNTRY_GDP_DIVISOR GDP
+	PRESTIGE_FROM_SUBJECT_GDP = 1.5 # Per PRESTIGE_FROM_COUNTRY_GDP_DIVISOR GDP in subjects
+	PRESTIGE_FROM_ARMY_POWER_PROJECTION = 0.03 # Per point of power projection from army combat power
+	PRESTIGE_FROM_NAVY_POWER_PROJECTION = 0.05 # 0.10 # Per point of power projection from navy combat power
+	PRESTIGE_FROM_SUBJECT_ARMY_POWER_PROJECTION = 0.0005 # Per point of power projection from army combat power in subjects
+	PRESTIGE_FROM_SUBJECT_NAVY_POWER_PROJECTION = 0.005 # 0.01 # Per point of power projection from navy combat power in subjects
+	PRESTIGE_MIN_NUM_COUNTRIES = 100 # If there's less countries using prestige than this in the game, we add some filler countries to adjust average prestige levels
+	FILLER_COUNTRY_PRESTIGE = 15
 }
 
 NPops = {

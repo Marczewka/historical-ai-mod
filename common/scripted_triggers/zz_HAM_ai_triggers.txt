@@ -66,6 +66,19 @@ ai_desires_target_state = {
 has_je_conquest_reason = {
 	OR = {	
 		AND = {
+			has_journal_entry = je_expanding_paraguay
+			$TARGET$ = {
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_CORRIENTES
+						state_region = s:STATE_SANTA_FE
+						state_region = s:STATE_PARANA
+						state_region = s:STATE_RIO_GRANDE_DO_SUL
+					}
+				}
+			}
+		}
+		AND = {
 			c:ITA ?= this
 			$TARGET$ = {
 				OR = {

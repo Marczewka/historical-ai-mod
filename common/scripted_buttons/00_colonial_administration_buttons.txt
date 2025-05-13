@@ -734,7 +734,16 @@ je_colonial_administration_button_expand_senegal = {
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = {
-					has_variable = senegal_subject_var
+					OR = {
+						is_subject_type = subject_type_chartered_company
+						is_subject_type = subject_type_dominion
+						is_subject_type = subject_type_colony
+					}
+					any_scope_state = {
+						region = sr:region_senegal
+						is_under_colonization = no
+
+					}
 					count >= 2
 				}
 			}
@@ -780,20 +789,56 @@ je_colonial_administration_button_expand_senegal = {
 			random_subject_or_below = {
 				limit = {
 					has_variable = senegal_subject_var
-				}
-				save_scope_as = senegal_subject_scope
-			}
-			random_subject_or_below = {
-				limit = {
-					has_variable = senegal_subject_var
 					NOT = {
-						this = scope:senegal_subject_scope
+						this = scope:colonial_transfer_subject_scope
 					}
 				}
 				save_scope_as = senegal_subject_scope_2
 			}
-			scope:senegal_subject_scope = {
+			scope:colonial_transfer_subject_scope = {
 				annex = scope:senegal_subject_scope_2
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					OR = {
+						is_subject_type = subject_type_chartered_company
+						is_subject_type = subject_type_dominion
+						is_subject_type = subject_type_colony
+					}
+					any_scope_state = {
+						region = sr:region_senegal
+						is_under_colonization = no
+					}
+					count >= 2
+				}
+			}
+			random_subject_or_below = {
+				limit = {
+					OR = {
+						is_subject_type = subject_type_chartered_company
+						is_subject_type = subject_type_dominion
+						is_subject_type = subject_type_colony
+					}
+					any_scope_state = {
+						region = sr:region_senegal
+						is_under_colonization = no
+					}
+					NOT = {
+						this = scope:colonial_transfer_subject_scope
+					}
+				}
+				save_scope_as = senegal_subject_scope_3
+			}
+			scope:senegal_subject_scope_3 = {
+				every_scope_state = {
+					limit = {
+						region = sr:region_senegal
+						is_under_colonization = no
+					}
+					set_state_owner = scope:colonial_transfer_subject_scope
+				}
 			}
 		}
 	}
@@ -823,7 +868,16 @@ je_colonial_administration_button_expand_niger = {
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = {
-					has_variable = niger_subject_var
+					OR = {
+						is_subject_type = subject_type_chartered_company
+						is_subject_type = subject_type_dominion
+						is_subject_type = subject_type_colony
+					}
+					any_scope_state = {
+						region = sr:region_niger
+						is_under_colonization = no
+
+					}
 					count >= 2
 				}
 			}
@@ -869,20 +923,56 @@ je_colonial_administration_button_expand_niger = {
 			random_subject_or_below = {
 				limit = {
 					has_variable = niger_subject_var
-				}
-				save_scope_as = niger_subject_scope
-			}
-			random_subject_or_below = {
-				limit = {
-					has_variable = niger_subject_var
 					NOT = {
-						this = scope:niger_subject_scope
+						this = scope:colonial_transfer_subject_scope
 					}
 				}
 				save_scope_as = niger_subject_scope_2
 			}
-			scope:niger_subject_scope = {
+			scope:colonial_transfer_subject_scope = {
 				annex = scope:niger_subject_scope_2
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					OR = {
+						is_subject_type = subject_type_chartered_company
+						is_subject_type = subject_type_dominion
+						is_subject_type = subject_type_colony
+					}
+					any_scope_state = {
+						region = sr:region_niger
+						is_under_colonization = no
+					}
+					count >= 2
+				}
+			}
+			random_subject_or_below = {
+				limit = {
+					OR = {
+						is_subject_type = subject_type_chartered_company
+						is_subject_type = subject_type_dominion
+						is_subject_type = subject_type_colony
+					}
+					any_scope_state = {
+						region = sr:region_niger
+						is_under_colonization = no
+					}
+					NOT = {
+						this = scope:colonial_transfer_subject_scope
+					}
+				}
+				save_scope_as = niger_subject_scope_3
+			}
+			scope:niger_subject_scope_3 = {
+				every_scope_state = {
+					limit = {
+						region = sr:region_niger
+						is_under_colonization = no
+					}
+					set_state_owner = scope:colonial_transfer_subject_scope
+				}
 			}
 		}
 	}
@@ -912,7 +1002,16 @@ je_colonial_administration_button_expand_ethiopia = {
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = {
-					has_variable = ethiopia_subject_var
+					OR = {
+						is_subject_type = subject_type_chartered_company
+						is_subject_type = subject_type_dominion
+						is_subject_type = subject_type_colony
+					}
+					any_scope_state = {
+						region = sr:region_ethiopia
+						is_under_colonization = no
+
+					}
 					count >= 2
 				}
 			}
@@ -958,20 +1057,56 @@ je_colonial_administration_button_expand_ethiopia = {
 			random_subject_or_below = {
 				limit = {
 					has_variable = ethiopia_subject_var
-				}
-				save_scope_as = ethiopia_subject_scope
-			}
-			random_subject_or_below = {
-				limit = {
-					has_variable = ethiopia_subject_var
 					NOT = {
-						this = scope:ethiopia_subject_scope
+						this = scope:colonial_transfer_subject_scope
 					}
 				}
 				save_scope_as = ethiopia_subject_scope_2
 			}
-			scope:ethiopia_subject_scope = {
+			scope:colonial_transfer_subject_scope = {
 				annex = scope:ethiopia_subject_scope_2
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					OR = {
+						is_subject_type = subject_type_chartered_company
+						is_subject_type = subject_type_dominion
+						is_subject_type = subject_type_colony
+					}
+					any_scope_state = {
+						region = sr:region_ethiopia
+						is_under_colonization = no
+					}
+					count >= 2
+				}
+			}
+			random_subject_or_below = {
+				limit = {
+					OR = {
+						is_subject_type = subject_type_chartered_company
+						is_subject_type = subject_type_dominion
+						is_subject_type = subject_type_colony
+					}
+					any_scope_state = {
+						region = sr:region_ethiopia
+						is_under_colonization = no
+					}
+					NOT = {
+						this = scope:colonial_transfer_subject_scope
+					}
+				}
+				save_scope_as = ethiopia_subject_scope_3
+			}
+			scope:ethiopia_subject_scope_3 = {
+				every_scope_state = {
+					limit = {
+						region = sr:region_ethiopia
+						is_under_colonization = no
+					}
+					set_state_owner = scope:colonial_transfer_subject_scope
+				}
 			}
 		}
 	}
@@ -1001,7 +1136,16 @@ je_colonial_administration_button_expand_zanj = {
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = {
-					has_variable = zanj_subject_var
+					OR = {
+						is_subject_type = subject_type_chartered_company
+						is_subject_type = subject_type_dominion
+						is_subject_type = subject_type_colony
+					}
+					any_scope_state = {
+						region = sr:region_zanj
+						is_under_colonization = no
+
+					}
 					count >= 2
 				}
 			}
@@ -1047,20 +1191,56 @@ je_colonial_administration_button_expand_zanj = {
 			random_subject_or_below = {
 				limit = {
 					has_variable = zanj_subject_var
-				}
-				save_scope_as = zanj_subject_scope
-			}
-			random_subject_or_below = {
-				limit = {
-					has_variable = zanj_subject_var
 					NOT = {
-						this = scope:zanj_subject_scope
+						this = scope:colonial_transfer_subject_scope
 					}
 				}
 				save_scope_as = zanj_subject_scope_2
 			}
-			scope:zanj_subject_scope = {
+			scope:colonial_transfer_subject_scope = {
 				annex = scope:zanj_subject_scope_2
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					OR = {
+						is_subject_type = subject_type_chartered_company
+						is_subject_type = subject_type_dominion
+						is_subject_type = subject_type_colony
+					}
+					any_scope_state = {
+						region = sr:region_zanj
+						is_under_colonization = no
+					}
+					count >= 2
+				}
+			}
+			random_subject_or_below = {
+				limit = {
+					OR = {
+						is_subject_type = subject_type_chartered_company
+						is_subject_type = subject_type_dominion
+						is_subject_type = subject_type_colony
+					}
+					any_scope_state = {
+						region = sr:region_zanj
+						is_under_colonization = no
+					}
+					NOT = {
+						this = scope:colonial_transfer_subject_scope
+					}
+				}
+				save_scope_as = zanj_subject_scope_3
+			}
+			scope:zanj_subject_scope_3 = {
+				every_scope_state = {
+					limit = {
+						region = sr:region_zanj
+						is_under_colonization = no
+					}
+					set_state_owner = scope:colonial_transfer_subject_scope
+				}
 			}
 		}
 	}
@@ -1090,7 +1270,16 @@ je_colonial_administration_button_expand_southern_africa = {
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = {
-					has_variable = southern_africa_subject_var
+					OR = {
+						is_subject_type = subject_type_chartered_company
+						is_subject_type = subject_type_dominion
+						is_subject_type = subject_type_colony
+					}
+					any_scope_state = {
+						region = sr:region_southern_africa
+						is_under_colonization = no
+
+					}
 					count >= 2
 				}
 			}
@@ -1136,20 +1325,56 @@ je_colonial_administration_button_expand_southern_africa = {
 			random_subject_or_below = {
 				limit = {
 					has_variable = southern_africa_subject_var
-				}
-				save_scope_as = southern_africa_subject_scope
-			}
-			random_subject_or_below = {
-				limit = {
-					has_variable = southern_africa_subject_var
 					NOT = {
-						this = scope:southern_africa_subject_scope
+						this = scope:colonial_transfer_subject_scope
 					}
 				}
 				save_scope_as = southern_africa_subject_scope_2
 			}
-			scope:southern_africa_subject_scope = {
+			scope:colonial_transfer_subject_scope = {
 				annex = scope:southern_africa_subject_scope_2
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					OR = {
+						is_subject_type = subject_type_chartered_company
+						is_subject_type = subject_type_dominion
+						is_subject_type = subject_type_colony
+					}
+					any_scope_state = {
+						region = sr:region_southern_africa
+						is_under_colonization = no
+					}
+					count >= 2
+				}
+			}
+			random_subject_or_below = {
+				limit = {
+					OR = {
+						is_subject_type = subject_type_chartered_company
+						is_subject_type = subject_type_dominion
+						is_subject_type = subject_type_colony
+					}
+					any_scope_state = {
+						region = sr:region_southern_africa
+						is_under_colonization = no
+					}
+					NOT = {
+						this = scope:colonial_transfer_subject_scope
+					}
+				}
+				save_scope_as = southern_africa_subject_scope_3
+			}
+			scope:southern_africa_subject_scope_3 = {
+				every_scope_state = {
+					limit = {
+						region = sr:region_southern_africa
+						is_under_colonization = no
+					}
+					set_state_owner = scope:colonial_transfer_subject_scope
+				}
 			}
 		}
 	}
@@ -1179,7 +1404,15 @@ je_colonial_administration_button_expand_congo = {
 			custom_tooltip = {
 				text = colonial_transfer_two_subjects_tt
 				any_subject_or_below = {
-					has_variable = congo_subject_var
+					OR = {
+						is_subject_type = subject_type_chartered_company
+						is_subject_type = subject_type_dominion
+						is_subject_type = subject_type_colony
+					}
+					any_scope_state = {
+						region = sr:region_congo
+						is_under_colonization = no
+					}
 					count >= 2
 				}
 			}
@@ -1225,20 +1458,56 @@ je_colonial_administration_button_expand_congo = {
 			random_subject_or_below = {
 				limit = {
 					has_variable = congo_subject_var
-				}
-				save_scope_as = congo_subject_scope
-			}
-			random_subject_or_below = {
-				limit = {
-					has_variable = congo_subject_var
 					NOT = {
-						this = scope:congo_subject_scope
+						this = scope:colonial_transfer_subject_scope
 					}
 				}
 				save_scope_as = congo_subject_scope_2
 			}
-			scope:congo_subject_scope = {
+			scope:colonial_transfer_subject_scope = {
 				annex = scope:congo_subject_scope_2
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					OR = {
+						is_subject_type = subject_type_chartered_company
+						is_subject_type = subject_type_dominion
+						is_subject_type = subject_type_colony
+					}
+					any_scope_state = {
+						region = sr:region_congo
+						is_under_colonization = no
+					}
+					count >= 2
+				}
+			}
+			random_subject_or_below = {
+				limit = {
+					OR = {
+						is_subject_type = subject_type_chartered_company
+						is_subject_type = subject_type_dominion
+						is_subject_type = subject_type_colony
+					}
+					any_scope_state = {
+						region = sr:region_congo
+						is_under_colonization = no
+					}
+					NOT = {
+						this = scope:colonial_transfer_subject_scope
+					}
+				}
+				save_scope_as = congo_subject_scope_3
+			}
+			scope:congo_subject_scope_3 = {
+				every_scope_state = {
+					limit = {
+						region = sr:region_congo
+						is_under_colonization = no
+					}
+					set_state_owner = scope:colonial_transfer_subject_scope
+				}
 			}
 		}
 	}

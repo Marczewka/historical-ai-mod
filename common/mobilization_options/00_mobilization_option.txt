@@ -864,7 +864,7 @@ mobilization_option_first_aid = {
 		triage
 	}
 	possible = {
-		NOT = { scope:military_formation = { has_mobilization_option = mobilization_option:mobilization_option_field_hospitals } }
+		# NOT = { scope:military_formation = { has_mobilization_option = mobilization_option:mobilization_option_field_hospitals } }
 		market ?= {
 			mg:fabric ?= {
 				market_goods_sell_orders > 0
@@ -923,7 +923,7 @@ mobilization_option_field_hospitals = {
 		modern_nursing
 	}
 	possible = {
-		NOT = { scope:military_formation = { has_mobilization_option = mobilization_option:mobilization_option_first_aid } }
+		# NOT = { scope:military_formation = { has_mobilization_option = mobilization_option:mobilization_option_first_aid } }
 		market ?= {
 			mg:opium ?= {
 				market_goods_sell_orders > 0
@@ -959,11 +959,11 @@ mobilization_option_field_hospitals = {
 		}
 	}
 	upkeep_modifier = {
-		goods_input_opium_add = 2
-		goods_input_tools_add = 1
+		goods_input_opium_add = 1 # 2
+		goods_input_tools_add = 0.5 # 1
 	}
 	unit_modifier = {
-		unit_recovery_rate_add = 0.40	
+		unit_recovery_rate_add = 0.20 # 0.40	
 	}
 	ai_weight = {
 		value = 1

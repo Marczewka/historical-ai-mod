@@ -1633,7 +1633,7 @@ ai_strategy_default = {
 							has_state_in_state_region = STATE_CORRIENTES
 						}
 					}
-					add = 25
+					add = 100
 				}
 
 				if = {
@@ -1647,7 +1647,7 @@ ai_strategy_default = {
 							}
 						}
 					}
-					add = 25
+					add = 50
 				}
 
 				if = {
@@ -2560,6 +2560,7 @@ ai_strategy_default = {
 							}
 							country_has_primary_culture = cu:boer
 						}
+						is_subject = no
 					}
 				}
 				add = 50
@@ -3322,15 +3323,17 @@ ai_strategy_default = {
                 has_journal_entry = je_expanding_paraguay
                 scope:target_country = {
                     any_scope_state = {
-                        OR = {
-                            state_region = s:STATE_SANTA_FE
-                            state_region = s:STATE_PARANA
-                            state_region = s:STATE_RIO_GRANDE_DO_SUL
-                        }
+                        state_region = s:STATE_PARANA
+						# OR = {
+                            # state_region = s:STATE_CORRIENTES
+							# state_region = s:STATE_SANTA_FE
+                            # state_region = s:STATE_PARANA
+                            # state_region = s:STATE_RIO_GRANDE_DO_SUL
+                        # }
                     }
                 }
             }
-            add = 5
+            add = 100
         }	
 
 		# Even more recklessness for Chille in the War of the Confederation JE
@@ -3438,7 +3441,7 @@ ai_strategy_default = {
 		if = {
 			limit = {
 				scope:target_country = {
-					top_overlord = { country_rank < rank_value:great_power }
+					top_overlord = { country_rank < rank_value:unrecognized_major_power }
 					any_scope_state = {
 						has_claim_by = ROOT
 					}
@@ -3936,6 +3939,7 @@ ai_strategy_default = {
 				}
 				scope:target_country = {
 					capital.region = sr:region_southern_africa
+					top_overlord = { country_rank < rank_value:unrecognized_major_power }
 				}
 			}
 			add = 25
@@ -3944,8 +3948,31 @@ ai_strategy_default = {
 				limit = {
 					has_journal_entry = je_scramble_for_africa
 				}
-				add = 25
+				add = 50
 			}			
+		}
+
+		if = {
+			limit = {
+				has_technology_researched = civilizing_mission
+				country_rank >= rank_value:major_power
+				scope:target_country = {
+					is_country_type = unrecognized
+					top_overlord = { country_rank < rank_value:unrecognized_major_power }
+				}
+			}
+			add = 5
+		}
+
+		if = {
+			limit = {
+				has_journal_entry = je_scramble_for_africa
+				scope:target_country = {
+					country_is_in_africa = yes
+					top_overlord = { country_rank < rank_value:unrecognized_major_power }
+				}
+			}
+			add = 50
 		}
 
 		if = {
@@ -4004,6 +4031,7 @@ ai_strategy_default = {
 						state_region = s:STATE_ZAMBEZIA
 						state_region = s:STATE_LOURENCO_MARQUES
 					}
+					top_overlord = { country_rank < rank_value:unrecognized_major_power }
 				}
 			}
 			add = 25
@@ -4012,7 +4040,7 @@ ai_strategy_default = {
 				limit = {
 					has_journal_entry = je_scramble_for_africa
 				}
-				add = 25
+				add = 50
 			}			
 		}
 
@@ -4182,7 +4210,7 @@ ai_strategy_default = {
 					has_state_in_state_region = STATE_ACRE
 				}
 			}
-			add = 25
+			add = 100
 		}
 		
         # Great Powers with slavery banned should be more aggressive against an openly slave trading Brazil
@@ -6717,6 +6745,7 @@ ai_strategy_default = {
 						has_journal_entry = je_scramble_for_africa
 						scope:target_country = {
 							country_is_in_africa = yes
+							top_overlord = { country_rank < rank_value:unrecognized_major_power }
 						}
 					}
 					add = 500
@@ -6844,11 +6873,33 @@ ai_strategy_default = {
 				}
 				add = 25
 			}		
+
+			if = { # Britain consolidating South Africa
+				limit = {
+					country_has_primary_culture = cu:british
+					has_technology_researched = malaria_prevention
+					any_subject_or_below = {
+						capital.region = sr:region_southern_africa
+					}
+					scope:target_country = {
+						capital.region = sr:region_southern_africa
+						top_overlord = { country_rank < rank_value:unrecognized_major_power }
+					}
+				}
+				add = 25
+
+				if = {
+					limit = {
+						has_journal_entry = je_scramble_for_africa
+					}
+					add = 50
+				}			
+			}
 			
 			if = {
 				limit = {
 					scope:target_country = {
-						top_overlord = { country_rank < rank_value:great_power }
+						top_overlord = { country_rank < rank_value:unrecognized_major_power }
 						any_scope_state = {
 							has_claim_by = ROOT
 						}
@@ -7074,15 +7125,16 @@ ai_strategy_default = {
 					add = 10 # 50
 				}
 
-				if = {
-					limit = {
-						has_journal_entry = je_scramble_for_africa
-						scope:target_country = {
-							country_is_in_africa = yes
-						}
-					}
-					add = 250
-				}		
+				# if = {
+				# 	limit = {
+				# 		has_journal_entry = je_scramble_for_africa
+				# 		scope:target_country = {
+				# 			country_is_in_africa = yes
+				# 			top_overlord = { country_rank < rank_value:unrecognized_major_power }
+				# 		}
+				# 	}
+				# 	add = 250
+				# }		
 				
 				if = {
 					limit = {
@@ -7268,6 +7320,28 @@ ai_strategy_default = {
 					}
 				}
 				add = 25
+			}
+
+			if = { # Britain consolidating South Africa
+				limit = {
+					country_has_primary_culture = cu:british
+					has_technology_researched = malaria_prevention
+					any_subject_or_below = {
+						capital.region = sr:region_southern_africa
+					}
+					scope:target_country = {
+						capital.region = sr:region_southern_africa
+						top_overlord = { country_rank < rank_value:unrecognized_major_power }
+					}
+				}
+				add = 25
+
+				if = {
+					limit = {
+						has_journal_entry = je_scramble_for_africa
+					}
+					add = 50
+				}			
 			}
 			
 			if = {
@@ -7556,6 +7630,14 @@ ai_strategy_default = {
 				}
 				multiply = 0.1
 			}	
+
+			# More reluctant to get involved in plays
+			if = {
+				limit = {
+					NOT = { is_diplomatic_play_involved_with = scope:target_country.top_overlord }
+				}
+				multiply = 0.1
+			}
 		
 			if = {
 				limit = { 
@@ -8326,7 +8408,7 @@ ai_strategy_default = {
 				limit = {
 					NOT = { is_diplomatic_play_involved_with = scope:target_country }
 				}
-				multiply = 0.5
+				multiply = 0.1
 			}
 
 			if = {
@@ -8418,7 +8500,7 @@ ai_strategy_default = {
 				limit = {
 					NOT = { is_diplomatic_play_involved_with = scope:target_country }
 				}
-				multiply = 0.5
+				multiply = 0.1
 			}
 
 			if = {

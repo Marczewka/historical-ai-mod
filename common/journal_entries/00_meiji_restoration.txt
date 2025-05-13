@@ -224,7 +224,7 @@ je_meiji_economy = {
 			}
 			any_scope_building = {
 				is_building_type = building_urban_center
-				level >= 5
+				level >= 3 # 5
 			}
 			has_building = building_railway
 			percent > 0.65 # 0.7
