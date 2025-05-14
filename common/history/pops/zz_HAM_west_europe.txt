@@ -1,0 +1,15 @@
+﻿POPS = {
+	s:STATE_WURTTEMBERG = {
+		region_state:PRU = {
+			create_pop = {
+				culture = south_german
+				religion = protestant
+				size = 40310
+			}
+			create_pop = {
+				culture = south_german
+				size = 21024
+			}
+		}		
+	}
+}

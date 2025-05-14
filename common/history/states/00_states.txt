@@ -7562,7 +7562,7 @@ STATES = {
 			owned_provinces = { x118060 x100060 xC541D2 x8F0060 xDBB84C }
 		}
 		create_state = {
-			country = c:HOH
+			country = c:PRU # c:HOH
 			owned_provinces = { x908060 }
 		}
 		
