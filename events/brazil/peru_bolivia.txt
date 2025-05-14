@@ -274,13 +274,13 @@ peru_bolivia_events.3 = {
 				limit = {
 					exists = c:NPU
 				}
-				annex = c:NPU
+				annex_with_incorporation = c:NPU
 			}
 			if = {
 				limit = {
 					exists = c:IQU
 				}
-				annex = c:IQU
+				annex_with_incorporation = c:IQU
 			}
 			peru_bolivia_remove_puppet_effect = yes
 			change_tag = PEU
@@ -293,13 +293,13 @@ peru_bolivia_events.3 = {
 				limit = {
 					exists = c:SPU
 				}
-				annex = c:SPU
+				annex_with_incorporation = c:SPU
 			}
 			if = {
 				limit = {
 					exists = c:IQU
 				}
-				annex = c:IQU
+				annex_with_incorporation = c:IQU
 			}
 			peru_bolivia_remove_puppet_effect = yes
 			change_tag = PEU
@@ -315,7 +315,7 @@ peru_bolivia_events.3 = {
 				}
 				c:NPU = {
 					peru_bolivia_remove_puppet_effect = yes
-					annex = c:SPU
+					annex_with_incorporation = c:SPU
 					change_tag = PEU
 				}
 			}
@@ -330,7 +330,7 @@ peru_bolivia_events.3 = {
 					exists = c:SPU
 				}
 				c:NPU = {
-					annex = c:SPU
+					annex_with_incorporation = c:SPU
 				}
 			}
 			if = {
@@ -338,7 +338,7 @@ peru_bolivia_events.3 = {
 					exists = c:IQU
 				}
 				c:NPU = {
-					annex = c:IQU
+					annex_with_incorporation = c:IQU
 				}
 			}
 			c:NPU = {
@@ -392,13 +392,13 @@ peru_bolivia_events.3 = {
 				limit = {
 					exists = c:NPU
 				}
-				annex = c:NPU
+				annex_with_incorporation = c:NPU
 			}
 			if = {
 				limit = {
 					exists = c:IQU
 				}
-				annex = c:IQU
+				annex_with_incorporation = c:IQU
 			}
 			peru_bolivia_remove_puppet_effect = yes
 			change_tag = PEU
@@ -411,13 +411,13 @@ peru_bolivia_events.3 = {
 				limit = {
 					exists = c:SPU
 				}
-				annex = c:SPU
+				annex_with_incorporation = c:SPU
 			}
 			if = {
 				limit = {
 					exists = c:IQU
 				}
-				annex = c:IQU
+				annex_with_incorporation = c:IQU
 			}
 			peru_bolivia_remove_puppet_effect = yes
 			change_tag = PEU
@@ -433,7 +433,7 @@ peru_bolivia_events.3 = {
 				}
 				c:NPU = {
 					peru_bolivia_remove_puppet_effect = yes
-					annex = c:SPU
+					annex_with_incorporation = c:SPU
 					change_tag = PEU
 				}
 			}
@@ -448,7 +448,7 @@ peru_bolivia_events.3 = {
 					exists = c:SPU
 				}
 				c:NPU = {
-					annex = c:SPU
+					annex_with_incorporation = c:SPU
 				}
 			}
 			if = {
@@ -456,7 +456,7 @@ peru_bolivia_events.3 = {
 					exists = c:IQU
 				}
 				c:NPU = {
-					annex = c:IQU
+					annex_with_incorporation = c:IQU
 				}
 			}
 			c:NPU = {
