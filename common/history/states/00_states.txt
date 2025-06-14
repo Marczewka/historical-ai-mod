@@ -664,14 +664,14 @@ STATES = {
 		add_homeland = cu:dixie
 		add_homeland = cu:afro_american		
 	}
-	# s:STATE_DISTRICT_OF_COLUMBIA = {
-	# 	create_state = {
-	# 		country = c:USA
-	# 		owned_provinces = { x700080 x44578c }
-	# 	}	
+	s:STATE_DISTRICT_OF_COLUMBIA = {
+		create_state = {
+			country = c:USA
+			owned_provinces = { x700080 x44578c }
+		}	
 		
-	# 	add_homeland = cu:dixie		
-	# }
+		add_homeland = cu:dixie		
+	}
 	s:STATE_WEST_VIRGINIA = {
 		create_state = {
 			country = c:USA
@@ -683,20 +683,20 @@ STATES = {
 	s:STATE_MARYLAND = {
 		create_state = {
 			country = c:USA
-			owned_provinces = { x708080 x0E3435 xAEB9F5 xF08000 x16482D x5E6C0F x888194 x576240 x3CC08F x700080 x44578c x708000 xeba646 }
+			owned_provinces = { x708080 x0E3435 xAEB9F5 xF08000 x16482D x5E6C0F x888194 x576240 x3CC08F }
 		}
 		
 		add_homeland = cu:dixie	
 	}
 
-	# s:STATE_DELAWARE = {
-	# 	create_state = {
-	# 		country = c:USA
-	# 		owned_provinces = { x708000 xeba646 }
-	# 	}
+	s:STATE_DELAWARE = {
+		create_state = {
+			country = c:USA
+			owned_provinces = { x708000 xeba646 }
+		}
 		
-	# 	add_homeland = cu:dixie	
-	# }
+		add_homeland = cu:dixie	
+	}
 
 	s:STATE_PENNSYLVANIA = {
 		create_state = {
@@ -722,50 +722,50 @@ STATES = {
 		
 		add_homeland = cu:yankee
 	}
-	# s:STATE_CONNECTICUT = {
-	# 	create_state = {
-	# 		country = c:USA
-	# 		owned_provinces = { x3040C0 x7DE678 x9D3A73 }
-	# 	}
+	s:STATE_CONNECTICUT = {
+		create_state = {
+			country = c:USA
+			owned_provinces = { x3040C0 x7DE678 x9D3A73 }
+		}
 		
-	# 	add_homeland = cu:yankee
-	# }	
-	# s:STATE_RHODE_ISLAND = {
-	# 	create_state = {
-	# 		country = c:USA
-	# 		owned_provinces = { x939ACE x1A77EA xc5ce93 }
-	# 	}
+		add_homeland = cu:yankee
+	}	
+	s:STATE_RHODE_ISLAND = {
+		create_state = {
+			country = c:USA
+			owned_provinces = { x939ACE x1A77EA xc5ce93 }
+		}
 		
-	# 	add_homeland = cu:yankee
-	# }	
+		add_homeland = cu:yankee
+	}	
 	s:STATE_MASSACHUSETTS = {
 		create_state = {
 			country = c:USA
-			owned_provinces = { xA58ED2 x211ECF x13444D x382709 xB040C0 x8D8744 x3040C0 x7DE678 x9D3A73 x939ACE x1A77EA xc5ce93 }
+			owned_provinces = { xA58ED2 x211ECF x13444D x382709 xB040C0 x8D8744 }
 		}
 		
 		add_homeland = cu:yankee
 	}
-	# s:STATE_VERMONT = {
-	# 	create_state = {
-	# 		country = c:USA
-	# 		owned_provinces = { xB0C040 x34FFC4 x142566 x30F1AF x3FA10D x38CCDA }
-	# 	}
+	s:STATE_VERMONT = {
+		create_state = {
+			country = c:USA
+			owned_provinces = { xB0C040 x34FFC4 x142566 x30F1AF x3FA10D x38CCDA }
+		}
 		
-	# 	add_homeland = cu:yankee
-	# }	
-	# s:STATE_NEW_HAMPSHIRE = {
-	# 	create_state = {
-	# 		country = c:USA
-	# 		owned_provinces = { x30C040 xBB7965 x1DC591 xDB930D x3E6BAD xD871BE x2B5499 xB16D83 x92CF0F }
-	# 	}
+		add_homeland = cu:yankee
+	}	
+	s:STATE_NEW_HAMPSHIRE = {
+		create_state = {
+			country = c:USA
+			owned_provinces = { x30C040 xBB7965 x1DC591 xDB930D x3E6BAD xD871BE x2B5499 xB16D83 x92CF0F }
+		}
 		
-	# 	add_homeland = cu:yankee
-	# }	
+		add_homeland = cu:yankee
+	}	
 	s:STATE_MAINE = {
 		create_state = {
 			country = c:USA
-			owned_provinces = { x6B3A42 xF2502E x1CA7B0 xBD7C03 x6AE419 xC2B02B xC4CDFC x8F9450 xD68A28 x990681 x54816B xD64964 xEFC355 x7182E8 xFBEDD6 x8243C0 x59DEDF xFB9715 x262924 x6E757B xFCFF52 xF080C0 xA5DE9D x441473 x5806F4 x1E33E8 xB04040 xB0C040 x34FFC4 x142566 x30F1AF x3FA10D x38CCDA x30C040 xBB7965 x1DC591 xDB930D x3E6BAD xD871BE x2B5499 xB16D83 x92CF0F }
+			owned_provinces = { x6B3A42 xF2502E x1CA7B0 xBD7C03 x6AE419 xC2B02B xC4CDFC x8F9450 xD68A28 x990681 x54816B xD64964 xEFC355 x7182E8 xFBEDD6 x8243C0 x59DEDF xFB9715 x262924 x6E757B xFCFF52 xF080C0 xA5DE9D x441473 x5806F4 x1E33E8 xB04040 }
 		}
 		
 		add_homeland = cu:yankee

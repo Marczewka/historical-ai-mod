@@ -1,17 +1,5 @@
 ﻿# This is executed last among all history
 GLOBAL = {
-	s:STATE_MARYLAND = {	
-		set_variable = {
-            name = usa_state_flag_block
-            value = yes
-        }
-
-        set_variable = {
-            name = district_of_columbia
-            value = yes
-        }
-	}
-
     c:BIC ?= {
 		every_subject_or_below = {
 			limit = {

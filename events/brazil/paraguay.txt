@@ -1100,12 +1100,14 @@ paraguay.12 = {
 			months = long_modifier_time
 		}
 		every_country = {
-			any_scope_state = {
-				OR = {
-					state_region = s:STATE_CORRIENTES
-					state_region = s:STATE_SANTA_FE
-					state_region = s:STATE_PARANA
-					state_region = s:STATE_RIO_GRANDE_DO_SUL
+			limit = {
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_CORRIENTES
+						state_region = s:STATE_SANTA_FE
+						state_region = s:STATE_PARANA
+						state_region = s:STATE_RIO_GRANDE_DO_SUL
+					}
 				}
 			}
 			ROOT = {
