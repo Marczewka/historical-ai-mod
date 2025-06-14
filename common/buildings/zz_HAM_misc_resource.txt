@@ -7,7 +7,7 @@ building_rubber_plantation = {
 	terrain_manipulator = forestry
 
 	unlocking_technologies = {
-		vulcanization # rubber_mastication
+		rubber_mastication
 	}
 
 	city_type = wood

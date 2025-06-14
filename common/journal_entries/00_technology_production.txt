@@ -12,7 +12,7 @@
 	}
 
 	possible = {
-		has_technology_researched = vulcanization # rubber_mastication
+		has_technology_researched = rubber_mastication
 		any_scope_building = {
 			is_building_type = building_rubber_plantation
 		}

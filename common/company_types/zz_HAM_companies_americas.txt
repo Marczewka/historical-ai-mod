@@ -30,7 +30,7 @@ company_peruvian_amazon = {
 				level >= 3
 			}
 		}
-		has_technology_researched = vulcanization # rubber_mastication
+		has_technology_researched = rubber_mastication
 	}
 	
 	prosperity_modifier = {
