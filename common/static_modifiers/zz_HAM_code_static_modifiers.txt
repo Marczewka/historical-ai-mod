@@ -40,8 +40,8 @@ base_values = {
 	state_capitalists_investment_pool_contribution_add = 0.30
 	
 	# To balance for unincorporated states not paying taxes
-	state_unincorporated_starting_wages_mult = -0.10 # -0.20
-	building_unincorporated_subsistence_output_mult = -0.10 # -0.20
+	state_unincorporated_starting_wages_mult = -0.20
+	building_unincorporated_subsistence_output_mult = -0.20
 		
 	country_construction_add = 5 # 10
 	
@@ -49,7 +49,7 @@ base_values = {
 	
 	building_economy_of_scale_level_cap_add = 20
 	
-	state_market_access_price_impact = 0.70 # 0.75
+	state_market_access_price_impact = 0.75
 	
 	country_company_throughput_bonus_add = 0.25
 	country_company_construction_efficiency_bonus_add = 0.5
@@ -60,7 +60,7 @@ base_values = {
 	
 	military_formation_organization_gain_add = 0.5 # 200 days to get max organization
 	
-	state_urbanization_per_level_add = 150 # 100
+	state_urbanization_per_level_add = 100
 	
 	unit_experience_gain_add = 0.5
 }
@@ -173,7 +173,7 @@ declared_bankruptcy = {
 	unit_defense_mult = -0.75
 	state_migration_pull_mult = -0.75
 	state_welfare_payments_mult = -1
-	state_market_access_price_impact = -0.05 # -0.1
+	state_market_access_price_impact = -0.1
 	country_institution_size_change_speed_mult = -0.95
 	country_force_privatization_bool = yes
 }
@@ -190,7 +190,7 @@ unincorporated_state = {
 	building_group_bg_manufacturing_throughput_add = -0.1
 	building_group_bg_government_throughput_add = -0.1
 	building_group_bg_military_throughput_add = -0.1		
-	state_market_access_price_impact = -0.05 # -0.1
+	state_market_access_price_impact = -0.1
 }
 
 recently_conquered_state = {
@@ -264,7 +264,7 @@ tax_modifier_medium = {
 
 tax_modifier_high = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
-	country_legitimacy_base_add = -5 # -10
+	country_legitimacy_base_add = -10
 	# state_radicals_from_political_movements_mult = 0.5
 	interest_group_in_government_attraction_mult = -0.1
 	# state_lower_strata_expected_sol_add = 1.5
@@ -278,7 +278,7 @@ tax_modifier_high = {
 
 tax_modifier_very_high = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
-	country_legitimacy_base_add = -10 # -20
+	country_legitimacy_base_add = -20
 	# state_radicals_from_political_movements_mult = 1.0
 	interest_group_in_government_attraction_mult = -0.2
 	# state_lower_strata_expected_sol_add = 3
@@ -555,17 +555,17 @@ battle_average_provinces_lost = {
 
 battle_army_experience = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
-	unit_army_experience_gain_add = 1.0 # 5.0
+	unit_army_experience_gain_add = 5.0
 }
 
 battle_navy_experience = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
-	unit_navy_experience_gain_add = 1.0 # 5.0
+	unit_navy_experience_gain_add = 5.0
 }
 
 battle_unit_experience = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
-	unit_experience_gain_add = 2.0 # 5.0
+	unit_experience_gain_add = 5.0
 }
 
 # Scales with how much population is under low pop threshold

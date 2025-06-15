@@ -463,6 +463,57 @@ modern_sewerage = {
 	}
 }
 
+quinine = {
+	# Permits colonization of state regions with the Malaria trait
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/quinine.dds"
+	category = society
+
+	modifier = {
+		country_institution_colonial_affairs_max_investment_add = 1
+	}
+	
+	unlocking_technologies = {
+		colonization
+		pharmaceuticals
+	}
+	
+	ai_weight = {
+		value = 1
+		
+		# Important for colonizers
+		if = {
+			limit = { 
+				navy_size >= 25
+				vtm_country_is_recognized_trigger = yes
+			}
+			add = 1
+		}
+		if = {
+			limit = { 
+				has_strategy = ai_strategy_colonial_expansion
+			}
+			add = 1
+
+			if = {
+				limit = {
+					any_scope_state = {
+						state_is_in_africa = yes
+					}
+				}
+				add = 3
+			}
+		}
+		# Conquest of the Desert
+		if = {
+			limit = { 
+				has_journal_entry = je_patagonia			
+			}
+			add = 3
+		}	
+	}
+}
+
 organized_sports = {
 	era = era_2
 	texture = "gfx/interface/icons/invention_icons/organized_sports.dds"
@@ -610,7 +661,7 @@ psychiatry = {
 	category = society
 	
 	modifier = {
-		country_influence_mult = 0.2 # 0.1
+		country_influence_mult = 0.1
 		country_diplomatic_play_maneuvers_add = 10
 		state_bureaucracy_population_base_cost_factor_mult = -0.05
 	}
@@ -909,57 +960,6 @@ steel_frame_buildings = {
 	}
 }
 
-quinine = {
-	# Permits colonization of state regions with the Malaria trait
-	era = era_3
-	texture = "gfx/interface/icons/invention_icons/quinine.dds"
-	category = society
-
-	modifier = {
-		country_institution_colonial_affairs_max_investment_add = 1
-	}
-	
-	unlocking_technologies = {
-		colonization
-		pharmaceuticals
-	}
-	
-	ai_weight = {
-		value = 1
-		
-		# Important for colonizers
-		if = {
-			limit = { 
-				navy_size >= 25
-				vtm_country_is_recognized_trigger = yes
-			}
-			add = 1
-		}
-		if = {
-			limit = { 
-				has_strategy = ai_strategy_colonial_expansion
-			}
-			add = 1
-
-			if = {
-				limit = {
-					any_scope_state = {
-						state_is_in_africa = yes
-					}
-				}
-				add = 3
-			}
-		}
-		# Conquest of the Desert
-		if = {
-			limit = { 
-				has_journal_entry = je_patagonia			
-			}
-			add = 3
-		}	
-	}
-}
-
 civilizing_mission = {
 	# Unlocks Panama Canal survey expedition decision
 	# Unlocks the Panama Canal
@@ -1155,11 +1155,7 @@ pan-nationalism = {
 		# Extra-important for major unifications
 		if = {
 			limit = { 
-				has_strategy = ai_strategy_unify_germany
-				# OR = {
-				# 	has_variable = je_german_confederate_unifier
-				# 	has_journal_entry = je_risorgimento
-				# }				
+				has_strategy = ai_strategy_unify_germany			
 			}
 			add = 3 # 5
 		}	
@@ -1231,7 +1227,7 @@ philosophical_pragmatism = {
 	category = society
 	
 	modifier = {
-		country_influence_mult = 0.2 # 0.1
+		country_influence_mult = 0.1
 		country_diplomatic_play_maneuvers_add = 10
 		state_bureaucracy_population_base_cost_factor_mult = -0.05
 	}
@@ -1471,7 +1467,7 @@ psychoanalysis = {
 	category = society
 	
 	modifier = {
-		country_influence_mult = 0.2 # 0.1
+		country_influence_mult = 0.1
 		country_diplomatic_play_maneuvers_add = 10
 		state_bureaucracy_population_base_cost_factor_mult = -0.05
 	}
@@ -1638,7 +1634,7 @@ behaviorism = {
 	category = society
 	
 	modifier = {
-		country_influence_mult = 0.2 # 0.1
+		country_influence_mult = 0.1
 		country_diplomatic_play_maneuvers_add = 10
 		state_bureaucracy_population_base_cost_factor_mult = -0.05
 	}
@@ -1683,6 +1679,6 @@ paved_roads = {
 	}
 	
 	ai_weight = {
-		value = 2.5 # 3 # Important for those nice-looking roads!
+		value = 2.5 # 2 # Important for those nice-looking roads!
 	}
 }
