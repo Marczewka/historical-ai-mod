@@ -115,15 +115,6 @@ radical_party = {
 				}
 			}
 			triggered_desc = {
-				desc = party_republican_party
-				trigger = {
-					c:FRA ?= this
-					has_law = law_type:law_monarchy
-					has_variable = fra_republic_counter
-					var:fra_republic_counter ?= 1
-				}
-			}
-			triggered_desc = {
 				desc = party_republican_union
 				trigger = {
 					exists = c:FRA

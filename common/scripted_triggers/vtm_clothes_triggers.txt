@@ -1,9 +1,0 @@
-﻿vtm_outfits_trigger = {
-	OR = {
-		#has_variable = has_scripted_outfit # uncomment if used
-		has_template = usa_roosevelt_character_template
-		has_template = vtm_antonio_gramsci_template
-		has_template = vtm_huey_long_template
-		has_template = vtm_mustafa_kemal_template
-	}
-}

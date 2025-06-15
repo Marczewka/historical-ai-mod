@@ -8,8 +8,8 @@
 		add_technology_researched = urban_planning
 		add_technology_researched = line_infantry
 		set_tax_level = medium
-		set_military_wage_level = low
-		set_government_wage_level = low
+		set_military_wage_level = medium # low
+		set_government_wage_level = medium # low
 		
 		add_taxed_goods = g:tobacco
 		add_taxed_goods = g:wine
@@ -17,8 +17,8 @@
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy 
-		activate_law = law_type:law_freedom_of_conscience
-		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_freedom_of_conscience # law_type:law_state_religion
+		activate_law = law_type:law_racial_segregation # law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_land_based_taxation

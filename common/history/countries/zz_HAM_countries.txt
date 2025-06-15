@@ -49,9 +49,6 @@
     activate_law = law_type:law_racial_segregation
     activate_law = law_type:law_freedom_of_conscience
   }
-  # c:CHL ?= {
-  #   activate_law = law_type:law_no_colonial_affairs # colonizes too quickly
-  # }
   c:HAI ?= {
     set_tax_level = very_high
     add_taxed_goods = g:tobacco
@@ -72,14 +69,6 @@
   c:USA ?= {
     activate_law = law_type:law_freedom_of_conscience
     add_journal_entry = { type = je_oregon }
-    set_tariffs_export_priority = g:iron	
-    set_tariffs_export_priority = g:steel	
-    set_tariffs_export_priority = g:clothers
-    set_tariffs_export_priority = g:luxury_clothes
-    set_tariffs_export_priority = g:tools	
-    set_tariffs_export_priority = g:glass
-    set_tariffs_export_priority = g:furniture
-    set_tariffs_export_priority = g:luxury_furniture
   }
   c:BIC ?= {
     set_military_wage_level = medium
