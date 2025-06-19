@@ -8415,9 +8415,21 @@ ai_strategy_default = {
 			if = {
 				limit = { 
 					wants_to_solve_schleswig_holstein = yes
-					AND = {
-						exists = c:SCH
-						scope:target_country = { this = c:SCH }
+					OR = {
+						AND = {
+							exists = c:SCH
+							scope:target_country = { this = c:SCH }
+						}
+						AND = {
+							exists = c:HOL
+							scope:target_country = { this = c:HOL }
+							NAND = {
+								exists = c:SCH
+								c:SCH.top_overlord = {
+									is_oppressor_of_schleswig_holstein = yes
+								}
+							}
+						}
 					}
 					scope:target_country.top_overlord = {
 						is_oppressor_of_schleswig_holstein = yes
