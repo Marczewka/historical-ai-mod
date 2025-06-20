@@ -20,8 +20,6 @@ notification_polish_national_agitation_occurred_desc: "[SCOPE.sCulture('agitatio
 notification_polish_national_agitation_occurred_tooltip: "#header $notification_polish_national_agitation_occurred_name$#!\n$TOOLTIP_DELIMITER$\n$notification_polish_national_agitation_occurred_desc$
 
 # Italy
-je_risorgimento_reason:1 "The winds of nationalism sweeping Europe have begun to pass through [ROOT.GetCountry.GetName], inspiring figures both within our government and without to look towards the restoration of a single, unified Italy.\n\nWhilst this journal entry is active and we only hold one [concept_state], getting close to a [concept_revolution] caused by a #tooltippable;tooltip:[GetPlayer.GetTooltipTag],italian_nationalist_movements_list_tt compatible#! [concept_political_movement] will lead to the seizure of the [ROOT.GetCountry.GetAdjective] government by pan-Italian revolutionaries[ROOT.GetCountry.GetCustom('italy_fate_loc')]."
-
 je_risorgimento_italian_unification_button: "Unite with another Italian state"
 je_risorgimento_italian_unification_button_desc: "Through diplomacy and mutual aims, we are finally able to unify with another Italian state."
 italian_minor_dont_annex_tt: "We haven't rejected to annex in the past #bold five years#!"

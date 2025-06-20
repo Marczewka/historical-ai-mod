@@ -98,7 +98,7 @@ italian_unification.2 = {
 			}
 			OR = {
 				this.gdp < root.gdp
-				root = { c:ITA = this }
+				root = { c:ITA ?= this }
 				root = { is_player = yes }
 			}
 			country_rank <= rank_value:minor_power
@@ -127,7 +127,7 @@ italian_unification.2 = {
 				}
 				OR = {
 					this.gdp < root.gdp
-					root = { c:ITA = this }
+					root = { c:ITA ?= this }
 					root = { is_player = yes }
 				}
 				country_rank <= rank_value:minor_power
@@ -215,11 +215,10 @@ italian_unification.4 = {
 
 	trigger = {
 		NOT = { has_variable = italian_unification_5_happened_here }
-		NOT = {
-			is_subject = yes
-		}
-		any_scope_state = {
-			count < 2
+		capital = {
+			radical_fraction = {
+				value >= 0.10
+			}
 		}
 		OR = {
 			AND = {

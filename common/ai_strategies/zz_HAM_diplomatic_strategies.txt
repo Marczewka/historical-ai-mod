@@ -1451,7 +1451,16 @@ ai_strategy_unify_germany = {
 			}				
 		}
 
-
+		# Schleswig-Holstein question
+		if = {
+			limit = {
+				wants_to_solve_schleswig_holstein = yes
+				scope:target_country = {
+					is_oppressor_of_schleswig_holstein = yes
+				}
+			}
+			add = 15
+		}
 
 		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
 		if = {
@@ -1503,13 +1512,7 @@ ai_strategy_unify_germany = {
 			value = 1000	
 		}
 		unification_leadership = {
-			value = 0 # 1000
-			if = {
-				limit = {
-					has_technology_researched = pan-nationalism
-				}
-				add = 1000
-			}
+			value = 1000
 		}	
 	}
 	

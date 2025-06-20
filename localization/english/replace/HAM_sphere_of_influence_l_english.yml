@@ -1,0 +1,9 @@
+﻿l_english:
+bic_abandon_claims_tt: "#v $BIC$#! will abandon all claims on #v $AFG$#!"
+
+  je_earn_recognition_advance: "• Enforcing a [concept_war_goal] on a [concept_major_power] or above\n• Having more than 1 [Concept('concept_gdp_per_capita','$concept_gdp_per_capita_short$')] or being in the top 20\n• Having more than 10 [concept_sol] or being in the top 20\n• Having a [concept_literacy] rating above 40%\n• Having [Concept('concept_votes','$concept_voting_rights$')]\n• The #bold $offer_embassy$#! [concept_article] is active" ##bold Request Embassy#! [concept_diplomatic_action] is active
+  je_earn_recognition_deplete: "• Having a [concept_war_goal] enforced on you\n• Having less than 1 [Concept('concept_gdp_per_capita','$concept_gdp_per_capita_short$')] and being below the top 50\n• Having less than 10 [concept_sol] and being below the top 50\n• Having a [concept_literacy] rating below 20%\n• Having #bold not#! abolished [concept_slavery].\n• Having [GetLawType('law_serfdom').GetName]\n• Having [GetLawType('law_traditionalism').GetName]\n• Having [GetLawType('law_outlawed_dissent').GetName]"
+
+  earning_recognition_progress_gdpc_tt: "more than 1 [Concept('concept_gdp_per_capita','$concept_gdp_per_capita_short$')] or in top 20"
+  earning_recognition_low_gdpc_tt: "less than 1 [Concept('concept_gdp_per_capita','$concept_gdp_per_capita_short$')] and below top 50"
+  earning_recognition_low_sol_tt: "less than 10 [concept_sol] and below top 50"

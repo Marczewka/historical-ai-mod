@@ -119,17 +119,4 @@
 			}
 		}
 	}
-	s:STATE_YEMEN={
-		create_building={
-			building="building_port"
-			add_ownership={
-				country={
-					country="c:LAH"
-					levels=1
-				}
-			}
-			reserves=1
-			activate_production_methods={ "pm_anchorage" }
-		}
-	}
 }
