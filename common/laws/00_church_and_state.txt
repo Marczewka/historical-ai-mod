@@ -42,10 +42,6 @@ law_state_religion = {
 		country_allow_conversion_full_acceptance_bool = yes
 	}
 
-	disallowing_laws = {
-		law_guaranteed_liberties
-	}
-
 	can_impose = {
 		OR = {
 			AND = {
@@ -280,8 +276,7 @@ law_state_atheism = {
 
 	disallowing_laws = {
 		law_theocracy
-		law_guaranteed_liberties
-	}
+			}
 
 	can_enact = {
 		ig:ig_devout = {
@@ -315,25 +310,17 @@ law_state_atheism = {
 		add_modifier = {
 			name = antireligious_policies
 			days = long_modifier_time
-			is_decaying = yes # VTM
+			is_decaying = yes
 		}
 		custom_tooltip = {
 			text = state_atheism_conversion_tt
-			if = {
-				limit = {
-					NOT = {
-						has_variable = did_state_atheism_already # no fun allowed
-					}				
-				}
-				set_variable = did_state_atheism_already
 				every_scope_state = {
 					limit = {
 						is_incorporated = yes
 					}
 					convert_population = {
 					target = rel:atheist
-						value = 0.10 # 0.25
-					}
+					value = 0.25
 				}
 			}
 		}

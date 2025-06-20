@@ -45,7 +45,7 @@
 	}
 
 	goal_add_value = {
-		add = 6 # 4
+		add = 7 # 4
 	}
 
 	progressbar = yes
@@ -290,7 +290,7 @@ je_sick_man_education = {
 	}
 
 	goal_add_value = {
-		add = 0.3 # 0.2
+		add = 0.5 # 0.2
 	}
 
 	invalid = {
@@ -342,6 +342,12 @@ je_sick_man_separatism = {
 					add = 1
 				}
 			}
+			else = {
+				change_variable = {
+					name = sick_man_separatist_var
+					add = -1
+				}
+			}
 		}
 		random_events = {
 			100 = 0
@@ -349,16 +355,16 @@ je_sick_man_separatism = {
 		}
 	}
 
-	fail = {
-		highest_secession_progress > 0.5
-	}
+	# fail = {
+	# 	highest_secession_progress > 0.5
+	# }
 
 	current_value = {
 		value = var:sick_man_separatist_var
 	}
 
 	goal_add_value = {
-		add = 180
+		add = 240 # 180
 	}
 
 	invalid = {

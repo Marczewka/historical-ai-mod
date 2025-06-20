@@ -178,7 +178,7 @@ has_je_conquest_reason = {
 		}
 
 		AND = {
-			has_variable = war_of_the_confederation_attacker
+			has_modifier = modifier_against_the_confederation
 			$TARGET$ = {
 				has_journal_entry = je_peru_bolivia
 			}
@@ -221,7 +221,7 @@ has_je_conquest_reason = {
 		}
 
 		$TARGET$ = {
-			has_variable = failed_tanzimat
+			has_modifier = failed_tanzimat
 			any_scope_state = {
 				is_homeland_of_country_cultures = root
 				has_claim_by = root
@@ -507,11 +507,6 @@ has_je_subjugation_reason = {
 			}
 			exists = c:EGY
 			$TARGET$ = c:EGY		
-		}
-		AND = {
-			has_journal_entry = je_schleswig_holstein_question_denmark
-			exists = c:SCH
-			$TARGET$ = c:SCH		
 		}
 		AND = { # Open up Japan	
 			this ?= c:USA

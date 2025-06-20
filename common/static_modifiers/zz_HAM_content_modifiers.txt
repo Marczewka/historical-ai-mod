@@ -55,8 +55,14 @@ schleswig_holstein_question_solver = {
 
 cizye_tax = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
-	tax_heathen_add = 0.10
+	tax_heathen_add = 0.1 # 0.5
 	state_conscription_rate_mult = -0.4
+}
+
+millet_system = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds
+	state_conversion_mult = -0.9
+	country_acceptance_religion_base_add = 10
 }
 
 modifier_against_the_confederation = {

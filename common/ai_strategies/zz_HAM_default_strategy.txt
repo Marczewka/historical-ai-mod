@@ -310,7 +310,7 @@ ai_strategy_default = {
 					has_discrimination_trait = european_heritage
 				}
 				scope:enemy_country = {
-					has_variable = failed_tanzimat
+					has_modifier = failed_tanzimat
 					any_scope_state = {
 						is_homeland_of_country_cultures = root
 					}
@@ -2010,7 +2010,7 @@ ai_strategy_default = {
 						has_discrimination_trait = european_heritage
 					}
 					c:TUR ?= {
-						has_variable = failed_tanzimat
+						has_modifier = failed_tanzimat
 						any_scope_state = {
 							is_homeland_of_country_cultures = root
 						}
@@ -3224,7 +3224,7 @@ ai_strategy_default = {
 				army_size > 10
 				NOT = { is_diplomatic_play_enemy_of = scope:target_country }
 				scope:target_country = {
-					has_variable = failed_tanzimat
+					has_modifier = failed_tanzimat
 					any_scope_state = {
 						is_homeland_of_country_cultures = root
 						has_claim_by = root
@@ -3444,18 +3444,6 @@ ai_strategy_default = {
 			add = 2
 		}
 
-		# Denmark wants Schleswig
-		if = {
-			limit = {
-				has_journal_entry = je_schleswig_holstein_question_denmark
-				exists = c:SCH
-				scope:target_country = {
-					THIS = c:SCH
-				}
-			}
-			add = 3
-		}
-
 		if = {
 			limit = {
 				has_journal_entry = je_the_eastern_border
@@ -3574,7 +3562,7 @@ ai_strategy_default = {
 		if = {
 			limit = {
 				scope:target_country = {
-					has_variable = failed_tanzimat
+					has_modifier = failed_tanzimat
 					any_scope_state = {
 						is_homeland_of_country_cultures = root
 						has_claim_by = root
@@ -3583,19 +3571,6 @@ ai_strategy_default = {
 			}
 			add = 50
 		}	
-		
-		# Danish Nationalism
-		if = {
-			limit = {
-				has_journal_entry = je_schleswig_holstein_question_denmark
-				scope:target_country = {
-					any_scope_state = {
-						state_region = s:STATE_SCHLESWIG_HOLSTEIN
-					}
-				}
-			}
-			add = 100
-		}		
 
 		# Schleswig-Holstein question
 		if = {
@@ -4525,7 +4500,7 @@ ai_strategy_default = {
 	# How much construction output should the AI aim for
 	# Using this value in other strategies will function additively
 	wanted_construction_output = {
-		value = 5 #10 # Accounts for the 10 free construction from base modifiers
+		value = 10 # Accounts for the 10 free construction from base modifiers
 
 		add = {
 			value = investment_pool_income
@@ -4535,42 +4510,31 @@ ai_strategy_default = {
 		add = {
 			value = income
 					
-			divide = 7500 # 5000 # 1 construction output per this much income
+			divide = 5000 # 1 construction output per this much income
 
 			min = 0
 			max = 200 # Above a certain point more government income isn't going to lead to more AI government construction
 		}
 
-		if = {
-			limit = {
-				income > 1500000
-			}
-			add = {
-				value = income
-				subtract = 1500000
-				divide = 15000 # 1 construction output per this much income
-			}
-		}
-
 		add = {
 			value = total_population
 			
-			divide = 5000000 # 2000000 # 1 construction output per this much population
+			divide = 2000000 # 1 construction output per this much population
 			max = 100
 		}
 		
-		# # Kickstart private investors If above this population value
-		# if = {
-		# 	limit = {
-		# 		total_population >= 2000000
-		# 	}
-		# 	add = 10
-		# }
+		# Kickstart private investors If above this population value
+		if = {
+			limit = {
+				total_population >= 2000000
+			}
+			add = 10
+		}
 		
 		# Add a baseline for high rank
 		if = {
 			limit = { country_rank >= rank_value:great_power }
-			add = 15 # 75
+			add = 75
 		}		
 		else_if = {
 			limit = { 
@@ -4579,7 +4543,7 @@ ai_strategy_default = {
 					country_rank >= rank_value:unrecognized_major_power
 				}
 			}
-			add = 5 # 50
+			add = 50
 		}
 
 		# If trying to industrialize
@@ -4600,70 +4564,16 @@ ai_strategy_default = {
 					has_journal_entry = je_meiji_main
 				}
 			}			
-			multiply = 1.25 # 1.5
-		}
-
-		if = {
-			limit = { is_country_type = unrecognized }
-			multiply = 0.5
+			multiply = 1.5
 		}
 		
 		if = {
 			limit = { has_strategy = ai_strategy_maintain_mandate_of_heaven }
-			multiply = 0.5 # 0.1		
+			multiply = 0.1
 		}	
 		
-		if = {
-			limit = { has_law = law_type:law_national_militia }
-			multiply = 2
-		}	
-
-		if = {
-			limit = { has_technology_researched = reinforced_concrete }
-			multiply = 1.25
-		}	
-		if = {
-			limit = { has_technology_researched = pneumatic_tools }
-			multiply = 1.25
-		}
-		if = {
-			limit = { has_technology_researched = steel_frame_buildings }
-			multiply = 1.25
-		}
-		if = {
-			limit = { has_technology_researched = arc_welding }
-			multiply = 1.25
-		}
-
-		if = {
-			limit = { 
-				scaled_gold_reserves >= 0.9 
-			}
-			multiply = 2
-		}	
-		else_if = {
-			limit = { 
-				scaled_gold_reserves >= 0.75 
-			}
-			multiply = 1.5
-		}
-		else_if = {
-			limit = { 
-				scaled_gold_reserves >= 0.5 
-			}
-			multiply = 1.25
-		}
-
-		min = 5
-		if = {
-			limit = {
-				gdp < 1000000	
-			}
-			max = 10
-		}
-		else = {
-			max = 10000
-		}
+		min = 10
+		max = 1000
 	}
 	
 	# How many levels of barracks should the AI have
@@ -5594,7 +5504,7 @@ ai_strategy_default = {
 						has_discrimination_trait = european_heritage
 					}
 					c:TUR ?= {
-						has_variable = failed_tanzimat
+						has_modifier = failed_tanzimat
 						any_scope_state = {
 							is_homeland_of_country_cultures = root
 						}
@@ -5610,7 +5520,7 @@ ai_strategy_default = {
 						has_discrimination_trait = european_heritage
 					}
 					c:TUR ?= {
-						has_variable = failed_tanzimat
+						has_modifier = failed_tanzimat
 						any_scope_state = {
 							is_homeland_of_country_cultures = root
 						}
@@ -7906,20 +7816,8 @@ ai_strategy_default = {
 					}
 				}
 				add = 100
-			}
-
-			# Denmark wants Schleswig
-			if = {
-				limit = {
-					has_journal_entry = je_schleswig_holstein_question_denmark
-					exists = c:SCH
-					scope:target_country = {
-						THIS = c:SCH
-					}
-				}
-				add = 100
-			}
-		}		
+			}	
+		}
 
 		humiliation = {
 			value = 1 # 25
@@ -8230,7 +8128,7 @@ ai_strategy_default = {
 					add = {
 						value = scope:target_country.gdp
 						divide = root.gdp
-						multiply = 10
+						# multiply = 10
 						max = 100
 					}
 				}
@@ -8542,7 +8440,7 @@ ai_strategy_default = {
 					country_rank >= rank_value:great_power
 					has_strategic_land_adjacency = scope:target_country
 					scope:target_country = {
-						has_variable = failed_tanzimat
+						has_modifier = failed_tanzimat
 					}
 				}
 				add = {

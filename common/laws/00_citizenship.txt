@@ -17,10 +17,6 @@ law_ethnostate = {
 		nationalism
 	}
 
-	disallowing_laws = {
-		law_guaranteed_liberties
-	}
-	
 	modifier = {
 		country_authority_add = 200
 

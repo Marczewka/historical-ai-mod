@@ -295,13 +295,7 @@ je_north_german_unification = {
 		hidden_trigger = {
 			has_variable = je_unification_progress
 		}	
-		OR = {
-			has_technology_researched = pan-nationalism # nationalism		
-			custom_tooltip = {
-				text = german_homelands_trigger_desc
-				has_global_variable = german_homelands_under_threat
-			}
-		}
+		has_technology_researched = nationalism
 		is_unification_candidate = GER
 		custom_tooltip = {
 			text = je_german_unification_sole_candidate_trigger_desc
@@ -312,18 +306,6 @@ je_north_german_unification = {
 				}
 			}	
 		}				
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_german_unification_german_hegemony_has_been_decided
-			any_country = {
-				has_variable = je_german_confederate_unifier
-			}	
-		}	
-	}
-
-	on_fail = {
 	}
 
 	on_monthly_pulse = {
@@ -378,18 +360,6 @@ je_south_german_unification = {
 		country_has_primary_culture = cu:south_german
 	}
 
-	fail = {
-		custom_tooltip = {
-			text = je_german_unification_german_hegemony_has_been_decided
-			any_country = {
-				has_variable = je_german_confederate_unifier
-			}	
-		}	
-	}
-
-	on_fail = {
-	}
-
 	complete = {
 		custom_tooltip = {
 			has_global_variable = schleswig_holstein_question_solved
@@ -421,22 +391,7 @@ je_south_german_unification = {
 	}
 
 	on_complete = {
-		if = {
-			limit = {
-				NOT = {
-					country_tier = empire
-				}
-			}
-			trigger_event = { id = german_unification.1 } # South German Confederation for German minors
-
-		}
-		if = {
-			limit = {
-					country_tier = empire
-			}
-			trigger_event = { id = german_unification.100 } # South German Confederation for Austria
-
-		}
+		trigger_event = { id = german_unification.1 } # South German Confederation
 		remove_variable = je_unification_progress
 	}
 
