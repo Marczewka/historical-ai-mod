@@ -777,6 +777,27 @@
 	}
 	create_treaty = {
 		first_country = c:PRU
+		second_country = c:MEC
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 10 } # 10 year binding period after start of game
+
+		articles_to_create = {
+			{
+				article = military_access
+				source_country = c:MEC
+				target_country = c:PRU
+			}
+			{
+				article = military_access
+				source_country = c:PRU
+				target_country = c:MEC
+			}
+		}
+	}
+	create_treaty = {
+		first_country = c:PRU
 		second_country = c:BAV
 
 		is_draft = no
