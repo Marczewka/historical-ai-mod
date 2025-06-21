@@ -7953,15 +7953,15 @@ ai_strategy_default = {
 				add = 50
 			}			
 		
-			if = {
-				limit = {
-					has_journal_entry = je_opium_wars
-					scope:target_country = {
-						has_variable = opium_wars_target
-					}
-				}
-				add = 75
-			}
+			# if = {
+			# 	limit = {
+			# 		has_journal_entry = je_opium_wars
+			# 		scope:target_country = {
+			# 			has_variable = opium_wars_target
+			# 		}
+			# 	}
+			# 	add = 75
+			# }
 
 			if = {
 				limit = {
