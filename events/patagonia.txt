@@ -43,6 +43,9 @@ patagonia.1 = {
 				save_scope_as = patagonia_state
 			}
 		}
+		random_primary_culture = {
+			save_scope_as = conqueror_culture
+		}
 	}
 
 	option = {
@@ -50,48 +53,32 @@ patagonia.1 = {
 		default_option = yes
 		if = {
 			limit = {
-				country_has_primary_culture = cu:south_andean
+				exists = scope:conqueror_culture
+				owns_entire_state_region = STATE_ARAUCANIA
 			}
-			scope:patagonia_state = {
-				state_region = {
-					add_homeland = cu:south_andean
+			s:STATE_ARAUCANIA = {
+				add_homeland = scope:conqueror_culture
+				random_scope_state = {
+					add_modifier = {
+						name = patagonian_settlement
+						days = long_modifier_time
+					}
 				}
 			}
 		}
-		else_if = {
+		if = {
 			limit = {
-				country_has_primary_culture = cu:chilean
+				exists = scope:conqueror_culture
+				owns_entire_state_region = STATE_PATAGONIA
 			}
-			scope:patagonia_state = {
-				state_region = {
-					add_homeland = cu:chilean
+			s:STATE_PATAGONIA = {
+				add_homeland = scope:conqueror_culture
+				random_scope_state = {
+					add_modifier = {
+						name = patagonian_settlement
+						days = long_modifier_time
+					}
 				}
-			}
-		}
-		else_if = {
-			limit = {
-				country_has_primary_culture = cu:platinean
-			}
-			scope:patagonia_state = {
-				state_region = {
-					add_homeland = cu:platinean
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				country_has_primary_culture = cu:argentine
-			}
-			scope:patagonia_state = {
-				state_region = {
-					add_homeland = cu:argentine
-				}
-			}
-		}
-		scope:patagonia_state = {
-			add_modifier = {
-				name = patagonian_settlement
-				days = long_modifier_time
 			}
 		}
 	}

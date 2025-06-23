@@ -24,7 +24,6 @@
 		remove_claim = c:PER
 	}
 	s:STATE_ARAUCANIA = {
-		add_homeland = cu:south_andean
 		remove_claim = c:ARG
 	}
 }

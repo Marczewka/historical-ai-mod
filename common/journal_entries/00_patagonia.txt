@@ -5,13 +5,21 @@
 
 	is_shown_when_inactive = {
 		exists = c:PAT
-		any_neighbouring_state = {
-			owner = c:PAT
+		any_scope_state = {
+			any_primary_culture = {
+				has_homeland = prev
+			}
+			any_neighbouring_state = {
+				OR = {
+					owner = c:PAT
+					owner = c:THL
+				}
+			}
 		}
-		OR = {
-			country_has_primary_culture = cu:south_andean
-			country_has_primary_culture = cu:platinean
-		}
+		# OR = {
+		# 	country_has_primary_culture = cu:south_andean
+		# 	country_has_primary_culture = cu:platinean
+		# }
 	}
 
 	scripted_button = patagonia_button
@@ -21,11 +29,27 @@
 	}
 
 	complete = {
-		OR = {
-			owns_entire_state_region = STATE_ARAUCANIA
-			AND = {
-				owns_entire_state_region = STATE_PATAGONIA
-				owns_entire_state_region = STATE_RIO_NEGRO
+		NOR = {
+			s:STATE_ARAUCANIA = {
+				any_scope_state = {
+					owner = {
+						is_country_type = decentralized
+					}
+				}
+			}
+			s:STATE_PATAGONIA = {
+				any_scope_state = {
+					owner = {
+						is_country_type = decentralized
+					}
+				}
+			}
+			s:STATE_RIO_NEGRO = {
+				any_scope_state = {
+					owner = {
+						is_country_type = decentralized
+					}
+				}
 			}
 		}
 	}
