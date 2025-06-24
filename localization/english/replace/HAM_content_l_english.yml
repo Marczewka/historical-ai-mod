@@ -68,3 +68,7 @@ HAM_je_eastern_frontier_tt_3: "#bold Transoxiana#! is owned by [SCOPE.GetRootSco
   against_the_confederation: "opposition to Peru-Bolivia"
   against_ottomans: "Ottoman Empire failed Tanzimat"
   protect_herat: "wants to protect Herat from Persia"
+
+ national_identity_tt: "Has not used this action in the last #bold 5#! years"
+ national_identity:0 "Promote National Identity"
+ national_identity_desc:0 "Begins a campaign to push the integration of our new national culture across the nation."

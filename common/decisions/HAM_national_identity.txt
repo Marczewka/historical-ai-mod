@@ -1,0 +1,318 @@
+﻿national_identity = {
+	is_shown = {
+		has_variable = completed_culture_genesis
+		OR = {
+			trigger_if = {
+				limit = {
+					OR = {
+						c:ARG ?= this
+						c:URU ?= this
+						c:PRG ?= this
+					}
+				}
+				any_scope_state = {
+					state_region = {
+						is_homeland = cu:platinean
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					OR = {
+						c:PEU ?= this
+						c:NPU ?= this
+						c:SPU ?= this
+						c:BOL ?= this
+						c:CHL ?= this
+					}
+				}
+				any_scope_state = {
+					state_region = {
+						is_homeland = cu:south_andean
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					OR = {
+						c:ECU ?= this
+						c:VNZ ?= this
+						c:CLM ?= this
+					}
+				}
+				any_scope_state = {
+					state_region = {
+						is_homeland = cu:north_andean
+					}
+				}
+			}
+		}
+	}
+
+	possible = {
+		# custom_tooltip = {
+		# 	text = national_identity_tt
+		# 	NOT = {
+		# 		has_variable = national_identity_cooldown
+		# 	}
+		# }
+		OR = {
+			trigger_if = {
+				limit = {
+					OR = {
+						c:ARG ?= this
+						c:URU ?= this
+						c:PRG ?= this
+					}
+				}
+				any_scope_state = {
+					is_incorporated = yes
+					state_region = {
+						is_homeland = cu:platinean
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					OR = {
+						c:PEU ?= this
+						c:NPU ?= this
+						c:SPU ?= this
+						c:BOL ?= this
+						c:CHL ?= this
+					}
+				}
+				any_scope_state = {
+					is_incorporated = yes
+					state_region = {
+						is_homeland = cu:south_andean
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					OR = {
+						c:ECU ?= this
+						c:VNZ ?= this
+						c:CLM ?= this
+					}
+				}
+				any_scope_state = {
+					is_incorporated = yes
+					state_region = {
+						is_homeland = cu:north_andean
+					}
+				}
+			}
+		}
+	}
+
+	when_taken = {
+		set_variable = {
+			name = national_identity_cooldown
+			days = normal_modifier_time
+		}
+		if = {
+			limit = {
+				country_has_primary_culture = cu:argentine
+			}
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_region = {
+						is_homeland = cu:platinean
+					}
+					any_neighbouring_state = {
+						state_region = {
+							is_homeland = cu:argentine
+						}
+					}
+				}
+				state_region = {
+					remove_homeland = cu:platinean
+					add_homeland = cu:argentine
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				country_has_primary_culture = cu:peruvian
+			}
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_region = {
+						is_homeland = cu:south_andean
+					}
+					any_neighbouring_state = {
+						state_region = {
+							is_homeland = cu:peruvian
+						}
+					}
+				}
+				state_region = {
+					remove_homeland = cu:south_andean
+					add_homeland = cu:peruvian
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				country_has_primary_culture = cu:bolivian
+			}
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_region = {
+						is_homeland = cu:south_andean
+					}
+					any_neighbouring_state = {
+						state_region = {
+							is_homeland = cu:bolivian
+						}
+					}
+				}
+				state_region = {
+					remove_homeland = cu:south_andean
+					add_homeland = cu:bolivian
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				country_has_primary_culture = cu:ecuadorian
+			}
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_region = {
+						is_homeland = cu:north_andean
+					}
+					any_neighbouring_state = {
+						state_region = {
+							is_homeland = cu:ecuadorian
+						}
+					}
+				}
+				state_region = {
+					remove_homeland = cu:north_andean
+					add_homeland = cu:ecuadorian
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				country_has_primary_culture = cu:chilean
+			}
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_region = {
+						is_homeland = cu:south_andean
+					}
+					any_neighbouring_state = {
+						state_region = {
+							is_homeland = cu:chilean
+						}
+					}
+				}
+				state_region = {
+					remove_homeland = cu:south_andean
+					add_homeland = cu:chilean
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				country_has_primary_culture = cu:venezuelan
+			}
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_region = {
+						is_homeland = cu:north_andean
+					}
+					any_neighbouring_state = {
+						state_region = {
+							is_homeland = cu:venezuelan
+						}
+					}
+				}
+				state_region = {
+					remove_homeland = cu:north_andean
+					add_homeland = cu:venezuelan
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				country_has_primary_culture = cu:uruguayan
+			}
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_region = {
+						is_homeland = cu:platinean
+					}
+					any_neighbouring_state = {
+						state_region = {
+							is_homeland = cu:uruguayan
+						}
+					}
+				}
+				state_region = {
+					remove_homeland = cu:platinean
+					add_homeland = cu:uruguayan
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				country_has_primary_culture = cu:paraguayan
+			}
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_region = {
+						is_homeland = cu:platinean
+					}
+					any_neighbouring_state = {
+						state_region = {
+							is_homeland = cu:paraguayan
+						}
+					}
+				}
+				state_region = {
+					remove_homeland = cu:platinean
+					add_homeland = cu:paraguayan
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				country_has_primary_culture = cu:colombian
+			}
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_region = {
+						is_homeland = cu:north_andean
+					}
+					any_neighbouring_state = {
+						state_region = {
+							is_homeland = cu:colombian
+						}
+					}
+				}
+				state_region = {
+					remove_homeland = cu:north_andean
+					add_homeland = cu:colombian
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+}

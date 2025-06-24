@@ -361,10 +361,10 @@ culture_south_america.2 = {
 				# 		is_building_type = building_government_administration
 				# 		level >= 5
 				# 	}
-					any_scope_building = {
-						is_building_type = building_urban_center
-						level >= 1 # 5
-					}
+				# 	any_scope_building = {
+				# 		is_building_type = building_urban_center
+				# 		level >= 5
+				# 	}
 				# }
 			}
 			random_neighbouring_state = {
@@ -435,10 +435,10 @@ culture_south_america.2 = {
 						# 		is_building_type = building_government_administration
 						# 		level >= 5
 						# 	}
-							any_scope_building = {
-								is_building_type = building_urban_center
-								level >= 1 # 5
-							}
+						# 	any_scope_building = {
+						# 		is_building_type = building_urban_center
+						# 		level >= 5
+						# 	}
 						# }
 					}
 					ordered_scope_pop = {
@@ -518,116 +518,116 @@ culture_south_america.2 = {
 					}
 				}
 			}
-			# else = { #For islands and such
-			# 	random_scope_state = {
-			# 		limit = {
-			# 			owner = root
-			# 			state_region = {
-			# 				is_homeland = scope:old_national_culture
-			# 				NOT = {
-			# 					is_homeland = scope:new_national_culture
-			# 				}
-			# 			}
-			# 			is_incorporated = yes
-			# 			# OR = {
-			# 			# 	any_scope_building = {
-			# 			# 		OR = {
-			# 			# 			is_building_type = building_naval_base
-			# 			# 			is_building_type = building_barracks
-			# 			# 		}
-			# 			# 		level >= 15
-			# 			# 	}
-			# 			# 	any_scope_building = {
-			# 			# 		is_building_type = building_university
-			# 			# 		level >= 5
-			# 			# 	}
-			# 			# 	any_scope_building = {
-			# 			# 		is_building_type = building_government_administration
-			# 			# 		level >= 5
-			# 			# 	}
-			# 				any_scope_building = {
-			# 					is_building_type = building_urban_center
-			# 					level >= 1 # 5
-			# 				}
-			# 			# }
-			# 		}
-			# 		ordered_scope_pop = {
-			# 			limit = {
-			# 				culture = scope:old_national_culture
-			# 			}
-			# 			order_by = strata
-			# 			change_pop_culture = {
-			# 				target = scope:new_national_culture
-			# 				value = 0.75
-			# 			}
-			# 		}
-			# 		state_region = {
-			# 			if = {
-			# 				limit = {
-			# 					c:ARG ?= root
-			# 				}
-			# 				remove_homeland = cu:platinean
-			# 				add_homeland = cu:argentine
-			# 			}
-			# 			if = {
-			# 				limit = {
-			# 					c:PRG ?= root
-			# 				}
-			# 				remove_homeland = cu:platinean
-			# 				add_homeland = cu:paraguayan
-			# 			}
-			# 			if = {
-			# 				limit = {
-			# 					c:URU ?= root
-			# 				}
-			# 				remove_homeland = cu:platinean
-			# 				add_homeland = cu:uruguayan
-			# 			}
-			# 			if = {
-			# 				limit = {
-			# 					c:VNZ ?= root
-			# 				}
-			# 				remove_homeland = cu:north_andean
-			# 				add_homeland = cu:venezuelan
-			# 			}
-			# 			if = {
-			# 				limit = {
-			# 					c:CLM ?= root
-			# 				}
-			# 				remove_homeland = cu:north_andean
-			# 				add_homeland = cu:colombian
-			# 			}
-			# 			if = {
-			# 				limit = {
-			# 					c:VNZ ?= root
-			# 				}
-			# 				remove_homeland = cu:north_andean
-			# 				add_homeland = cu:ecuadorian
-			# 			}
-			# 			if = {
-			# 				limit = {
-			# 					c:BOL ?= root
-			# 				}
-			# 				remove_homeland = cu:south_andean
-			# 				add_homeland = cu:bolivian
-			# 			}
-			# 			if = {
-			# 				limit = {
-			# 					c:CHL ?= root
-			# 				}
-			# 				remove_homeland = cu:south_andean
-			# 				add_homeland = cu:chilean
-			# 			}
-			# 			if = {
-			# 				limit = {
-			# 					c:PEU ?= root
-			# 				}
-			# 				remove_homeland = cu:south_andean
-			# 				add_homeland = cu:peruvian
-			# 			}
-			# 		}
-			# 	}
-			# }
+			else = { #For islands and such
+				random_scope_state = {
+					limit = {
+						owner = root
+						state_region = {
+							is_homeland = scope:old_national_culture
+							NOT = {
+								is_homeland = scope:new_national_culture
+							}
+						}
+						is_incorporated = yes
+						# OR = {
+						# 	any_scope_building = {
+						# 		OR = {
+						# 			is_building_type = building_naval_base
+						# 			is_building_type = building_barracks
+						# 		}
+						# 		level >= 15
+						# 	}
+						# 	any_scope_building = {
+						# 		is_building_type = building_university
+						# 		level >= 5
+						# 	}
+						# 	any_scope_building = {
+						# 		is_building_type = building_government_administration
+						# 		level >= 5
+						# 	}
+						# 	any_scope_building = {
+						# 		is_building_type = building_urban_center
+						# 		level >= 5
+						# 	}
+						# }
+					}
+					ordered_scope_pop = {
+						limit = {
+							culture = scope:old_national_culture
+						}
+						order_by = strata
+						change_pop_culture = {
+							target = scope:new_national_culture
+							value = 0.75
+						}
+					}
+					state_region = {
+						if = {
+							limit = {
+								c:ARG ?= root
+							}
+							remove_homeland = cu:platinean
+							add_homeland = cu:argentine
+						}
+						if = {
+							limit = {
+								c:PRG ?= root
+							}
+							remove_homeland = cu:platinean
+							add_homeland = cu:paraguayan
+						}
+						if = {
+							limit = {
+								c:URU ?= root
+							}
+							remove_homeland = cu:platinean
+							add_homeland = cu:uruguayan
+						}
+						if = {
+							limit = {
+								c:VNZ ?= root
+							}
+							remove_homeland = cu:north_andean
+							add_homeland = cu:venezuelan
+						}
+						if = {
+							limit = {
+								c:CLM ?= root
+							}
+							remove_homeland = cu:north_andean
+							add_homeland = cu:colombian
+						}
+						if = {
+							limit = {
+								c:VNZ ?= root
+							}
+							remove_homeland = cu:north_andean
+							add_homeland = cu:ecuadorian
+						}
+						if = {
+							limit = {
+								c:BOL ?= root
+							}
+							remove_homeland = cu:south_andean
+							add_homeland = cu:bolivian
+						}
+						if = {
+							limit = {
+								c:CHL ?= root
+							}
+							remove_homeland = cu:south_andean
+							add_homeland = cu:chilean
+						}
+						if = {
+							limit = {
+								c:PEU ?= root
+							}
+							remove_homeland = cu:south_andean
+							add_homeland = cu:peruvian
+						}
+					}
+				}
+			}
 		}
 	}
 }

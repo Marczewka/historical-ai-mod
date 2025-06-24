@@ -5,21 +5,22 @@
 
 	is_shown_when_inactive = {
 		exists = c:PAT
-		any_scope_state = {
-			any_primary_culture = {
-				has_homeland = prev
-			}
 			any_neighbouring_state = {
 				OR = {
 					owner = c:PAT
 					owner = c:THL
 				}
 			}
+		OR = {
+			country_has_primary_culture = cu:south_andean
+			country_has_primary_culture = cu:platinean
+			country_has_primary_culture = cu:chilean
+			country_has_primary_culture = cu:argentine
+			country_has_primary_culture = cu:uruguayan
+			country_has_primary_culture = cu:paraguayan
+			country_has_primary_culture = cu:bolivian
+			country_has_primary_culture = cu:peruvian
 		}
-		# OR = {
-		# 	country_has_primary_culture = cu:south_andean
-		# 	country_has_primary_culture = cu:platinean
-		# }
 	}
 
 	scripted_button = patagonia_button
