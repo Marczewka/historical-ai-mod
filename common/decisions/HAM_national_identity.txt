@@ -50,12 +50,12 @@
 	}
 
 	possible = {
-		# custom_tooltip = {
-		# 	text = national_identity_tt
-		# 	NOT = {
-		# 		has_variable = national_identity_cooldown
-		# 	}
-		# }
+		custom_tooltip = {
+			text = national_identity_tt
+			NOT = {
+				has_variable = national_identity_cooldown
+			}
+		}
 		OR = {
 			trigger_if = {
 				limit = {
@@ -110,7 +110,7 @@
 	when_taken = {
 		set_variable = {
 			name = national_identity_cooldown
-			days = normal_modifier_time
+			days = short_modifier_time
 		}
 		if = {
 			limit = {
@@ -131,6 +131,15 @@
 				state_region = {
 					remove_homeland = cu:platinean
 					add_homeland = cu:argentine
+				}
+				every_scope_pop = {
+					limit = {
+						culture = cu:platinean
+					}
+					change_pop_culture = {
+						target = cu:argentine
+						value = 1
+					}
 				}
 			}
 		}
@@ -154,6 +163,15 @@
 					remove_homeland = cu:south_andean
 					add_homeland = cu:peruvian
 				}
+				every_scope_pop = {
+					limit = {
+						culture = cu:south_andean
+					}
+					change_pop_culture = {
+						target = cu:peruvian
+						value = 1
+					}
+				}
 			}
 		}
 		else_if = {
@@ -175,6 +193,15 @@
 				state_region = {
 					remove_homeland = cu:south_andean
 					add_homeland = cu:bolivian
+				}
+				every_scope_pop = {
+					limit = {
+						culture = cu:south_andean
+					}
+					change_pop_culture = {
+						target = cu:bolivian
+						value = 1
+					}
 				}
 			}
 		}
@@ -198,6 +225,15 @@
 					remove_homeland = cu:north_andean
 					add_homeland = cu:ecuadorian
 				}
+				every_scope_pop = {
+					limit = {
+						culture = cu:north_andean
+					}
+					change_pop_culture = {
+						target = cu:ecuadorian
+						value = 1
+					}
+				}
 			}
 		}
 		else_if = {
@@ -219,6 +255,15 @@
 				state_region = {
 					remove_homeland = cu:south_andean
 					add_homeland = cu:chilean
+				}
+				every_scope_pop = {
+					limit = {
+						culture = cu:south_andean
+					}
+					change_pop_culture = {
+						target = cu:chilean
+						value = 1
+					}
 				}
 			}
 		}
@@ -242,6 +287,15 @@
 					remove_homeland = cu:north_andean
 					add_homeland = cu:venezuelan
 				}
+				every_scope_pop = {
+					limit = {
+						culture = cu:north_andean
+					}
+					change_pop_culture = {
+						target = cu:venezuelan
+						value = 1
+					}
+				}
 			}
 		}
 		else_if = {
@@ -263,6 +317,15 @@
 				state_region = {
 					remove_homeland = cu:platinean
 					add_homeland = cu:uruguayan
+				}
+				every_scope_pop = {
+					limit = {
+						culture = cu:platinean
+					}
+					change_pop_culture = {
+						target = cu:uruguayan
+						value = 1
+					}
 				}
 			}
 		}
@@ -286,6 +349,15 @@
 					remove_homeland = cu:platinean
 					add_homeland = cu:paraguayan
 				}
+				every_scope_pop = {
+					limit = {
+						culture = cu:platinean
+					}
+					change_pop_culture = {
+						target = cu:paraguayan
+						value = 1
+					}
+				}
 			}
 		}
 		else_if = {
@@ -307,6 +379,15 @@
 				state_region = {
 					remove_homeland = cu:north_andean
 					add_homeland = cu:colombian
+				}
+				every_scope_pop = {
+					limit = {
+						culture = cu:north_andean
+					}
+					change_pop_culture = {
+						target = cu:colombian
+						value = 1
+					}
 				}
 			}
 		}

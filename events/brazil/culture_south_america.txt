@@ -409,7 +409,7 @@ culture_south_america.2 = {
 						}
 					}
 				}
-				every_neighbouring_state = {
+				random_neighbouring_state = {
 					limit = {
 						owner = root
 						state_region = {

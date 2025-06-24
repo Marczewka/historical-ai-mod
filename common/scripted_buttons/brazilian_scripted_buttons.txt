@@ -358,7 +358,7 @@ je_south_american_national_identity_integrate_a_state = {
 
 	visible = { always = yes }
 
-	cooldown = { days = normal_modifier_time }
+	cooldown = { days = short_modifier_time }
 
 	possible = {
 		exists = scope:old_national_culture
