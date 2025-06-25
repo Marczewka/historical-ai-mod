@@ -11,9 +11,7 @@
 		s:STATE_SINAI = {
 			any_scope_state = {
 				NOT = {
-					any_scope_building = { 
-						is_building_type = building_suez_canal 
-					}
+					has_building = building_suez_canal
 				}
 				owner = {
 					owns_treaty_port_in = STATE_SINAI
@@ -28,7 +26,7 @@
 	possible = {
 		gdp > 50000000
 		p:xC01060.state.owner = {
-			relations:root > relations_threshold:poor
+			relations:root >= relations_threshold:cordial
 		} 
 		NOT = { has_war_with = ROOT }
 	}
@@ -122,9 +120,7 @@ panama_canal_purchase = {
 		s:STATE_PANAMA = {
 			any_scope_state = {
 				NOT = {
-					any_scope_building = { 
-						is_building_type = building_panama_canal 
-					}
+					has_building = building_panama_canal
 				}
 				owner = {
 					owns_treaty_port_in = STATE_PANAMA
@@ -139,7 +135,7 @@ panama_canal_purchase = {
 	possible = {
 		gdp > 50000000
 		p:xD0EF40.state.owner = {
-			relations:root > relations_threshold:poor
+			relations:root >= relations_threshold:cordial
 		} 
 		NOT = { has_war_with = ROOT }
 	}
