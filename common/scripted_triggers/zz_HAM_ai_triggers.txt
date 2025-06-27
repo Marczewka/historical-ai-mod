@@ -329,6 +329,7 @@ has_je_conquest_reason = {
 		AND = {
 			has_strategy = ai_strategy_unify_germany
 			is_unification_candidate = GER
+			has_global_variable = schleswig_holstein_question_solved
 			$TARGET$ = {
 				is_unification_candidate = GER
 			}
