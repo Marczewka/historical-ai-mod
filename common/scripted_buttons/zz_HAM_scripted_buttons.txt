@@ -197,58 +197,47 @@ je_risorgimento_austrian_radicals_button = {
 	}
 
 	ai_chance = {
-		value = 0
-		if = {
-			limit = {
-				has_law = law_type:law_theocracy
-			}
-			add = -10
-		}
-		if = {
-			limit = {
-				any_country = {
-					NOR = {
-						country_has_primary_culture = cu:south_italian
-						country_has_primary_culture = cu:north_italian
-					}
-					any_scope_state = {
-						state_region = {
-							OR = {
-								is_homeland = cu:south_italian
-								is_homeland = cu:north_italian
-							}
-						}
-					}
-					relations:root <= 0
-				}
-			}
-			add = 10
-		}
-		if = {
-			limit = {
-				any_country = {
-					NOR = {
-						country_has_primary_culture = cu:south_italian
-						country_has_primary_culture = cu:north_italian
-					}
-					any_scope_state = {
-						state_region = {
-							OR = {
-								is_homeland = cu:south_italian
-								is_homeland = cu:north_italian
-							}
-						}
-					}
-					relations:root <= -20
-				}
-			}
-			add = 10
-		}
+		value = 50
 		if = {
 			limit = {
 				is_at_war = yes
 			}
-			multiply = 0
+			add = -100
+		}
+		if = {
+			limit = {
+				has_law = law_type:law_theocracy
+			}
+			add = -70
+		}
+		if = {
+			limit = {
+				any_country = {
+					NOR = {
+						country_has_primary_culture = cu:south_italian
+						country_has_primary_culture = cu:north_italian
+					}
+					any_scope_state = {
+						state_region = {
+							OR = {
+								is_homeland = cu:south_italian
+								is_homeland = cu:north_italian
+							}
+						}
+					}
+					NOT = {
+						any_political_movement = {
+							is_political_movement_type = movement_cultural_minority
+							OR = {
+								culture = cu:north_italian
+								culture = cu:south_italian
+							}
+							has_modifier = austria_italian_radicals
+						}
+					}
+				}
+			}
+			add = 25
 		}
 	}
 
@@ -371,12 +360,18 @@ je_risorgimento_italian_radicals_button = {
 	}
 
 	ai_chance = {
-		value = 10
+		value = 50
+		if = {
+			limit = {
+				is_at_war = yes
+			}
+			add = -100
+		}
 		if = {
 			limit = {
 				has_law = law_type:law_theocracy
 			}
-			add = -10
+			add = -50
 		}
 		if = {
 			limit = {
@@ -391,7 +386,7 @@ je_risorgimento_italian_radicals_button = {
 					relations:root >= 20
 				}
 			}
-			add = -10
+			add = -25
 		}
 		if = {
 			limit = {
@@ -406,13 +401,7 @@ je_risorgimento_italian_radicals_button = {
 					relations:root <= 20
 				}
 			}
-			add = 10
-		}
-		if = {
-			limit = {
-				is_at_war = yes
-			}
-			multiply = 0
+			add = 25
 		}
 	}
 

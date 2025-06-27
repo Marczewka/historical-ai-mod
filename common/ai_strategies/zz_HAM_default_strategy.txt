@@ -1058,7 +1058,7 @@ ai_strategy_default = {
             limit = {
             	has_journal_entry = je_expanding_paraguay
             }
-            add = 25
+            add = 100 # 25
         }
 
 		# Italian minors should be willing to fight Austria
@@ -1072,7 +1072,7 @@ ai_strategy_default = {
 					is_diplomatic_play_enemy_of = c:RSM
 				}
 			}
-			add = 50
+			add = 100 # 50
 		}
 
 		# Good luck Denmark
@@ -1084,7 +1084,7 @@ ai_strategy_default = {
 					has_journal_entry = je_schleswig_holstein_question
 				}
 			}
-			add = 50
+			add = 100 # 50
 		}
 	} 
 		
@@ -2816,14 +2816,14 @@ ai_strategy_default = {
 	# Using this value in other strategies will function additively
 	# root is the AI doing the evaluation, scope:overlord is prospective overlord
 	become_subject_value = {
-		value = -100
+		value = -400 # -100
 
 		if = {
 			limit = {
 				NOT = { has_strategic_land_adjacency = scope:overlord }
 			}
 			
-			add = -10
+			add = -50 # -10
 		}			
 
 		if = {
@@ -2840,7 +2840,7 @@ ai_strategy_default = {
 			}
 			add = {
 				value = "scope:overlord.ai_army_comparison(root)"
-				max = 25
+				max = 50 # 25
 			}				
 		}
 		else = {
@@ -2871,7 +2871,7 @@ ai_strategy_default = {
 			limit = {
 				is_in_customs_union_with = scope:overlord
 			}
-			add = 10
+			add = 50 # 10
 		}					
 		
 		add = {
@@ -2896,7 +2896,7 @@ ai_strategy_default = {
 						}							
 					}
 				}
-				value = 10
+				value = 25 # 10
 			}			
 			if = {
 				limit = {
@@ -2905,7 +2905,7 @@ ai_strategy_default = {
 						attitude = cautious
 					}
 				}
-				value = -25
+				value = -50 # -25
 			}					
 			if = {
 				limit = {
@@ -2941,27 +2941,27 @@ ai_strategy_default = {
 				limit = {
 					"relations(scope:overlord)" < relations_threshold:cordial
 				}
-				value = -25
+				value = -50 # -25
 			}					
 			if = {
 				limit = {
 					"relations(scope:overlord)" >= relations_threshold:cordial
 					"relations(scope:overlord)" < relations_threshold:amicable
 				}
-				value = 5
+				value = 10 # 5
 			}					
 			if = {
 				limit = {
 					"relations(scope:overlord)" >= relations_threshold:amicable
 					"relations(scope:overlord)" < relations_threshold:friendly
 				}
-				value = 10
+				value = 25 # 10
 			}	
 			if = {
 				limit = {
 					"relations(scope:overlord)" >= relations_threshold:friendly
 				}
-				value = 25
+				value = 50 # 25
 			}				
 		}
 		
@@ -3010,12 +3010,12 @@ ai_strategy_default = {
 						}
 					}
 				}
-				value = 1000
+				value = 10000
 			}
 		}
 
 		max = 0
-		min = -200
+		min = -400 # -200
 	}		
 	
 	# Recklessness multiplies the AI's estimation of its own strength, so at recklessness 2 it believes its forces to be twice as strong as they actually are
@@ -7585,6 +7585,7 @@ ai_strategy_default = {
 					any_diplomatic_play = {
 						initiator_is = root
 						OR = {
+							is_diplomatic_play_type = dp_leadership_germany
 							is_diplomatic_play_type = dp_unify_germany
 							is_diplomatic_play_type = dp_unify_italy
 							is_diplomatic_play_type = dp_unify_scandinavia
@@ -8360,6 +8361,7 @@ ai_strategy_default = {
 						AND = {
 							exists = c:HOL
 							scope:target_country = { this = c:HOL }
+							is_diplomatic_play_involved_with = scope:target_country.top_overlord
 						}
 					}
 					scope:target_country.top_overlord = {
