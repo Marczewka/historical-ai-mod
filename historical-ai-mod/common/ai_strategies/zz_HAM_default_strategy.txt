@@ -7665,7 +7665,6 @@ ai_strategy_default = {
 		
 			if = {
 				limit = { 
-					has_strategic_land_adjacency = scope:target_country
 					wants_to_solve_schleswig_holstein = yes
 					OR = {
 						AND = {
