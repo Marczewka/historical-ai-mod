@@ -20,14 +20,3 @@ GAL = {
 	cultures = { polish }
 	capital = STATE_EAST_GALICIA
 }
-
-CHI = {
-	color = { 252 185 61 }
-	
-	country_type = unrecognized
-	
-	tier = empire
-	
-	cultures = { manchu } 
-	capital = STATE_BEIJING
-}

@@ -3556,7 +3556,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 100
+			add = 200 # 100
 		}
 		
 		# Opium wars aggressor should be very, very aggressive against target if they're banning opium
@@ -3568,7 +3568,7 @@ ai_strategy_default = {
 					is_banning_goods = g:opium
 				}
 			}
-			add = 100
+			add = 200 # 100
 		}
 		
 		# Greek Nationalism
@@ -3736,7 +3736,7 @@ ai_strategy_default = {
 					has_journal_entry = je_peru_bolivia
 				}
 			}
-			add = 100
+			add = 200 # 100
 		}
 
 		if = {
@@ -7981,15 +7981,16 @@ ai_strategy_default = {
 				add = 50
 			}			
 		
-			# if = {
-			# 	limit = {
-			# 		has_journal_entry = je_opium_wars
-			# 		scope:target_country = {
-			# 			has_variable = opium_wars_target
-			# 		}
-			# 	}
-			# 	add = 75
-			# }
+			if = {
+				limit = {
+					has_journal_entry = je_opium_wars
+					is_diplomatic_play_involved_with = scope:target_country
+					scope:target_country = {
+						has_variable = opium_wars_target
+					}
+				}
+				add = 75
+			}
 
 			if = {
 				limit = {
