@@ -790,6 +790,49 @@ ai_strategy_default = {
 				desc = "alignment_politics"
 			}
 		}
+
+		if = { # War of the Confederation
+			limit = {
+				exists = scope:is_initiator
+				root = {
+					has_variable = attack_bolivia
+				}
+				scope:country = {
+					OR = {
+						has_journal_entry = je_war_of_the_confederation
+						AND = {
+							is_subject_of = scope:enemy_country
+							has_journal_entry = je_peru_bolivia
+						}
+					}
+					NOR = {
+						play_participant_has_war_goal_of_type_against = {
+							type = conquer_state
+							target = scope:enemy_country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = make_protectorate
+							target = scope:enemy_country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = take_treaty_port
+							target = scope:enemy_country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = enforce_treaty_article
+							target = scope:enemy_country
+						}
+					}
+				}
+				scope:enemy_country = {
+					has_journal_entry = je_peru_bolivia
+				}
+			}
+			add = {
+				value = 100
+				desc = "je_war_of_the_confederation"
+			}
+		}
 	}	
 	
 	# Added to base neutrality in diplomatic plays	
@@ -935,6 +978,17 @@ ai_strategy_default = {
 			}
 			add = 100 # 50
 		}
+
+		if = { # War of the Confederation participants
+			limit = {
+				OR = {
+					has_journal_entry = je_peru_bolivia
+					has_journal_entry = je_war_of_the_confederation
+				}
+				is_diplomatic_play_enemy_of = c:BOL
+			}
+			add = 50
+		}
 	} 
 		
 	# How many maneuvers are we OK with using up in the initial phase to add more wargoals
@@ -1013,6 +1067,17 @@ ai_strategy_default = {
 			}
 			add = 0.15
 		}	
+
+		# War of the Confederation
+		if = {
+			limit = {
+				has_journal_entry = je_war_of_the_confederation
+				scope:enemy_country = {
+					has_journal_entry = je_peru_bolivia
+				}
+			}
+			add = 0.25
+		}
 	}
 	
 	# Chance each update that the AI is willing to start changing a law (1 = 1%)
@@ -1951,16 +2016,6 @@ ai_strategy_default = {
 					has_journal_entry = je_opium_wars
 					scope:target_country = {
 						has_variable = opium_wars_target
-					}
-				}
-				multiply = 0
-			}
-
-			if = {
-				limit = {
-					has_modifier = modifier_against_the_confederation
-					scope:target_country = {
-						has_journal_entry = je_peru_bolivia
 					}
 				}
 				multiply = 0
@@ -3196,20 +3251,19 @@ ai_strategy_default = {
             }
             add = 100
         }	
-			
-		# Even more recklessness for Chille in the War of the Confederation JE
+		
+		# War of the Confederation
 		if = {
 			limit = {
 				OR = {
-					country_has_primary_culture = cu:south_andean
-					country_has_primary_culture = cu:chilean
+					has_journal_entry = je_war_of_the_confederation
+					has_journal_entry = je_peru_bolivia
 				}
-				has_modifier = modifier_against_the_confederation
 				scope:target_country = {
 					has_journal_entry = je_peru_bolivia
 				}
 			}
-			add = 1.5
+			add = 5
 		}
 
 		# Sardinia confident after treaty of Turin
@@ -3614,19 +3668,16 @@ ai_strategy_default = {
 			add = 50 # 5
 		}
 		
-		# Even more aggression for Chille in the War of the Confederation JE
+		# Even more aggression if you have the War of the Confederation JE
 		if = {
 			limit = {
-				OR = {
-					country_has_primary_culture = cu:south_andean
-					country_has_primary_culture = cu:chilean
-				}
-				has_modifier = modifier_against_the_confederation
+				has_journal_entry = je_war_of_the_confederation
+				has_variable = attack_bolivia
 				scope:target_country = {
 					has_journal_entry = je_peru_bolivia
 				}
 			}
-			add = 200 # 100
+			add = 25
 		}
 
 		if = {
@@ -4391,7 +4442,9 @@ ai_strategy_default = {
 
 		add = {
 			value = investment_pool_income
-			divide = 1000 # 1 construction output per this much into the investment pool				
+			subtract = 7500 # So small nations don't overshoot early on
+			divide = 750 # 1 construction output per this much into the investment pool
+			min = 0
 		}
 		
 		add = {
@@ -4460,7 +4513,6 @@ ai_strategy_default = {
 		}	
 		
 		min = 10
-		max = 1000
 	}
 	
 	# How many levels of barracks should the AI have
@@ -4619,36 +4671,6 @@ ai_strategy_default = {
 			multiply = 0.75
 		}				
 
-		# Moved down
-		# if = {
-		# 	limit = {
-		# 		has_journal_entry = je_sick_man_army
-		# 	}
-		# 	min = 125
-		# }
-		max = {
-			value = 500
-
-			if = {
-				limit = { 
-					has_technology_researched = logistics
-				}
-				multiply = 1.25
-			}
-			if = {
-				limit = { 
-					has_technology_researched = enlistment_offices
-				}
-				multiply = 1.25
-			}
-			if = {
-				limit = { 
-					has_technology_researched = war_propaganda
-				}
-				multiply = 1.25
-			}
-		}
-
 		if = {
 			limit = { 
 				has_journal_entry = je_sick_man_army
@@ -4774,8 +4796,12 @@ ai_strategy_default = {
 			multiply = 0.25
 		}	
 		
-		max = 500
-		min = 0		
+		if = {
+			limit = {
+				has_journal_entry = je_hawaii
+			}
+			min = 25
+		}	
 	}		
 	
 	# Set the weights for combat unit groups, this determines the ratio that the AI aims to have of each, and thus what unit types it adds to formations
@@ -5930,9 +5956,25 @@ ai_strategy_default = {
 						c:BOL ?= this
 						has_journal_entry = je_peru_bolivia
 					}
-					has_modifier = modifier_against_the_confederation
+					OR = {
+						country_has_primary_culture = cu:south_andean
+						country_has_primary_culture = cu:north_andean
+						country_has_primary_culture = cu:platinean
+						country_has_primary_culture = cu:argentine
+						country_has_primary_culture = cu:chilean
+						country_has_primary_culture = cu:colombian
+						country_has_primary_culture = cu:ecuadorian
+					}
+					NOT = { has_variable = befriend_bolivia }
 				}
 				add = -50
+
+				if = {
+					limit = {
+						has_variable = attack_bolivia
+					}
+					multiply = 5
+				}
 			}
 
 			multiply = {
@@ -6489,23 +6531,32 @@ ai_strategy_default = {
 				add = 10000
 			}
 
-			# if = {
-			# 	limit = {
-			# 		scope:target_country = {
-			# 			has_journal_entry = je_peru_bolivia
-			# 		}
-			# 		OR = {
-			# 			country_has_primary_culture = cu:south_andean
-			# 			country_has_primary_culture = cu:north_andean
-			# 			country_has_primary_culture = cu:platinean
-			# 			country_has_primary_culture = cu:argentine
-			# 			country_has_primary_culture = cu:chilean
-			# 			country_has_primary_culture = cu:colombian
-			# 			country_has_primary_culture = cu:ecuadorian
-			# 		}
-			# 	}
-			# 	add = 100
-			# }
+			if = {
+				limit = {
+					scope:target_country = {
+						c:BOL ?= this
+						has_journal_entry = je_peru_bolivia
+					}
+					OR = {
+						country_has_primary_culture = cu:south_andean
+						country_has_primary_culture = cu:north_andean
+						country_has_primary_culture = cu:platinean
+						country_has_primary_culture = cu:argentine
+						country_has_primary_culture = cu:chilean
+						country_has_primary_culture = cu:colombian
+						country_has_primary_culture = cu:ecuadorian
+					}
+					NOT = { has_variable = befriend_bolivia }
+				}
+				add = 300
+
+				if = {
+					limit = {
+						has_variable = attack_bolivia
+					}
+					add = 700
+				}
+			}
 
 			if = {
 				limit = {
@@ -7367,6 +7418,16 @@ ai_strategy_default = {
 				
 				add = scope:target_state.ai_state_value:root
 			}		
+
+			if = {
+				limit = {
+					has_journal_entry = je_war_of_the_confederation
+					scope:target_country = {
+						has_journal_entry = je_peru_bolivia
+					}
+				}
+				multiply = 0
+			}
 			
 			if = {
 				limit = {
@@ -7389,6 +7450,16 @@ ai_strategy_default = {
 		
 		return_state = {
 			add = scope:target_state.ai_state_value:root	
+
+			if = {
+				limit = {
+					has_journal_entry = je_war_of_the_confederation
+					scope:target_country = {
+						has_journal_entry = je_peru_bolivia
+					}
+				}
+				add = 200
+			}
 			if = {
 				limit = {
 					scope:target_country = {
@@ -7656,18 +7727,7 @@ ai_strategy_default = {
 					}				
 				}
 				
-				add = 10
-			}
-
-			if = {
-				limit = {
-					scope:target_country = {
-						c:BOL ?= this
-						has_journal_entry = je_peru_bolivia
-					}
-					has_modifier = modifier_against_the_confederation						
-				}
-				add = 100
+				add = 5
 			}
 		}	
 		
@@ -8130,6 +8190,27 @@ ai_strategy_default = {
 				multiply = 0.1
 			}
 
+			# Relations with subject
+			multiply = {
+				value = "scope:target_country.relations:root"
+				multiply = 0.01
+				add = 1
+				min = 0.25
+				max = 2.0
+			}
+
+			# Ideological opinion of subject
+			multiply = {
+				value = "ai_ideological_opinion(scope:target_country)"
+				multiply = 0.05
+				add = 1
+				min = 0.5
+				max = 2.0
+			}
+
+			min = 0
+			max = 100
+
 			if = {
 				limit = { 
 					wants_to_solve_schleswig_holstein = yes
@@ -8155,33 +8236,20 @@ ai_strategy_default = {
 				limit = {
 					scope:target_country = {
 						has_journal_entry = je_peru_bolivia
-						country_has_primary_culture = cu:south_andean
 					}
-					has_modifier = modifier_against_the_confederation						
+					OR = {
+						has_journal_entry = je_war_of_the_confederation
+						country_has_primary_culture = cu:south_andean
+						country_has_primary_culture = cu:north_andean
+						country_has_primary_culture = cu:platinean
+						country_has_primary_culture = cu:argentine
+						country_has_primary_culture = cu:chilean
+						country_has_primary_culture = cu:colombian
+						country_has_primary_culture = cu:ecuadorian
+					}
 				}
-				add = 100 # 75
-			}
-
-			# Relations with subject
-			multiply = {
-				value = "scope:target_country.relations:root"
-				multiply = 0.01
-				add = 1
-				min = 0.25
-				max = 2.0				
-			}
-			
-			# Ideological opinion of subject
-			multiply = {
-				value = "ai_ideological_opinion(scope:target_country)"
-				multiply = 0.05
-				add = 1
-				min = 0.5
-				max = 2.0
-			}
-
-			min = 0
-			max = 100			
+				add = 1000
+			}		
 		}	
 
 		liberate_country = {
@@ -8313,6 +8381,25 @@ ai_strategy_default = {
 					this = c:DEI
 				}
 				multiply = 0.0
+			}
+
+			if = {
+				limit = {
+					has_journal_entry = je_peru_bolivia
+					scope:target_country = {
+						has_journal_entry = je_peru_bolivia
+					}
+					OR = {
+						country_has_primary_culture = cu:south_andean
+						country_has_primary_culture = cu:north_andean
+						country_has_primary_culture = cu:platinean
+						country_has_primary_culture = cu:argentine
+						country_has_primary_culture = cu:chilean
+						country_has_primary_culture = cu:colombian
+						country_has_primary_culture = cu:ecuadorian
+					}
+				}
+				add = 300
 			}
 		}	
 					

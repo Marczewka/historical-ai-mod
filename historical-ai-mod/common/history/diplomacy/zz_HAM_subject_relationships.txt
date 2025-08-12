@@ -1,8 +1,4 @@
 ﻿DIPLOMACY = {
-	c:NPU = {
-		add_liberty_desire = 20
-	}
-
 	c:NET ?= {	
 		create_diplomatic_pact = {
 			country = c:DEI

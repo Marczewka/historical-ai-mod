@@ -42,6 +42,9 @@
 			c:NPU ?= {
 				is_subject_of = c:BOL
 			}
+			c:IQU ?= {
+				is_subject_of = c:BOL
+			}
 			c:PEU ?= {
 				is_subject_of = c:BOL
 			}
@@ -87,6 +90,9 @@
 			c:NPU ?= {
 				is_subject_of = c:BOL
 			}
+			c:IQU ?= {
+				is_subject_of = c:BOL
+			}
 			c:PEU ?= {
 				is_subject_of = c:BOL
 			}
@@ -106,29 +112,41 @@
 				exists = c:BOL
 			}
 			AND = {
-				NOT = {
-					exists = c:SPU
+				OR = {
+					NOT = {
+						exists = c:SPU
+					}
+					c:SPU ?= {
+						NOT = { is_subject_of = c:BOL }
+					}
 				}
-				NOT = {
-					exists = c:NPU
+				OR = {
+					NOT = {
+						exists = c:NPU
+					}
+					c:NPU ?= {
+						NOT = { is_subject_of = c:BOL }
+					}
 				}
-				NOT = {
-					exists = c:PEU
+				OR = {
+					NOT = {
+						exists = c:IQU
+					}
+					c:IQU ?= {
+						NOT = { is_subject_of = c:BOL }
+					}
+				}
+				OR = {
+					NOT = {
+						exists = c:PEU
+					}
+					c:PEU ?= {
+						NOT = { is_subject_of = c:BOL }
+					}
 				}
 			}
-			c:SPU ?= {
-				NOT = { is_subject_of = c:BOL }
-			}
-			c:NPU ?= {
-				NOT = { is_subject_of = c:BOL }
-			}
-			c:PEU ?= {
-				NOT = { is_subject_of = c:BOL }
-			}
-			c:BOL ?= {
 			NOT = {
 				country_has_primary_culture = cu:south_andean
-				}
 			}
 			c:BOL ?= {
 				is_subject = yes
@@ -338,6 +356,8 @@ je_war_of_the_confederation = {
 	}
 
 	on_complete = {
+		remove_variable = attack_bolivia
+		remove_variable = befriend_bolivia
 		custom_tooltip = {
 			text = peru_bolivia_complete_tt
 			if = {
@@ -387,6 +407,8 @@ je_war_of_the_confederation = {
 	}
 
 	on_fail = {
+		remove_variable = attack_bolivia
+		remove_variable = befriend_bolivia
 		trigger_event = { id = peru_bolivia_events.7 popup = yes }
 		if = {
 			limit = {
@@ -427,6 +449,8 @@ je_war_of_the_confederation = {
 	}
 
 	on_invalid = {
+		remove_variable = attack_bolivia
+		remove_variable = befriend_bolivia
 		if = {
 			limit = {
 				has_modifier = modifier_against_the_confederation

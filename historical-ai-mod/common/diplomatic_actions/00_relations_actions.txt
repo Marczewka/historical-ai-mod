@@ -113,6 +113,16 @@
 
 			if = {
 				limit = {
+					has_journal_entry = je_hawaiian_interest
+					c:HAW ?= {
+						this = scope:target_country
+					}
+				}
+				add = 20
+			}
+
+			if = {
+				limit = {
 					OR = {
 						has_je_befriend_reason = { TARGET = scope:target_country }
 						has_je_protect_reason = { TARGET = scope:target_country }

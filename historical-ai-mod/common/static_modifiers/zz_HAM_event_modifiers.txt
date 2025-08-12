@@ -1,4 +1,0 @@
-﻿border_sovereignity_questioned = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
-	country_prestige_mult = -0.1 # -0.2
-}

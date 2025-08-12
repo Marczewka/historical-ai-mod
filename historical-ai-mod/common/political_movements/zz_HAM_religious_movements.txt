@@ -723,10 +723,6 @@ movement_religious_minority = {
 					}
 					add = 1 # 10
 				}
-			}	
-			if = {
-				limit = { is_treaty_port = yes }
-				multiply = 0.0
 			}			
 		}	
 

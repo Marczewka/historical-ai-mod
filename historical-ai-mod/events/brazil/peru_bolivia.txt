@@ -511,22 +511,11 @@ peru_bolivia_events.4 = {
 		name = peru_bolivia_events.4.a
 		default_option = yes
 		ai_chance = {
-			base = 0 # 25
+			base = 25
 			modifier = {
 				trigger = {
-					OR = {
-						has_attitude = {
-							who = c:BOL
-							attitude = antagonistic
-						}
-						has_attitude = {
-							who = c:BOL
-							attitude = domineering
-						}	
-						has_attitude = {
-							who = c:BOL
-							attitude = belligerent
-						}	
+					c:BOL = {
+						is_player = yes
 					}
 				}
 				add = 25
@@ -537,22 +526,22 @@ peru_bolivia_events.4 = {
 		}
 		add_modifier = {
 			name = modifier_against_the_confederation
-			# days = short_modifier_time
+			days = short_modifier_time
 		}
-		# hidden_effect = {
-		# 	c:BOL ?= {
-		# 		set_mutual_secret_goal = {
-		# 			country = root
-		# 			secret_goal = antagonize
-		# 		}
-		# 	    every_subject_or_below = { # Wants to assist the subjects in attaining independence
-		# 	        set_mutual_secret_goal = {
-		# 	        	country = root
-		# 	        	secret_goal = befriend
-		# 	        }
-		# 	    }
-		# 	}
-		# }
+		hidden_effect = {
+			c:BOL ?= {
+				set_mutual_secret_goal = {
+					country = root
+					secret_goal = antagonize
+				}
+			    every_subject_or_below = { # Wants to assist the subjects in attaining independence
+			        set_mutual_secret_goal = {
+			        	country = root
+			        	secret_goal = befriend
+			        }
+			    }
+			}
+		}
 		if = {
 			limit = {
 				exists = global_var:peru_bolivia_var
@@ -565,29 +554,6 @@ peru_bolivia_events.4 = {
 		name = peru_bolivia_events.4.b
 		ai_chance = {
 			base = 5
-			modifier = {
-				trigger = {
-					OR = {
-						has_attitude = {
-							who = c:BOL
-							attitude = genial
-						}
-						has_attitude = {
-							who = c:BOL
-							attitude = conciliatory
-						}							
-						has_attitude = {
-							who = c:BOL
-							attitude = cooperative
-						}	
-						has_attitude = {
-							who = c:BOL
-							attitude = protective
-						}	
-					}	
-				}
-				add = 50
-			}
 		}
 		add_journal_entry = {
 			type = je_war_of_the_confederation
@@ -608,20 +574,17 @@ peru_bolivia_events.4 = {
 			set_variable = { name = peru_bolivia_opposition_var value = global_var:peru_bolivia_var }
 		}
 	}
-	
+
 	option = {
 		name = peru_bolivia_events.4.c
+		trigger = {
+			NOR = {
+				c:CHL ?= this
+				c:ARG ?= this
+			}
+		}
 		ai_chance = {
 			base = 50
-			modifier = {
-				trigger = {
-					OR = {
-						c:CHL ?= this
-						c:ARG ?= this
-					}
-				}
-				add = -50
-			}
 		}
 		custom_tooltip = ignore_peru_bol_tt
 	}

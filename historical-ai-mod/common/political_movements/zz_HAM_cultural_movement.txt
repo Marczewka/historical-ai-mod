@@ -308,10 +308,6 @@
 					add = 50
 				}
 			}
-			if = {
-				limit = { is_treaty_port = yes }
-				multiply = 0.0
-			}
 		}
 	}
 	
@@ -360,10 +356,6 @@
 					}
 					add = 50
 				}
-			}
-			if = {
-				limit = { is_treaty_port = yes }
-				multiply = 0.0
 			}
 		}
 	}
@@ -478,7 +470,6 @@ movement_cultural_minority = {
 								state_region = { 
 									is_homeland = scope:political_movement.culture 
 								} 
-								is_treaty_port = no
 								culture_percent_state = {
 									target = scope:political_movement.culture
 									value >= 0.18
@@ -506,7 +497,6 @@ movement_cultural_minority = {
 					state_region = { 
 						is_homeland = root 
 					} 
-					is_treaty_port = no
 					culture_percent_state = {
 						target = root
 						value >= 0.2

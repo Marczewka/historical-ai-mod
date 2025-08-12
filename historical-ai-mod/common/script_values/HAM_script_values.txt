@@ -1,4 +1,0 @@
-﻿gdp_per_capita = {
-	value = GDP
-	divide = total_population
-}
