@@ -378,12 +378,6 @@ je_war_of_the_confederation = {
 				trigger_event = { id = peru_bolivia_events.5 popup = yes }
 			}
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_against_the_confederation
-			}
-			remove_modifier = modifier_against_the_confederation
-		}
 	}
 
 	fail = {
@@ -397,12 +391,6 @@ je_war_of_the_confederation = {
 		remove_variable = attack_bolivia
 		remove_variable = befriend_bolivia
 		trigger_event = { id = peru_bolivia_events.7 popup = yes }
-		if = {
-			limit = {
-				has_modifier = modifier_against_the_confederation
-			}
-			remove_modifier = modifier_against_the_confederation
-		}
 	}
 
 	invalid = {
@@ -438,13 +426,7 @@ je_war_of_the_confederation = {
 	on_invalid = {
 		remove_variable = attack_bolivia
 		remove_variable = befriend_bolivia
-		if = {
-			limit = {
-				has_modifier = modifier_against_the_confederation
 			}
-			remove_modifier = modifier_against_the_confederation
-		}
-	}
 
 	current_value = {
 		value = var:peru_bolivia_opposition_var

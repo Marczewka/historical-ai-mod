@@ -63,7 +63,68 @@ ai_desires_target_state = {
 	}
 }
 
+has_enactment_je_or_law_commitment = {
+	OR = {
+		has_journal_entry = je_government_petition
+		has_journal_entry = je_law_imposition
+		has_journal_entry = je_british_dictate_law
+		has_any_law_commitment = yes
+	}
+}
+
+ai_has_reasons_to_not_oppose_law = {
+	OR = {
+		has_law_commitment = scope:law.type
+		any_political_movement = {
+			law_enactment_stance = {
+				law = scope:law.type
+				value > neutral
+			}
+			political_movement_radicalism >= 0.75
+		}
+		AND = {
+			has_journal_entry = je_government_petition
+			var:desired_law_var	?= scope:law
+		}
+		AND = {
+			OR = {
+				has_journal_entry = je_law_imposition
+				has_journal_entry = je_british_dictate_law
+			}
+			imposed_law	?= scope:law
+		}
+	}
+}
+
+ai_has_enact_weight_modifier_journal_entries = {
+	OR = {
+		has_law_commitment = scope:law.type
+		AND = {
+			has_journal_entry = je_government_petition
+			has_variable = desired_law_var
+			scope:law = var:desired_law_var
+		}
+		AND = {
+			OR = {
+				has_journal_entry = je_law_imposition
+				has_journal_entry = je_british_dictate_law
+			}
+			scope:law = imposed_law
+		}
+		AND = {
+			has_journal_entry = je_gyojo_shinwon
+			OR = {
+				scope:law = scope:donghak_desired_law_1
+				scope:law = scope:donghak_desired_law_2
+				scope:law = scope:donghak_desired_law_3
+			}
+		}
+	}
+}
+
 has_je_conquest_reason = {
+	# can_reach_target_country = yes
+
 	OR = {	
 		AND = {
 			has_journal_entry = je_expanding_paraguay
@@ -88,11 +149,9 @@ has_je_conquest_reason = {
 				any_scope_state = {
 					has_claim_by = ROOT
 				}
-				NOT = {
-					AND = {
-						has_modifier = modifier_risorgimento_support
-						country_rank < rank_value:major_power
-					}
+				NAND = {
+					has_variable = risorgimento_unifying_stance
+					country_rank < rank_value:major_power
 				}
 			}
 		}
@@ -159,9 +218,9 @@ has_je_conquest_reason = {
 		}
 
 		AND = {
-			has_modifier = modifier_against_the_confederation
+			has_journal_entry = je_opium_wars
 			$TARGET$ = {
-				has_journal_entry = je_peru_bolivia
+				has_variable = opium_wars_target
 			}
 		}
 
@@ -198,14 +257,6 @@ has_je_conquest_reason = {
 					state_region = { is_homeland = cu:greek }
 					has_claim_by = root
 				}
-			}
-		}
-
-		$TARGET$ = {
-			has_variable = failed_tanzimat
-			any_scope_state = {
-				is_homeland_of_country_cultures = root
-				has_claim_by = root
 			}
 		}
 
@@ -274,18 +325,24 @@ has_je_conquest_reason = {
 		AND = {
 			has_journal_entry = je_conquer_oregon
 			$TARGET$ = {
-				OR = {
-					c:GBR ?= this
-					any_scope_state = {
-						OR = {
-							state_region = s:STATE_WASHINGTON
-							state_region = s:STATE_IDAHO
-							state_region = s:STATE_OREGON
-						}
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_WASHINGTON
+						state_region = s:STATE_IDAHO
+						state_region = s:STATE_OREGON
 					}
 				}
 			}
 		}
+
+		# AND = {
+		# 	has_journal_entry = je_alaska
+		# 	$TARGET$ = {
+		# 		any_scope_state = {
+		# 			state_region = s:STATE_ALASKA
+		# 		}
+		# 	}
+		# }
 
 		AND = {
 			country_has_primary_culture = cu:russian
@@ -374,15 +431,19 @@ has_je_conquest_reason = {
 		
 		AND = {
 			has_journal_entry = je_unify_afghanistan
+			is_afghan_nation = yes
 			$TARGET$ = {
-				any_scope_state = {
-					OR = {
-						state_region = s:STATE_KABUL
-						state_region = s:STATE_HERAT
-						state_region = s:STATE_KANDAHAR
-						state_region = s:STATE_CENTRAL_HIGHLANDS
-						state_region = s:STATE_NORTHERN_BALUCHISTAN
-						state_region = s:STATE_BALKH
+				OR = {
+					is_afghan_nation = yes
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_KABUL
+							state_region = s:STATE_HERAT
+							state_region = s:STATE_KANDAHAR
+							state_region = s:STATE_CENTRAL_HIGHLANDS
+							state_region = s:STATE_NORTHERN_BALUCHISTAN
+							state_region = s:STATE_BALKH
+						}
 					}
 				}
 			}
@@ -406,7 +467,7 @@ has_je_conquest_reason = {
 
 		AND = {
 			has_variable = sided_with_korean_gov
-			$TARGET$ = {
+			scope:target_country = {
 				country_has_primary_culture = cu:korean
 				is_revolutionary = yes
 			}
@@ -414,7 +475,7 @@ has_je_conquest_reason = {
 
 		AND = {
 			has_variable = sided_with_korean_rebels
-			$TARGET$ = {
+			scope:target_country = {
 				country_has_primary_culture = cu:korean
 				is_revolutionary = no
 			}
@@ -431,8 +492,8 @@ has_je_conquest_reason = {
 		}
 		
 		AND = {
-			# has_journal_entry = je_risorgimento
-			has_modifier = modifier_risorgimento_support
+			has_journal_entry = je_risorgimento
+			has_variable = risorgimento_unifying_stance
 			$TARGET$ = { 
 				NOR = {
 					country_has_primary_culture = cu:south_italian
@@ -450,16 +511,18 @@ has_je_conquest_reason = {
 		}
 
 		AND = {
-			# has_journal_entry = je_risorgimento
-			has_modifier = modifier_risorgimento_support
+			has_journal_entry = je_risorgimento
+			has_variable = risorgimento_unifying_stance
 			$TARGET$ = { 
-				has_modifier = modifier_risorgimento_opposition 
+				has_variable = risorgimento_anti_unifying_stance 
 			}
 		}
 	}
 }
 
 has_je_subjugation_reason = {
+	# can_reach_target_country = yes
+
 	OR = {	
 		AND = {
 			OR = {
@@ -473,15 +536,6 @@ has_je_subjugation_reason = {
 			}
 		}
 		AND = {
-			wants_to_solve_schleswig_holstein = yes
-			$TARGET$ = {
-				any_scope_state = { state_region = s:STATE_SCHLESWIG_HOLSTEIN }
-				any_overlord_or_above = {
-					is_oppressor_of_schleswig_holstein = yes
-				}
-			}
-		}
-		AND = {
 			OR = {
 				has_journal_entry = je_sick_man_syria
 				has_journal_entry = je_veiled_protectorate
@@ -490,7 +544,18 @@ has_je_subjugation_reason = {
 			$TARGET$ = c:EGY		
 		}
 		AND = { # Open up Japan	
-			this ?= c:USA
+			OR = {
+				has_technology_researched = civilizing_mission # Just to make sure it doesn't happen immediately in 1836
+				AND = {
+					this ?= c:USA
+					any_scope_state = {
+						is_incorporated = yes
+						region = sr:region_pacific_coast
+					}
+				}
+			}
+			country_rank = rank_value:great_power
+			navy_size >= 25
 			scope:target_country = { 
 				exists = c:JAP
 				this = c:JAP		
@@ -534,9 +599,54 @@ has_je_subjugation_reason = {
 }
 
 has_je_befriend_reason = {
+	# can_reach_target_country = yes
 	country_rank <= $TARGET$.country_rank
 	
 	OR = {
+		AND = {
+			exists = c:RSM
+			THIS = {
+				has_journal_entry = je_risorgimento
+			}
+			has_variable = rsm_friendship
+		}
+		
+
+		# Moved to reconcile
+		# AND = {
+		# 	has_journal_entry = je_oregon
+		# 	$TARGET$ = {
+		# 		any_scope_state = {
+		# 			OR = {
+		# 				state_region = s:STATE_WASHINGTON
+		# 				state_region = s:STATE_IDAHO
+		# 				state_region = s:STATE_OREGON
+		# 			}
+		# 		}
+		# 	}
+		# }
+
+		# AND = {
+		# 	c:GBR ?= this
+		# 	$TARGET$ = { has_journal_entry = je_oregon }
+		# }
+	
+		AND = {
+			c:GBR ?= this
+			has_variable = committed_to_afghanistan_assistance
+			$TARGET$ = {
+				has_variable = AFG_appealed_to_GBR
+			}
+		}
+		
+		AND = {
+			c:RUS ?= this
+			has_variable = committed_to_afghanistan_assistance
+			$TARGET$ = {
+				has_variable = AFG_appealed_to_RUS
+			}
+		}
+
 		AND = {
 			NOT = { has_variable = ionian_islands_decision_var }
 			c:GRE ?= this
@@ -586,39 +696,23 @@ has_je_befriend_reason = {
 		AND = {
 			OR = {
 				c:ITA ?= this
-				has_modifier = modifier_risorgimento_support
+				has_variable = risorgimento_unifying_stance
 			}
 			country_rank >= rank_value:major_power
 			$TARGET$ = { 
-				has_modifier = modifier_risorgimento_support 
+				has_variable = risorgimento_unifying_stance 
 				country_rank < rank_value:major_power
 			}
 		}
 
 		AND = {
-			has_modifier = modifier_risorgimento_support
+			has_variable = risorgimento_unifying_stance
 			country_rank < rank_value:major_power
 			$TARGET$ = { 
 				OR = {
 					c:ITA ?= this
-					has_modifier = modifier_risorgimento_support
+					has_variable = risorgimento_unifying_stance
 				} 
-			}
-		}
-	
-		AND = {
-			c:GBR ?= this
-			has_variable = committed_to_afghanistan_assistance
-			$TARGET$ = {
-				has_variable = AFG_appealed_to_GBR
-			}
-		}
-		
-		AND = {
-			c:RUS ?= this
-			has_variable = committed_to_afghanistan_assistance
-			$TARGET$ = {
-				has_variable = AFG_appealed_to_RUS
 			}
 		}
 
@@ -634,7 +728,7 @@ has_je_befriend_reason = {
 		
 		AND = {
 			has_variable = sided_with_korean_gov
-			$TARGET$ = {
+			scope:target_country = {
 				country_has_primary_culture = cu:korean
 				is_revolutionary = no
 			}
@@ -642,7 +736,7 @@ has_je_befriend_reason = {
 
 		AND = {
 			has_variable = sided_with_korean_rebels
-			$TARGET$ = {
+			scope:target_country = {
 				country_has_primary_culture = cu:korean
 				is_revolutionary = yes
 			}
@@ -665,9 +759,17 @@ has_je_befriend_reason = {
 }
 
 has_je_protect_reason = {
+	# can_reach_target_country = yes
 	country_rank > $TARGET$.country_rank
 	
 	OR = {
+		AND = {
+			exists = c:RSM
+			THIS = {
+				has_journal_entry = je_risorgimento
+			}
+			has_variable = rsm_friendship
+		}
 		AND = {		
 			is_unification_candidate = GER
 			$TARGET$ = { 
@@ -728,22 +830,22 @@ has_je_protect_reason = {
 		AND = {
 			OR = {
 				c:ITA ?= this
-				has_modifier = modifier_risorgimento_support
+				has_variable = risorgimento_unifying_stance
 			}
 			country_rank >= rank_value:major_power
 			$TARGET$ = { 
-				has_modifier = modifier_risorgimento_support 
+				has_variable = risorgimento_unifying_stance 
 				country_rank < rank_value:major_power
 			}
 		}
 
 		AND = {
-			has_modifier = modifier_risorgimento_support
+			has_variable = risorgimento_unifying_stance
 			country_rank < rank_value:major_power
 			$TARGET$ = { 
 				OR = {
 					c:ITA ?= this
-					has_modifier = modifier_risorgimento_support
+					has_variable = risorgimento_unifying_stance
 				}
 			}
 		}
@@ -780,7 +882,7 @@ has_je_protect_reason = {
 
 		AND = {
 			has_variable = sided_with_korean_gov
-			$TARGET$ = {
+			scope:target_country = {
 				country_has_primary_culture = cu:korean
 				is_revolutionary = no
 			}
@@ -788,7 +890,7 @@ has_je_protect_reason = {
 
 		AND = {
 			has_variable = sided_with_korean_rebels
-			$TARGET$ = {
+			scope:target_country = {
 				country_has_primary_culture = cu:korean
 				is_revolutionary = yes
 			}

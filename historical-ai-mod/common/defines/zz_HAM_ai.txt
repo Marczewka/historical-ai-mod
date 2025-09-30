@@ -1,0 +1,4 @@
+﻿NAI = {
+	DIPLO_PLAY_SWAY_CALL_IN_OBLIGATION = 100 # When calling in an obligation
+	DIPLO_PLAY_SWAY_MINIMUM_OBLIGATION_VALUE = 20 # 10 # Obligations worth less than this are rejected
+}

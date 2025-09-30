@@ -450,16 +450,21 @@ ai_strategy_default = {
 		if = {
 			limit = { 
 				exists = scope:is_initiator
-				OR = {
-					scope:diplomatic_play_type = play_type:dp_secession
-					scope:diplomatic_play_type = play_type:dp_revolution
+				scope:diplomatic_play_type = play_type:dp_secession
+				root = {
+					has_variable = risorgimento_unifying_stance
 				}
-				has_modifier = modifier_risorgimento_support
 				scope:country = {
-					has_modifier = modifier_risorgimento_support
+					OR = {
+						country_has_primary_culture = cu:north_italian
+						country_has_primary_culture = cu:south_italian
+					}
 				}
 				scope:enemy_country = {
-					NOT = { has_modifier = modifier_risorgimento_support }
+					NOR = {
+						country_has_primary_culture = cu:north_italian
+						country_has_primary_culture = cu:south_italian
+					}
 				}
 			}
 			add = {
@@ -1443,9 +1448,9 @@ ai_strategy_default = {
 		### Risorgimento
 		if = {
 			limit = { 
-				has_modifier = modifier_risorgimento_support
+				has_variable = risorgimento_unifying_stance
 				scope:target_country = {
-					has_modifier = modifier_risorgimento_support
+					has_variable = risorgimento_unifying_stance
 				}
 			}
 			add = 15
@@ -5026,11 +5031,6 @@ ai_strategy_default = {
 		
 		if = {
 			limit = { has_strategy = ai_strategy_maintain_mandate_of_heaven }
-			multiply = 0.25
-		}		
-
-		if = {
-			limit = { has_strategy = ai_strategy_unify_italy }
 			multiply = 0.25
 		}	
 		

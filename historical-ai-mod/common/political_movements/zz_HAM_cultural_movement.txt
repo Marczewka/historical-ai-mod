@@ -531,6 +531,22 @@ movement_cultural_minority = {
 		else = {
 			set_core_ideology = ideology_pluralist_movement_4
 		}
+		if = {
+			limit = {
+				owner = {
+					has_variable_list = failed_uprisings_culture_list
+					is_target_in_variable_list = { name = failed_uprisings_culture_list target = root.culture }
+				}
+			}
+			owner = {
+				remove_list_variable = { name = failed_uprisings_culture_list target = root.culture }
+			}
+			add_modifier = {
+				name = movement_suppressed_after_civil_war_copy
+				days = very_long_modifier_time
+				is_decaying = yes
+			}
+		}
 	}
 
 	disband_trigger = {
@@ -1093,6 +1109,15 @@ movement_cultural_minority = {
 					}
 					add = 1 # 50
 				}
+			}
+
+			if = { # Agnus Dei, qui tollis peccata mundi, miserere nobis
+				limit = {
+					p:xF0E080.state ?= this
+					is_split_state = yes
+					scope:political_movement.culture ?= cu:polish
+				}
+				multiply = -100
 			}
 		}
 

@@ -117,19 +117,7 @@
 		show_as_tooltip = {
 			trigger_event = { id = italian_unification.1 popup = yes }
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_risorgimento_support
 			}
-			remove_modifier = modifier_risorgimento_support
-		}
-		if = {
-			limit = {
-				has_modifier = modifier_risorgimento_opposition
-			}
-			remove_modifier = modifier_risorgimento_opposition
-		}
-	}
 
 	fail = {
 		custom_tooltip = {
@@ -144,21 +132,6 @@
 					}
 				}
 			}
-		}
-	}
-
-	on_fail = {
-		if = {
-			limit = {
-				has_modifier = modifier_risorgimento_support
-			}
-			remove_modifier = modifier_risorgimento_support
-		}
-		if = {
-			limit = {
-				has_modifier = modifier_risorgimento_opposition
-			}
-			remove_modifier = modifier_risorgimento_opposition
 		}
 	}
 	

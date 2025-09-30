@@ -180,7 +180,7 @@ je_risorgimento_austrian_radicals_button = {
 		}
 		custom_tooltip = {
 			text = risorgimento_unifying_stance_tt
-			has_modifier = risorgimento_unifying_stance
+			has_variable = risorgimento_unifying_stance
 		}
 	}
 
@@ -316,7 +316,7 @@ je_risorgimento_italian_radicals_button = {
 		has_technology_researched = nationalism
 		custom_tooltip = {
 			text = risorgimento_unifying_stance_tt
-			has_modifier = modifier_risorgimento_support
+			has_variable = risorgimento_unifying_stance
 		}
 		country_rank >= rank_value:minor_power
 		any_diplomatically_relevant_country = {
@@ -326,7 +326,9 @@ je_risorgimento_italian_radicals_button = {
 			}
 			custom_tooltip = {
 				text = risorgimento_opposing_stance_tt
-				has_modifier = modifier_risorgimento_opposition
+				NOT = {
+					has_variable = risorgimento_unifying_stance
+				}
 			}
 			relations:root <= 20
 			any_political_movement = {
@@ -357,7 +359,7 @@ je_risorgimento_italian_radicals_button = {
 						country_has_primary_culture = cu:north_italian
 					}
 					NOT = {
-						has_modifier = modifier_risorgimento_support
+						has_variable = risorgimento_unifying_stance
 					}
 					relations:root >= 20
 				}
@@ -372,7 +374,7 @@ je_risorgimento_italian_radicals_button = {
 						country_has_primary_culture = cu:north_italian
 					}
 					NOT = {
-						has_modifier = modifier_risorgimento_support
+						has_variable = risorgimento_unifying_stance
 					}
 					relations:root <= 20
 				}
@@ -393,7 +395,9 @@ je_risorgimento_italian_radicals_button = {
 				}
 				custom_tooltip = {
 					text = risorgimento_opposing_stance_tt
-					has_modifier = modifier_risorgimento_opposition
+					NOT = {
+						has_variable = risorgimento_unifying_stance
+					}
 				}
 				any_political_movement = {
 					is_political_movement_type = movement_italian_national
@@ -485,7 +489,7 @@ je_risorgimento_italian_unification_button = {
 		has_technology_researched = nationalism
 		custom_tooltip = {
 			text = risorgimento_unifying_stance_tt
-			has_modifier = modifier_risorgimento_support
+			has_variable = risorgimento_unifying_stance
 		}
 		NOR = {
 			is_revolutionary = yes
@@ -520,7 +524,7 @@ je_risorgimento_italian_unification_button = {
 			}
 			custom_tooltip = {
 				text = risorgimento_unifying_stance_tt
-				has_modifier = modifier_risorgimento_support
+				has_variable = risorgimento_unifying_stance
 			}
 		}
 	}
@@ -539,7 +543,7 @@ je_risorgimento_change_stance_button = {
 	desc = "je_risorgimento_change_stance_button_desc"
 
 	visible = { 
-		has_modifier = modifier_risorgimento_opposition
+		has_variable = risorgimento_anti_unifying_stance
 	}
 
 	possible = {
@@ -594,12 +598,6 @@ je_risorgimento_change_stance_button = {
 		root = {
 			save_scope_as = italian_unifier_candidate
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_risorgimento_opposition
-			}
-			remove_modifier = modifier_risorgimento_opposition
-		}
 		every_interest_group = {
 			limit = {
 				OR = {
@@ -647,8 +645,12 @@ je_risorgimento_change_stance_button = {
 			}
 			remove_modifier = modifier_italian_unificationist_sentiment
 		}
-		add_modifier = {
-			name = modifier_risorgimento_support
+		set_variable = risorgimento_unifying_stance
+		if = {
+			limit = {
+				has_variable = risorgimento_anti_unifying_stance
+			}
+			remove_variable = risorgimento_anti_unifying_stance
 		}
 		every_country = {
 			limit = {
@@ -903,5 +905,57 @@ je_marea_unire = {
 
 	effect = {
 		trigger_event = { id = romania.2 }
+	}
+}
+
+je_christ_of_nations_unification_button = {
+	name = "je_christ_of_nations_unification_button"
+	desc = "je_christ_of_nations_unification_button_desc"
+
+	visible = { 
+		NOT = {
+			is_subject = yes
+		}
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		has_technology_researched = nationalism
+		NOR = {
+			is_revolutionary = yes
+			is_secessionist = yes
+		}
+		custom_tooltip = {
+			text = rejected_polish_union_pol_var_tt
+			NOT = { has_variable = rejected_polish_union_pol_var }
+		}
+		any_country = {
+			is_at_war = no
+			NOT = { this = root }
+			NOR = {
+				is_revolutionary = yes
+				is_secessionist = yes
+			}
+			country_has_primary_culture = cu:polish
+			OR = {
+				is_subject = no
+				is_subject_of = ROOT
+			}
+			OR = {
+				this.gdp < root.gdp
+				root = { is_player = yes }
+			}
+			relations:root >= relations_threshold:amicable
+			is_player = no
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		trigger_event = { id = poland_events.3 popup = yes }
 	}
 }

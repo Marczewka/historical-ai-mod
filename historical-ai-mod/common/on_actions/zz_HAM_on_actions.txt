@@ -46,27 +46,29 @@ revolution_risorgimento_on_action = {
 }
 
 revolution_dominicana_on_action = {
-	if = {
-		limit = {
-			NOT = {
-				exists = c:DOM
-			}
-			scope:target ?= {
-				OR = {
-					country_has_primary_culture = cu:caribeno
-					country_has_primary_culture = cu:afro_caribeno
+	effect = {
+		if = {
+			limit = {
+				NOT = {
+					exists = c:DOM
 				}
-				capital.state_region = s:STATE_SANTO_DOMINGO
-			}
-			ROOT = {
-				NOR = {
-					country_has_primary_culture = cu:caribeno
-					country_has_primary_culture = cu:afro_caribeno
+				scope:target ?= {
+					OR = {
+						country_has_primary_culture = cu:caribeno
+						country_has_primary_culture = cu:afro_caribeno
+					}
+					capital.state_region = s:STATE_SANTO_DOMINGO
+				}
+				ROOT = {
+					NOR = {
+						country_has_primary_culture = cu:caribeno
+						country_has_primary_culture = cu:afro_caribeno
+					}
 				}
 			}
-		}
-		scope:target = {
-			change_tag = DOM
+			scope:target = {
+				change_tag = DOM
+			}
 		}
 	}
 }

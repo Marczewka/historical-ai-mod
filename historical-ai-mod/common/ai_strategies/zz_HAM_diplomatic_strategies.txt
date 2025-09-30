@@ -1885,7 +1885,7 @@ ai_strategy_unify_italy = {
 					}
 					NOT = { is_unification_candidate = ITA }
 					OR = { 
-						has_modifier = modifier_risorgimento_support
+						has_variable = risorgimento_unifying_stance
 						is_supporting_unification_candidate = { who = root country_formation = ITA }
 						is_subject_of = root
 						is_in_customs_union_with = root
@@ -1899,10 +1899,6 @@ ai_strategy_unify_italy = {
 		conquer = {				
 			trigger = {
 				OR = {
-					scope:target_country = {				
-						is_unification_candidate = ITA
-						country_rank >= rank_value:major_power
-					}
 					scope:target_country = {
 						OR = {
 							country_has_primary_culture = cu:north_italian
@@ -1910,11 +1906,18 @@ ai_strategy_unify_italy = {
 						}					
 						NOR = { 
 							# is_unification_candidate = ITA
-							has_modifier = modifier_risorgimento_support
+							has_variable = risorgimento_unifying_stance
 							is_supporting_unification_candidate = { who = root country_formation =ITA }
 							is_subject_of = root
 							is_in_customs_union_with = root
 						}	
+					}
+					scope:target_country = {				
+						is_unification_candidate = ITA
+						NAND = {
+							has_variable = risorgimento_unifying_stance
+							country_rank < rank_value:major_power
+						}
 					}
 				}
 			}
@@ -1926,7 +1929,7 @@ ai_strategy_unify_italy = {
 		
 	possible = {
 		is_subject = no
-		has_modifier = modifier_risorgimento_support
+		has_variable = risorgimento_unifying_stance
 		NOT = { country_tier = empire }
 	}
 
