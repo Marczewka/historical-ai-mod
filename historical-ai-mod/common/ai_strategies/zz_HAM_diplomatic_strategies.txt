@@ -1667,13 +1667,12 @@ ai_strategy_unify_germany = {
 			}
 			AND = {
 				has_technology_researched = pan-nationalism
-				exists = c:NGF
-				THIS = c:NGF
+				c:NGF?= this
 			}
 			AND = {
 				has_technology_researched = pan-nationalism
-				exists = c:PRU
-				THIS = c:PRU
+				c:PRU ?= this
+				country_rank >= rank_value:great_power
 			}
 		}
 	}
@@ -1974,8 +1973,10 @@ ai_strategy_unify_italy = {
 		
 	possible = {
 		is_subject = no
-		is_unification_candidate = ITA
-		country_rank >= rank_value:major_power
+		OR = {
+			is_unification_candidate = ITA
+			country_rank >= rank_value:great_power
+		}
 		NOT = { country_tier = empire }
 	}
 

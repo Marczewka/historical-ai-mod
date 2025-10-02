@@ -165,29 +165,6 @@ ai_strategy_default = {
 			}
 		}
 		
-		### Kindred Secession
-		if = {
-			limit = { 
-				exists = scope:is_initiator
-				scope:diplomatic_play_type = play_type:dp_secession
-				scope:country = {
-					any_primary_culture = {
-						is_primary_culture_of = root
-					}
-				}
-				scope:enemy_country = {
-					any_primary_culture = {
-						NOT = { is_primary_culture_of = root }
-					}
-				}
-			}
-			add = {
-				value = 150
-				desc = "kindred_secession"
-			}
-		}
-
-		
 		### Schleswig War
 		if = {
 			limit = {
@@ -814,6 +791,27 @@ ai_strategy_default = {
 				desc = "je_war_of_the_confederation"
 			}
 		}
+
+		if = { # Kindred Secession
+			limit = { 
+				exists = scope:is_initiator
+				scope:diplomatic_play_type = play_type:dp_secession
+				scope:country = {
+					any_primary_culture = {
+						is_primary_culture_of = root
+					}
+				}
+				scope:enemy_country = {
+					any_primary_culture = {
+						NOT = { is_primary_culture_of = root }
+					}
+				}
+			}
+			add = {
+				value = 150
+				desc = "kindred_secession"
+			}
+		}
 	}	
 	
 	# Added to base neutrality in diplomatic plays	
@@ -1314,50 +1312,6 @@ ai_strategy_default = {
 			add = 10
 		}
 
-		### Protect Afghanistan
-		if = {
-			limit = { 
-				OR = {
-					c:GBR = this
-					c:RUS = this
-				}
-				scope:target_country = {
-					c:AFG ?= this
-					OR = {
-						is_diplomatic_play_involved_with = c:GBR
-						is_diplomatic_play_involved_with = c:GBR
-					}
-				}
-			}
-			add = 15
-		}
-
-		### Savoy
-		if = {
-			limit = { 
-				this ?= c:FRA
-				scope:target_country = {
-					has_journal_entry = je_risorgimento
-					any_scope_state = {
-						state_region = s:STATE_SAVOY
-					}
-				}
-			}
-			add = 15
-		}
-
-		### Risorgimento
-		if = {
-			limit = { 
-				has_variable = risorgimento_unifying_stance
-				scope:target_country = {
-					has_variable = risorgimento_unifying_stance
-					NOT = { is_unification_candidate = ITA }
-				}
-			}
-			add = 15
-		}
-
 		min = 0
 		max = 30
 	}
@@ -1776,19 +1730,6 @@ ai_strategy_default = {
 				}
 			}
 
-			# USA should be aggressive against CSA
-			if = {
-				limit = {
-					has_journal_entry = je_acw_war
-					scope:target_state = {
-						owner = {
-							c:CSA ?= this
-						}
-					}
-				}
-				add = 25
-			}
-
 			if = {
 				limit = {
 					has_journal_entry = je_conquer_oregon
@@ -1881,20 +1822,6 @@ ai_strategy_default = {
 				add = 15
 			}
 
-			if = {
-				limit = {
-					c:GBR ?= this 
-					has_technology_researched = civilizing_mission
-					scope:target_state = {
-						OR = {
-							state_region = s:STATE_NORTH_BORNEO
-							state_region = s:STATE_MALAYA
-						}
-					}						
-				}
-				add = 50
-			}
-			
 			if = { # Dutch East Indies wishes to consolidate Indonesia
 				limit = {
 					c:DEI ?= this
@@ -1996,24 +1923,6 @@ ai_strategy_default = {
 				add = 50
 			}
 
-			# Ottomans should want Syria back
-			if = {
-				limit = {
-					has_journal_entry = je_sick_man_syria
-					scope:target_state = {
-						OR = {
-							state_region = s:STATE_ALEPPO
-							state_region = s:STATE_SYRIA
-							state_region = s:STATE_LEBANON
-							state_region = s:STATE_PALESTINE
-							state_region = s:STATE_TRANSJORDAN
-							state_region = s:STATE_ADANA
-						}
-					}
-				}
-				add = 50
-			}
-		
 			if = {
 				limit = {
 					lenient_ai_behavior_trigger = yes
@@ -2042,7 +1951,7 @@ ai_strategy_default = {
 						}
 					}
 				}
-				multiply = 0.25 # 0
+				multiply = 0
 			}
 			
 			if = { #Do Not Take core Chinese States In Full, unless another power has already done so
@@ -2136,6 +2045,94 @@ ai_strategy_default = {
 					}
 				}
 				multiply = 0
+			}
+
+			if = { #Do Not Take Overseas Persian States In Full, unless another power has already done so
+				limit = {
+					country_rank >= rank_value:major_power
+					scope:target_state = {
+						owner = {
+							c:PER ?= this
+						}
+						region = sr:region_persia
+					}	
+					NOT = { has_strategic_land_adjacency = scope:target_state }
+					OR = {
+						country_is_in_north_america = yes
+						country_is_in_europe = yes
+						country_is_in_south_america = yes
+					}					
+					NOT = {
+						sr:region_persia = {
+							any_scope_state = {
+								NOT = { is_treaty_port = yes }
+								is_largest_state_in_region = yes
+								owner = {
+									NOT = { THIS = ROOT }
+									country_rank >= rank_value:major_power
+									OR = {
+										country_is_in_north_america = yes
+										country_is_in_europe = yes
+										country_is_in_south_america = yes
+									}					
+								}
+							}	
+						}	
+					}
+				}
+				multiply = 0
+			}
+
+			if = { #Do Not Take Overseas Egyptian States In Full, unless another power has already done so
+				limit = {
+					country_rank >= rank_value:major_power
+					scope:target_state = {
+						owner = {
+							c:EGY ?= this
+						}
+						region = sr:region_nile_basin
+						NOT = { state_region = s:STATE_SINAI }
+					}	
+					NOT = { has_strategic_land_adjacency = scope:target_state }
+					OR = {
+						country_is_in_north_america = yes
+						country_is_in_europe = yes
+						country_is_in_south_america = yes
+					}					
+					NOT = {
+						sr:region_nile_basin = {
+							any_scope_state = {
+								NOT = { is_treaty_port = yes }
+								NOT = { state_region = s:STATE_SINAI }
+								is_largest_state_in_region = yes
+								owner = {
+									NOT = { THIS = ROOT }
+									country_rank >= rank_value:major_power
+									OR = {
+										country_is_in_north_america = yes
+										country_is_in_europe = yes
+										country_is_in_south_america = yes
+									}					
+								}
+							}	
+						}	
+					}
+				}
+				multiply = 0
+			}
+
+			if = {
+				limit = {
+					c:GBR ?= this 
+					has_technology_researched = civilizing_mission
+					scope:target_state = {
+						OR = {
+							state_region = s:STATE_NORTH_BORNEO
+							state_region = s:STATE_MALAYA
+						}
+					}						
+				}
+				add = 50
 			}
 		}
 
@@ -2284,16 +2281,6 @@ ai_strategy_default = {
 
 		if = {
 			limit = {
-				has_journal_entry = je_sick_man_syria
-				scope:target_country = {
-					c:EGY ?= this
-				}
-			}
-			multiply = 0
-		}
-		
-		if = {
-			limit = {
 				# Because the target state in a treaty article is not actually the treaty port state, we need to check the entire state region
 				scope:target_state = { 
 					NOT = {
@@ -2354,6 +2341,16 @@ ai_strategy_default = {
 				}
 				multiply = 0
 			}			
+		}
+
+		if = {
+			limit = {
+				has_journal_entry = je_sick_man_syria
+				scope:target_country = {
+					c:EGY ?= this
+				}
+			}
+			multiply = 0
 		}
 
 		min = 0
@@ -2904,26 +2901,6 @@ ai_strategy_default = {
 			add = 1
 		}		
 
-		if = { #Carving up China
-			limit = {
-				should_carve_up_china = yes
-				scope:target_country = {
-					OR = {
-						c:CHI ?= this
-						c:TPG ?= this
-					}
-					any_scope_state = {
-						OR = {
-							region = sr:region_north_china
-							region = sr:region_south_china
-							region = sr:region_manchuria
-						}
-					}
-				}
-			}
-			add = 1
-		}
-	
 		# Opium wars participants should both be confident
 		if = {
 			limit = {
@@ -3287,6 +3264,48 @@ ai_strategy_default = {
 			add = 5
 		}
 
+		# Countries with high-fervour primary cultures are more reckless against rivals or countries with homelands
+		if = {
+			limit = {
+				country_fervor_primary_culture > 10
+				scope:target_country = {
+					OR = {
+						has_diplomatic_pact = {
+							who = root
+							type = rivalry
+						}
+						any_scope_state = {
+							is_homeland_of_country_cultures = root
+						}
+					}
+				}
+			}
+			add = {
+				value = country_fervor_primary_culture
+				divide = 50 # 20
+			}
+		}
+
+		if = { #Carving up China
+			limit = {
+				should_carve_up_china = yes
+				scope:target_country = {
+					OR = {
+						c:CHI ?= this
+						c:TPG ?= this
+					}
+					any_scope_state = {
+						OR = {
+							region = sr:region_north_china
+							region = sr:region_south_china
+							region = sr:region_manchuria
+						}
+					}
+				}
+			}
+			add = 1
+		}
+
 		if = {
 			limit = {
 				has_journal_entry = je_the_eastern_border
@@ -3386,28 +3405,6 @@ ai_strategy_default = {
 				}
 			}
 			add = 1
-		}
-
-		# Countries with high-fervour primary cultures are more reckless against rivals or countries with homelands
-		if = {
-			limit = {
-				country_fervor_primary_culture > 10
-				scope:target_country = {
-					OR = {
-						has_diplomatic_pact = {
-							who = root
-							type = rivalry
-						}
-						any_scope_state = {
-							is_homeland_of_country_cultures = root
-						}
-					}
-				}
-			}
-			add = {
-				value = country_fervor_primary_culture
-				divide = 50 # 20
-			}
 		}
 	}
 
@@ -4347,16 +4344,6 @@ ai_strategy_default = {
 				has_journal_entry = je_acw_war
 				scope:target_country = {
 					c:CSA ?= this
-				}
-			}
-			add = 50
-		}
-
-		if = {
-			limit = {
-				c:GUA ?= this
-				scope:target_country = {
-					c:ALT ?= this
 				}
 			}
 			add = 50
@@ -7624,6 +7611,27 @@ ai_strategy_default = {
 					}
 				}
 				add = 200
+			}
+			if = {
+				limit = {
+					c:MEX ?= this
+					scope:target_country = {
+						any_scope_state = {
+							state_region = s:STATE_CHIAPAS
+						}
+					}
+				}
+				add = 10
+			}
+
+			if = {
+				limit = {
+					c:GUA ?= this
+					scope:target_country = {
+						c:ALT ?= this
+					}
+				}
+				add = 10
 			}
 			if = {
 				limit = {
