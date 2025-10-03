@@ -514,6 +514,9 @@ je_risorgimento_change_stance_button = {
 				has_variable = stance_cooldown_var
 			}
 		}
+		NOT = {
+			has_journal_entry = je_red_summer
+		}
 	}
 
 	ai_chance = {

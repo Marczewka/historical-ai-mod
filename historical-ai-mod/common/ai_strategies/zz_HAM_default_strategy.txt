@@ -391,11 +391,7 @@ ai_strategy_default = {
 					AND = {
 						has_port = yes 
 						navy_size >= 10
-						scope:country = { 
-							any_scope_state = {
-								is_coastal = yes
-							}
-						}
+						scope:country = { has_port = yes }
 					}
 				}
 			}
@@ -6651,20 +6647,7 @@ ai_strategy_default = {
 		}
 		conquer = {
 			trigger = {
-				# can_reach_target_country = yes
-				has_diplomatic_relevance = scope:target_country
-				OR = {
-					has_strategic_adjacency = scope:target_country
-					AND = {
-						has_port = yes
-						navy_size >= 10
-						scope:target_country = { 
-							any_scope_state = {
-								is_coastal = yes
-							}
-						}
-					}
-				}
+				can_reach_target_country = yes
 				NOT = { is_subject_of = scope:target_country }
 
 				# Be nice to tutorial players
@@ -7142,20 +7125,7 @@ ai_strategy_default = {
 						scope:target_country = { is_country_type = unrecognized }
 					}
 				}			
-				# can_reach_target_country = yes
-				has_diplomatic_relevance = scope:target_country
-				OR = {
-					has_strategic_adjacency = scope:target_country
-					AND = {
-						has_port = yes
-						navy_size >= 10
-						scope:target_country = { 
-							any_scope_state = {
-								is_coastal = yes
-							}
-						}
-					}
-				}
+				can_reach_target_country = yes
 				NOT = { is_subject_of = scope:target_country }
 				
 				# AI shouldn't be aggressive against subjects of their subjects

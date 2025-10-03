@@ -135,7 +135,7 @@ ai_has_enact_weight_modifier_journal_entries = {
 }
 
 has_je_conquest_reason = {
-	can_reach_target_country = yes
+	# can_reach_target_country = yes
 
 	OR = {	
 		AND = {
@@ -469,7 +469,7 @@ has_je_conquest_reason = {
 }
 
 has_je_subjugation_reason = {
-	can_reach_target_country = yes
+	# can_reach_target_country = yes
 
 	OR = {
 		AND = {
