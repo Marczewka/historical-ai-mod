@@ -391,7 +391,11 @@ ai_strategy_default = {
 					AND = {
 						has_port = yes 
 						navy_size >= 10
-						scope:country = { has_port = yes }
+						scope:country = { 
+							any_scope_state = {
+								is_coastal = yes
+							}
+						}
 					}
 				}
 			}
@@ -3054,15 +3058,7 @@ ai_strategy_default = {
 			limit = {
 				wants_to_solve_schleswig_holstein = yes	
 				scope:target_country = {
-					OR = {
-						is_oppressor_of_schleswig_holstein = yes
-						AND = {
-							any_scope_state = { state_region = s:STATE_SCHLESWIG_HOLSTEIN }
-							top_overlord = {
-								is_oppressor_of_schleswig_holstein = yes
-							}
-						}
-					}
+					is_oppressor_of_schleswig_holstein = yes
 				}
 			}
 			add = 0.5
@@ -3584,15 +3580,7 @@ ai_strategy_default = {
 			limit = { 
 				wants_to_solve_schleswig_holstein = yes	
 				scope:target_country = {
-					OR = {
-						is_oppressor_of_schleswig_holstein = yes
-						AND = {
-							any_scope_state = { state_region = s:STATE_SCHLESWIG_HOLSTEIN }
-							top_overlord = {
-								is_oppressor_of_schleswig_holstein = yes
-							}
-						}
-					}
+					is_oppressor_of_schleswig_holstein = yes
 				}
 			}
 			add = 5
@@ -6663,7 +6651,20 @@ ai_strategy_default = {
 		}
 		conquer = {
 			trigger = {
-				can_reach_target_country = yes
+				# can_reach_target_country = yes
+				has_diplomatic_relevance = scope:target_country
+				OR = {
+					has_strategic_adjacency = scope:target_country
+					AND = {
+						has_port = yes
+						navy_size >= 10
+						scope:target_country = { 
+							any_scope_state = {
+								is_coastal = yes
+							}
+						}
+					}
+				}
 				NOT = { is_subject_of = scope:target_country }
 
 				# Be nice to tutorial players
@@ -7141,7 +7142,20 @@ ai_strategy_default = {
 						scope:target_country = { is_country_type = unrecognized }
 					}
 				}			
-				can_reach_target_country = yes
+				# can_reach_target_country = yes
+				has_diplomatic_relevance = scope:target_country
+				OR = {
+					has_strategic_adjacency = scope:target_country
+					AND = {
+						has_port = yes
+						navy_size >= 10
+						scope:target_country = { 
+							any_scope_state = {
+								is_coastal = yes
+							}
+						}
+					}
+				}
 				NOT = { is_subject_of = scope:target_country }
 				
 				# AI shouldn't be aggressive against subjects of their subjects
@@ -7929,7 +7943,7 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					country_rank >= rank_value:major_power					
-					"ai_ideological_opinion(scope:target_country)" <= -25	
+					"ai_ideological_opinion(scope:target_country)" <= -100 # -25	
 					scope:target_country = { is_subject = no }
 					scope:target_country = {
 						is_adjacent_to_country = root

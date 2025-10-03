@@ -524,15 +524,6 @@ has_je_subjugation_reason = {
 				has_variable = danubian_federation_opposed
 			}
 		}
-		AND = {
-			wants_to_solve_schleswig_holstein = yes
-			$TARGET$ = {
-				any_scope_state = { state_region = s:STATE_SCHLESWIG_HOLSTEIN }
-				any_overlord_or_above = {
-					is_oppressor_of_schleswig_holstein = yes
-				}
-			}
-		}
 	}	
 }
 

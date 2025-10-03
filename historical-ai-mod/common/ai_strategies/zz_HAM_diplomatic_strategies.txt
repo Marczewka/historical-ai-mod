@@ -1647,8 +1647,7 @@ ai_strategy_unify_germany = {
 		}
 		conquer = {				
 			trigger = {
-				has_global_variable = schleswig_holstein_question_solved
-				scope:target_country = {				
+					scope:target_country = {				
 					is_unification_candidate = GER
 				}
 			}
