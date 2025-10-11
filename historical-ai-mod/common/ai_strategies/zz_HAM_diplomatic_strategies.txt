@@ -2020,7 +2020,7 @@ ai_strategy_unify_italy = {
 			is_unification_candidate = ITA
 			AND = {
 				NOT = {
-					ITA ?= this
+					c:ITA ?= this
 				}
 				OR = {
 					country_has_primary_culture = cu:north_italian

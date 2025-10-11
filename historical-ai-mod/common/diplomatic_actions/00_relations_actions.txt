@@ -84,20 +84,6 @@
 	
 		evaluation_chance = {
 			value = 0.5
-
-			if = {
-				limit = {
-					OR = {
-						has_je_befriend_reason = { TARGET = scope:target_country }
-						has_je_protect_reason = { TARGET = scope:target_country }
-						AND = {
-							has_je_reconcile_reason = { TARGET = scope:target_country }
-							scope:target_country.relations:root <= relations_threshold:poor
-						}
-					}
-				}
-				add = 100
-			}
 		}	
 	
 		propose_score = {
@@ -146,7 +132,7 @@
 						}
 					}
 				}
-				add = 100
+				add = 10000
 			}
 			
 			add = {
