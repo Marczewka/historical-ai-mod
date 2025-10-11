@@ -360,16 +360,14 @@ ai_strategy_territorial_expansion = {
 			
 		if = {
 			limit = { 
-				NOT = {
-					any_interest_group = {
-						is_powerful = yes
-						is_in_government = yes
-						OR = {
-							leader = {
-								has_ideology = ideology:ideology_jingoist_leader
-							}
-							has_ideology = ideology:ideology_jingoist
+				any_interest_group = {
+					is_powerful = yes
+					is_in_government = yes
+					OR = {
+						leader = {
+							has_ideology = ideology:ideology_jingoist_leader
 						}
+						has_ideology = ideology:ideology_jingoist
 					}
 				}
 			}
@@ -1616,25 +1614,7 @@ ai_strategy_unify_germany = {
 							ROOT = { is_unification_candidate = GER }
 							is_in_customs_union_with = root
 						}
-					}	
-					NOR = {
-						has_attitude = {
-							who = root
-							attitude = antagonistic
-						}
-						has_attitude = {
-							who = root
-							attitude = domineering
-						}	
-						has_attitude = {
-							who = root
-							attitude = belligerent
-						}	
-						has_attitude = {
-							who = root
-							attitude = rebellious
-						}						
-					}					
+					}				
 				}
 			}
 			score = {
@@ -1963,24 +1943,6 @@ ai_strategy_unify_italy = {
 						AND = {
 							has_variable = risorgimento_unifying_stance
 							country_rank <= rank_value:minor_power
-						}
-					}	
-					NOR = {
-						has_attitude = {
-							who = root
-							attitude = antagonistic
-						}
-						has_attitude = {
-							who = root
-							attitude = domineering
-						}	
-						has_attitude = {
-							who = root
-							attitude = belligerent
-						}	
-						has_attitude = {
-							who = root
-							attitude = rebellious
 						}
 					}
 				}
