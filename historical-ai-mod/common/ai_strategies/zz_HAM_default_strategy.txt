@@ -8055,7 +8055,7 @@ ai_strategy_default = {
 					}
 				}
 				multiply = 0
-			}				
+			}		
 			
 			# Don't want to open our own market...
 			if = {
@@ -8063,6 +8063,11 @@ ai_strategy_default = {
 					market_capital.market = scope:target_country.market_capital.market
 				}
 				multiply = 0
+			}
+
+			if = {
+				limit = { has_treaty_port_in_market = scope:target_country.market }
+				multiply = 0.0
 			}
 		}
 		

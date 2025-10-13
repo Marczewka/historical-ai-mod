@@ -93,7 +93,7 @@ lathe = {
 					 has_strategy = ai_strategy_resource_expansion
 				}
 			}
-			add = 1.5 # 1
+			add = 1
 		}		
 	}
 }
@@ -126,7 +126,7 @@ steelworking = {
 	}
 	
 	ai_weight = {
-		value = 1.5 # 1
+		value = 1
 		
 		if = {
 			limit = { 
@@ -330,7 +330,7 @@ railways = {
 					 has_strategy = ai_strategy_resource_expansion
 				}
 			}
-			add = 3
+			add = 2
 		}		
 	}
 }
@@ -606,16 +606,6 @@ reinforced_concrete = {
 	
 	ai_weight = {
 		value = 1
-		
-		if = {
-			limit = { 
-				OR = {
-					 has_strategy = ai_strategy_industrial_expansion
-					 has_strategy = ai_strategy_resource_expansion
-				}
-			}
-			add = 1
-		}	
 	}
 }
 
@@ -716,12 +706,9 @@ vulcanization = {
 
 		if = {
 			limit = { 
-				OR = {
-					 has_strategy = ai_strategy_industrial_expansion
-					 has_strategy = ai_strategy_resource_expansion
-				}
+				has_strategy = ai_strategy_industrial_expansion
 			}
-			add = 3
+			add = 1
 		}	
 	}
 }
@@ -975,16 +962,6 @@ pneumatic_tools = {
 	
 	ai_weight = {
 		value = 1
-
-		if = {
-			limit = { 
-				OR = {
-					 has_strategy = ai_strategy_industrial_expansion
-					 has_strategy = ai_strategy_resource_expansion
-				}
-			}
-			add = 1
-		}	
 	}
 }
 
@@ -1034,10 +1011,7 @@ steam_turbine = {
 
 		if = {
 			limit = { 
-				OR = {
-					 has_strategy = ai_strategy_industrial_expansion
-					 has_strategy = ai_strategy_resource_expansion
-				}
+				has_strategy = ai_strategy_industrial_expansion
 			}
 			add = 1
 		}	
@@ -1173,10 +1147,7 @@ oil_turbine = {
 
 		if = {
 			limit = { 
-				OR = {
-					 has_strategy = ai_strategy_industrial_expansion
-					 has_strategy = ai_strategy_resource_expansion
-				}
+				has_strategy = ai_strategy_industrial_expansion
 			}
 			add = 1
 		}	

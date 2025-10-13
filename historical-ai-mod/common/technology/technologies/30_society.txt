@@ -309,7 +309,7 @@ stock_exchange = {
 	}
 	
 	ai_weight = {
-		value = 2 # 1
+		value = 1.5 # 1
 	}
 }
 
@@ -347,7 +347,7 @@ mass_communication = {
 	}
 	
 	ai_weight = {
-		value = 1 # 1.5 # Important in general
+		value = 1.5 # Important in general
 	}
 }
 
@@ -431,7 +431,7 @@ pharmaceuticals = {
 	}
 	
 	ai_weight = {
-		value = 1.5 # 1
+		value = 1
 	}
 }
 
@@ -584,7 +584,7 @@ central_archives = {
 					has_journal_entry = je_meiji_main
 				}
 			}
-			add = 4
+			add = 2
 		}
 	}
 }
@@ -665,7 +665,7 @@ psychiatry = {
 	}
 	
 	ai_weight = {
-		value = 1.5 # 1
+		value = 1
 	}
 }
 
@@ -1114,7 +1114,7 @@ corporatism = {
 					has_strategy = ai_strategy_reactionary_agenda
 				}			
 			}
-			add = 1 # 1.5
+			add = 1.5
 		}
 	}
 }
@@ -1235,7 +1235,7 @@ philosophical_pragmatism = {
 	}
 	
 	ai_weight = {
-		value = 1.5 # 1
+		value = 1
 	}
 }
 
@@ -1266,7 +1266,7 @@ identification_documents = {
 					has_journal_entry = je_meiji_main
 				}
 			}
-			add = 2
+			add = 1
 		}
 	}
 }
@@ -1308,7 +1308,7 @@ zeppelins = {
 	}
 	
 	ai_weight = {
-		value = 2 # 1
+		value = 1.5 # 1
 	}
 }
 
@@ -1343,15 +1343,6 @@ malaria_prevention = {
 				has_strategy = ai_strategy_colonial_expansion
 			}
 			add = 1
-
-			if = {
-				limit = {
-					any_scope_state = {
-						state_is_in_africa = yes
-					}
-				}
-				add = 3
-			}
 		}
 	}
 }
@@ -1478,7 +1469,7 @@ psychoanalysis = {
 	}
 	
 	ai_weight = {
-		value = 1.5 # 1
+		value = 1
 	}
 }
 
@@ -1516,7 +1507,7 @@ multilateral_alliances = {
 	}
 	
 	ai_weight = {
-		value = 2 # 1
+		value = 1
 		
 		if = {
 			limit = { country_rank >= rank_value:great_power }
@@ -1648,7 +1639,7 @@ behaviorism = {
 	}
 	
 	ai_weight = {
-		value = 1.5 # 1
+		value = 1
 	}
 }
 
