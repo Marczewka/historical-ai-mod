@@ -72,7 +72,12 @@ italian_unification.2 = {
 
 	duration = 1
 
+	cooldown = { days = 90 }
+
 	trigger = {
+		NOT = {
+			is_subject = yes
+		}
 		has_technology_researched = nationalism
 		OR = {
 			c:ITA ?= this
@@ -81,6 +86,7 @@ italian_unification.2 = {
 				has_variable = risorgimento_unifying_stance
 			}
 		}
+		country_rank >= rank_value:minor_power
 		NOT = {
 			any_country = {
 				NOT = { this = root }
@@ -96,6 +102,7 @@ italian_unification.2 = {
 			is_secessionist = yes
 		}
 		any_country = {
+			is_at_war = no
 			NOT = { this = root }
 			NOR = {
 				is_revolutionary = yes

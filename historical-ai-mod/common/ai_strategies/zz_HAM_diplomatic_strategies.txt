@@ -2833,7 +2833,7 @@ ai_strategy_world_revolution = {
 	}
 	
 	recklessness = {
-		value = 0.25 # 0.5
+		value = 0.5
 	}
 	
 	aggression = {

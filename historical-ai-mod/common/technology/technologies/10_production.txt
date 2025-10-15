@@ -570,7 +570,7 @@ rubber_mastication = {
 					 has_strategy = ai_strategy_resource_expansion
 				}
 			}
-			add = 3
+			add = 2 # 3
 		}	
 	}
 }	

@@ -442,6 +442,7 @@ je_risorgimento_italian_unification_button = {
 			text = risorgimento_unifying_stance_tt
 			has_variable = risorgimento_unifying_stance
 		}
+		country_rank >= rank_value:minor_power
 		NOT = {
 			any_country = {
 				NOT = { this = root }
@@ -682,12 +683,12 @@ je_unite_the_principalities_button = {
             	has_variable = romania_unification_in_motion 
             	has_variable = ROM_united_principality
             }
-            # OR = {
-			# 	is_subject_type = subject_type_protectorate
-			# 	is_subject_type = subject_type_dominion
-			# 	is_subject_type = subject_type_tributary
-			# 	is_subject = no
-            # }
+            OR = {
+				is_subject_type = subject_type_protectorate
+				is_subject_type = subject_type_dominion
+				is_subject_type = subject_type_tributary
+				is_subject = no
+			}
 	        any_country = {
 	        	NOT = { this = ROOT }
 				is_at_war = no
@@ -696,11 +697,11 @@ je_unite_the_principalities_button = {
 	            OR = {
 	            	AND = {
 	            		exists = top_overlord
-						# OR = {
-						# 	is_subject_type = subject_type_protectorate
-						# 	is_subject_type = subject_type_dominion
-						# 	is_subject_type = subject_type_tributary
-						# }
+						OR = {
+							is_subject_type = subject_type_protectorate
+							is_subject_type = subject_type_dominion
+							is_subject_type = subject_type_tributary
+						}
 						top_overlord = {
 							THIS = root.top_overlord
 						}
@@ -842,7 +843,6 @@ je_marea_unire = {
 	visible = { 
 		any_country = {
 			NOT = { this = ROOT }
-			is_at_war = no
 			country_has_primary_culture = cu:romanian
 			OR = {
 				AND = {
@@ -862,9 +862,18 @@ je_marea_unire = {
 	}
 
 	possible = {
+		is_at_war = no
 		custom_tooltip = {
             text = je_unite_the_principalities_amicable_or_better_relations_tt
-			NOT = { has_variable = romania_unification_in_motion  }
+            NOT = { 
+            	has_variable = romania_unification_in_motion 
+            }
+            OR = {
+				is_subject_type = subject_type_protectorate
+				is_subject_type = subject_type_dominion
+				is_subject_type = subject_type_tributary
+				is_subject = no
+			}
 	        any_country = {
 	        	NOT = { this = ROOT }
 				is_at_war = no
@@ -873,6 +882,11 @@ je_marea_unire = {
 	            OR = {
 	            	AND = {
 	            		exists = top_overlord
+						OR = {
+							is_subject_type = subject_type_protectorate
+							is_subject_type = subject_type_dominion
+							is_subject_type = subject_type_tributary
+						}
 						top_overlord = {
 							THIS = root.top_overlord
 						}
@@ -880,6 +894,10 @@ je_marea_unire = {
 					is_subject = no
 	            }
 				NOT = { is_subject_of = ROOT }
+				NOR = {
+					c:AUS ?= this
+					c:KUK ?= this
+				}
 	        }
         }
 	}
@@ -899,7 +917,7 @@ je_christ_of_nations_unification_button = {
 		}
 	}
 
-	cooldown = { days = 90 }
+	cooldown = { days = short_modifier_time }
 
 	possible = {
 		has_technology_researched = nationalism
@@ -920,10 +938,7 @@ je_christ_of_nations_unification_button = {
 				is_secessionist = yes
 			}
 			country_has_primary_culture = cu:polish
-			OR = {
-				is_subject = no
-				is_subject_of = ROOT
-			}
+			is_subject = no
 			OR = {
 				this.gdp < root.gdp
 				root = { is_player = yes }

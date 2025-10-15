@@ -391,7 +391,11 @@ ai_strategy_default = {
 					AND = {
 						has_port = yes 
 						navy_size >= 10
-						scope:country = { has_port = yes }
+						scope:country = { 
+							any_scope_state = {
+								is_coastal = yes 
+							}
+						}
 					}
 				}
 			}
@@ -414,7 +418,7 @@ ai_strategy_default = {
 					}
 				}
 				add = {
-					value = 150
+					value = 300
 					desc = "defending_against_great_game_rival"
 				}
 			}
@@ -424,32 +428,7 @@ ai_strategy_default = {
 					scope:diplomatic_play_type = play_type:dp_independence
 				}
 				add = {
-					value = 100
-					desc = "defending_against_great_game_rival"
-				}
-			}
-			else_if = {
-				limit = {
-					OR = { # They will meddle more if you want to take Persian or Afghan states.
-						scope:diplomatic_play_type = play_type:dp_conquer_state
-						any_diplomatic_play = {
-							scope:country = {
-								is_diplomatic_play_enemy_of = scope:enemy_country
-							}
-							OR = {
-								has_play_goal = conquer_state
-							}
-						}
-					}
-					scope:country = { 
-						OR = {
-							c:PER ?= this
-							c:AFG ?= this
-						}
-					}
-				}
-				add = {
-					value = 150
+					value = 200 # 100
 					desc = "defending_against_great_game_rival"
 				}
 			}
@@ -468,13 +447,13 @@ ai_strategy_default = {
 					}
 				}
 				add = {
-					value = 50
+					value = 100 # 50
 					desc = "defending_against_great_game_rival"
 				}
 			}
 			else = {
 				add = {
-					value = 25
+					value = 50 # 25
 					desc = "defending_against_great_game_rival"
 				}
 			}
@@ -789,6 +768,113 @@ ai_strategy_default = {
 			add = {
 				value = 100
 				desc = "je_war_of_the_confederation"
+			}
+		}
+
+		### Protect Herat
+		if = {
+			limit = { 
+				OR = {
+					c:GBR ?= this
+					has_journal_entry = je_unify_afghanistan
+				}
+				scope:enemy_country = {
+					c:PER ?= this
+					OR = {
+						play_participant_has_war_goal_of_type_against = {
+							type = annex_country
+							target = scope:country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = return_state
+							target = scope:country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = conquer_state
+							target = scope:country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = make_protectorate
+							target = scope:country
+						}								
+					}
+				}
+				scope:country = {
+					any_scope_state = {
+						state_region = s:STATE_HERAT
+					}
+				}
+			}
+
+			add = {
+				value = 200
+				desc = "protect_herat"
+			}
+		}
+
+		### Monroe Doctrine
+		if = {
+			limit = { 
+				has_variable = monroe_doctrine
+				scope:enemy_country = {
+					NOR = {
+						country_is_in_north_america = yes
+						country_is_in_central_america = yes
+						country_is_in_south_america = yes
+					}
+					OR = {
+						play_participant_has_war_goal_of_type_against = {
+							type = annex_country
+							target = scope:country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = conquer_state
+							target = scope:country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = make_protectorate
+							target = scope:country
+						}								
+						play_participant_has_war_goal_of_type_against = {
+							type = transfer_subject
+							target = scope:country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = take_treaty_port
+							target = scope:country
+						}		
+					}
+				}
+				scope:country = {
+					OR = {
+						country_is_in_north_america = yes
+						country_is_in_central_america = yes
+						country_is_in_south_america = yes
+					}
+				}
+			}
+
+			add = {
+				value = 200
+				desc = "monroe_doctrine"
+			}
+		}
+
+		### Savoy
+		if = {
+			limit = { 
+				c:FRA ?= this
+				scope:country = {
+					has_journal_entry = je_risorgimento
+					any_scope_state = {
+						state_region = s:STATE_SAVOY
+					}
+				}
+				scope:enemy_country.country_rank = rank_value:great_power
+			}
+			add = {
+				value = 100
+				desc = "savoy"
 			}
 		}
 
@@ -1312,35 +1398,124 @@ ai_strategy_default = {
 			add = 10
 		}
 
-		### Protect Afghanistan and Persia
+		### Monroe Doctrine
+		if = {
+			limit = { 
+				has_variable = monroe_doctrine
+				scope:target_country = {
+					OR = {
+						country_is_in_north_america = yes
+						country_is_in_central_america = yes
+						country_is_in_south_america = yes
+					}
+				}
+			}
+			add = 30
+		}
+
+		### Protect Herat
 		if = {
 			limit = { 
 				OR = {
 					c:GBR ?= this
-					c:RUS ?= this
+					has_journal_entry = je_unify_afghanistan
 				}
 				scope:target_country = {
-					OR = {
-						c:AFG ?= this
-						c:PER ?= this
+					any_scope_state = {
+						state_region = s:STATE_HERAT
 					}
-					any_diplomatic_play = {
-						scope:target_country = {
-							OR = {
-								is_diplomatic_play_enemy_of = c:GBR
-								is_diplomatic_play_enemy_of = c:RUS
-							}
+				}
+				c:PER ?= {
+					OR = {
+						play_participant_has_war_goal_of_type_against = {
+							type = annex_country
+							target = scope:target_country
 						}
-						OR = {
-							has_play_goal = make_protectorate
-							has_play_goal = conquer_state
-							has_play_goal = join_power_bloc
-							has_play_goal = annex_country
+						play_participant_has_war_goal_of_type_against = {
+							type = return_state
+							target = scope:target_country
 						}
+						play_participant_has_war_goal_of_type_against = {
+							type = conquer_state
+							target = scope:target_country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = make_protectorate
+							target = scope:target_country
+						}								
 					}
 				}
 			}
-			add = 20
+			add = 30
+		}
+
+
+		### Protect Afghanistan and Persia
+		if = {
+			limit = { 
+				OR = {
+					AND = {
+						c:GBR ?= this
+						scope:target_country = {
+							OR = {
+								c:AFG ?= this
+								c:PER ?= this
+							}
+						}
+						c:RUS ?= {
+							OR = {
+								play_participant_has_war_goal_of_type_against = {
+									type = annex_country
+									target = scope:target_country
+								}
+								play_participant_has_war_goal_of_type_against = {
+									type = return_state
+									target = scope:target_country
+								}
+								play_participant_has_war_goal_of_type_against = {
+									type = conquer_state
+									target = scope:target_country
+								}
+								play_participant_has_war_goal_of_type_against = {
+									type = make_protectorate
+									target = scope:target_country
+								}								
+							}
+						}
+					}
+					AND = {
+						c:RUS ?= this
+						scope:target_country = {
+							OR = {
+								c:AFG ?= this
+								c:PER ?= this
+							}
+						}
+						c:GBR ?= {
+							OR = {
+								play_participant_has_war_goal_of_type_against = {
+									type = annex_country
+									target = scope:target_country
+								}
+								play_participant_has_war_goal_of_type_against = {
+									type = return_state
+									target = scope:target_country
+								}
+								play_participant_has_war_goal_of_type_against = {
+									type = conquer_state
+									target = scope:target_country
+								}
+								play_participant_has_war_goal_of_type_against = {
+									type = make_protectorate
+									target = scope:target_country
+								}								
+							}
+						}
+					}
+				}
+				
+			}
+			add = 30
 		}
 
 		### Savoy
@@ -1354,7 +1529,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 20
+			add = 30
 		}
 
 		### Risorgimento
@@ -1369,7 +1544,7 @@ ai_strategy_default = {
 					is_secessionist = yes
 				}
 			}
-			add = 20
+			add = 30
 		}
 
 		min = 0
@@ -1551,6 +1726,12 @@ ai_strategy_default = {
 								is_split_state = yes
 								state_region = {
 									any_scope_state = {
+										NAND = {
+											ROOT = {
+												c:AUS ?= this
+											}
+											state_region = s:STATE_MONTENEGRO
+										}
 										owner = ROOT
 										is_incorporated = yes
 									}
@@ -1644,8 +1825,7 @@ ai_strategy_default = {
 
 				if = {
 					limit = {
-						# has_journal_entry = je_consolidate_colonial_rule
-						c:BIC ?= this
+					has_journal_entry = je_consolidate_colonial_rule
 						scope:target_country = {
 							is_country_type = unrecognized
 							target_is_our_or_fellow_subject = no
@@ -1679,6 +1859,37 @@ ai_strategy_default = {
 								}
 							}
 							NOT = { has_claim_by = ROOT }
+						}
+					}
+					add = 50
+				}
+
+				# Britain consolidating South Asia
+				if = {
+					limit = {
+						c:GBR ?= this
+						has_variable = british_raj_var
+						exists = c:BIC
+						scope:target_country = {
+							NOT = { is_subject_of = ROOT }
+							any_scope_state = {
+								OR = {
+									region = sr:region_madras
+									region = sr:region_bombay
+									region = sr:region_bengal
+									region = sr:region_central_india
+									region = sr:region_punjab
+									state_region = s:STATE_EASTERN_HIMALAYAS
+									state_region = s:STATE_HIMALAYAS
+									state_region = s:STATE_MANDALAY
+									state_region = s:STATE_KACHIN
+									state_region = s:STATE_SHAN_STATES
+									state_region = s:STATE_PEGU
+									state_region = s:STATE_PASHTUNISTAN
+									state_region = s:STATE_QUETTA
+									state_region = s:STATE_KASHMIR
+								}
+							}
 						}
 					}
 					add = 50
@@ -3389,14 +3600,14 @@ ai_strategy_default = {
 
 		if = {
 			limit = { has_je_conquest_reason = { TARGET = scope:target_country } }
-			add = 10
+			add = 5
 		}
 		if = {
 			limit = {
 				has_je_subjugation_reason = { TARGET = scope:target_country }
 				scope:target_country = { NOT = { is_subject_of = root } }
 			}
-			add = 10
+			add = 5
 		}	
 
 		# Revanchism
@@ -3680,8 +3891,7 @@ ai_strategy_default = {
 		# East India Company vs its neighbors
 		if = {
 			limit = {
-				# has_journal_entry = je_consolidate_colonial_rule
-				c:BIC ?= this
+				has_journal_entry = je_consolidate_colonial_rule
 				scope:target_country = {
 					is_country_type = unrecognized
 					target_is_our_or_fellow_subject = no
@@ -4430,6 +4640,9 @@ ai_strategy_default = {
 			limit = {
 				c:MEX ?= this
 				scope:target_country = {
+					NOT = {
+						c:UCA ?= this
+					}
 					any_scope_state = {
 						state_region = s:STATE_CHIAPAS
 					}
@@ -5931,7 +6144,7 @@ ai_strategy_default = {
 					limit = {
 						has_je_befriend_reason = { TARGET = scope:target_country }
 					}
-					add = 10000
+					add = 100000 # 10000
 				}
 
 				multiply = {
@@ -6117,14 +6330,14 @@ ai_strategy_default = {
 					limit = {
 						has_je_befriend_reason = { TARGET = scope:target_country }
 					}
-					add = 10000
+					add = 100000 # 10000
 				}
 
 				if = {
 					limit = {
 						has_je_reconcile_reason = { TARGET = scope:target_country }
 					}
-					add = 10000
+					add = 100000 # 10000
 				}
 
 				if = {
@@ -6338,7 +6551,7 @@ ai_strategy_default = {
 					limit = {
 						has_je_protect_reason = { TARGET = scope:target_country }
 					}
-					add = 10000
+					add = 100000 # 10000
 				}
 
 				multiply = {
@@ -6698,7 +6911,7 @@ ai_strategy_default = {
 
 				if = {
 					limit = { has_je_conquest_reason = { TARGET = scope:target_country } }
-					add = 10000
+					add = 100000 # 10000
 				}
 
 				if = {
@@ -7156,7 +7369,7 @@ ai_strategy_default = {
 						has_je_subjugation_reason = { TARGET = scope:target_country }
 						NOT = { is_subject_of = root }
 					}
-					add = 10000
+					add = 100000 # 10000
 				}
 
 				if = {
@@ -7604,6 +7817,9 @@ ai_strategy_default = {
 				limit = {
 					c:MEX ?= this
 					scope:target_country = {
+						NOT = {
+							c:UCA ?= this
+						}
 						any_scope_state = {
 							state_region = s:STATE_CHIAPAS
 						}
@@ -7735,7 +7951,7 @@ ai_strategy_default = {
 			
 			if = {
 				limit = {
-					c:BIC ?= this
+					has_journal_entry = je_consolidate_colonial_rule
 					scope:target_country = {
 						is_country_type = unrecognized
 						target_is_our_or_fellow_subject = no
@@ -8312,19 +8528,19 @@ ai_strategy_default = {
 			
 			if = {
 				limit = {
-					scope:target_country.overlord.infamy >= infamy_threshold:notorious		
-				}
-				add = 25
-			}
-
-			if = {
-				limit = {
 					has_diplomatic_pact = {
 						who = scope:target_country.overlord
 						type = rivalry
 					}							
 				}
 				add = 25
+
+				if = {
+					limit = {
+						scope:target_country.overlord.infamy >= infamy_threshold:notorious		
+					}
+					add = 25
+				}
 			}
 				
 			if = {

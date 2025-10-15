@@ -1,11 +1,4 @@
 ﻿DIPLOMACY = {
-	c:NET ?= {	
-		create_diplomatic_pact = {
-			country = c:DEI
-			type = colony
-		}
-	}
-
 	c:BIC ?= {
 		remove_diplomatic_pact = {
 			country = c:BHW

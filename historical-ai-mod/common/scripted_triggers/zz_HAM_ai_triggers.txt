@@ -129,7 +129,7 @@ has_je_conquest_reason = {
 		}
 
 		AND = {
-			c:BIC ?= this
+			has_journal_entry = je_consolidate_colonial_rule
 			has_strategic_land_adjacency = scope:target_country
 			$TARGET$ = {
 				is_country_type = unrecognized
@@ -407,6 +407,9 @@ has_je_conquest_reason = {
 		AND = {
 			c:MEX ?= this
 			$TARGET$ = {
+				NOT = {
+					c:UCA ?= this
+				}
 				any_scope_state = {
 					state_region = s:STATE_CHIAPAS
 				}

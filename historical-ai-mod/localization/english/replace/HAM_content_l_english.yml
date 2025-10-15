@@ -32,9 +32,9 @@ AFG_tt:0 "[SCOPE.sCountry('target_country').GetName] can form Afghanistan"
 protected_speech_tt:0 "Cannot [concept_exile], [concept_bolster] or [concept_suppress]"
 
 kindred_secession: "wants to help kindred secession"
-risorgimento_support: "support for Risorgimento"
-against_ottomans: "Ottoman Empire failed Tanzimat"
-protect_herat: "wants to protect Herat from Persia"
+protect_herat: "wants to protect Herat owner from Persia"
+monroe_doctrine: "opposes European colonialism in the Western Hemisphere"
+savoy: "wants to protect Savoy owner"
 
 national_identity_tt: "Has not used this action in the last #bold 5#! years"
 national_identity:0 "Promote National Identity"

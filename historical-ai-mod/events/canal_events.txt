@@ -435,6 +435,24 @@ canal_events.100 = {
 		set_variable = suez_canal_purchase
 		custom_tooltip = suez_canal_purchase_available
 		custom_tooltip = suez_canal_construction_available
+		ai_chance = {
+			base = 0
+			modifier = {
+				trigger = {
+					OR = {
+						has_attitude = {
+							who = suez_owner
+							attitude = belligerent
+						}
+						has_attitude = {
+							who = suez_owner
+							attitude = domineering
+						}
+					}
+				}
+				add = 100
+			}
+		}
 	}
 	option = { # we should build the canal
 		name = canal_events.100.c
@@ -445,6 +463,9 @@ canal_events.100 = {
 			type = je_suez_canal
 		}
 		custom_tooltip = suez_canal_construction_available
+		ai_chance = {
+			base = 10
+		}
 	}
 }
 
