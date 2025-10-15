@@ -1,44 +1,44 @@
 ﻿ai_strategy_conservative_agenda = {
 	icon = "gfx/interface/icons/ai_strategy_icons/conservative_agenda.dds"
-	
+
 	type = political
-	
+
 	revolution_aversion = {
 		value = 75
 	}
-	
+
 	min_law_chance_to_pass = {
 		value = 30
 		if = {
-			limit = { ai_has_reasons_to_not_oppose_law = yes }			
+			limit = { ai_has_reasons_to_not_oppose_law = yes }
 			multiply = 0.33
-		}			
+		}
 	}
-	
+
 	max_progressiveness = {
 		value = 50
 	}
-	
+
 	max_regressiveness = {
 		value = 25
 	}
-	
-	change_law_chance = { 
+
+	change_law_chance = {
 		value = 2.5
-		
+
 		if = {
 			limit = { any_interest_group = { is_insurrectionary = yes } }
 			add = 7.5
 		}
 
 		if = {
-			limit = { 
+			limit = {
 				has_enactment_je_or_law_commitment = yes
 			}
 			add = 25
-		}			
-	}		
-	
+		}
+	}
+
 	pro_interest_groups = {
 		ig_rural_folk
 		ig_devout
@@ -46,11 +46,11 @@
 		ig_armed_forces
 		ig_petty_bourgeoisie
 	}
-	
+
 	anti_interest_groups = {
 		ig_trade_unions
-	}	
-		
+	}
+
 	pro_movements = {
 		movement_royalist_constitutional
 		movement_royalist_absolutist
@@ -64,7 +64,7 @@
 		movement_orleanist
 		movement_bonapartist
 	}
-	
+
 	anti_movements = {
 		movement_socialist
 		movement_labor
@@ -74,38 +74,38 @@
 		movement_feminist
 		movement_radical
 	}
-	
+
 	institution_scores = {
-		institution_colonial_affairs = {	
-			value = 150			
-		}				
-		institution_social_security = {	
-			value = 50			
+		institution_colonial_affairs = {
+			value = 150
 		}
-		institution_workplace_safety = {	
-			value = 50			
-		}		
-		institution_schools = {	
-			value = 100			
-		}		
-		institution_police = {	
-			value = 150			
-		}		
-		institution_health_system = {	
-			value = 100		
-		}		
-		institution_home_affairs = {	
-			value = 150		
-		}				
+		institution_social_security = {
+			value = 50
+		}
+		institution_workplace_safety = {
+			value = 50
+		}
+		institution_schools = {
+			value = 100
+		}
+		institution_police = {
+			value = 150
+		}
+		institution_health_system = {
+			value = 100
+		}
+		institution_home_affairs = {
+			value = 150
+		}
 	}
 
 	possible = {
 		always = yes
 	}
-	
+
 	weight = {
-		value = 20	
-		
+		value = 20
+
 		if = {
 			limit = {
 				exists = ruler
@@ -116,9 +116,9 @@
 					}
 				}
 			}
-			
+
 			add = 10
-		}	
+		}
 
 		if = { # Metternich System
 			limit = {
@@ -129,7 +129,7 @@
 		}
 
 		if = {
-			limit = { 
+			limit = {
 				exists = c:FRA
 				c:FRA = this
 				ruler = {
@@ -145,69 +145,69 @@
 			}
 			add = 10
 		}
-		
+
 		if = {
 			limit = {
-				has_radical_leftist_government = yes	
+				has_radical_leftist_government = yes
 			}
 			multiply = 0.25
-		}	
-		
+		}
+
 	}
 }
 
 ai_strategy_reactionary_agenda = {
 	icon = "gfx/interface/icons/ai_strategy_icons/reactionary_agenda.dds"
-	
+
 	revolution_aversion = {
 		value = 50
 	}
-	
+
 	min_law_chance_to_pass = {
 		value = 25
 		if = {
-			limit = { ai_has_reasons_to_not_oppose_law = yes }			
+			limit = { ai_has_reasons_to_not_oppose_law = yes }
 			multiply = 0.5
-		}	
+		}
 	}
-	
+
 	max_progressiveness = {
 		value = 25
 	}
-	
+
 	max_regressiveness = {
 		value = 100
 	}
-	
-	change_law_chance = { 
-		value = 3.5	
-		
+
+	change_law_chance = {
+		value = 3.5
+
 		if = {
 			limit = { any_interest_group = { is_insurrectionary = yes } }
 			add = 1.5
 		}
 
 		if = {
-			limit = { 
+			limit = {
 				has_enactment_je_or_law_commitment = yes
 			}
 			add = 10
-		}			
-	}	
-	
+		}
+	}
+
 	type = political
-	
+
 	pro_interest_groups = {
 		ig_devout
 		ig_landowners
 	}
-	
+
 	anti_interest_groups = {
 		ig_intelligentsia
 		ig_trade_unions
 		ig_industrialists
 	}
-	
+
 	pro_movements = {
 		movement_royalist_constitutional
 		movement_royalist_absolutist
@@ -217,7 +217,7 @@ ai_strategy_reactionary_agenda = {
 		movement_legitimist
 		movement_pro_slavery
 	}
-	
+
 	anti_movements = {
 		movement_socialist
 		movement_labor
@@ -234,37 +234,37 @@ ai_strategy_reactionary_agenda = {
 		movement_cultural_minority
 		movement_religious_minority
 		movement_land_reform
-	}		
-	
-	
+	}
+
+
 	institution_scores = {
-		institution_colonial_affairs = {	
-			value = 200			
-		}				
-		institution_social_security = {	
-			value = 50			
+		institution_colonial_affairs = {
+			value = 200
 		}
-		institution_workplace_safety = {	
-			value = 50			
-		}		
-		institution_schools = {	
-			value = 75		
-		}		
-		institution_police = {	
-			value = 200			
-		}		
-		institution_health_system = {	
-			value = 75			
-		}		
-		institution_home_affairs = {	
-			value = 200			
-		}				
+		institution_social_security = {
+			value = 50
+		}
+		institution_workplace_safety = {
+			value = 50
+		}
+		institution_schools = {
+			value = 75
+		}
+		institution_police = {
+			value = 200
+		}
+		institution_health_system = {
+			value = 75
+		}
+		institution_home_affairs = {
+			value = 200
+		}
 	}
 
 	possible = {
 		exists = ruler
 		ruler = {
-			interest_group = { 
+			interest_group = {
 				NOR = {
 					is_interest_group_type = ig_intelligentsia
 					is_interest_group_type = ig_trade_unions
@@ -282,48 +282,36 @@ ai_strategy_reactionary_agenda = {
 				exists = ig:ig_landowners
 				ig:ig_landowners ?= { is_marginal = no }
 			}
-			AND = {			
+			AND = {
 				exists = ig:ig_devout
 				ig:ig_devout ?= { is_marginal = no }
 			}
-		}			
+		}
 	}
-	
+
 	weight = {
-		value = 10	
-		
+		value = 10
+
 		if = {
 			limit = {
 				exists = ig:ig_landowners
-				ig:ig_landowners ?= { is_in_government = yes }
+				ig:ig_landowners ?= { is_powerful = yes }
 			}
-			
-			add = 5 # 10
-			if = {
-				limit = {
-					ig:ig_landowners ?= { is_powerful = yes }
-				}
-				add = 10
-			}
-		}		
-		
-		if = {
-			limit = {
-				exists = ig:ig_devout
-				ig:ig_devout ?= { is_in_government = yes }
-			}
-			
-			add = 5 # 10
-			if = {
-				limit = {
-					ig:ig_devout ?= { is_powerful = yes }
-				}
-				add = 10
-			}
+
+			add = 10
 		}
 
 		if = {
-			limit = { 
+			limit = {
+				exists = ig:ig_devout
+				ig:ig_devout ?= { is_powerful = yes }
+			}
+
+			add = 10
+		}
+
+		if = {
+			limit = {
 				exists = c:FRA
 				c:FRA = this
 				ruler = {
@@ -339,72 +327,72 @@ ai_strategy_reactionary_agenda = {
 				OR = {
 					ig:ig_devout ?= { is_in_government = yes }
 					ig:ig_landowners ?= { is_in_government = yes }
-				}				
+				}
 			}
-			
+
 			add = 1000
-		}	
-		
+		}
+
 		if = {
 			limit = {
-				has_radical_leftist_government = yes	
+				has_radical_leftist_government = yes
 			}
 			multiply = 0.25
-		}					
+		}
 	}
 }
 
 ai_strategy_progressive_agenda = {
 	icon = "gfx/interface/icons/ai_strategy_icons/progressive_agenda.dds"
-	
+
 	type = political
-	
+
 	revolution_aversion = {
 		value = 50
 	}
-	
+
 	min_law_chance_to_pass = {
 		value = 20
 		if = {
-			limit = { ai_has_reasons_to_not_oppose_law = yes }			
+			limit = { ai_has_reasons_to_not_oppose_law = yes }
 			multiply = 0.5
-		}	
+		}
 	}
-	
+
 	max_progressiveness = {
 		value = 100
 	}
-	
+
 	max_regressiveness = {
 		value = 25
 	}
-	
-	change_law_chance = { 
-		value = 10	
-		
+
+	change_law_chance = {
+		value = 10
+
 		if = {
 			limit = { any_interest_group = { is_insurrectionary = yes } }
 			add = 10
-		}	
+		}
 
 		if = {
-			limit = { 
+			limit = {
 				has_enactment_je_or_law_commitment = yes
 			}
 			add = 25
-		}			
-	}	
-	
+		}
+	}
+
 	pro_interest_groups = {
 		ig_intelligentsia
 		ig_industrialists
-	}	
-	
+	}
+
 	anti_interest_groups = {
 		ig_landowners
 		ig_rural_folk
-	}	
-	
+	}
+
 	pro_movements = {
 		movement_liberal
 		movement_modernizer
@@ -415,7 +403,7 @@ ai_strategy_progressive_agenda = {
 		movement_feminist
 		movement_radical
 	}
-	
+
 	anti_movements = {
 		movement_socialist
 		movement_communist
@@ -428,27 +416,27 @@ ai_strategy_progressive_agenda = {
 	}
 
 	institution_scores = {
-		institution_colonial_affairs = {	
-			value = 75	
-		}				
-		institution_social_security = {	
-			value = 100			
+		institution_colonial_affairs = {
+			value = 75
 		}
-		institution_workplace_safety = {	
-			value = 100			
-		}		
-		institution_schools = {	
-			value = 150		
-		}		
-		institution_police = {	
-			value = 75			
-		}		
-		institution_health_system = {	
-			value = 100			
-		}		
-		institution_home_affairs = {	
-			value = 100			
-		}				
+		institution_social_security = {
+			value = 100
+		}
+		institution_workplace_safety = {
+			value = 100
+		}
+		institution_schools = {
+			value = 150
+		}
+		institution_police = {
+			value = 75
+		}
+		institution_health_system = {
+			value = 100
+		}
+		institution_home_affairs = {
+			value = 100
+		}
 	}
 
 	possible = {
@@ -457,16 +445,16 @@ ai_strategy_progressive_agenda = {
 				exists = ig:ig_intelligentsia
 				ig:ig_intelligentsia ?= { is_marginal = no }
 			}
-			AND = {			
+			AND = {
 				exists = ig:ig_industrialists
 				ig:ig_industrialists = { is_marginal = no }
 			}
-		}	
+		}
 	}
-	
+
 	weight = {
 		value = 5
-		
+
 		if = {
 			limit = {
 				exists = ruler
@@ -480,9 +468,9 @@ ai_strategy_progressive_agenda = {
 					}
 				}
 			}
-			
+
 			add = 20
-		}	
+		}
 
 		if = {
 			limit = {
@@ -491,105 +479,93 @@ ai_strategy_progressive_agenda = {
 					has_ideology = ideology:ideology_republican_leader
 				}
 			}
-			
+
 			add = 40
-		}			
-				
+		}
+
 		if = {
 			limit = {
 				exists = ig:ig_intelligentsia
-				ig:ig_intelligentsia ?= { is_in_government = yes }
+				ig:ig_intelligentsia ?= { is_powerful = yes }
 			}
-			
-			add = 5 # 10
-			if = {
-				limit = {
-					ig:ig_intelligentsia ?= { is_powerful = yes }
-				}
-				add = 10
-			}
+
+			add = 10
 		}
-		
+
 		if = {
 			limit = {
 				exists = ig:ig_industrialists
-				ig:ig_industrialists ?= { is_in_government = yes }
+				ig:ig_industrialists = { is_powerful = yes }
 			}
-			
-			add = 5 # 10
-			if = {
-				limit = {
-					ig:ig_industrialists ?= { is_powerful = yes }
-				}
-				add = 10
-			}
-		}	
-		
+
+			add = 10
+		}
+
 		if = {
 			limit = {
 				has_modifier = forced_regime_change
 				OR = {
 					ig:ig_industrialists ?= { is_in_government = yes }
 					ig:ig_intelligentsia ?= { is_in_government = yes }
-				}				
+				}
 			}
-			
+
 			add = 1000
-		}			
+		}
 	}
 }
 
 ai_strategy_egalitarian_agenda = {
 	icon = "gfx/interface/icons/ai_strategy_icons/egalitarian_agenda.dds"
-	
+
 	type = political
-	
+
 	revolution_aversion = {
 		value = 25
 	}
-	
+
 	min_law_chance_to_pass = {
 		value = 15
 		if = {
-			limit = { ai_has_reasons_to_not_oppose_law = yes }			
+			limit = { ai_has_reasons_to_not_oppose_law = yes }
 			multiply = 0.5
-		}		
+		}
 	}
-	
+
 	max_progressiveness = {
 		value = 1000
 	}
-	
+
 	max_regressiveness = {
 		value = 0
 	}
 
-	change_law_chance = { 
-		value = 15	
-		
+	change_law_chance = {
+		value = 15
+
 		if = {
 			limit = { any_interest_group = { is_insurrectionary = yes } }
 			add = 5
-		}	
+		}
 
 		if = {
-			limit = { 
+			limit = {
 				has_enactment_je_or_law_commitment = yes
 			}
 			add = 25
-		}			
-	}	
-	
+		}
+	}
+
 	pro_interest_groups = {
 		ig_trade_unions
 	}
-	
+
 	anti_interest_groups = {
 		ig_landowners
 		ig_industrialists
 		ig_petty_bourgeoisie
 	}
-	
+
 	pro_movements = {
 		movement_radical
 		movement_labor
@@ -602,7 +578,7 @@ ai_strategy_egalitarian_agenda = {
 		movement_italian_national
 		movement_land_reform
 	}
-	
+
 	anti_movements = {
 		movement_royalist_constitutional
 		movement_royalist_absolutist
@@ -618,29 +594,29 @@ ai_strategy_egalitarian_agenda = {
 		movement_bonapartist
 		movement_legitimist
 	}
-	
+
 	institution_scores = {
-		institution_colonial_affairs = {	
-			value = 50			
-		}				
-		institution_social_security = {	
-			value = 150			
+		institution_colonial_affairs = {
+			value = 50
 		}
-		institution_workplace_safety = {	
-			value = 150			
-		}		
-		institution_schools = {	
-			value = 150			
-		}		
-		institution_police = {	
-			value = 50			
-		}		
-		institution_health_system = {	
-			value = 150			
-		}		
-		institution_home_affairs = {	
-			value = 75			
-		}				
+		institution_social_security = {
+			value = 150
+		}
+		institution_workplace_safety = {
+			value = 150
+		}
+		institution_schools = {
+			value = 150
+		}
+		institution_police = {
+			value = 50
+		}
+		institution_health_system = {
+			value = 150
+		}
+		institution_home_affairs = {
+			value = 75
+		}
 	}
 
 	possible = {
@@ -648,9 +624,9 @@ ai_strategy_egalitarian_agenda = {
 		exists = ig:ig_trade_unions
 		ig:ig_trade_unions ?= { is_marginal = no }
 	}
-	
+
 	weight = {
-		value = 10	
+		value = 10
 
 		if = {
 			limit = {
@@ -662,11 +638,11 @@ ai_strategy_egalitarian_agenda = {
 						has_ideology = ideology:ideology_feminist
 						has_ideology = ideology:ideology_abolitionist
 						has_ideology = ideology:ideology_social_democrat
-						
+
 					}
 				}
 			}
-			
+
 			add = 20
 		}
 
@@ -677,97 +653,91 @@ ai_strategy_egalitarian_agenda = {
 					OR = {
 						has_ideology = ideology:ideology_vanguardist
 						has_ideology = ideology:ideology_anarchist
-					}					
+					}
 				}
 			}
-			
+
 			add = 50
-		}		
-		
+		}
+
 		if = {
 			limit = {
 				exists = ig:ig_trade_unions
-				ig:ig_trade_unions ?= { is_in_government = yes }
+				ig:ig_trade_unions ?= { is_powerful = yes }
 			}
-			
+
 			add = 10
-			if = {
-				limit = {
-					ig:ig_trade_unions ?= { is_powerful = yes }
-				}
-				add = 10
-			}
-		}	
+		}
 
 		if = {
 			limit = {
 				has_modifier = forced_regime_change
-				ig:ig_trade_unions ?= { is_in_government = yes }			
+				ig:ig_trade_unions ?= { is_in_government = yes }
 			}
-			
+
 			add = 1000
-		}	
-		
+		}
+
 		if = {
 			limit = {
-				has_radical_leftist_government = yes	
+				has_radical_leftist_government = yes
 			}
 			add = 250
-		}			
+		}
 	}
 }
 
 ai_strategy_nationalist_agenda = {
 	icon = "gfx/interface/icons/ai_strategy_icons/nationalist_agenda.dds"
-	
+
 	type = political
-	
+
 	revolution_aversion = {
 		value = 35
 	}
-	
+
 	min_law_chance_to_pass = {
 		value = 20
 		if = {
-			limit = { ai_has_reasons_to_not_oppose_law = yes }			
+			limit = { ai_has_reasons_to_not_oppose_law = yes }
 			multiply = 0.5
-		}		
+		}
 	}
-	
+
 	max_progressiveness = {
 		value = 50
 	}
-	
+
 	max_regressiveness = {
 		value = 50
 	}
-	
-	change_law_chance = { 
-		value = 10	
-		
+
+	change_law_chance = {
+		value = 10
+
 		if = {
 			limit = { any_interest_group = { is_insurrectionary = yes } }
 			add = 10
 		}
 
 		if = {
-			limit = { 
+			limit = {
 				has_enactment_je_or_law_commitment = yes
 			}
 			add = 25
-		}		
-	}	
-	
+		}
+	}
+
 	pro_interest_groups = {
 		ig_armed_forces
 		ig_petty_bourgeoisie
 	}
-	
+
 	anti_interest_groups = {
 		ig_rural_folk
 		ig_trade_unions
 	}
-	
+
 	pro_movements = {
 		movement_fascist
 		movement_corporatist
@@ -777,7 +747,7 @@ ai_strategy_nationalist_agenda = {
 		movement_cultural_majority
 		movement_religious_majority
 	}
-	
+
 	anti_movements = {
 		movement_radical
 		movement_labor
@@ -788,30 +758,30 @@ ai_strategy_nationalist_agenda = {
 		movement_cultural_minority
 		movement_religious_minority
 	}
-	
+
 	institution_scores = {
-		institution_colonial_affairs = {	
-			value = 150			
-		}				
-		institution_social_security = {	
-			value = 75	
+		institution_colonial_affairs = {
+			value = 150
 		}
-		institution_workplace_safety = {	
-			value = 75		
-		}		
-		institution_schools = {	
-			value = 100			
-		}		
-		institution_police = {	
-			value = 200			
-		}		
-		institution_health_system = {	
-			value = 100			
-		}		
-		institution_home_affairs = {	
-			value = 150			
-		}				
-	}	
+		institution_social_security = {
+			value = 75
+		}
+		institution_workplace_safety = {
+			value = 75
+		}
+		institution_schools = {
+			value = 100
+		}
+		institution_police = {
+			value = 200
+		}
+		institution_health_system = {
+			value = 100
+		}
+		institution_home_affairs = {
+			value = 150
+		}
+	}
 
 	possible = {
 		has_technology_researched = nationalism
@@ -820,16 +790,16 @@ ai_strategy_nationalist_agenda = {
 				exists = ig:ig_armed_forces
 				ig:ig_armed_forces ?= { is_marginal = no }
 			}
-			AND = {			
+			AND = {
 				exists = ig:ig_petty_bourgeoisie
 				ig:ig_petty_bourgeoisie ?= { is_marginal = no }
 			}
-		}			
+		}
 	}
-	
+
 	weight = {
 		value = 7.5
-		
+
 		if = {
 			limit = {
 				exists = ruler
@@ -842,12 +812,12 @@ ai_strategy_nationalist_agenda = {
 					}
 				}
 			}
-			
+
 			add = 30
-		}		
+		}
 
 		if = {
-			limit = { 
+			limit = {
 				exists = c:FRA
 				c:FRA = this
 				ruler = {
@@ -855,37 +825,25 @@ ai_strategy_nationalist_agenda = {
 				}
 			}
 			add = 10
-		}	
-		
+		}
+
 		if = {
 			limit = {
 				exists = ig:ig_armed_forces
-				ig:ig_armed_forces ?= { is_in_government = yes }
+				ig:ig_armed_forces ?= { is_powerful = yes }
 			}
-			
-			add = 5 # 10
-			if = {
-				limit = {
-					ig:ig_armed_forces ?= { is_powerful = yes }
-				}
-				add = 10
-			}
-		}	
-		
+
+			add = 10
+		}
+
 		if = {
 			limit = {
 				exists = ig:ig_petty_bourgeoisie
-				ig:ig_petty_bourgeoisie ?= { is_in_government = yes }
+				ig:ig_petty_bourgeoisie ?= { is_powerful = yes }
 			}
-			
-			add = 5 # 10
-			if = {
-				limit = {
-					ig:ig_petty_bourgeoisie ?= { is_powerful = yes }
-				}
-				add = 10
-			}
-		}	
+
+			add = 10
+		}
 
 		if = {
 			limit = {
@@ -1194,22 +1152,22 @@ ai_strategy_meiji_restoration = {
 
 	institution_scores = {
 		institution_colonial_affairs = {	
-			value = 100 # 75
+			value = 75
 		}				
 		institution_social_security = {	
-			value = 50 # 100	
+			value = 100
 		}
 		institution_workplace_safety = {	
-			value = 50 # 100
+			value = 100
 		}		
 		institution_schools = {	
 			value = 1000
 		}		
 		institution_police = {	
-			value = 150	# 75
+			value = 75
 		}		
 		institution_health_system = {	
-			value = 50	# 100
+			value = 100
 		}		
 		institution_home_affairs = {	
 			value = 100
