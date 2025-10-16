@@ -869,6 +869,7 @@ ai_strategy_default = {
 					any_scope_state = {
 						state_region = s:STATE_SAVOY
 					}
+					is_player = no
 				}
 				scope:enemy_country.country_rank = rank_value:great_power
 			}
@@ -1527,6 +1528,7 @@ ai_strategy_default = {
 					any_scope_state = {
 						state_region = s:STATE_SAVOY
 					}
+					is_player = no
 				}
 			}
 			add = 30

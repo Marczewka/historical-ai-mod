@@ -640,6 +640,7 @@ has_je_befriend_reason = {
 				any_scope_state = {
 					state_region = s:STATE_SAVOY
 				}
+				is_player = no
 			}
 		}
 
@@ -780,6 +781,7 @@ has_je_protect_reason = {
 						state_region = s:STATE_SAVOY
 					}
 				}
+				is_player = no
 			}
 		}
 
