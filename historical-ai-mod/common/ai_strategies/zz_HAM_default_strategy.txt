@@ -3572,6 +3572,15 @@ ai_strategy_default = {
 			}
 			add = 1
 		}
+
+		# Subjects should be bolder when overlord can't reach them
+		if = {
+			limit = {
+				is_subject_of = scope:target_country
+				can_be_reached_by_target_country = no
+			}
+			add = 100
+		}
 	}
 
 	# How likely is the AI to start a diplomatic play against another country if their attitude allows for it
@@ -8349,6 +8358,14 @@ ai_strategy_default = {
 				add = 50
 			}
 
+			# More reluctant to get involved in plays
+			if = {
+				limit = {
+					NOT = { is_diplomatic_play_involved_with = scope:target_country }
+				}
+				multiply = 0
+			}
+
 			min = 0
 			max = 50			
 		}	
@@ -8421,15 +8438,15 @@ ai_strategy_default = {
 				add = 100
 			}
 
-			# if = {
-			# 	limit = {
-			# 		has_journal_entry = je_eastern_frontier
-			# 		capital = {
-			# 			has_claim_by = ROOT
-			# 		}
-			# 	}
-			# 	add = 50
-			# }
+			if = {
+				limit = {
+					has_journal_entry = je_eastern_frontier
+					capital = {
+						has_claim_by = ROOT
+					}
+				}
+				add = 50
+			}
 
 			if = {
 				limit = {
@@ -8559,7 +8576,7 @@ ai_strategy_default = {
 				limit = {
 					NOT = { is_diplomatic_play_involved_with = scope:target_country }
 				}
-				multiply = 0.1
+				multiply = 0
 			}
 
 			# Relations with subject

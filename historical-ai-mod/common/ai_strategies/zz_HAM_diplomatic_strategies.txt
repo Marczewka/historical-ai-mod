@@ -1430,7 +1430,7 @@ ai_strategy_unify_germany = {
 	}	
 
 	recklessness = {
-		value = 0.25 # 0.5
+		value = 0.5
 
 		if = {
 			limit = {
@@ -1801,7 +1801,7 @@ ai_strategy_unify_italy = {
 	}		
 	
 	recklessness = {
-		value = 0.25 # 0.5
+		value = 0.5
 	}	
 	
 	aggression = {
@@ -2128,7 +2128,7 @@ ai_strategy_unify_ethiopia = {
 	# }
 		
 	recklessness = {
-		value = 0.5 # 1.0
+		value = 1.0
 	}	
 	
 	aggression = {
@@ -2484,7 +2484,7 @@ ai_strategy_unify_afghanistan = {
 	}	
 		
 	recklessness = {
-		value = 0.25
+		value = 1.0
 	}	
 	
 	aggression = {

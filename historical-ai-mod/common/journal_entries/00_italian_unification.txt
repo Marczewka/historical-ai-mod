@@ -27,6 +27,14 @@
             c:AUS ?= this
             c:KUK ?= this
         }
+		any_scope_state = {
+			state_region = {
+				OR = {
+					is_homeland = cu:north_italian
+					is_homeland = cu:south_italian
+				}
+			}
+		}
 	}
 
 	status_desc = {

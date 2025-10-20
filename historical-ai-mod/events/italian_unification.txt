@@ -75,7 +75,10 @@ italian_unification.2 = {
 	cooldown = { days = 90 }
 
 	trigger = {
-		is_unification_candidate = ITA
+		OR = {
+			is_unification_candidate = ITA
+			c:ITA ?= this
+		}
 		NOT = {
 			is_subject = yes
 		}

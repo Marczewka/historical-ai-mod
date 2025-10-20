@@ -62,21 +62,23 @@
 					is_under_colonization = no
 				}
 			}
-			random_scope_state = {
+			ordered_scope_state = {
 				limit = {
 					region = sr:region_senegal
 					has_decree = decree_greener_grass_campaign
 					is_under_colonization = no
 				}
+				order_by = gdp
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
 		}
 		else = {
-			random_scope_state = {
+			ordered_scope_state = {
 				limit = {
 					region = sr:region_senegal
 					is_under_colonization = no
 				}
+				order_by = gdp
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
 		}
@@ -187,21 +189,23 @@ je_colonial_administration_button_niger = {
 					is_under_colonization = no
 				}
 			}
-			random_scope_state = {
+			ordered_scope_state = {
 				limit = {
 					region = sr:region_niger
 					has_decree = decree_greener_grass_campaign
 					is_under_colonization = no
 				}
+				order_by = gdp
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
 		}
 		else = {
-			random_scope_state = {
+			ordered_scope_state = {
 				limit = {
 					region = sr:region_niger
 					is_under_colonization = no
 				}
+				order_by = gdp
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
 		}
@@ -312,21 +316,23 @@ je_colonial_administration_button_ethiopia = {
 					is_under_colonization = no
 				}
 			}
-			random_scope_state = {
+			ordered_scope_state = {
 				limit = {
 					region = sr:region_ethiopia
 					has_decree = decree_greener_grass_campaign
 					is_under_colonization = no
 				}
+				order_by = gdp
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
 		}
 		else = {
-			random_scope_state = {
+			ordered_scope_state = {
 				limit = {
 					region = sr:region_ethiopia
 					is_under_colonization = no
 				}
+				order_by = gdp
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
 		}
@@ -437,21 +443,23 @@ je_colonial_administration_button_zanj = {
 					is_under_colonization = no
 				}
 			}
-			random_scope_state = {
+			ordered_scope_state = {
 				limit = {
 					region = sr:region_zanj
 					has_decree = decree_greener_grass_campaign
 					is_under_colonization = no
 				}
+				order_by = gdp
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
 		}
 		else = {
-			random_scope_state = {
+			ordered_scope_state = {
 				limit = {
 					region = sr:region_zanj
 					is_under_colonization = no
 				}
+				order_by = gdp
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
 		}
@@ -562,21 +570,23 @@ je_colonial_administration_button_southern_africa = {
 					is_under_colonization = no
 				}
 			}
-			random_scope_state = {
+			ordered_scope_state = {
 				limit = {
 					region = sr:region_southern_africa
 					has_decree = decree_greener_grass_campaign
 					is_under_colonization = no
 				}
+				order_by = gdp
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
 		}
 		else = {
-			random_scope_state = {
+			ordered_scope_state = {
 				limit = {
 					region = sr:region_southern_africa
 					is_under_colonization = no
 				}
+				order_by = gdp
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
 		}
@@ -687,21 +697,23 @@ je_colonial_administration_button_congo = {
 					is_under_colonization = no
 				}
 			}
-			random_scope_state = {
+			ordered_scope_state = {
 				limit = {
 					region = sr:region_congo
 					has_decree = decree_greener_grass_campaign
 					is_under_colonization = no
 				}
+				order_by = gdp
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
 		}
 		else = {
-			random_scope_state = {
+			ordered_scope_state = {
 				limit = {
 					region = sr:region_congo
 					is_under_colonization = no
 				}
+				order_by = gdp
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
 		}
