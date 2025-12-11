@@ -451,7 +451,7 @@ has_je_conquest_reason = {
 		AND = {
 			has_journal_entry = je_scramble_for_africa
 			$TARGET$ = {
-				country_is_in_africa = yes
+				is_in_geographic_region = geographic_region_africa
 				OR = {
 					any_scope_building = {
 						OR = {
@@ -468,7 +468,7 @@ has_je_conquest_reason = {
 		AND = {
 			has_journal_entry = je_scramble_for_africa
 			$TARGET$ = { 
-				country_is_in_africa = yes
+				is_in_geographic_region = geographic_region_africa
 				is_country_type = unrecognized 
 				OR = {
 					is_subject = no
@@ -500,7 +500,7 @@ has_je_subjugation_reason = {
 			navy_size >= 25
 			scope:target_country = { 
 				exists = c:JAP
-				this = c:JAP		
+				c:JAP ?= THIS		
 				has_law_or_variant = law_type:law_isolationism
 				gdp >= 5000000
 			} 		
@@ -922,7 +922,7 @@ has_je_reconcile_reason = {
 			$TARGET$ = { 
 				NOT = { is_subject = yes }
 				NOT = { this = root }
-				country_is_in_north_america = yes
+				is_in_geographic_region = geographic_region_north_america
 				relations:root > relations_threshold:cold
 				country_rank >= rank_value:great_power
 				any_scope_state = {

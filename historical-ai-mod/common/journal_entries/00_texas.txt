@@ -41,7 +41,7 @@ je_texas_usa = {
 			has_variable = manifested_destiny
 		}
 		exists = c:TEX
-		c:TEX = {
+		c:TEX ?= {
 			relations:root >= relations_threshold:cordial
 			is_subject = no
 			is_at_war = no
@@ -55,7 +55,7 @@ je_texas_usa = {
 	invalid = {
 		OR = {
 			NOT = { exists = c:TEX }
-			c:TEX = { is_subject = yes }
+			c:TEX ?= { is_subject = yes }
 		}
 	}
 	

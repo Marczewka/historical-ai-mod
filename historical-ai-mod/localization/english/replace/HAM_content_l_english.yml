@@ -19,10 +19,6 @@ buyers_unfriendly_nation_with_interest_in_alaska_tt: "A hostile [concept_country
 unfriendly_nation_with_interest_in_alaska_tt: "A hostile [concept_country] with a [concept_rank] equal or higher than ours has an [concept_interest] in the #bold Pacific Coast#! [concept_strategic_region]"
 manifested_destiny_tt: "Has #bold manifested destiny#."
 
-HAM_je_eastern_frontier_tt_1: "#bold Khorasan#! is owned by [SCOPE.GetRootScope.GetCountry.GetName] or its subjects:\n[SCOPE.sStateRegion('herat_scope').GetName], [SCOPE.sStateRegion('merv_scope').GetName], [SCOPE.sStateRegion('balkh_scope').GetName], [SCOPE.sStateRegion('central_highlands_scope').GetName], [SCOPE.sStateRegion('kabul_scope').GetName], [SCOPE.sStateRegion('kandahar_scope').GetName], [SCOPE.sStateRegion('northern_baluchistan_scope').GetName]"
-HAM_je_eastern_frontier_tt_2: "#bold Chorasmia#! is owned by [SCOPE.GetRootScope.GetCountry.GetName] or its subjects:\n[SCOPE.sStateRegion('khiva_scope').GetName], [SCOPE.sStateRegion('turkmenia_state_scope').GetName]"
-HAM_je_eastern_frontier_tt_3: "#bold Transoxiana#! is owned by [SCOPE.GetRootScope.GetCountry.GetName] or its subjects:\n[SCOPE.sStateRegion('fergana_scope').GetName], [SCOPE.sStateRegion('tajikistan_scope').GetName], [SCOPE.sStateRegion('uzbekia_scope').GetName]"
-
 ai_strategy_unify_afghanistan:0 "Unify Afghanistan"
 ai_strategy_unify_afghanistan_desc:0 "[COUNTRY.GetName] wants to unite the Afghan principalities under their banner."
 dp_unify_afghanistan:0 "Unify Afghanistan"

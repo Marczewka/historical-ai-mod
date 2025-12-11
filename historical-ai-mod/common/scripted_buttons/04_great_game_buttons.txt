@@ -86,7 +86,7 @@
 	effect = {
 		set_variable = { name = pending_aid_request value = c:RUS }
 		save_scope_as = afghan_nation_scope
-		c:RUS = {
+		c:RUS ?= {
 			save_scope_as = relevant_country
 			trigger_event = { id = gg_afghanistan.3 days = 7 popup = yes }
 		}
@@ -94,7 +94,7 @@
 		custom_tooltip = AFG_appeal_accept_tt
 		custom_tooltip = MILITARY_ASSISTANCE_RUS
 		show_as_tooltip = {
-			# c:RUS = {
+			# c:RUS ?= {
 			# 	create_treaty = {
 			# 		first_country = c:RUS
 			# 		second_country = ROOT
@@ -246,7 +246,7 @@ je_afghan_unification_appeal_to_britain_button = {
 	effect = {
 		set_variable = { name = pending_aid_request value = c:GBR }
 		save_scope_as = afghan_nation_scope
-		c:GBR = {
+		c:GBR ?= {
 			save_scope_as = relevant_country
 			trigger_event = { id = gg_afghanistan.3 days = 7 popup = yes }
 		}
@@ -254,7 +254,7 @@ je_afghan_unification_appeal_to_britain_button = {
 		custom_tooltip = AFG_appeal_accept_tt
 		custom_tooltip = MILITARY_ASSISTANCE_GBR
 		show_as_tooltip = {
-			# c:GBR = {
+			# c:GBR ?= {
 			# 	create_treaty = {
 			# 		first_country = c:GBR
 			# 		second_country = ROOT
@@ -523,7 +523,7 @@ je_consolidate_afghanistan_durand_line = {
 		}
 		if = {
 			limit = {
-				c:AFG = {
+				c:AFG ?= {
 					relations:root >= relations_threshold:cordial
 				}
 			}
@@ -531,7 +531,7 @@ je_consolidate_afghanistan_durand_line = {
 		}
 		if = {
 			limit = {
-				c:AFG = {
+				c:AFG ?= {
 					relations:root <= relations_threshold:poor
 				}
 			}
@@ -773,7 +773,7 @@ je_consolidate_afghanistan_indus_line = {
 		value = 50
 		if = {
 			limit = {
-				c:AFG = {
+				c:AFG ?= {
 					any_scope_state = {
 						state_region = s:STATE_BALUCHISTAN
 					}
@@ -783,7 +783,7 @@ je_consolidate_afghanistan_indus_line = {
 		}
 		if = {
 			limit = {
-				c:AFG = {
+				c:AFG ?= {
 					any_scope_state = {
 						state_region = s:STATE_PASHTUNISTAN
 					}
@@ -793,7 +793,7 @@ je_consolidate_afghanistan_indus_line = {
 		}
 		if = {
 			limit = {
-				c:AFG = {
+				c:AFG ?= {
 					any_scope_state = {
 						state_region = s:STATE_QUETTA
 					}
@@ -853,7 +853,7 @@ je_consolidate_afghanistan_indus_line = {
 		}
 		if = {
 			limit = {
-				c:AFG = {
+				c:AFG ?= {
 					relations:root >= relations_threshold:cordial
 				}
 			}
@@ -861,7 +861,7 @@ je_consolidate_afghanistan_indus_line = {
 		}
 		if = {
 			limit = {
-				c:AFG = {
+				c:AFG ?= {
 					relations:root <= relations_threshold:poor
 				}
 			}
@@ -959,7 +959,7 @@ je_consolidate_afghanistan_southeast_status_quo = {
 		value = 50
 		if = {
 			limit = {
-				c:AFG = {
+				c:AFG ?= {
 					relations:root >= relations_threshold:cordial
 				}
 			}
@@ -1148,7 +1148,7 @@ je_consolidate_afghanistan_torkestan_line = {
 		}
 		if = {
 			limit = {
-				c:AFG = {
+				c:AFG ?= {
 					relations:root >= relations_threshold:cordial
 				}
 			}
@@ -1156,7 +1156,7 @@ je_consolidate_afghanistan_torkestan_line = {
 		}
 		if = {
 			limit = {
-				c:AFG = {
+				c:AFG ?= {
 					relations:root <= relations_threshold:poor
 				}
 			}
@@ -1564,7 +1564,7 @@ je_consolidate_afghanistan_approve_of_treaty = {
 					has_variable = proposed_durand_line
 					AND = {
 						has_variable = proposed_indus_line
-						c:AFG = {
+						c:AFG ?= {
 							any_scope_state = {
 								OR = {
 									region = sr:region_punjab
@@ -1586,7 +1586,7 @@ je_consolidate_afghanistan_approve_of_treaty = {
 						has_variable = proposed_durand_line
 						AND = {
 							has_variable = proposed_indus_line
-							c:AFG = {
+							c:AFG ?= {
 								any_scope_state = {
 									OR = {
 										region = sr:region_punjab
@@ -1621,11 +1621,11 @@ je_consolidate_afghanistan_approve_of_treaty = {
 		}
 		if = {
 			limit = {
-				c:AFG = {
+				c:AFG ?= {
 					has_variable = received_afghan_border_notification
 				}
 			}
-			c:AFG = {
+			c:AFG ?= {
 				remove_variable = received_afghan_border_notification
 			}
 		}
@@ -2247,7 +2247,7 @@ je_consolidate_afghanistan_offer_compensation = {
 	visible = {
 		exists = c:AFG
 		has_variable = afghanistan_rejection
-		c:AFG = {
+		c:AFG ?= {
 			relations:root > relations_threshold:poor
 		}
 	}
@@ -2312,7 +2312,7 @@ je_consolidate_afghanistan_threaten_reprisals = {
 				has_variable = afghanistan_delimitation_treaty_approved
 			}
 		}
-		c:AFG = {
+		c:AFG ?= {
 			relations:root < relations_threshold:cordial
 		}
 	}
@@ -2409,7 +2409,7 @@ je_consolidate_afghanistan_resolve_southwest_conflict = {
 				has_variable = proposed_durand_line
 				AND = {
 					has_variable = proposed_indus_line
-					c:AFG = {
+					c:AFG ?= {
 						any_scope_state = {
 							OR = {
 								region = sr:region_punjab
@@ -2431,7 +2431,7 @@ je_consolidate_afghanistan_resolve_southwest_conflict = {
 					has_variable = proposed_durand_line
 					AND = {
 						has_variable = proposed_indus_line
-						c:AFG = {
+						c:AFG ?= {
 							any_scope_state = {
 								OR = {
 									region = sr:region_punjab

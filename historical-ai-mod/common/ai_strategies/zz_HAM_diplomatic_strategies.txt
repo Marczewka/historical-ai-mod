@@ -331,7 +331,7 @@ ai_strategy_territorial_expansion = {
 				exists = c:FRA
 				c:FRA = this
 				ruler = {
-					has_variable = bonapartist_leader
+					has_variable = house_bonaparte
 				}
 			}
 			add = 5
@@ -375,7 +375,7 @@ ai_strategy_territorial_expansion = {
 		}			
 		
 		if = {
-			limit = { country_is_in_europe = yes }
+			limit = { is_in_geographic_region = geographic_region_europe }
 			multiply = 0.25
 		}
 
@@ -504,7 +504,7 @@ ai_strategy_colonial_expansion = {
 					limit = {
 						has_journal_entry = je_scramble_for_africa
 						scope:target_country = {
-							country_is_in_africa = yes
+							is_in_geographic_region = geographic_region_africa
 						}
 					}
 					add = 10
@@ -608,7 +608,7 @@ ai_strategy_colonial_expansion = {
 						limit = {
 							has_journal_entry = je_scramble_for_africa
 							scope:target_country = {
-								country_is_in_africa = yes
+								is_in_geographic_region = geographic_region_africa
 							}
 						}
 						add = 600
@@ -649,7 +649,7 @@ ai_strategy_colonial_expansion = {
 						limit = {
 							has_journal_entry = je_scramble_for_africa
 							scope:target_country = {
-								country_is_in_africa = yes
+								is_in_geographic_region = geographic_region_africa
 							}
 						}
 						add = 600
@@ -696,7 +696,7 @@ ai_strategy_colonial_expansion = {
 				exists = c:FRA
 				c:FRA = this
 				ruler = {
-					has_variable = bonapartist_leader
+					has_variable = house_bonaparte
 				}
 			}
 			add = 10
@@ -750,6 +750,14 @@ ai_strategy_colonial_expansion = {
 			}
 			multiply = 1.5
 		}		
+
+		if = {
+			limit = {
+				has_journal_entry = je_hispanoamerica
+			}
+			multiply = 0.5
+		}
+
 		
 		if = {
 			limit = { has_radical_leftist_government = yes }
@@ -1037,7 +1045,7 @@ ai_strategy_economic_imperialism = {
 				navy_size >= 25
 				scope:target_country = { 
 					exists = c:JAP
-					this = c:JAP		
+					c:JAP ?= THIS		
 					has_law_or_variant = law_type:law_isolationism
 					gdp >= 5000000
 				} 
@@ -1109,7 +1117,7 @@ ai_strategy_economic_imperialism = {
 						}
 					}
 					exists = c:JAP
-					c:JAP = { has_law_or_variant = law_type:law_isolationism }
+					c:JAP ?= { has_law_or_variant = law_type:law_isolationism }
 					country_rank = rank_value:great_power
 					navy_size >= 25
 				}
@@ -1262,7 +1270,7 @@ ai_strategy_economic_imperialism = {
 						limit = { 
 							scope:target_country = { 
 								exists = c:JAP
-								this = c:JAP		
+								c:JAP ?= THIS		
 								has_law_or_variant = law_type:law_isolationism 				
 							} 	
 						}
@@ -1295,7 +1303,7 @@ ai_strategy_economic_imperialism = {
 						limit = { 
 							scope:target_country = { 
 								exists = c:JAP
-								this = c:JAP		
+								c:JAP ?= THIS		
 								has_law_or_variant = law_type:law_isolationism 				
 							} 	
 						}
@@ -1331,8 +1339,8 @@ ai_strategy_economic_imperialism = {
 				c:FRA = this
 				ruler = {
 					OR = {
-						has_variable = bonapartist_leader
-						has_variable = orleanist_leader
+						has_variable = house_bonaparte
+						has_variable = house_orleans
 					}
 				}
 			}
@@ -1356,7 +1364,7 @@ ai_strategy_economic_imperialism = {
 					has_strategic_adjacency = c:JAP
 					this ?= c:USA
 				}
-				c:JAP = { has_law_or_variant = law_type:law_isolationism }
+				c:JAP ?= { has_law_or_variant = law_type:law_isolationism }
 			}
 			multiply = 10 # 2.0
 		}	
@@ -1513,9 +1521,7 @@ ai_strategy_unify_germany = {
 
 	building_group_weights = {
 		bg_army = 1.5
-		bg_artillery_foundries = 1.5
-		bg_arms_industries = 1.5
-		bg_munition_plants = 1.5
+		bg_military_industry = 1.5
 	}
 	
 	state_value = {
@@ -3098,7 +3104,7 @@ ai_strategy_anti_imperialism = {
 		if = {
 			limit = {
 				scope:target_country = { 
-					is_country_type = colonial 
+					country_is_colonial_or_company = yes
 				}	
 			}
 			multiply = 2
@@ -3187,7 +3193,7 @@ ai_strategy_anti_imperialism = {
 				if = {
 					limit = {
 						NOT = { scope:target_country = { is_subject_of = root } }
-						is_country_type = colonial
+						scope:target_country ?= { country_is_colonial_or_company = yes }
 					}
 					add = 25
 				}
@@ -3419,7 +3425,7 @@ ai_strategy_restore_natural_borders = {
 				is_country_type = unrecognized 
 				OR = {
 					country_rank >= rank_value:unrecognized_regional_power
-					country_is_in_africa = yes
+					is_in_geographic_region = geographic_region_africa
 				}
 			}
 			add = 25
@@ -3430,7 +3436,7 @@ ai_strategy_restore_natural_borders = {
 				exists = c:FRA
 				c:FRA = this
 				ruler = {
-					has_variable = bonapartist_leader
+					has_variable = house_bonaparte
 				}
 			}
 			add = 5
@@ -3589,7 +3595,7 @@ ai_strategy_restore_natural_borders = {
 						}
 					}
 				}
-				add = 5.0
+				add = 5
 			}
 		}
 
@@ -3616,9 +3622,7 @@ ai_strategy_restore_natural_borders = {
 
 	building_group_weights = {
 		bg_army = 1.5
-		bg_artillery_foundries = 1.5
-		bg_arms_industries = 1.5
-		bg_munition_plants = 1.5
+		bg_military_industry = 1.5
 	}
 
 	state_value = {

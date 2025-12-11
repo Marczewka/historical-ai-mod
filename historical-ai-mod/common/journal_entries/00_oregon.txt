@@ -52,7 +52,7 @@
 	}
 
 	complete = {
-		c:GBR = {
+		c:GBR ?= {
 			relations:ROOT > relations_threshold:poor
 		}
         has_technology_researched = nationalism
@@ -65,7 +65,7 @@
 	}
 
 	on_complete = {
-		c:GBR = { trigger_event = { id = oregon.2 } }
+		c:GBR ?= { trigger_event = { id = oregon.2 } }
 	}
 
 	fail = {
@@ -115,7 +115,7 @@ je_conquer_oregon = {
 	group = je_group_usa_manifest_destiny
 
 	complete = {
-		c:USA = {
+		c:USA ?= {
 			owns_entire_state_region = STATE_WASHINGTON
 			owns_entire_state_region = STATE_IDAHO
 			owns_entire_state_region = STATE_OREGON

@@ -126,7 +126,7 @@ central_america.2 = {
 				}
 			}
 			hidden_effect = {
-				c:GUA = {
+				c:GUA ?= {
 					change_relations = { country = c:ALT value = -30 }
 					set_secret_goal = {
 						country = c:ALT
@@ -463,7 +463,7 @@ central_america.3 = {
 					}
 				}
 			}
-			c:GUA = {
+			c:GUA ?= {
 				change_relations = { country = c:ALT value = -30 }
 				set_secret_goal = {
 					country = c:ALT
@@ -486,7 +486,7 @@ central_america.3 = {
 				origin = this
 				state = scope:secession_state
 			}
-			c:HON = {
+			c:HON ?= {
 				save_scope_as = secession_country
 				capital = {
 					save_scope_as = secession_capital
@@ -504,7 +504,7 @@ central_america.3 = {
 				origin = this
 				state = scope:secession_state
 			}
-			c:COS = {
+			c:COS ?= {
 				save_scope_as = secession_country
 				capital = {
 					save_scope_as = secession_capital
@@ -522,7 +522,7 @@ central_america.3 = {
 				origin = this
 				state = scope:secession_state
 			}
-			c:ELS = {
+			c:ELS ?= {
 				save_scope_as = secession_country
 				capital = {
 					save_scope_as = secession_capital
@@ -540,7 +540,7 @@ central_america.3 = {
 				origin = this
 				state = scope:secession_state
 			}
-			c:NIC = {
+			c:NIC ?= {
 				save_scope_as = secession_country
 				capital = {
 					save_scope_as = secession_capital

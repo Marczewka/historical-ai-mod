@@ -169,7 +169,7 @@ company_basic_fabrics = {
 	}
 
 	extension_building_types = {
-		building_textile_mills
+		building_textile_mill
 	}
 
 	possible_prestige_goods = {
@@ -196,7 +196,7 @@ company_basic_fabrics = {
 	}
 
 	prosperity_modifier = {
-		building_textile_mills_throughput_add = 0.1
+		building_textile_mill_throughput_add = 0.1
 	}
 
 	ai_will_do = {
@@ -387,7 +387,7 @@ company_basic_silk_and_dye = {
 	}
 
 	extension_building_types = {
-		building_textile_mills
+		building_textile_mill
 	}
 
 	possible = {
@@ -404,7 +404,7 @@ company_basic_silk_and_dye = {
 
 	prosperity_modifier = {
 		country_influence_mult = 0.1
-		building_textile_mills_throughput_add = 0.1
+		building_textile_mill_throughput_add = 0.1
 	}
 
 	ai_will_do = {
@@ -444,7 +444,7 @@ company_basic_wine_and_fruit = {
 	}
 
 	building_types = {
-		building_vineyard_plantation
+		building_vineyard
 		building_banana_plantation
 	}
 
@@ -456,7 +456,7 @@ company_basic_wine_and_fruit = {
 		any_scope_state = {
 			any_scope_building = {
 				OR = {
-					is_building_type = building_vineyard_plantation
+					is_building_type = building_vineyard
 					is_building_type = building_banana_plantation
 				}
 				level >= 5
@@ -478,7 +478,7 @@ company_basic_wine_and_fruit = {
 		any_scope_state = {
 			any_scope_building = {
 				OR = {
-					is_building_type = building_vineyard_plantation
+					is_building_type = building_vineyard
 					is_building_type = building_banana_plantation
 				}
 				level >= 3
@@ -511,7 +511,7 @@ company_basic_fishing = {
 	}
 
 	extension_building_types = {
-		building_shipyards
+		building_shipyard
 	}
 
 	possible_prestige_goods = {
@@ -539,7 +539,7 @@ company_basic_fishing = {
 
 	prosperity_modifier = {
 		country_convoys_capacity_mult = 0.1
-		building_shipyards_throughput_add = 0.05
+		building_shipyard_throughput_add = 0.05
 	}
 
 	ai_will_do = {
@@ -587,7 +587,7 @@ company_basic_forestry = {
 	}
 
 	extension_building_types = {
-		building_tooling_workshops
+		building_tooling_workshop
 	}
 
 	possible = {
@@ -761,7 +761,7 @@ company_basic_metal_mining = {
 	}
 
 	prosperity_modifier = {
-		building_steel_mills_throughput_add = 0.1
+		building_steel_mill_throughput_add = 0.1
 		state_pollution_reduction_health_mult = 0.05
 	}
 
@@ -822,7 +822,7 @@ company_basic_mineral_mining = {
 	}
 
 	prosperity_modifier = {
-		building_chemical_plants_throughput_add = 0.1
+		building_chemical_plant_throughput_add = 0.1
 	}
 
 	ai_will_do = {
@@ -925,7 +925,7 @@ company_basic_paper = {
 	}
 
 	building_types = {
-		building_paper_mills
+		building_paper_mill
 	}
 
 	extension_building_types = {
@@ -947,7 +947,7 @@ company_basic_paper = {
 		any_scope_state = {
 			is_incorporated = yes
 			any_scope_building = {
-				is_building_type = building_paper_mills
+				is_building_type = building_paper_mill
 				level >= 5
 			}
 		}
@@ -962,7 +962,7 @@ company_basic_paper = {
 		any_scope_state = {
 			is_incorporated = yes
 			any_scope_building = {
-				is_building_type = building_paper_mills
+				is_building_type = building_paper_mill
 				level >= 3
 			}
 		}
@@ -988,7 +988,7 @@ company_basic_home_goods = {
 
 	building_types = {
 		building_glassworks
-		building_furniture_manufacturies
+		building_furniture_manufactory
 	}
 
 	extension_building_types = {
@@ -1013,7 +1013,7 @@ company_basic_home_goods = {
 			any_scope_building = {
 				OR = {
 					is_building_type = building_glassworks
-					is_building_type = building_furniture_manufacturies
+					is_building_type = building_furniture_manufactory
 				}
 				level >= 5
 			}
@@ -1031,7 +1031,7 @@ company_basic_home_goods = {
 			any_scope_building = {
 				OR = {
 					is_building_type = building_glassworks
-					is_building_type = building_furniture_manufacturies
+					is_building_type = building_furniture_manufactory
 				}
 				level >= 3
 			}
@@ -1057,7 +1057,7 @@ company_basic_textiles = {
 	}
 
 	building_types = {
-		building_textile_mills
+		building_textile_mill
 	}
 
 	extension_building_types = {
@@ -1080,7 +1080,7 @@ company_basic_textiles = {
 		any_scope_state = {
 			is_incorporated = yes
 			any_scope_building = {
-				is_building_type = building_textile_mills
+				is_building_type = building_textile_mill
 				level >= 5
 			}
 		}
@@ -1095,7 +1095,7 @@ company_basic_textiles = {
 		any_scope_state = {
 			is_incorporated = yes
 			any_scope_building = {
-				is_building_type = building_textile_mills
+				is_building_type = building_textile_mill
 				level >= 5
 			}
 		}
@@ -1120,7 +1120,7 @@ company_basic_steel = {
 	}
 
 	building_types = {
-		building_steel_mills
+		building_steel_mill
 	}
 
 	possible_prestige_goods = {
@@ -1143,7 +1143,7 @@ company_basic_steel = {
 		any_scope_state = {
 			is_incorporated = yes
 			any_scope_building = {
-				is_building_type = building_steel_mills
+				is_building_type = building_steel_mill
 				level >= 5
 			}
 		}
@@ -1158,7 +1158,7 @@ company_basic_steel = {
 		any_scope_state = {
 			is_incorporated = yes
 			any_scope_building = {
-				is_building_type = building_steel_mills
+				is_building_type = building_steel_mill
 				level >= 5
 			}
 		}
@@ -1183,11 +1183,11 @@ company_basic_metalworks = {
 	}
 
 	building_types = {
-		building_tooling_workshops
+		building_tooling_workshop
 	}
 
 	extension_building_types = {
-		building_steel_mills
+		building_steel_mill
 	}
 
 	possible_prestige_goods = {
@@ -1206,7 +1206,7 @@ company_basic_metalworks = {
 			is_incorporated = yes
 			any_scope_building = {
 				OR = {
-					is_building_type = building_tooling_workshops
+					is_building_type = building_tooling_workshop
 				}
 				level >= 5
 			}
@@ -1223,9 +1223,9 @@ company_basic_metalworks = {
 			is_incorporated = yes
 			any_scope_building = {
 				OR = {
-					is_building_type = building_tooling_workshops
+					is_building_type = building_tooling_workshop
 					is_building_type = building_arms_industry
-					is_building_type = building_artillery_foundries
+					is_building_type = building_artillery_foundry
 				}
 				level >= 3
 			}
@@ -1251,8 +1251,8 @@ company_basic_shipyards = {
 	}
 
 	building_types = {
-		building_shipyards
-		building_military_shipyards
+		building_shipyard
+		building_military_shipyard
 	}
 
 	extension_building_types = {
@@ -1264,8 +1264,8 @@ company_basic_shipyards = {
 			is_incorporated = yes
 			any_scope_building = {
 				OR = {
-					is_building_type = building_shipyards
-					is_building_type = building_military_shipyards
+					is_building_type = building_shipyard
+					is_building_type = building_military_shipyard
 				}
 				level >= 5
 			}
@@ -1282,8 +1282,8 @@ company_basic_shipyards = {
 			is_incorporated = yes
 			any_scope_building = {
 				OR = {
-					is_building_type = building_shipyards
-					is_building_type = building_military_shipyards
+					is_building_type = building_shipyard
+					is_building_type = building_military_shipyard
 				}
 				level >= 5
 			}
@@ -1309,8 +1309,8 @@ company_basic_chemicals = {
 	}
 
 	building_types = {
-		building_chemical_plants
-		building_synthetics_plants
+		building_chemical_plant
+		building_synthetics_plant
 	}
 
 	extension_building_types = {
@@ -1333,8 +1333,8 @@ company_basic_chemicals = {
 			is_incorporated = yes
 			any_scope_building = {
 				OR = {
-					is_building_type = building_chemical_plants
-					is_building_type = building_synthetics_plants
+					is_building_type = building_chemical_plant
+					is_building_type = building_synthetics_plant
 				}
 				level >= 5
 			}
@@ -1343,7 +1343,7 @@ company_basic_chemicals = {
 
 	prosperity_modifier = {
 		unit_supply_consumption_mult = -0.05
-		building_chemical_plants_throughput_add = 0.1
+		building_chemical_plant_throughput_add = 0.1
 	}
 
 	ai_will_do = {
@@ -1352,8 +1352,8 @@ company_basic_chemicals = {
 			is_incorporated = yes
 			any_scope_building = {
 				OR = {
-					is_building_type = building_chemical_plants
-					is_building_type = building_synthetics_plants
+					is_building_type = building_chemical_plant
+					is_building_type = building_synthetics_plant
 				}
 				level >= 5
 			}
@@ -1384,7 +1384,7 @@ company_basic_motors = {
 	}
 
 	extension_building_types = {
-		building_steel_mills
+		building_steel_mill
 	}
 
 	possible = {
@@ -1437,13 +1437,13 @@ company_basic_munitions = {
 	}
 
 	building_types = {
-		building_munition_plants
+		building_munition_plant
 		building_explosives_factory
 	}
 
 	extension_building_types = {
 		building_sulfur_mine
-		building_steel_mills
+		building_steel_mill
 	}
 
 	possible_prestige_goods = {
@@ -1462,7 +1462,7 @@ company_basic_munitions = {
 			is_incorporated = yes
 			any_scope_building = {
 				OR = {
-					is_building_type = building_munition_plants
+					is_building_type = building_munition_plant
 					is_building_type = building_explosives_factory
 				}
 				level >= 5
@@ -1480,7 +1480,7 @@ company_basic_munitions = {
 			is_incorporated = yes
 			any_scope_building = {
 				OR = {
-					is_building_type = building_munition_plants
+					is_building_type = building_munition_plant
 					is_building_type = building_explosives_factory
 				}
 				level >= 5
@@ -1558,12 +1558,12 @@ company_basic_weapons = {
 
 	building_types = {
 		building_arms_industry
-		building_artillery_foundries
+		building_artillery_foundry
 	}
 
 	extension_building_types = {
 		building_automotive_industry
-		building_steel_mills
+		building_steel_mill
 	}
 
 	possible_prestige_goods = {
@@ -1583,7 +1583,7 @@ company_basic_weapons = {
 			any_scope_building = {
 				OR = {
 					is_building_type = building_arms_industry
-					is_building_type = building_artillery_foundries
+					is_building_type = building_artillery_foundry
 				}
 				level >= 5
 			}
@@ -1602,7 +1602,7 @@ company_basic_weapons = {
 			any_scope_building = {
 				OR = {
 					is_building_type = building_arms_industry
-					is_building_type = building_artillery_foundries
+					is_building_type = building_artillery_foundry
 				}
 				level >= 5
 			}
@@ -1612,13 +1612,13 @@ company_basic_weapons = {
 
 company_construction_power_bloc = {
 	icon = "gfx/interface/icons/company_icons/basic_construction.dds"
-	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufactering_light.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
 
 	category = bureaucrat_owned
 
 	building_types = {
-		building_steel_mills
-		building_tooling_workshops
+		building_steel_mill
+		building_tooling_workshop
 		building_glassworks
 	}
 
@@ -1638,8 +1638,8 @@ company_construction_power_bloc = {
 		any_scope_state = {
 			any_scope_building = {
 				OR = {
-					is_building_type = building_steel_mills
-					is_building_type = building_tooling_workshops
+					is_building_type = building_steel_mill
+					is_building_type = building_tooling_workshop
 					is_building_type = building_glassworks
 				}
 				level >= 10
@@ -1655,8 +1655,8 @@ company_construction_power_bloc = {
 		any_scope_state = {
 			any_scope_building = {
 				OR = {
-					is_building_type = building_steel_mills
-					is_building_type = building_tooling_workshops
+					is_building_type = building_steel_mill
+					is_building_type = building_tooling_workshop
 					is_building_type = building_glassworks
 				}
 				level >= 5

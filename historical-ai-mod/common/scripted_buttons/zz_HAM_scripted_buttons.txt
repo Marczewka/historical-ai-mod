@@ -57,10 +57,9 @@
 		}
 		custom_tooltip = {
 			text = friendly_nation_with_interest_in_alaska_tt
-			any_country = {
+			any_country_in_north_america = {
 				NOT = { is_subject = yes }
 				NOT = { this = root }
-				country_is_in_north_america = yes
 				relations:root > relations_threshold:poor
 				country_rank >= rank_value:great_power
 				any_scope_state = {
@@ -78,7 +77,7 @@
 			limit = {
 				NOT = { is_subject = yes }
 				NOT = { this = root }
-				country_is_in_north_america = yes
+				is_in_geographic_region = geographic_region_north_america
 				relations:root > relations_threshold:poor
 				country_rank >= rank_value:great_power
 				any_scope_state = {
