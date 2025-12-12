@@ -1803,6 +1803,12 @@ ai_strategy_default = {
 						add = 20	
 					}
 				}
+				else_if = {
+					limit = { 
+						has_treaty_port_in_market = scope:target_country.market 
+					}
+					multiply = 0.25
+				}
 
 				# Moved below
 				# if = {
