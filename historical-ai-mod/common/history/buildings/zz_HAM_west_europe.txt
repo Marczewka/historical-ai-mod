@@ -1,0 +1,20 @@
+﻿BUILDINGS={
+	s:STATE_WURTTEMBERG={
+		region_state:HOH={
+			remove_building = building_wheat_farm
+			create_building={
+				building="building_wheat_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:PRU"
+						levels=1
+						region="STATE_BRANDENBURG"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled"  }
+			}
+		}
+	}
+}
