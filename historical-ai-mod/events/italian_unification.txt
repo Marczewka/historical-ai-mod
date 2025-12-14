@@ -918,35 +918,11 @@ italian_unification.10 = {
 				}
 				add = 50
 			}
-			# modifier = {
-			# 	trigger = {
-			# 		c:SIC ?= this
-			# 	}
-			# 	add = -35
-			# }
 			modifier = {
 				trigger = {
-					NOR = {
-						has_law = law_type:law_theocracy
-						has_law = law_type:law_monarchy
-					}
+					c:SIC ?= this
 				}
-				add = 25
-			}
-			modifier = {
-				trigger = {
-					NOR = { 
-						has_law = law_type:law_autocracy 
-						has_law = law_type:law_oligarchy
-					}
-				}
-				add = 25
-			}
-			modifier = {
-				trigger = {
-					has_law = law_type:law_traditionalism
-				}
-				add = -25
+				add = -35
 			}
 		}
 		default_option = yes
@@ -1056,12 +1032,12 @@ italian_unification.10 = {
 				}
 				add = -50
 			}
-			# modifier = {
-			# 	trigger = {
-			# 		c:SIC ?= this
-			# 	}
-			# 	add = 50
-			# }
+			modifier = {
+				trigger = {
+					c:SIC ?= this
+				}
+				add = 50
+			}
 		}
 		every_interest_group = {
 			limit = {

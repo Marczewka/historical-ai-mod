@@ -7800,6 +7800,13 @@ ai_strategy_default = {
 							who = scope:target_country
 							attitude = antagonistic
 						}
+						AND = {
+							has_attitude = {
+								who = scope:target_country
+								attitude = domineering
+							}
+							scope:target_state.ai_state_value:root >= 50
+						}
 					}
 				}
 
@@ -8648,7 +8655,7 @@ ai_strategy_default = {
 			}
 
 			min = 0
-			max = 100
+			max = 1000 # 100
 
 			if = {
 				limit = {
