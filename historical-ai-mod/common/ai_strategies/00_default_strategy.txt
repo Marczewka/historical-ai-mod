@@ -1059,12 +1059,28 @@ ai_strategy_default = {
 				desc = "kindred_secession"
 			}
 		}
+
+		### Springtime of the Peoples
+		if = {
+			limit = { 
+				has_journal_entry = je_springtime_of_the_peoples
+				scope:is_initiator = yes
+				OR = {
+					scope:diplomatic_play_type = play_type:dp_secession
+					scope:diplomatic_play_type = play_type:dp_revolution
+				}
+			}
+			add = {
+				value = -200
+				desc = "SPRINGTIME_OF_THE_PEOPLES_UNDERWAY"
+			}
+		}
 	}
 
 	# Added to base neutrality in diplomatic plays
 	# Using this value in other strategies will function additively
 	diplomatic_play_neutrality = {
-		value = 50
+		value = 50 
 
 		# Ottomans should avoid unnecessary entanglements while trying to pursue the Tanzimat reforms
 		if = {
