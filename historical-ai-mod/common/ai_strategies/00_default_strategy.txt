@@ -4889,16 +4889,7 @@ ai_strategy_default = {
 						limit = {
 							country_rank = rank_value:great_power
 							navy_size >= 25
-							OR = {
-								has_technology_researched = civilizing_mission
-								AND = {
-									this ?= c:USA
-									any_scope_state = {
-										is_incorporated = yes
-										region = sr:region_pacific_coast
-									}
-								}
-							}
+							has_technology_researched = nationalism
 							c:JAP ?= {
 								has_law_or_variant = law_type:law_isolationism
 							}

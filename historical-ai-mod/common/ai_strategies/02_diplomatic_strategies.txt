@@ -1039,16 +1039,7 @@ ai_strategy_economic_imperialism = {
 		# Very aggressive about opening up Japan
 		if = {
 			limit = { 
-				OR = {
-					has_technology_researched = civilizing_mission # Just to make sure it doesn't happen immediately in 1836
-					AND = {
-						this ?= c:USA
-						any_scope_state = {
-							is_incorporated = yes
-							region = sr:region_pacific_coast
-						}
-					}
-				}
+				has_technology_researched = nationalism # Just to make sure it doesn't happen immediately in 1836
 				country_rank = rank_value:great_power
 				navy_size >= 25
 				scope:target_country = { 
@@ -1058,7 +1049,7 @@ ai_strategy_economic_imperialism = {
 					gdp >= 5000000
 				} 
 			}
-			add = 100 # 20
+			add = 20
 		}
 
 		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
@@ -1119,16 +1110,6 @@ ai_strategy_economic_imperialism = {
 			}
 			if = {
 				limit = {
-					OR = {
-						has_technology_researched = civilizing_mission # Just to make sure it doesn't happen immediately in 1836
-						AND = {
-							this ?= c:USA
-							any_scope_state = {
-								is_incorporated = yes
-								region = sr:region_pacific_coast
-							}
-						}
-					}
 					exists = c:JAP
 					c:JAP ?= { has_law_or_variant = law_type:law_isolationism }
 					country_rank = rank_value:great_power
@@ -1145,10 +1126,7 @@ ai_strategy_economic_imperialism = {
 				if = {
 					limit = {
 						NOT = { scope:target_country = { is_subject_of = root } }
-						OR = {
-							has_technology_researched = civilizing_mission # nationalism # Just to make sure it doesn't happen immediately in 1836
-							this ?= c:USA
-						}
+						has_technology_researched = nationalism  # Just to make sure it doesn't happen immediately in 1836
 						country_rank = rank_value:great_power
 						navy_size >= 25	
 						scope:target_country = {
@@ -1376,13 +1354,10 @@ ai_strategy_economic_imperialism = {
 		if = {
 			limit = {
 				exists = c:JAP
-				OR = {
-					has_strategic_adjacency = c:JAP
-					this ?= c:USA
-				}
+				has_strategic_adjacency = c:JAP
 				c:JAP ?= { has_law_or_variant = law_type:law_isolationism }
 			}
-			multiply = 10 # 2.0
+			multiply = 2.0
 		}	
 
 		if = {

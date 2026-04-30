@@ -5,7 +5,7 @@
 
 		is_draft = no
 		entered_into_force_on = 1836.1.1
-		binding_period = { years = 10 } # 10 year binding period after start of game
+		binding_period = { years = 30 } # 10 year binding period after start of game
 
 		articles_to_create = {
 			{
@@ -26,7 +26,7 @@
 
 		is_draft = no
 		entered_into_force_on = 1836.1.1
-		binding_period = { years = 10 } # 10 year binding period after start of game
+		binding_period = { years = 30 } # 10 year binding period after start of game
 
 		articles_to_create = {
 			{
@@ -47,7 +47,7 @@
 
 		is_draft = no
 		entered_into_force_on = 1836.1.1
-		binding_period = { years = 10 } # 10 year binding period after start of game
+		binding_period = { years = 30 } # 10 year binding period after start of game
 
 		articles_to_create = {
 			{

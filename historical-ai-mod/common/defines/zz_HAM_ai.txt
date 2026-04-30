@@ -6,9 +6,6 @@
 
 	DIPLO_PLAY_SWAY_WARGOAL_THRESHOLD = 20 # 10
 
-	WAR_GOAL_MAKE_PRIMARY_DEMAND_SCORE_MULT = 0.01 # 0.75   # Multiply score of an existing wargoal by this when determining whether to make it into a primary demand instead of adding a new wargoal
-	WAR_GOAL_MAKE_PRIMARY_DEMAND_RETURN_STATE_SCORE_MULT = 0.01 # 1.25 # Overrides WAR_GOAL_MAKE_PRIMARY_DEMAND_SCORE_MULT for return state wargoals
-
 	DIPLO_PLAY_NEUTRALITY_IN_SUBJECT_CONFLICT = -100 # -50 # If either side in the play is a subject, subtract this amount of neutrality score
 
 	GOAL_ANTAGONIZE_WAR_FACTOR = 25 # 1000
