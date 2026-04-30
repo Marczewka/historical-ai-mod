@@ -22,14 +22,6 @@ buyers_unfriendly_nation_with_interest_in_alaska_tt: "A hostile [concept_country
 unfriendly_nation_with_interest_in_alaska_tt: "A hostile [concept_country] with a [concept_rank] equal or higher than ours has an [concept_interest] in the #bold Pacific Coast#! [concept_strategic_region]"
 manifested_destiny_tt: "Has #bold manifested destiny#."
 
-ai_strategy_unify_afghanistan:0 "Unify Afghanistan"
-ai_strategy_unify_afghanistan_desc:0 "[COUNTRY.GetName] wants to unite the Afghan principalities under their banner."
-dp_unify_afghanistan:0 "Unify Afghanistan"
-dp_unify_afghanistan_tooltip:1 "#header Start a $dp_unify_afghanistan$ [concept_diplomatic_play]#!\n$TOOLTIP_DELIMITER$\n$dp_unify_afghanistan_desc$"
-dp_unify_afghanistan_desc:0 "Sets the initiating [concept_war_goal] to annex all lesser Afghanistann countries."
-AFG_tt:0 "[SCOPE.sCountry('target_country').GetName] can form Afghanistan"
-protected_speech_tt:0 "Cannot [concept_exile], [concept_bolster] or [concept_suppress]"
-
 kindred_secession: "wants to help kindred secession"
 savoy: "wants to protect Savoy owner"
 

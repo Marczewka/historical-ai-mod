@@ -1,0 +1,46 @@
+﻿# Generic
+INJECT:ai_strategy_maintain_power_balance = {
+	will_form_power_bloc = {
+		NOT = { has_journal_entry = je_oregon }
+		global_country_ranking = 1
+	}
+}
+
+INJECT:ai_strategy_territorial_expansion = {
+	will_form_power_bloc = {
+		NOT = { has_journal_entry = je_oregon }
+		OR = {
+			global_country_ranking <= 3
+			AND = {
+				country_rank >= rank_value:great_power
+				has_technology_researched = nationalism
+			}
+		}
+	}
+}
+
+INJECT:ai_strategy_colonial_expansion = {
+	will_form_power_bloc = {
+		NOT = { has_journal_entry = je_oregon }
+		OR = {
+			global_country_ranking <= 3
+			AND = {
+				country_rank >= rank_value:great_power
+				has_technology_researched = nationalism
+			}
+		}
+	}
+}
+
+INJECT:ai_strategy_economic_imperialism = {
+	will_form_power_bloc = {
+		NOT = { has_journal_entry = je_oregon }
+		OR = {
+			global_country_ranking <= 3
+			AND = {
+				country_rank >= rank_value:great_power
+				has_technology_researched = nationalism
+			}
+		}
+	}	
+}

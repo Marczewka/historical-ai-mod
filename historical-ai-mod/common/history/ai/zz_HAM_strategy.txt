@@ -8,7 +8,4 @@
 	c:ARG?= {
 		set_strategy = ai_strategy_maintain_power_balance
 	}	
-	c:KAB?= {
-		set_strategy = ai_strategy_unify_afghanistan
-	}	
 }	

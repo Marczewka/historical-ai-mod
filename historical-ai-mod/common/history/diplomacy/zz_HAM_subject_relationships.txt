@@ -5,9 +5,11 @@
 			type = exempt_from_service
 		}
 	}
-
-	# It always loses when it joins the war
-	c:NPU ?= {
-		add_liberty_desire = -30
+	# Needs border with SCH HOL
+	c:PRU ?= {
+		create_diplomatic_pact = {
+			country = c:MEC
+			type = protectorate
+		}
 	}
 }
