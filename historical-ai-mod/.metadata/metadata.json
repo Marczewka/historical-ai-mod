@@ -1,12 +1,12 @@
 {
-  "name" : "[1.13] Historical AI Mod",
-  "id" : "",
-  "version" : "",
-  "supported_game_version" : "1.13.*",
-  "short_description" : "",
-  "tags" : ["Balance", "Fixes", "Historical"],
-  "relationships" : [],
-  "game_custom_data" : {
-    "multiplayer_synchronized" : true
+  "name": "[1.13] Historical AI Mod",
+  "id": "",
+  "version": "",
+  "supported_game_version": "1.13.4",
+  "short_description": "",
+  "tags": ["Balance", "Fixes", "Historical"],
+  "relationships": [],
+  "game_custom_data": {
+    "multiplayer_synchronized": true
   }
 }

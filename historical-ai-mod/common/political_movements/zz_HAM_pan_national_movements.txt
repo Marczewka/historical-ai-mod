@@ -337,7 +337,10 @@
 		}
 
 		state_weight = {
-			value = 1
+			value = 0.25
+			add = scope:clout
+			add = { value = this.turmoil divide = 2 }
+			subtract = this.loyalists
 			if = {
 			   limit = {
 					NOT = {
@@ -363,7 +366,9 @@
 		}
 
 		state_weight = {
-			value = 1
+			value = 0.25
+			add = { value = this.turmoil divide = 2 }
+			subtract = this.loyalists
 			if = {
 			   limit = {
 					NOT = {
