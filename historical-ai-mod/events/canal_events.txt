@@ -301,7 +301,7 @@ canal_events.7 = { #Deal accepted
 		s:STATE_PANAMA = {
 			set_owner_of_provinces = {
 				country = ROOT
-				provinces = {xD0EF40}
+				provinces = { xD0EF40 x910E14 }
 			}
 		}
 		change_relations = {

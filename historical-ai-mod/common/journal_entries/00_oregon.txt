@@ -40,6 +40,7 @@
 	}
 
 	possible = {
+		# Colonies don't generate interest
 		always = yes
 		# OR = {
 		# 	has_interest_marker_in_region = sr:region_pacific_coast
@@ -69,6 +70,7 @@
 		c:GBR ?= { trigger_event = { id = oregon.2 } }
 	}
 
+	# Lowered requirements for completion but added fail state
 	fail = {
 		c:GBR = {
 			relations:ROOT <= relations_threshold:cold
@@ -84,10 +86,18 @@
 		}
 	}
 
+	# Changed direct acquisition from complete to invalid state
 	invalid = {
-		owns_entire_state_region = STATE_WASHINGTON
-		owns_entire_state_region = STATE_IDAHO
-		owns_entire_state_region = STATE_OREGON
+		OR = {
+			AND = {
+				owns_entire_state_region = STATE_WASHINGTON
+				owns_entire_state_region = STATE_IDAHO
+				owns_entire_state_region = STATE_OREGON
+			}
+			c:ORG ?= {
+				is_subject_of = ROOT
+			}
+		}
 	}
 
 	on_invalid = {
@@ -99,6 +109,23 @@
 		}
 		s:STATE_OREGON = {
 			add_homeland = cu:yankee
+		}
+		if = {
+			limit = {
+				s:STATE_BRITISH_COLUMBIA = {
+					any_scope_state = {
+						owner = {
+							OR = {
+								c:USA ?= THIS
+								is_subject_of = c:USA
+							}
+						}
+					}
+				}
+			}
+			s:STATE_BRITISH_COLUMBIA = {
+				add_homeland = cu:yankee
+			}
 		}
 		add_modifier = {
 			name = oregon_resolved

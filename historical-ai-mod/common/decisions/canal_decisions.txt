@@ -1,6 +1,5 @@
 ﻿suez_survey_decision = {
 	is_shown = {
-		has_interest_marker_in_region = sr:region_nile_basin
 		NOT = { 
 			has_variable = survey_suez_taken 
 			has_global_variable = suez_canal_complete
@@ -33,6 +32,7 @@
 	}
 
 	possible = {
+		has_interest_marker_in_region = sr:region_nile_basin
 		has_technology_researched = colonization
 		produced_bureaucracy > 1000
 	}
@@ -197,7 +197,6 @@ suez_canal_purchase = {
 
 panama_survey_decision = {
 	is_shown = {
-		has_interest_marker_in_region = sr:region_central_america
 		NOT = { 
 			has_variable = survey_panama_taken 
 			has_global_variable = panama_canal_complete
@@ -230,6 +229,7 @@ panama_survey_decision = {
 	}
 
 	possible = {
+		has_interest_marker_in_region = sr:region_central_america
 		has_technology_researched = civilizing_mission
 		produced_bureaucracy > 1000
 	}
@@ -351,7 +351,7 @@ panama_canal_purchase = {
 			s:STATE_PANAMA = {
 				set_owner_of_provinces = {
 					country = ROOT
-					provinces = {xD0EF40}
+					provinces = { xD0EF40 x910E14 }
 				}
 			}
 			add_modifier = {
