@@ -1201,6 +1201,19 @@ ai_strategy_default = {
 			}
 			add = 0.25
 		}
+
+		# British India
+		if = {
+			limit = {
+				has_journal_entry = je_consolidate_colonial_rule
+				scope:enemy_country = {
+					any_scope_state = {
+						is_in_geographic_region = geographic_region_indian_frontier
+					}
+				}
+			}
+			add = 0.25
+		}
 	}
 
 	# Chance each update that the AI is willing to start changing a law (1 = 1%)
@@ -1779,10 +1792,7 @@ ai_strategy_default = {
 						target_is_our_or_fellow_subject = no
 					}
 					scope:target_state = {
-						OR = {
-							is_in_geographic_region = geographic_region_india
-							is_in_geographic_region = geographic_region_burma
-						}
+						is_in_geographic_region = geographic_region_indian_frontier
 						root.top_overlord ?= { NOT = { has_journal_entry = je_opium_wars } }
 						NOT = { has_claim_by = ROOT }
 					}
@@ -3920,12 +3930,9 @@ ai_strategy_default = {
 				scope:target_country = {
 					is_country_type = unrecognized
 					target_is_our_or_fellow_subject = no
+					has_strategic_land_adjacency = root
 					any_scope_state = {
-						OR = {
-							is_in_geographic_region = geographic_region_india
-							is_in_geographic_region = geographic_region_burma
-						}
-						root.top_overlord ?= { NOT = { has_journal_entry = je_opium_wars } }
+						is_in_geographic_region = geographic_region_indian_frontier
 					}
 				}
 			}
@@ -3941,10 +3948,7 @@ ai_strategy_default = {
 				scope:target_country = {
 					NOT = { is_subject_of = ROOT }
 					any_scope_state = {
-						OR = {
-							is_in_geographic_region = geographic_region_india
-							is_in_geographic_region = geographic_region_burma
-						}
+						is_in_geographic_region = geographic_region_indian_frontier
 					}
 				}
 			}
@@ -3963,7 +3967,6 @@ ai_strategy_default = {
 			}
 			add = 10
 		}
-
 
 		if = { #Russian Caucasus
 			limit = {
@@ -7404,15 +7407,9 @@ ai_strategy_default = {
 					limit = {
 						NOT = { is_country_type = unrecognized }
 						scope:target_country = {
-							is_country_type = unrecognized 
+							is_country_is_valid_colonization_target = yes
 							# Outright conquer only smaller countries
 							country_rank < rank_value:unrecognized_regional_power
-							OR = {
-								is_subject = no
-								top_overlord ?= {
-									is_country_type = unrecognized
-								}
-							}
 						}
 						has_technology_researched = colonization
 						institution_investment_level = {
@@ -7520,25 +7517,11 @@ ai_strategy_default = {
 							scope:target_country = {
 								capital.region = sr:region_indonesia
 								NOT = { capital.state_region = s:STATE_NORTH_BORNEO }
-								is_country_type = unrecognized
 							}						
 						}
 						add = 1000
 					}
-
-						if = {
-							limit = {
-								scope:target_country = {
-									is_subject = yes
-									is_country_type = unrecognized
-									top_overlord ?= {
-										NOT = { is_country_type = unrecognized }
-									}
-								}
-							}
-							multiply = 0.1
-						}
-					}
+				}
 
 				# Second Balkan War, pitting the balkan nations against each other
 				if = {
@@ -7822,16 +7805,9 @@ ai_strategy_default = {
 						country_rank > scope:target_country.country_rank
 						NOT = { is_country_type = unrecognized }
 						scope:target_country = {
-							is_country_type = unrecognized 
+							ai_country_is_valid_colonization_target = yes
 							# Don't ountright conquer bigger nations
 							country_rank >= rank_value:unrecognized_regional_power
-							NOT = { is_subject_of = root }
-							OR = {
-								is_subject = no
-								top_overlord ?= {
-									is_country_type = unrecognized
-								}
-							}
 						}
 						has_technology_researched = colonization
 						institution_investment_level = {
@@ -7897,38 +7873,24 @@ ai_strategy_default = {
 							scope:target_country = {
 								capital.region = sr:region_indonesia
 								NOT = { capital.state_region = s:STATE_NORTH_BORNEO }
-								is_country_type = unrecognized
 							}
 						}
 						add = 500
 					}
-
-					if = {
-						limit = {
-							scope:target_country = {
-								is_subject = yes
-								is_country_type = unrecognized
-								top_overlord ?= {
-									NOT = { is_country_type = unrecognized }
-								}
-							}
+				}
+				if = { # Britain consolidating South Africa
+					limit = {
+						country_has_primary_culture = cu:british
+						has_technology_researched = malaria_prevention
+						any_subject_or_below = {
+							capital.region = sr:region_southern_africa
 						}
-						multiply = 0.1
-					}
-
-					if = { # Britain consolidating South Africa
-						limit = {
-							country_has_primary_culture = cu:british
-							has_technology_researched = malaria_prevention
-							any_subject_or_below = {
-								capital.region = sr:region_southern_africa
-							}
-							scope:target_country = {
-								capital.region = sr:region_southern_africa
-							}
+						scope:target_country = {
+							capital.region = sr:region_southern_africa
+						ai_country_is_valid_colonization_target = yes
 						}
-						add = 250
 					}
+					add = 250
 				}
 
 				if = { # Spanish American reconquest of former colonies
@@ -8542,10 +8504,7 @@ ai_strategy_default = {
 						is_country_type = unrecognized
 						target_is_our_or_fellow_subject = no
 						any_scope_state = {
-							OR = {
-								is_in_geographic_region = geographic_region_india
-								is_in_geographic_region = geographic_region_burma
-							}
+							is_in_geographic_region = geographic_region_indian_frontier
 							root.top_overlord ?= { NOT = { has_journal_entry = je_opium_wars } }
 						}
 						NOT = {

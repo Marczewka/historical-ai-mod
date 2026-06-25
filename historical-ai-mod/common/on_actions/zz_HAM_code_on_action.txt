@@ -43,25 +43,3 @@ revolution_risorgimento_on_action = {
 		}
 	}
 }
-
-on_law_enactment_started = {
-	on_actions = {
-		abolish_monarchy_corporatism
-	}
-}
-
-abolish_monarchy_corporatism = {
-	effect = {
-		if = {
-			limit = {
-				has_law = law_type:law_monarchy
-				is_enacting_law = law_type:law_corporate_state
-			}
-			set_variable = {
-				name = abolishing_monarchy_var
-				value = 0
-			}
-			add_journal_entry = { type =  je_abolish_monarchy }
-		}
-	}
-}

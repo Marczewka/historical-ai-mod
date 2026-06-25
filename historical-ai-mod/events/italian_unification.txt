@@ -96,6 +96,7 @@ italian_unification.2 = {
 		any_country = {
 			is_at_war = no
 			NOT = { this = root }
+			is_in_geographic_region = geographic_region_italy_old
 			OR = {
 				country_has_primary_culture = cu:north_italian
 				country_has_primary_culture = cu:south_italian
@@ -126,6 +127,7 @@ italian_unification.2 = {
 			limit = {
 				is_at_war = no
 				NOT = { this = root }
+				is_in_geographic_region = geographic_region_italy_old
 				OR = {
 					country_has_primary_culture = cu:north_italian
 					country_has_primary_culture = cu:south_italian
@@ -260,6 +262,7 @@ italian_unification.4 = {
 			NOT = {
 				is_subject = yes
 			}
+			is_in_geographic_region = geographic_region_italy_old
 			OR = {
 				country_has_primary_culture = cu:north_italian
 				country_has_primary_culture = cu:south_italian
@@ -288,103 +291,56 @@ italian_unification.4 = {
 		capital = {
 			save_scope_as = capital_scope
 		}
-		ordered_country = { # Why is this structured so strangely? So that the ordering always gets at least one country.
+		ordered_country = {
 			limit = {
+				is_in_geographic_region = geographic_region_italy_old
 				OR = {
 					country_has_primary_culture = cu:north_italian
 					country_has_primary_culture = cu:south_italian
 				}
 				NOR = {
-					c:AUS ?= this
-					c:KUK ?= this
-					c:HRE ?= this
-				}
-				is_adjacent_to_country = ROOT
-				NOT = {
+					country_tier = empire
 					is_subject = yes
-				}
-				has_variable = risorgimento_unifying_stance
-				NOR = {
+					THIS = ROOT
 					is_revolutionary = yes
 					is_secessionist = yes
 				}
-				NOT = {
+				has_variable = risorgimento_unifying_stance
+				is_adjacent_to_country = ROOT
+			}
+			alternative_limit = {
+				is_in_geographic_region = geographic_region_italy_old
+				OR = {
+					country_has_primary_culture = cu:north_italian
+					country_has_primary_culture = cu:south_italian
+				}
+				NOR = {
+					country_tier = empire
+					is_subject = yes
 					THIS = ROOT
+					is_revolutionary = yes
+					is_secessionist = yes
+				}
+				has_variable = risorgimento_unifying_stance
+			}
+			alternative_limit = {
+				is_in_geographic_region = geographic_region_italy_old
+				OR = {
+					country_has_primary_culture = cu:north_italian
+					country_has_primary_culture = cu:south_italian
+				}
+				NOR = {
+					country_tier = empire
+					is_subject = yes
+					THIS = ROOT
+					is_revolutionary = yes
+					is_secessionist = yes
 				}
 			}
 			order_by = country_rank
 			position = 0
 			check_range_bounds = no
 			save_scope_as = italian_leader
-		}
-		if = {
-			limit = {
-				NOT = {
-					exists = scope:italian_leader
-				}
-			}
-			ordered_country = {
-				limit = {
-					OR = {
-						country_has_primary_culture = cu:north_italian
-						country_has_primary_culture = cu:south_italian
-					}
-					NOR = {
-						c:AUS ?= this
-						c:KUK ?= this
-						c:HRE ?= this
-					}
-					NOT = {
-						is_subject = yes
-					}
-					has_variable = risorgimento_unifying_stance
-					NOR = {
-						is_revolutionary = yes
-						is_secessionist = yes
-					}
-					NOT = {
-						THIS = ROOT
-					}
-				}
-				order_by = country_rank
-				position = 0
-				check_range_bounds = no
-				save_scope_as = italian_leader
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					exists = scope:italian_leader
-				}
-			}
-			ordered_country = {
-				limit = {
-					OR = {
-						country_has_primary_culture = cu:north_italian
-						country_has_primary_culture = cu:south_italian
-					}
-					NOR = {
-						c:AUS ?= this
-						c:KUK ?= this
-						c:HRE ?= this
-					}
-					NOT = {
-						is_subject = yes
-					}
-					NOR = {
-						is_revolutionary = yes
-						is_secessionist = yes
-					}
-					NOT = {
-						THIS = ROOT
-					}
-				}
-				order_by = country_rank
-				position = 0
-				check_range_bounds = no
-				save_scope_as = italian_leader
-			}
 		}
 		save_scope_as = italian_pannational_country
 	}
@@ -627,6 +583,7 @@ italian_unification.7 = {
 		random_country = {
 			limit = {
 				is_secessionist = yes
+				is_in_geographic_region = geographic_region_italy_old
 				OR = {
 					country_has_primary_culture = cu:north_italian
 					country_has_primary_culture = cu:south_italian

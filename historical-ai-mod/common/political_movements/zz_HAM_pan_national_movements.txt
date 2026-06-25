@@ -13,6 +13,7 @@
 	can_cause_obstinance = yes
 
 	creation_trigger = {
+		is_in_geographic_region = geographic_region_italy_old
 		OR = {
 			country_has_primary_culture = cu:north_italian
 			country_has_primary_culture = cu:south_italian
@@ -491,6 +492,24 @@
 			}
 		}
 
+		add = {
+			desc = "FERVOR_OF_ITALIAN_CULTURE_ACTIVISM"
+			value = owner.average_italian_fervor
+			divide = 400
+		}
+		if = {
+			limit = {
+				this.days_since_movement_defeated <= very_long_modifier_time
+			}
+			add = { # (x-y)/y - ([1, 7300]-7300)/7300
+				desc = "movement_suppressed_after_civil_war"
+				value = this.days_since_movement_defeated
+				subtract = very_long_modifier_time
+				divide = {
+					value = very_long_modifier_time
+				}
+			}
+		}
 		if = {
 			limit = {
 				owner = {
@@ -513,12 +532,6 @@
 				desc = "OPPOSING_RISORGIMENTO"
 				value = 0.10
 			}
-		}
-
-		add = {
-			desc = "FERVOR_OF_ITALIAN_CULTURE_ACTIVISM"
-			value = owner.average_italian_fervor
-			divide = 400
 		}
 	}
 }
