@@ -7407,7 +7407,7 @@ ai_strategy_default = {
 					limit = {
 						NOT = { is_country_type = unrecognized }
 						scope:target_country = {
-							is_country_is_valid_colonization_target = yes
+							ai_country_is_valid_colonization_target = yes
 							# Outright conquer only smaller countries
 							country_rank < rank_value:unrecognized_regional_power
 						}
