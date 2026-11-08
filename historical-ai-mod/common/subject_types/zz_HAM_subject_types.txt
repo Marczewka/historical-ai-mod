@@ -1,4 +1,0 @@
-﻿INJECT:subject_type_personal_union = {
-	# Because of Schleswig-Holstein
-	can_target_with_transfer_wargoal = yes
-}

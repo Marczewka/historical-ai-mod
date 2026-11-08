@@ -80,6 +80,7 @@ sell_savoy = {
 
 	possible = {
 		has_technology_researched = nationalism
+		is_at_war = no
 		c:FRA ?= {
 			is_at_war = no
 			owns_entire_state_region = STATE_RHONE

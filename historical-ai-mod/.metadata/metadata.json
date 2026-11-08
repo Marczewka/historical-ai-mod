@@ -1,8 +1,8 @@
 {
-  "name": "[1.13] Historical AI Mod",
+  "name": "[1.15] Historical AI Mod",
   "id": "",
   "version": "",
-  "supported_game_version": "1.13.*",
+  "supported_game_version": "1.15.*",
   "short_description": "",
   "tags": ["Balance", "Fixes", "Historical"],
   "relationships": [],
