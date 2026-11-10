@@ -1,0 +1,1097 @@
+﻿REPLACE:has_je_conquest_reason = {
+	OR = {	
+		AND = {
+			has_journal_entry = je_acre_dispute
+			$TARGET$ = {
+				any_scope_state = {
+					state_region = s:STATE_ACRE
+				}
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_expanding_paraguay
+			$TARGET$ = {
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_CORRIENTES
+						state_region = s:STATE_SANTA_FE
+						state_region = s:STATE_PARANA
+						state_region = s:STATE_RIO_GRANDE_DO_SUL
+					}
+				}
+			}
+		}
+
+		# Consolidate Italy
+		AND = {
+			c:ITA ?= this
+			$TARGET$ = {
+				OR = {
+					country_has_primary_culture = cu:north_italian
+					country_has_primary_culture = cu:south_italian
+				}
+				any_scope_state = { 
+					has_claim_by = root
+				}
+				NOT = {
+					has_variable = risorgimento_unifying_stance
+					country_rank < root.country_rank
+				}
+			}
+		}
+
+		# Consolidate Germany
+		AND = {
+			OR = {
+				c:GER ?= this
+				c:NGF ?= this
+				c:SGF ?= this
+			}
+			$TARGET$ = {
+				OR = {
+					country_has_primary_culture = cu:north_german
+					country_has_primary_culture = cu:south_german
+				}
+				any_scope_state = { 
+					has_claim_by = root
+				}
+			}
+		}
+
+		AND = {
+			c:MEX ?= this
+			$TARGET$ = {
+				NOT = {
+					c:UCA ?= this
+				}
+				any_scope_state = {
+					state_region = s:STATE_CHIAPAS
+				}
+			}
+		}
+
+		AND = {
+			c:GUA ?= this
+			$TARGET$ = {
+				c:ALT ?= this
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_acw_war
+			$TARGET$ = {
+				c:CSA ?= this
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_risorgimento
+			has_variable = risorgimento_unifying_stance
+			$TARGET$ = { 
+				NOR = {
+					country_has_primary_culture = cu:south_italian
+					country_has_primary_culture = cu:north_italian
+				}
+				any_scope_state = {
+					state_region = {
+						OR = {
+							is_homeland = cu:south_italian
+							is_homeland = cu:north_italian
+						}
+					}
+				}
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_scramble_for_africa
+			$TARGET$ = {
+				is_in_geographic_region = geographic_region_africa
+				OR = {
+					any_scope_building = {
+						OR = {
+							is_building_type = building_gold_mine
+							is_building_type = building_gold_field
+						}
+					}
+					country_has_primary_culture = cu:boer
+				}
+				is_subject = no
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_scramble_for_africa
+			$TARGET$ = { 
+				is_in_geographic_region = geographic_region_africa
+				is_country_type = unrecognized 
+				OR = {
+					is_subject = no
+					top_overlord ?= {
+						is_country_type = unrecognized
+					}
+				}
+			}
+		}
+	
+		AND = {
+			has_journal_entry = je_sick_man_syria
+			$TARGET$ = {
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_ALEPPO
+						state_region = s:STATE_SYRIA
+						state_region = s:STATE_LEBANON
+						state_region = s:STATE_PALESTINE
+						state_region = s:STATE_TRANSJORDAN
+						state_region = s:STATE_ADANA
+					}
+				}
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_opium_wars
+			$TARGET$ = {
+				has_variable = opium_wars_target
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_boxer_rebellion
+			$TARGET$ = {
+				any_scope_state = {
+					state_region = { is_homeland = cu:han }
+				}
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_greek_nationalism
+			$TARGET$ = {
+				any_scope_state = {
+					state_region = { is_homeland = cu:greek }
+					has_claim_by = root
+				}
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_consolidate_colonial_rule
+			$TARGET$ = {
+				is_country_type = unrecognized
+				target_is_our_or_fellow_subject = no
+				any_scope_state = {
+					OR = {
+						is_in_geographic_region = geographic_region_india
+						is_in_geographic_region = geographic_region_burma
+					}
+				}
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_tp_pool_develop_frontier
+			$TARGET$ = {
+				any_scope_state = {
+					OR = {
+						is_in_geographic_region = geographic_region_siberia
+						is_in_geographic_region = geographic_region_central_asia
+						is_in_geographic_region = geographic_region_caucasus_old
+					}
+				}
+			}
+		}
+
+		AND = {
+			has_strategy = ai_strategy_unify_china
+			$TARGET$ = {
+				has_journal_entry = je_reunify_china
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_age_of_princes
+			has_strategy = ai_strategy_unify_ethiopia
+			$TARGET$ = {
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_AMHARA
+						state_region = s:STATE_GONDER
+					}
+				}
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_manifest_destiny_mexico
+			$TARGET$ = {
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_CALIFORNIA
+						state_region = s:STATE_NEVADA
+						state_region = s:STATE_UTAH
+						state_region = s:STATE_COLORADO
+						state_region = s:STATE_ARIZONA
+						state_region = s:STATE_NEW_MEXICO
+						state_region = s:STATE_TEXAS
+					}
+				}
+				NOT = { has_journal_entry = je_texas_tex }	
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_conquer_oregon
+			$TARGET$ = {
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_WASHINGTON
+						state_region = s:STATE_IDAHO
+						state_region = s:STATE_OREGON
+					}
+				}
+			}
+		}
+
+		# AND = {
+		# 	has_journal_entry = je_alaska
+		# 	$TARGET$ = {
+		# 		any_scope_state = {
+		# 			state_region = s:STATE_ALASKA
+		# 		}
+		# 	}
+		# }
+
+		AND = {
+			country_has_primary_culture = cu:russian
+			has_law_or_variant = law_type:law_national_supremacy
+			$TARGET$ = {
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_KUBAN
+						state_region = s:STATE_DAGESTAN
+					}
+				}
+			}
+		}
+		
+		AND = {
+			wants_to_solve_schleswig_holstein = yes
+			$TARGET$ = {
+				is_oppressor_of_schleswig_holstein = yes
+			}
+		}
+
+		AND = {
+			has_strategy = ai_strategy_unify_germany
+			is_unification_candidate = GER
+			$TARGET$ = {
+				is_unification_candidate = GER
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_conquest_of_algeria
+			$TARGET$ = {
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_ALGIERS
+						state_region = s:STATE_CONSTANTINE
+						state_region = s:STATE_ORAN
+						state_region = s:STATE_SAHARA
+						state_region = s:STATE_EAST_SAHARA
+					}
+				}
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_eastern_frontier
+			$TARGET$ = {
+				country_rank <= root.country_rank
+				any_scope_state = {
+					OR = {
+						is_in_geographic_region = geographic_region_persia_old
+						is_in_geographic_region = geographic_region_central_asia_old
+						is_in_geographic_region = geographic_region_india
+					}
+					has_claim_by = ROOT
+				}
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_conquest_of_central_asia
+			$TARGET$ = {
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_SYRDARYA
+						state_region = s:STATE_UZBEKIA
+						state_region = s:STATE_KIRGHIZIA
+						state_region = s:STATE_KHIVA
+						state_region = s:STATE_TURKMENIA
+						state_region = s:STATE_TAJIKISTAN
+						state_region = s:STATE_FERGANA
+						state_region = s:STATE_MERZ
+					}
+				}
+			}
+			can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }
+		}			
+		
+		AND = {
+			has_journal_entry = je_unify_afghanistan
+			is_afghan_nation = yes
+			$TARGET$ = {
+				country_rank <= root.country_rank
+				OR = {
+					is_afghan_nation = yes
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_KABUL
+							state_region = s:STATE_HERAT
+							state_region = s:STATE_KANDAHAR
+							state_region = s:STATE_CENTRAL_HIGHLANDS
+							state_region = s:STATE_NORTHERN_BALUCHISTAN
+							state_region = s:STATE_BALKH
+						}
+					}
+				}
+			}
+		}
+		
+		AND = {
+			c:GBR ?= this
+			has_variable = committed_to_afghanistan_assistance
+			$TARGET$ = {
+				has_variable = AFG_appealed_to_RUS
+			}
+		}
+
+		AND = {
+			c:RUS ?= this
+			has_variable = committed_to_afghanistan_assistance
+			$TARGET$ = {
+				has_variable = AFG_appealed_to_GBR
+			}
+		}	
+
+		AND = {
+			c:RUS ?= this
+			is_involved_in_journal_entry = je_caucasian_war
+			$TARGET$ = {
+				OR = {
+					c:CIR ?= this
+					c:CHC ?= this
+				}
+			}
+		}
+
+		AND = {
+			has_variable = sided_with_korean_gov
+			scope:target_country = {
+				country_has_primary_culture = cu:korean
+				is_revolutionary = yes
+			}
+		}
+
+		AND = {
+			has_variable = sided_with_korean_rebels
+			scope:target_country = {
+				country_has_primary_culture = cu:korean
+				is_revolutionary = no
+			}
+		}	
+
+		AND = {
+			has_journal_entry = je_tp_fav_war
+			var:tp_fav_war_target ?= $TARGET$
+		}
+
+		AND = {
+			has_journal_entry = je_tp_tsar_heir_of_alexander
+			NOT = { has_variable = je_tp_tsar_heir_of_alexander_button_1_complete }
+			$TARGET$ = {
+				target_is_our_or_fellow_subject = no
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_SAKHALIN
+						state_region = s:STATE_TUVA
+						state_region = s:STATE_OUTER_MANCHURIA
+						state_region = s:STATE_AMUR
+						is_in_geographic_region = geographic_region_korea
+					}
+				}
+			}
+		}
+
+		AND = {
+			has_variable = rcw_russian_faction
+			$TARGET$ = {
+				has_variable = rcw_russian_faction
+			}
+			rcw_factions_are_hostile = { FACTION = root OTHER_FACTION = $TARGET$ }
+		}
+
+		AND = {
+			has_variable = rcw_russian_faction
+			has_global_variable = rcw_exhaustion_level
+			global_var:rcw_exhaustion_level >= 2
+			$TARGET$ = {
+				has_variable = rcw_separatist
+			}
+		}
+	}
+
+	can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }
+}
+
+REPLACE:has_je_subjugation_reason = {
+	OR = {
+		AND = {
+			has_journal_entry = je_eastern_question_austria
+			$TARGET$ = {
+				owns_entire_state_region = STATE_BOSNIA
+			}
+		}
+		AND = {
+			has_journal_entry = je_eastern_question_russia
+			$TARGET$ = {
+				has_journal_entry = je_great_eastern_crisis
+			}
+		}
+		AND = {
+			has_journal_entry = je_suez_canal
+			NOT = { has_variable = suez_canal_purchase }
+			NOT = { 
+				has_global_variable = suez_canal_purchase_var
+				has_global_variable = suez_canal_complete
+			}
+			s:STATE_SINAI = {
+				any_scope_state = {
+					NOT = {
+						any_scope_building = { 
+							is_building_type = building_suez_canal 
+						}
+					}
+					owner = {
+						owns_treaty_port_in = STATE_SINAI
+						NOT = { 
+							has_variable = suez_survey_complete 
+						}
+					}
+				}
+			}
+			$TARGET$ = {
+				p:xC01060.state.owner = this
+			}
+		}
+		AND = {
+			has_journal_entry = je_panama_canal
+			NOT = { has_variable = panama_canal_purchase }
+			NOT = { 
+				has_global_variable = panama_canal_purchase_var
+				has_global_variable = panama_canal_complete
+			}
+			s:STATE_PANAMA = {
+				any_scope_state = {
+					NOT = {
+						any_scope_building = { 
+							is_building_type = building_panama_canal 
+						}
+					}
+					owner = {
+						owns_treaty_port_in = STATE_PANAMA
+						NOT = { 
+							has_variable = panama_survey_complete 
+						}
+					}
+				}
+			}
+			$TARGET$ = {
+				p:xD0EF40.state.owner = this
+			}
+		}
+		AND = {
+			OR = {
+				has_journal_entry = je_sick_man_syria
+				has_journal_entry = je_veiled_protectorate
+			}
+			c:EGY ?= $TARGET$
+		}
+		AND = { # Open up Japan	
+			has_strategy = ai_strategy_economic_imperialism
+			has_technology_researched = civilizing_mission # nationalism # Just to make sure it doesn't happen immediately in 1836
+			country_rank = rank_value:great_power
+			carrying_capacity >= 10
+			$TARGET$ = {
+				c:JAP ?= this
+				has_law_or_variant = law_type:law_isolationism
+				gdp >= 5000000
+			} 		
+		}
+		AND = {
+			c:GBR ?= this
+			has_variable = committed_to_afghanistan_assistance
+			$TARGET$ = {
+				has_variable = AFG_appealed_to_RUS
+			}
+		}
+		AND = {
+			c:RUS ?= this
+			has_variable = committed_to_afghanistan_assistance
+			$TARGET$ = {
+				has_variable = AFG_appealed_to_GBR
+			}
+		}
+		AND = {
+			has_journal_entry = je_maintain_afghan_protectorate
+			$TARGET$ = {
+				capital = {
+					region = sr:region_greater_persia
+				}
+				OR = {
+					country_has_primary_culture = cu:pashtun
+					country_has_primary_culture = cu:tajik
+				}
+			}
+		}
+		AND = {
+			has_journal_entry = je_danubian_federation
+			$TARGET$ = {
+				has_variable = danubian_federation_opposed
+			}
+		}
+		AND = {
+			has_journal_entry = je_tp_fav_war
+			var:tp_fav_war_target ?= $TARGET$
+		}
+		AND = {
+			has_journal_entry = je_tp_tsar_gendarme_of_europe
+			NOT = { has_variable = je_tp_tsar_gendarme_of_europe_button_4_complete }
+			$TARGET$ = {
+				target_is_our_or_fellow_subject = no
+				NOT = { c:TUR ?= this }
+				country_rank < rank_value:major_power
+				capital ?= {
+					is_in_geographic_region = geographic_region_balkans
+				}
+				trigger_if = {
+					limit = { ai_russia_orthodox_balkan_client = yes }
+					is_subject = no
+					NOT = { is_in_same_power_bloc = c:RUS }
+				}
+			}
+		}
+		AND = {
+			has_journal_entry = je_tp_tsar_heir_of_alexander
+			NOT = { has_variable = je_tp_tsar_heir_of_alexander_button_1_complete }
+			$TARGET$ = {
+				target_is_our_or_fellow_subject = no
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_SAKHALIN
+						state_region = s:STATE_TUVA
+						state_region = s:STATE_OUTER_MANCHURIA
+						state_region = s:STATE_AMUR
+						is_in_geographic_region = geographic_region_korea
+					}
+				}
+			}
+		}
+	}
+
+	can_reach_target_country_to_subjugate = { TARGET_COUNTRY = $TARGET$ }
+}
+
+REPLACE:has_je_befriend_reason = {
+	country_rank <= $TARGET$.country_rank
+	
+	OR = {
+		AND = {
+			has_journal_entry = je_unify_afghanistan
+			$TARGET$ = {
+				OR = {
+					c:RUS ?= this
+					c:GBR ?= this
+				}
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_unite_the_principalities
+			$TARGET$ = {
+				country_has_primary_culture = cu:romanian
+			}
+		}
+
+		AND = {
+			NOT = { has_variable = ionian_islands_decision_var }
+			c:GRE ?= this
+			is_subject = no
+			exists = c:ION
+			c:ION ?= {
+				is_subject = yes
+				is_player = no
+				NOT = { is_subject_of = ROOT }
+				top_overlord = {
+					is_player = no
+				}
+			}
+			$TARGET$ = { 
+				OR = {
+					c:ION.top_overlord ?= this
+					c:ION ?= this
+				}
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_texas_tex
+			$TARGET$ = { has_journal_entry = je_texas_usa }			
+		}
+
+		AND = {
+			this ?= c:FRA
+			$TARGET$ = { 
+				has_journal_entry = je_risorgimento
+				any_scope_state = {
+					state_region = s:STATE_SAVOY
+				}
+				is_player = no
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_risorgimento
+			any_scope_state = {
+				state_region = s:STATE_SAVOY
+			}
+			$TARGET$ = { 
+				this ?= c:FRA
+			}
+		}
+
+		AND = {
+			AND = {
+				has_journal_entry = je_risorgimento
+				has_variable = risorgimento_unifying_stance
+			}
+			$TARGET$ = { 
+				has_variable = risorgimento_unifying_stance 
+				country_rank > root.country_rank
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_christ_of_nations
+			$TARGET$ = { 
+				has_journal_entry = je_christ_of_nations
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_risorgimento
+			has_variable = rsm_friendship
+			c:RSM ?= $TARGET$
+		}
+
+		# Is also in has_je_reconcile_reason
+		AND = {
+			has_journal_entry = je_oregon
+			$TARGET$ = {
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_WASHINGTON
+						state_region = s:STATE_IDAHO
+						state_region = s:STATE_OREGON
+					}
+				}
+			}
+		}
+
+		# Is also in has_je_reconcile_reason
+		AND = {
+			c:GBR ?= this
+			$TARGET$ = { has_journal_entry = je_oregon }
+		}
+	
+		AND = {
+			c:GBR ?= this
+			has_variable = committed_to_afghanistan_assistance
+			$TARGET$ = {
+				has_variable = AFG_appealed_to_GBR
+			}
+		}
+		
+		AND = {
+			c:RUS ?= this
+			has_variable = committed_to_afghanistan_assistance
+			$TARGET$ = {
+				has_variable = AFG_appealed_to_RUS
+			}
+		}
+
+		AND = {
+			has_variable = sided_with_korean_gov
+			$TARGET$ = {
+				country_has_primary_culture = cu:korean
+				is_revolutionary = no
+			}
+		}
+
+		AND = {
+			has_variable = sided_with_korean_rebels
+			$TARGET$ = {
+				country_has_primary_culture = cu:korean
+				is_revolutionary = yes
+			}
+		}			
+
+		AND = {
+			has_journal_entry = je_danubian_federation
+			$TARGET$ = {
+				has_variable = danubian_federation_receptive
+			}
+		}
+	}
+
+	can_reach_target_country_to_protect = { TARGET_COUNTRY = $TARGET$ }
+}
+
+REPLACE:has_je_protect_reason = {
+	country_rank > $TARGET$.country_rank
+	
+	OR = {
+		AND = {
+			has_journal_entry = je_unite_the_principalities
+			$TARGET$ = { 
+				country_has_primary_culture = cu:romanian
+			}			
+		}
+
+		AND = {
+			NOT = { has_variable = ionian_islands_decision_var }
+			c:GRE ?= this
+			is_subject = no
+			exists = c:ION
+			c:ION = {
+				is_subject = yes
+				is_player = no
+				NOT = { is_subject_of = ROOT }
+				top_overlord = {
+					is_player = no
+				}
+			}
+			$TARGET$ = { 
+				OR = {
+					c:ION ?= this
+				}
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_texas_usa
+			$TARGET$ = { has_journal_entry = je_texas_tex }			
+		}
+
+		AND = {
+			this ?= c:FRA
+			$TARGET$ = { 
+				has_journal_entry = je_risorgimento
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_SAVOY
+					}
+				}
+				is_player = no
+			}
+		}
+
+		AND = {
+			OR = {
+				c:ITA ?= this
+				AND = {
+					has_journal_entry = je_risorgimento
+					has_variable = risorgimento_unifying_stance
+				}
+			}
+			$TARGET$ = { 
+				has_variable = risorgimento_unifying_stance 
+				country_rank < root.country_rank
+			}
+		}
+
+		AND = {
+			has_strategy = ai_strategy_unify_italy
+			$TARGET$ = {
+				OR = {
+					country_has_primary_culture = cu:north_italian
+					country_has_primary_culture = cu:south_italian
+				}
+				NOT = { is_unification_candidate = ITA }
+				OR = { 
+					is_supporting_unification_candidate = { who = root country_formation = ITA }
+					is_subject_of = root
+					AND = {
+						ROOT = { is_unification_candidate = ITA }
+						is_in_customs_union_with = root
+					}
+					AND = {
+						has_variable = risorgimento_unifying_stance
+						country_rank < root.country_rank
+					}
+				}
+			}
+		}
+
+		AND = {
+			has_strategy = ai_strategy_unify_germany
+			$TARGET$ = {
+				OR = {
+					country_has_primary_culture = cu:north_german
+					country_has_primary_culture = cu:south_german
+				}
+				NOT = { is_unification_candidate = GER }
+				OR = { 
+					is_supporting_unification_candidate = { who = root country_formation = GER }
+					is_subject_of = root
+					AND = {
+						ROOT = { is_unification_candidate = GER }
+						is_in_customs_union_with = root
+					}
+				}	
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_christ_of_nations
+			$TARGET$ = { 
+				has_journal_entry = je_christ_of_nations
+			}
+		}
+		
+		AND = {
+			has_journal_entry = je_risorgimento
+			has_variable = rsm_friendship
+			c:RSM ?= $TARGET$
+		}
+	
+		AND = {
+			c:GBR ?= this
+			has_variable = committed_to_afghanistan_assistance
+			$TARGET$ = {
+				has_variable = AFG_appealed_to_GBR
+			}
+		}
+		
+		AND = {
+			c:RUS ?= this
+			has_variable = committed_to_afghanistan_assistance
+			$TARGET$ = {
+				has_variable = AFG_appealed_to_RUS
+			}
+		}
+		
+		AND = {
+			c:GBR ?= this
+			$TARGET$ = {
+				has_modifier = modifier_south_persia_rifles
+			}
+		}
+		
+		AND = {
+			c:RUS ?= this
+			$TARGET$ = {
+				has_modifier = modifier_persian_cossack_brigade
+			}
+		}
+
+		AND = {
+			has_variable = sided_with_korean_gov
+			$TARGET$ = {
+				country_has_primary_culture = cu:korean
+				is_revolutionary = no
+			}
+		}
+
+		AND = {
+			has_variable = sided_with_korean_rebels
+			$TARGET$ = {
+				country_has_primary_culture = cu:korean
+				is_revolutionary = yes
+			}
+		}	
+
+		AND = {
+			c:RUS ?= this
+			$TARGET$ = {
+				ai_russia_orthodox_balkan_client = yes
+			}
+			NOR = {
+				AND = {
+					has_journal_entry = je_tp_tsar_gendarme_of_europe
+					NOT = { has_variable = je_tp_tsar_gendarme_of_europe_button_4_complete }
+					$TARGET$ = {
+						is_subject = no
+						NOT = { is_in_same_power_bloc = c:RUS }
+					}
+				}
+				any_diplomatic_catalyst = {
+					is_diplomatic_catalyst_type = catalyst_declined_bloc_invite
+					target = $TARGET$
+				}
+			}
+		}
+	}
+
+	can_reach_target_country_to_protect = { TARGET_COUNTRY = $TARGET$ }
+}
+
+has_je_reconcile_reason = {
+	OR = {
+		AND = {
+			has_journal_entry = je_sale_of_alaska
+			$TARGET$ = { 
+				NOT = { is_subject = yes }
+				NOT = { this = root }
+				is_in_geographic_region = geographic_region_north_america
+				relations:root > relations_threshold:cold
+				country_rank >= rank_value:great_power
+				any_scope_state = {
+					region = sr:region_pacific_coast
+					is_incorporated = yes
+				} 
+			}			
+		}
+	
+		AND = {
+			OR = {
+				has_journal_entry = je_alaska
+				has_journal_entry = je_oregon
+			}
+			$TARGET$ = { c:RUS ?= this }			
+		}
+	
+		AND = {
+			has_journal_entry = je_unite_the_principalities
+			$TARGET$ = { 
+				country_rank >= rank_value:great_power
+				NOT = { has_war_with = ROOT }
+				has_interest_marker_in_region = ROOT.capital.region
+			}			
+		}
+	
+		AND = {
+			has_journal_entry = je_oregon
+			$TARGET$ = { c:GBR ?= this }
+		}
+	
+		AND = {
+			c:GBR ?= this
+			$TARGET$ = { has_journal_entry = je_oregon }			
+		}	
+
+		AND = {
+			has_journal_entry = je_suez_canal
+			is_subject = no
+			has_variable = suez_canal_purchase
+			NOT = { 
+				has_global_variable = suez_canal_purchase_var
+				has_global_variable = suez_canal_complete
+			}
+			s:STATE_SINAI = {
+				any_scope_state = {
+					NOT = {
+						any_scope_building = { 
+							is_building_type = building_suez_canal 
+						}
+					}
+					owner = {
+						owns_treaty_port_in = STATE_SINAI
+						NOT = { 
+							has_variable = suez_survey_complete 
+						}
+					}
+				}
+			}
+			$TARGET$ = {
+				p:xC01060.state.owner = this
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_panama_canal
+			is_subject = no
+			has_variable = panama_canal_purchase
+			NOT = { 
+				has_global_variable = panama_canal_purchase_var
+				has_global_variable = panama_canal_complete
+			}
+			s:STATE_PANAMA = {
+				any_scope_state = {
+					NOT = {
+						any_scope_building = { 
+							is_building_type = building_panama_canal 
+						}
+					}
+					owner = {
+						owns_treaty_port_in = STATE_PANAMA
+						NOT = { 
+							has_variable = panama_survey_complete 
+						}
+					}
+				}
+			}
+			$TARGET$ = {
+				p:xD0EF40.state.owner = this
+			}
+		}
+	}
+}
+
+REPLACE:should_carve_up_china = {
+	country_rank >= rank_value:great_power
+	NOT = {
+		any_scope_state = {
+			is_treaty_port = yes
+			OR = {
+				is_in_geographic_region = geographic_region_manchuria_old
+				region = sr:region_north_china
+				region = sr:region_south_china
+			}
+		}
+	}
+	OR = {
+		sr:region_north_china = {
+			any_scope_state = {
+				is_treaty_port = yes
+				owner = {
+					NOT = { this = root }
+					NOT = { is_country_type = unrecognized }
+					country_rank >= rank_value:great_power
+				}
+			}
+		}
+		sr:region_south_china = {
+			any_scope_state = {
+				is_treaty_port = yes
+				owner = {
+					NOT = { this = root }
+					NOT = { is_country_type = unrecognized }
+					country_rank >= rank_value:great_power
+				}
+			}
+		}
+		any_state_in_manchuria_old = {
+			is_treaty_port = yes
+			owner = {
+				NOT = { this = root }
+				NOT = { is_country_type = unrecognized }
+				country_rank >= rank_value:great_power
+			}
+		}
+	}
+}

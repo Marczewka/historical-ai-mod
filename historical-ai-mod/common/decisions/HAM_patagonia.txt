@@ -1,0 +1,80 @@
+﻿patagonia = {
+	is_shown = {
+		has_variable = colonized_patagonia
+		OR = {
+			s:STATE_ARAUCANIA = {
+				NOR = { 
+					is_homeland = cu:south_andean
+					is_homeland = cu:platinean
+					is_homeland = cu:chilean
+					is_homeland = cu:argentine
+					is_homeland = cu:uruguayan
+					is_homeland = cu:paraguayan
+					is_homeland = cu:bolivian
+					is_homeland = cu:peruvian
+				}
+			}
+			s:STATE_PATAGONIA = {
+				NOR = { 
+					is_homeland = cu:south_andean
+					is_homeland = cu:platinean
+					is_homeland = cu:chilean
+					is_homeland = cu:argentine
+					is_homeland = cu:uruguayan
+					is_homeland = cu:paraguayan
+					is_homeland = cu:bolivian
+					is_homeland = cu:peruvian
+				}
+			}
+		}
+	}
+
+	possible = {
+		OR = {
+			AND = {
+				owns_entire_state_region = STATE_ARAUCANIA
+				custom_tooltip = {
+					text = arucania_not_conquered_tt
+					s:STATE_ARAUCANIA = {
+						NOR = { 
+							is_homeland = cu:south_andean
+							is_homeland = cu:platinean
+							is_homeland = cu:chilean
+							is_homeland = cu:argentine
+							is_homeland = cu:uruguayan
+							is_homeland = cu:paraguayan
+							is_homeland = cu:bolivian
+							is_homeland = cu:peruvian
+						}
+					}
+				}
+			}
+			AND = {
+				owns_entire_state_region = STATE_PATAGONIA
+				custom_tooltip = {
+					text = patagonia_not_conquered_tt
+					s:STATE_PATAGONIA = {
+						NOR = { 
+							is_homeland = cu:south_andean
+							is_homeland = cu:platinean
+							is_homeland = cu:chilean
+							is_homeland = cu:argentine
+							is_homeland = cu:uruguayan
+							is_homeland = cu:paraguayan
+							is_homeland = cu:bolivian
+							is_homeland = cu:peruvian
+						}
+					}
+				}
+			}
+		}
+	}
+
+	when_taken = {
+		trigger_event = { id = patagonia.1 }
+	}
+
+	ai_chance = {
+		value = 100
+	}
+}
